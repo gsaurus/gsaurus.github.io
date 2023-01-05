@@ -1,0 +1,621 @@
+# [2.2.1] - 2023-01-05
+
+## Added
+- Compatibility with all versions 2.2.x
+- Show game mode and difficulty at start of the game, for speedrunning and online games
+
+## Changed
+- Don't end game when pressing back with chat open and game paused
+
+## Fixed
+- Order of game modes in Best Times screen for Android
+
+# [2.2.0] - 2023-01-01
+
+## Added
+- "Press any button" on disclaimer and credits
+
+## Changed
+- Prioritize nearest item on pickup (except weapons)
+- All chadows die on player death, Ninpo Kage Bunshin
+- Classic mode with interpolation for online mode
+- Friendly fire selectable on main options
+
+## Fixed
+- Bong fire counting for "It's like boo" achievement
+- Quake effect not playing sometimes
+- Grab combo enders animation ending / canceling on enemy release
+- Camera scroll triggering way to the right
+- Stage Start / Clear wrong alignment on screen
+- Weapon throw not hitting left walls (stage 5)
+- Players and enemies position not snapping correctly on left walls (stage 5)
+
+# [2.1.0] - 2022-12-19
+
+## Added
+- HUD icons using selected palettes
+- Display game mode and difficulty on online lobby
+- Display version number on main menu
+- Save last netplay code on playerPrefs so that one can rejoin a previous game after reopening the game (e.g. after a crash)
+- Touch screen controls
+- Hot-reloading of controls
+- In-game chat
+- Betatesters on Credits
+- Online game descync detection and recovery (resync)
+- Enable Loading state from menus
+- Speed limit for Knife Galsias
+- Replay last run from Best Times screen
+
+## Changed
+- Megamania stage 1 extra electras have iframes
+- Achievements and speedrun timer inside playable area
+- Change scroll limits of stage 1-2 to hide palette change on wall poster due to widescreen
+- Stop clock on slowmotion (boss death)
+- Atomic dropped character is invincible during the move, preventing glitches
+- Deal highest damage from multi-hit during the same frame
+- Don't quit game from pressing back on main menu
+- "Go" effect closer to screen edge
+- Display more than 9 lives
+- Display more than 999999 score
+- Remove stretch screen option (until proper fix)
+- Returning to main menu defaults selected option to play game
+- Clear combo on jump, knockout and grab moves
+- Don't buffer attack or special if not alive
+- Discord link on credits redirect to #chat instead of #ideas-and-feedback
+- Increase Max grab area
+- Improve grabbing after a jump
+- Prevent entering game from lobby too fast
+- Don't waste weapons near screen edges
+- Keep timer on custom runs, just don't count for best times
+- Slight increase on Blaze combo end damage to match better with enemies health (avoid empty healthbars)
+- Increased game input buffer size and resync on overflow
+- Improved feedback when waiting for other player (e.g. due to pause)
+- Ignore vertical world collision detection while grabbed
+- Refactor effects buffering
+- Guards on view code to prevent crashes
+- Always use stretch screen
+- Online mode wait for players to load backgrounds
+- Resolve warnings
+- Invincible Beano (Jack) on stage 1 MegaMania
+- Less time required for charge attack
+- Cancel attack with defensive special
+- Break grabs with defensive special
+- Safeguards on grab cancelation
+- Enemies don't grab players during first 20 frames of a special (except jet)
+- Galsia and Donovan can pick weapons offscreen
+- Disable timer when load state is used
+- Change spawns for Stage 4-3 signals
+- Prioritize specials before grabs when landing from jump
+- Players jump takes 1 less frame, for better accuracy wwith original
+
+## Fixed
+- Stage 8 last wave missing from time splits on Best Times
+- Jet stuck on left wall on stage 7 when hit at his spawning point
+- Stuck handshake on blocking enemies
+- Hakuyo fire fist hit sound triggering multiple times
+- Do not interpolate when items just spawns on screen
+- Held weapon accompany player position when weapon is invincible - e.g. skate run
+- MegaMania stage 7 bongo spawn in the air
+- MegaMania stage 5 biker spawn in the air
+- Player becomming invisible after moving to next scene
+- Stage Start/Clear text animation interpolated and framerate dependant
+- Stage clear text staying on screen on next scene (tentative)
+- End game credits softlock (tentantive)
+- Hud glitch on player disconnecting
+- Enemies attacks doesn't add score to player on Ninpo Kage Bunshin mode
+- Fix sound triggering multiple times on returning from controls screen and select character screen
+- Clear character icons on load state or clean sessions
+- Previous scene reloading from rollbacks at the start of the next scene
+- Camera not snapping correctly on load state due to camera interpolation
+- Clear item's held information on getting an available item slot
+- Fade callback not being called when replacing with a new fade action
+- Tearing of backgrounds and sprites on resolutions not multiple of the original resolution
+- Z-order when thrown by enemies
+- Select screen player text displaid on top of a character (tentative)
+- Hard to perform backward jump and backward grandupper
+- HUD effects malfunctioning during online 
+- Biker wrong name and health in stage 2
+- Missing HUD after player game over during online games (tentative)
+- Don't trigger blitz from charge attack
+- Don't trigger blitz from back attack
+- Knife Galsia getting negative distance for it's calculations
+- Galsia moving instantly after picking knife
+- Ignore containers collision if already inside them
+- Inside screen padding calculations for widescreen, used by many enemies
+- Stuck input between stages (new tentative fix)
+- HUD health checks against maximum health
+- Blaz defensive special escaping from grab skipping the backflip physics
+- Extra life at 950000 points
+- Sounds cracking
+
+# [2.0.0] - 2022-11-04
+
+# Added
+- Support for 4 players
+- Support for Widescreen
+- Controls rebind
+- Save controls, settings and progress
+- Stage start/clear scenes
+- Elevators stopping sounds
+- friendly damage on/off
+- Truck and boat camera movements
+- Blink on iframes and charge attack
+- Allow second player to join for classic mode, when playing locally
+- Shaders for stage 2 and stage 6 water wavings, and stage3
+- Stage 3 Swinging boat background tilting back and forth
+- Stage 5 water effect
+- Replay service & turbo skip
+- Custom game mode options
+- Menus
+- Screen filters (RetroTVFX)
+- Alternate palettes
+- Continue - Game Over - Player Select in-game
+- Bikers cheering waiting for Hakuyo on stage 2 truck
+- Reprodution of stage 7 bots glitch with 6+ dropped weapons
+- Best times, speedrun capabilities
+- Achievements
+- Online coop
+- Stage 7 robots easter egg (6 items glitch)
+- MegaMania difficulty
+- Ninpo Kage Bunshin game mode
+- Galsia/Donovan pick weapons on MegaMania
+- Locked difficulties and game modes by achievements
+- Time travel interpolation, for better online experience
+- HUD different z-order in relation to gameplay sprites depending on level-wave (Classic only)
+- Reading ROM on Android
+- Unity & Photon logos on credits
+- Smooth controls
+- Game ending cutscenes (except text)
+- Display amount of content unlocked in achievements
+- Readme
+
+# Changed
+- Hide Galsias/Donovans waiting to fall from sky
+- Discard input if already holding the same button
+- Mimic Skate ability to run between transitions
+- Stage 7 elevator last background (ignore the unused version)
+- Mr.X & Shiva positioning in stage 8
+- Rework slowmotion and disable input on boss kills (except charge attack)
+- Prevent multihit "handshake of doom" on players
+- Enable defspecial when grabbed from back
+- Max can use special during neck breaker / bear hug
+- Offspecial in the direction of active controls
+- Improved Vehelits collision box
+- 1 extra enemy for every extra player there is
+- Reduce stage 4 elevator stop time
+- Fade out of stage 2 truck automatically if taking too long
+- Prevent lost exceptions
+- Improve discplaimer text areas
+- Increased thrown weapon lifetime
+- Framerate independent
+- In-game UI text adjustments to mimic original
+- Items spawn immediately from containers
+- Keep carried weapons between scenes
+- Mr.X bullet ricochet independent from subitems count
+- Use widescreen on menus
+- Stop music during pause
+- Thrown weapons by players doesn't hit other players with friendly fire off
+- Shiva enemies (MegaMania) die when shiva dies
+- Interpolation of camera and entities position
+- Smoothen world collisions for players and enemies
+- Disable anti-aliasing
+- Don't reschedule scene exit effects to prevent issues with rollbacks
+- Prevent pause during transitions
+- Make all enemies health boxes at least as tall as signal, preventing miss hits (e.g. robots)
+- Improved Blaze combo end
+- Skate diagonal run
+- Enemies break out of handshakes after a while, preventing getting stuck on multi handshakes
+- Replace exceptions with logs
+- Don't display other players HUD when interacting with them
+- Explosions have no name
+- Stage 2 all jets are bosses in MegaMania
+- Copyright notice to reflect a single developer
+
+# Fixed
+- RBear punches range, jump probability
+- RBear invincibility on grabs during uppercut
+- Abadede hit defspecial while being grabbed
+- Shiva and ninja AI chase modes
+- Barbon teleport
+- Hakuyo drop from sky distance check
+- Big-Ben bongo AI fire and jump decisions
+- Enemies on foes damage chasing enemies that are ignoring walls
+- Tentative fix on stuck keys between transitions
+- Players death
+- Slow jump and failed hits due to hit pause "storage"
+- Tentative fix for "after taste", hitting and getting hit in same frame
+- Grenades not hitting enemies and containers
+- Weapon throw hit detection
+- Stage 8 backgrounds
+- Tentative fix for music exceptions and deadlock on stop
+- Items not moving on treadmills
+- Wrong grabbing area (thanks to replay)
+- Vehelits healthbar
+- Lifes borrowing
+- HUD cleanup after continue
+- Weapons disappearing near screen edge (except on classic mode)
+- Zamza fade-in faster on stage 3
+- Throw glitches when enemy is hit at the same time
+- Vault when enemies die due to boss clear
+- Players respawning with weapon when killed by Jet grab dive attack
+- Prevent invincibility glitches on factions mode when enemies throw each other
+- Palette fading effects (Jack, Zamza) cancelation and not retriggering online
+- Z-order of grabs near top and bottom playable edges
+- Weapons cleanup on scene transitions
+- Enemies get more stuck on walls in classic mode
+- Stage 1 rain layer behind HUD on classic mode
+- Items spawning / disappearing within widescreen coordinates
+- Stuck input on scene transitions (tentantive)
+- Certain players and enemies animations with length of 1 extra frame or 1 missing frame
+
+# [1.0.6] - 2022-07-03
+
+## Added
+- Save / Load state (F5/F8)
+- Support for 20 enemies
+- Shiva AI
+- Mr.X AI
+
+## Changed
+- Z-order between characters and items
+- Clear input on scene loading
+- Clamped unused space in sprites
+- Enemies target others by type on experimental mode
+- Improved throw glitch replication and associated softlock removed
+
+## Fixed
+- Stage 7 metal crates art
+- Stage 8 elevator entry
+- Stage 8 missing tiles
+- "GO" sign z-order
+- Energy refill between stages
+- Hacked a 1 pixel offset for items positioning
+
+# [1.0.5] - 2022-06-14
+
+## Added
+- R.Bear AI
+- Particle (robots) AI
+- Backgrounds for stage 6, 7 and 8
+- Stage 7 conveyor belts
+- Electra fall from sky
+- Biker throwing grenades from background
+- Stage 2 truck exit transition
+- Stage 2 lights shake on ground quakes
+- Stage 4 elevator movement and scene transitions
+- Stage 7 elevator movement
+- Stage 8 elevator movement
+
+## Changed
+- Audio loading
+- Improved scroll loop
+- Improved scene transitions
+- Backgrounds caching
+
+## Fixed
+- Vehelits health display
+- Signal sliding AI decision making
+- Missing pixel height in grab dettection
+- Stage 7 Jack palette
+- Collision with left diagonal walls
+- Stage 5 scene enter offset
+- Weapon handling during transitions
+
+# [1.0.4] - 2022-05-29
+
+## Added
+- Kickboxer AI
+- Abadede AI
+- Big-Ben AI
+- Ninja AI (including Kunai & Sword versions)
+- Vehelits AI
+- Zamza AI
+- Stage 5 backgrounds
+
+## Fixed
+- Using special to escape grab
+- Jet dive-kick preparation physics
+- Jet hoovering animations
+- Music fadeout
+
+# [1.0.3] - 2022-04-25
+
+## Added
+- Stages 3 and 4 backgrounds
+- Used libs in credits
+- Galsia/Donovan standup and fall from sky behaviours
+- Hakuyo AI
+- Jet AI
+
+## Fixed
+- Shadows when characters are not rendered
+- Number of enemies per players count
+
+# [1.0.2] - 2022-04-25
+
+## Added
+- Stage 2 scenes (art and scrolling)
+- Biker, including bikes, grenades and explosions
+
+# [1.0.1] - 2022-04-15
+
+## Added
+- Debug stage & scene input fields
+
+## Fixed
+- Visual health bar not updating on scene transition
+- Visual enemy health bar not updating on block
+- Visual enemy health bar not updating correctly on thrown weapon hit
+
+# [1.0.0] - 2022-04-10
+
+## Changed
+- Logo
+- Easiest text to V.Easy
+
+## Fixed
+- Duplicate directional controls on controls screen
+- Apply background palette rotation to game sprites (e.g. lamp, containers)
+
+# [0.10.6] - 2022-03-23
+
+## Changed
+- Don't keep state for backattack and pickup buttons
+- Change order of button checks to enable binding the same button to both backattack and pickup actions
+
+## Fixed
+- Jack attack distance check.
+
+# [0.10.5] - 2022-03-23
+
+## Fixed
+- AI levels for enemies with less than 11 AI levels
+
+# [0.10.4] - 2022-03-22
+
+## Fixed
+- Held buttons during transition not effecting on transition end
+- Hud not displaying enemy health sometimes
+- Skate offensive special lacking i-frames
+- Enemies hit by thrown weapons not showing in HUD
+
+# [0.10.3] - 2022-03-22
+
+## Changed
+- Improved controls rebind
+
+## Fixed
+- Backattack and pickup dedicated buttons acting during transitions
+- Fadeout music late on walkout scene transition
+
+# [0.10.2] - 2022-03-20
+
+## Changed
+- Replaced Unity input binder by custom code
+
+# [0.10.1] - 2022-03-20
+
+## Changed
+- Restrict input bindings to avoid getting stuck
+- Set "New Era" as the "Company Name" in Unity, instead of "Default Company"
+
+## Fixed
+- GO effect showing 8 times instead of 7
+- HUD health update rate
+- Clock timer calculations
+- Items not updating on scene transition's auto-move
+
+# [0.10.0] - 2022-03-19
+
+## Added
+- Logo
+- Splash screen
+- Player select screen
+- Credits screen
+- Controls screen
+- End Game screen
+- Pause game
+- Foes damage mode
+- Button for back attack
+- Button for pick-up and drop / throw items
+- Store last game configuration in player preferences
+
+## Changed
+- Disclaimer include link to original Streets of Rage 2 on Steam
+- Auto-detect SOR2 Steam version
+- Prioritize food when picking up items
+
+## Fixed
+- Music startup glitch
+- Jack thrown knifes hitting enemies
+
+# [0.9.0] - 2022-02-28
+
+## Added
+- Containers, weapons, goodies
+- Knife Galsia & pipe Donovan
+- Jack AI
+
+## Changed
+- Randomize RNG seed when not starting at stage 1-1
+
+## Fixed
+- Enemy custom variables not reseting when spawned
+
+# [0.8.1] - 2022-02-23
+
+## Added
+- Barbon AI
+- Electra AI
+- Electra & Barbon particles
+- Boss death slowmotion effect
+
+# [0.8.0] - 2022-02-14
+
+## Added
+- Heads-Up Display (HUD)
+- Score system
+- Time limit
+- Priority audio channel
+
+## Fixed
+- Grab cancelling and recover from mutual throw glitch
+
+# [0.7.3] - 2022-02-12
+
+## Fixed
+- Hit and dust effect Z-Order
+
+# [0.7.2] - 2022-02-12
+
+## Fixed
+- Ground hit sound plays only when a quake effect takes place
+
+# [0.7.1] - 2022-02-12
+
+## Fixed
+- Project version
+
+# [0.7.0] - 2022-02-12
+
+## Added
+- Enemies spawn per scene
+- Alternative palette per scene
+- Select difficulty at placeholder entrypoint
+- Players getting hit and knocked out
+- Enemy and player death code
+- Players respawn
+- Thrown enemies knock out other enemies
+- Galsia & Donovan AI (except with weapons)
+- Signal AI
+
+## Changed
+- Limit audio to a single source (mimicking the original)
+- Carry enemies at scene entrance
+
+## Fixed
+- Enemies collision with screen boundaries
+- Rendering of overlapping tiles in sprites
+- Get hit when grabbing
+- Standup invincibility timer for players
+
+# [0.6.0] - 13-01-2022
+
+## Added
+- Musics per level / scene
+- Collisions with camera boundaries
+- Collisions with level limits, including diagonal walls
+- Levels background & foreground art, preloading / unloading on scene transitions
+- Background palette rotation effects
+- Level scrolling
+- Scene transitions
+- Start game at any given level / scene
+- Stage Start & Stage Clear placeholder animations
+- All stage 1 scenes
+
+## Changed
+- Resolution to native Genesis / Megadrive screen size
+- Scene transitions are now part of the game updates
+- Enable input during transitions, possibilitating skate run on entrance / exit
+
+# [0.5.2] - 28-11-2021
+
+## Added
+- Load voices
+- Load sfx
+- Load music
+
+# [0.5.1] - 21-11-2021
+
+## Added
+- Shadow read from ROM
+- Hit effects read from ROM
+- Ground dust effect read from ROM
+
+## Fixed
+- Sprite pieces FlippedX and flippedY reading order from ROM
+
+# [0.5.0] - 21-11-2021
+
+## Added
+- Require SOR2 ROM to run
+- Load entities from SOR2 ROM
+- Palette swaps
+
+# [0.4.4] - 05-11-2021
+
+## Fixed
+- Blaze combo end positioning
+- Combo reset (e.g. after special)
+- Blaze combo end wrong sprite
+
+# [0.4.3] - 04-11-2021
+
+## Added
+- Rebind A B C buttons from entry point
+
+## Fixed
+- Hits duration - was counting one extra frame for all hits
+
+# [0.4.2] - 24-10-2021
+
+## Fixed
+- Sprites scaling
+
+# [0.4.1] - 24-10-2021
+
+## Added
+- Basic loading screen
+
+## Fixed
+- Audio loading on Mac
+
+# [0.4.0] - 23-10-2021
+
+## Added
+- Hit effects
+- Sound effects
+- Quake effects
+- Shadow when characters are in the air
+
+# [0.3.2] - 18-10-2021
+
+## Fixed
+- Throw frame positioning mismatches
+
+# [0.3.1] - 17-10-2021
+
+## Fixed
+- Offsets in Skate head punches
+
+# [0.3.0] - 17-10-2021
+
+## Added
+- Attack
+- Grab
+- Throw
+- Dummy enemy
+
+# [0.2.1] - 26-09-2021
+
+## Fixed
+- Jump incorrect timing
+- All characters basic moveset correctly set
+
+## Changed
+- Keystroke demos are named after character name
+
+# [0.2.0] - 17-09-2021
+
+## Added
+- Test base player movements: only Max complete, no enemies, no walls
+- Simple menu to chose character
+- Replay demo input from Gens Re-Recording v11c
+
+## Removed
+- Kind Viewer
+
+# [0.1.0] - 09-09-2021
+
+## Added
+- Kind Viewer - use keyboard arrows to cycle characters & animations
