@@ -1,3 +1,22 @@
+# [2.3.0] - 2023-01-09
+
+## Added
+- Speedrun references during replay
+
+## Changed
+- Player drop weapon when grabbed by jet
+- Improve wall collisions for characters and weapons
+- Revamp of atomic drop code to fix original bugs
+
+## Fixed
+- Staying inside the wall (players and enemies)
+- Becoming stuck on containers
+- Enemy misalignment when grab jump with Max against containers
+- Safe landing awarding points
+- Skate throw not awarding points
+- Sprites alignment on screen
+
+
 # [2.2.1] - 2023-01-05
 
 ## Added
