@@ -1,3 +1,55 @@
+# [2.4.0] - 2023-01-15
+
+## Added
+- Super Mania
+- Frame-rate slowdown simulation for classic mode (optional)
+- Option to toggle full-screen / Windowed
+- Load / Save state support for Android
+- Host of online games can now load state for everyone resynchronization
+
+## Changed
+- Skate have iframes after throw and at start of back-attack
+- Improved Skate run detection when facing the opposite direction
+- Skate can do back-attack and pick-up items while running
+- Remove iframes for Signal, Barbon and Jet after a throw
+- Can grab or stun Jet during grounded rocket kick
+- Maximum number of enemies on screen vary with number of players
+- Very Easy is locked until completing Hardest
+- Megamania spawns
+- Increase Max grab area in 1 pixel for each side
+- Netplay host is player 1 instead of player 4
+- Jet and Abadede no longer grab players during players standup i-frames
+- Can select between classic and new era controls
+- Can select between classic and new era fighting mechanics
+- Lower knife galsia speed limit
+- Can always throw weapos with B+C
+- Cancel control rebind by pressing back
+- Display "practice" on game mode when running without standard settings
+- Preparation changes to accommodate future game modes
+- Buffer attack input during vaults and grab jumps
+- Restore some movement delay frames on combo hits
+
+## Fixed
+- Enemies and players displaying empty lifebars on low health
+- Losing grab when grab attack hits someone else
+- Bad alignment of characters names in character select screen
+- Jet and Abadede grabing player during invincibility
+- Grenade bikers disappearing while still inside screen
+- Pickup weapon & backattack overlap
+- Player 2 not being able to join mid-game on Classic mode
+- Held weapon z-order
+- Memory leaks between scenes
+- Delayed spawns not working correctly with mania+ and megamania extra spawns
+- Enemies health not displayed when hit by NKB shadows
+- Glitched grabbed enemy when a thrown weapon hits somebody else
+- Combo not reset on grabs
+- Crash on loadstate
+- Vehelits explosion snapping to playable area.
+- HUD disappearing after stage 4
+- Scanlines size and z-order with UI
+- Sprites misalignment with character's position
+- More tear lines edge cases
+
 # [2.3.0] - 2023-01-09
 
 ## Added
