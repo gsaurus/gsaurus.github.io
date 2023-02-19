@@ -1,7 +1,7 @@
 # [2.4.0] - 2023-02-19
 
 ## Added
-- Super Mania
+- Mania Plus
 - Slowdown simulation for classic mode (optional)
 - Option to toggle full-screen / Windowed
 - Load / Save state support for Android
