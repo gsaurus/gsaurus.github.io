@@ -6,6 +6,7 @@
 - Option to toggle full-screen / Windowed
 - Load / Save state support for Android
 - Host of online games can now load state for everyone resynchronization
+- Randomizer by K.O.s and random enemy swappers (experimental)
 
 ## Changed
 - Skate have iframes after throw and at start of back-attack
@@ -26,8 +27,9 @@
 - Cancel control rebind by pressing back
 - Display "practice" on game mode when running without standard settings
 - Preparation changes to accommodate future game modes
-- Buffer attack input during vaults and grab jumps
+- Buffer attack input on vaults, grab jumps, blitz and specials
 - Restore some movement delay frames on combo hits
+- Update to Unity 2022
 
 ## Fixed
 - Enemies and players displaying empty lifebars on low health
@@ -49,6 +51,11 @@
 - Scanlines size and z-order with UI
 - Sprites misalignment with character's position
 - More tear lines edge cases
+- HUD displaying wrong enemy when an enemy is hit by thrown weapon
+- Occasional input drops
+- Delayed throw glitch not causing any damage
+- Shadows in Ninpo Kage Bunshin picking up food
+- Multiple input on menus
 
 # [2.3.0] - 2023-01-09
 
