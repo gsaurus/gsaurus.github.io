@@ -2,10 +2,10 @@
 
 ## Added
 - Super Mania
-- Frame-rate slowdown simulation for classic mode (optional)
+- Slowdown simulation for classic mode (optional)
 - Option to toggle full-screen / Windowed
 - Load / Save state support for Android
-- Host of online games can now load state for everyone resynchronization
+- Host of online games can load state
 - Randomizer by K.O.s and random enemy swappers (experimental)
 
 ## Changed
