@@ -1,3 +1,17 @@
+# [2.4.1] - 2023-04-04
+
+## Added
+- Option to reset controls
+
+## Changed
+- Assigning B or C to backattack restores the original B+C for backattack behaviour
+- Delay desync feedback for a smoother netplay experience
+
+## Fixed
+- Crash on loading invalid / inconsistent controls
+- Wrong versions comparison when a version has more than 3 components
+- Replays of valid runs no longer display as "practice"
+
 # [2.4.0] - 2023-02-19
 
 ## Added
