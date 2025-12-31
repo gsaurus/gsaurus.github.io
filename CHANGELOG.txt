@@ -1,3 +1,19 @@
+# [3.0.0] - 2026-01-01
+
+## Added
+- Online score leaderboards
+- Fetch and compare speedrun times with speedrun.com
+- Shiva as a playable character
+- Support for customization, but no built'in editors and no custom content shipped with the official release.
+
+## Changed
+- Revamped menus, AI generated menus art and music
+- Revamped score system - doesn't apply to classic mode
+- Overall gameplay improvements (cancels, balancing) - doesn't apply to classic mode
+
+## Removed
+- Achievements (may be reintroduced in a future version)
+
 # [2.4.3] - 2025-10-19
 
 ## Changed
