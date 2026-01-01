@@ -1,3 +1,14 @@
+# [3.1.0] - 226-01-01
+
+## Changed:
+ - Lower enemies health multipliers per number of players.
+ - NKB does more damage
+
+## Fixed
+ - broken switches on controls (control mode and rumble)
+ - Typo on rumble description
+ - Low quality graphics when starting the game on full-screen
+
 # [3.0.0] - 2026-01-01
 
 ## Added
