@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Enemy - Streets of Rage New Era - Lua Scripting API</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Streets of Rage New Era - Lua Scripting API</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">API Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../api-game/" class="dropdown-item">Game</a>
+</li>
+                                    
+<li>
+    <a href="../api-character/" class="dropdown-item">Character</a>
+</li>
+                                    
+<li>
+    <a href="../api-player/" class="dropdown-item">Player</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Enemy</a>
+</li>
+                                    
+<li>
+    <a href="../api-item/" class="dropdown-item">Item</a>
+</li>
+                                    
+<li>
+    <a href="../api-subitem/" class="dropdown-item">SubItem</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../examples/" class="nav-link">Examples</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../api-player/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../api-item/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#enemy-api" class="nav-link">Enemy API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#properties" class="nav-link">Properties</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#methods" class="nav-link">Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="enemy-api">Enemy API<a class="headerlink" href="#enemy-api" title="Permanent link">&para;</a></h1>
+<p>An <strong>Enemy</strong> is a specialized <strong>Character</strong> that is controlled by AI logic. It contains and extends all properties and methods from the <a href="../api-character/">Character API</a>.</p>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_alive</code></td>
+<td><code>bool</code></td>
+<td>True if the enemy is active and has health remaining.</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>int</code></td>
+<td>The current AI state.</td>
+</tr>
+<tr>
+<td><code>mode_timer</code></td>
+<td><code>int</code></td>
+<td>Time remaining in the current AI state.</td>
+</tr>
+<tr>
+<td><code>moving_direction</code></td>
+<td><code>int</code></td>
+<td>Direction the enemy intends to move.</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td><code>int</code></td>
+<td>Target distance from the player to maintain.</td>
+</tr>
+<tr>
+<td><code>movement_speed</code></td>
+<td><code>int</code></td>
+<td>Base movement speed of the enemy.</td>
+</tr>
+<tr>
+<td><code>enemy_status</code></td>
+<td><code>EnemyStatus</code></td>
+<td>Enum representing the overall status of the AI.</td>
+</tr>
+<tr>
+<td><code>enemy_agressiveness</code></td>
+<td><code>int</code></td>
+<td>How aggressively the enemy attacks (higher = more frequent).</td>
+</tr>
+<tr>
+<td><code>homing_target_id</code></td>
+<td><code>int</code></td>
+<td>ID of the specific player this enemy is targeting.</td>
+</tr>
+<tr>
+<td><code>homing_timer</code></td>
+<td><code>int</code></td>
+<td>Time remaining before the enemy switches targets or retargets.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="character-specific-ai-values">Character-Specific AI Values<a class="headerlink" href="#character-specific-ai-values" title="Permanent link">&para;</a></h3>
+<p>Some enemies have specific logic attached to these variables. The values can be overridden to change behavior patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enemy_specific_c0</code></td>
+<td><code>int</code></td>
+<td>AI logic parameter 1.</td>
+</tr>
+<tr>
+<td><code>abadede_specific_c1</code></td>
+<td><code>int</code></td>
+<td>Logic parameter used specifically by Abadede.</td>
+</tr>
+<tr>
+<td><code>abadede_specific_c2</code></td>
+<td><code>int</code></td>
+<td>Logic parameter used specifically by Abadede.</td>
+</tr>
+<tr>
+<td><code>enemy_specific_c3</code></td>
+<td><code>int</code></td>
+<td>AI logic parameter 2.</td>
+</tr>
+<tr>
+<td><code>enemy_specific_c4</code></td>
+<td><code>int</code></td>
+<td>AI logic parameter 3.</td>
+</tr>
+<tr>
+<td><code>enemy_specific_counter_c5</code></td>
+<td><code>int</code></td>
+<td>Counter used in specific enemy modes.</td>
+</tr>
+<tr>
+<td><code>shiva_specific_b0</code></td>
+<td><code>int</code></td>
+<td>Logic parameter used by Shiva.</td>
+</tr>
+<tr>
+<td><code>biker_special_counter_cb</code></td>
+<td><code>int</code></td>
+<td>Counter used by bikers.</td>
+</tr>
+<tr>
+<td><code>is_biker_riding_bike_ca</code></td>
+<td><code>bool</code></td>
+<td>True if the biker is currently on a motorcycle.</td>
+</tr>
+<tr>
+<td><code>use_biker_pipe</code></td>
+<td><code>bool</code></td>
+<td>True if the biker intends to swing a pipe.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="probability-ai-overrides">Probability &amp; AI Overrides<a class="headerlink" href="#probability-ai-overrides" title="Permanent link">&para;</a></h3>
+<p>These properties are used by the AI engine to decide what to do next based on the enemy data.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>override_ai_data_e0</code></td>
+<td><code>int</code></td>
+<td>Manual override parameter 1.</td>
+</tr>
+<tr>
+<td><code>override_ai_data_e1</code></td>
+<td><code>int</code></td>
+<td>Manual override parameter 2.</td>
+</tr>
+<tr>
+<td><code>override_ai_data_e2</code></td>
+<td><code>int</code></td>
+<td>Manual override parameter 3.</td>
+</tr>
+<tr>
+<td><code>override_ai_data_e3</code></td>
+<td><code>int</code></td>
+<td>Manual override parameter 4.</td>
+</tr>
+<tr>
+<td><code>override_ai_data_e4</code></td>
+<td><code>int</code></td>
+<td>Manual override parameter 5.</td>
+</tr>
+<tr>
+<td><code>pack_name</code></td>
+<td><code>string</code></td>
+<td>The name of the content pack this enemy belongs to.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="read-only-ai-mode-configuration">Read-Only AI Mode Configuration<a class="headerlink" href="#read-only-ai-mode-configuration" title="Permanent link">&para;</a></h3>
+<p>These properties represent the raw AI data from the game's configuration files (often extracted directly from ROM mapping).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>probability_mode_e0</code></td>
+<td><code>int</code></td>
+<td>Chance to switch to AI Mode 0.</td>
+</tr>
+<tr>
+<td><code>min_timer_mode_0_e6</code></td>
+<td><code>int</code></td>
+<td>Minimum time spent in AI Mode 0.</td>
+</tr>
+<tr>
+<td><code>random_timer_mode_0_e7</code></td>
+<td><code>int</code></td>
+<td>Random variance for AI Mode 0 timer.</td>
+</tr>
+<tr>
+<td><code>min_speed_mode_1_ea</code></td>
+<td><code>int</code></td>
+<td>Minimum speed while in AI Mode 1.</td>
+</tr>
+<tr>
+<td><code>random_speed_mode_1_eb</code></td>
+<td><code>int</code></td>
+<td>Random variance for AI Mode 1 speed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="return_to_standing"><code>return_to_standing()</code><a class="headerlink" href="#return_to_standing" title="Permanent link">&para;</a></h3>
+<p>Resets the enemy to its default standing state.</p>
+<p>Enemies also rely on the inherited methods from <a href="../api-character/">Character</a> and <a href="../api-item/">Item</a> for actions like checking hits, setting animations, and applying throw damage.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
