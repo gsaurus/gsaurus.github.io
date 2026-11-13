@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/common.schema.json",
+  "title": "SOR2 New Era shared value types",
+  "description": "Value types shared by the entity, level, and pack schemas. Mirrors the Newtonsoft-serialized C# structs in Sor2NewEra.Gameplay.",
+  "$defs": {
+    "intVector2": {
+      "title": "IntVector2Model",
+      "description": "Integer 2D vector. In loadcue positions, x is horizontal and y is depth (further from the camera as it grows).",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "intVector3": {
+      "title": "IntVector3Model",
+      "description": "Integer 3D vector. In velocity and acceleration events, x is horizontal, y is vertical (jump axis), z is depth.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "z": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "intRect2": {
+      "title": "IntRect2Model",
+      "description": "Integer rectangle in pixels, relative to the entity pivot. Positive y is upwards.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "vector2": {
+      "title": "SerializableVector2",
+      "description": "Floating point 2D vector.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "boundingBox": {
+      "title": "BoundingBox",
+      "description": "Body volume in pixels. The box spans -halfWidth..+halfWidth horizontally, 0..height vertically from the feet, and +/-depth on the depth axis.",
+      "type": "object",
+      "properties": {
+        "halfWidth": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "depth": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "x": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files.",
+          "type": "integer",
+          "deprecated": true
+        },
+        "y": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files.",
+          "type": "integer",
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "multiplier": {
+      "title": "Multiplier",
+      "description": "Deterministic rational multiplier. The game uses integer maths, so ratios are stored as a fraction rather than a float.",
+      "type": "object",
+      "properties": {
+        "numerator": {
+          "type": "integer"
+        },
+        "denominator": {
+          "type": "integer",
+          "not": {
+            "const": 0
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "audioChannel": {
+      "title": "Audio channel slot",
+      "description": "Which audio slot the sound plays on. Sounds on the same slot cut each other off, so different slots let sounds overlap. 0 sfx, 1 sfxBgm, 2 voice and 3 prioritary are the named slots from AudioEffect.Channel, but the runtime treats the value as a plain index and creates however many slots it needs, so any non-negative number is a valid private channel.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "packName": {
+      "description": "Name of the content pack that owns the referenced asset, or its id (see config.json id), which survives a rename of that pack. An empty string or an omitted value means the Classic pack for loadcues and dependencies, and the current pack for editor-written sound and script references.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scriptData": {
+      "title": "ScriptData",
+      "description": "Reference to a Lua file under the owning pack's Scripts/ folder.",
+      "type": "object",
+      "properties": {
+        "packName": {
+          "$ref": "#/$defs/packName"
+        },
+        "scriptName": {
+          "description": "Script file name relative to the owning pack's Scripts/ folder. The .lua extension is optional and is appended when missing, so \"Block\" and \"Block.lua\" both resolve to Scripts/Block.lua.",
+          "type": "string"
+        },
+        "IsValid": {
+          "description": "Editor artifact written by some older editor builds. The runtime ignores it; do not write it in new files.",
+          "type": "boolean",
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "combatBounds": {
+      "title": "CombatBounds",
+      "description": "Canonical facing-relative pixel bounds for all custom hitboxes and hurtboxes. X points right for the right-facing pose, height points up from the feet, and depth follows the belt plane. X mirrors automatically on left-facing poses. Bounds are inclusive; zero dimensions are valid lines/points. Disabled entries suppress collisions for their active duration.",
+      "type": "object",
+      "required": [
+        "xMin",
+        "xMax",
+        "heightMin",
+        "heightMax",
+        "depthMin",
+        "depthMax"
+      ],
+      "properties": {
+        "regions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/combatBounds" },
+          "description": "Optional disjoint hurt regions sharing the entity origin. The outer bounds remain the world/grab envelope; only the regions can receive hits. An empty array is invulnerable. Applies to hurtboxes, not attack boxes."
+        },
+        "xMin": {
+          "type": "integer"
+        },
+        "xMax": {
+          "type": "integer"
+        },
+        "heightMin": {
+          "type": "integer"
+        },
+        "heightMax": {
+          "type": "integer"
+        },
+        "depthMin": {
+          "type": "integer"
+        },
+        "depthMax": {
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "legacyHeightRules": {
+          "type": "boolean",
+          "description": "Migration metadata emitted only for unchanged legacy bodyboxes; preserves the original body collision rules. Do not set on new geometry."
+        },
+        "legacyHitRules": {
+          "type": "boolean",
+          "description": "Migration metadata emitted only for unchanged legacy hitboxes; preserves the original line and inherited depth rules. Do not set on new geometry."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

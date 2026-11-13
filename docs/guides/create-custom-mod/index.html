@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/guides/create-custom-mod/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Create a Custom Mod - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Create a Custom Mod";
+        var mkdocs_page_input_path = "guides\\create-custom-mod.md";
+        var mkdocs_page_url = "/docs/guides/create-custom-mod/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Create a Custom Mod</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#goal">Goal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-to-add-next">What to add next</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Build a Mod</li>
+      <li class="breadcrumb-item active">Create a Custom Mod</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="create-a-custom-mod">Create a Custom Mod<a class="headerlink" href="#create-a-custom-mod" title="Permanent link">&para;</a></h1>
+<p>Create the editable source folder that all other modding work will use.</p>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>Make a new mod, give it basic identity, and confirm the game can load it.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Streets of Rage 2 New Era is installed.</li>
+<li>You can open the in-game editor menu.</li>
+<li>Any thumbnail image you want to use is ready as a <code>PNG</code>.</li>
+</ul>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Run the game and open the in-game editor menu.</li>
+<li>Choose the option to create a new mod.</li>
+<li>Enter a clear mod name. This name becomes the source folder name under <code>Editor</code> and the exported file name under <code>Mods</code>.</li>
+<li>Add a short description so players know what the mod changes.</li>
+<li>Add or replace the thumbnail if your mod has one.</li>
+<li>Review dependencies. If your mod uses content from another mod, add that dependency before export.</li>
+<li>Save the mod settings.</li>
+</ol>
+<p>After saving, the source folder should exist under <code>Editor/&lt;Your Mod Name&gt;</code>.</p>
+<h2 id="what-to-add-next">What to add next<a class="headerlink" href="#what-to-add-next" title="Permanent link">&para;</a></h2>
+<p>Pick one feature and test it before expanding:</p>
+<ul>
+<li>Add a playable character: <a href="../playable-character-from-scratch/">Playable Character From Scratch</a></li>
+<li>Import from a ROM hack: <a href="../playable-character-from-rom-hack/">Playable Character From ROM Hack</a></li>
+<li>Add enemies: <a href="../create-enemy/">Create an Enemy</a></li>
+<li>Add levels: <a href="../create-levels/">Create Levels</a></li>
+<li>Add sounds or music: <a href="../add-custom-audio/">Add Custom Audio</a></li>
+</ul>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Return to the game menu.</li>
+<li>Confirm the new mod appears with the expected name and thumbnail.</li>
+<li>Start the mod even if it has little content yet.</li>
+<li>If it does not appear, reopen the editor, check the mod name and settings, then restart the game.</li>
+</ol>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a></li>
+<li><a href="../../start/testing-exporting/">Testing and Exporting</a></li>
+<li><a href="../../editors/in-game/mod-settings/">Mod Settings Reference</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../playable-character-from-scratch/" class="btn btn-neutral float-right" title="Create a Playable Character From Scratch">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../playable-character-from-scratch/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

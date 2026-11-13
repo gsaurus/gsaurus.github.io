@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/reference/formats/config/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Pack Config - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pack Config";
+        var mkdocs_page_input_path = "reference\\formats\\config.md";
+        var mkdocs_page_url = "/docs/reference/formats/config/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >File Formats</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Pack Config</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#top-level">Top level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mod-identity">Mod identity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hud-layout">HUD layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#session-settings">Session settings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#core-rules">Core rules</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#player-count">Player count</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#optional-mechanics">Optional mechanics</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#global-multipliers">Global multipliers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#randomisation">Randomisation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#borrowing-from-other-packs">Borrowing from other packs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#restricting-character-select">Restricting character select</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#difficulty-settings">Difficulty settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#related-pages">Related pages</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+          <li class="breadcrumb-item">File Formats</li>
+      <li class="breadcrumb-item active">Pack Config</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pack-config">Pack Config<a class="headerlink" href="#pack-config" title="Permanent link">&para;</a></h1>
+<p><code>config.json</code> sits at the root of a mod folder and declares what the pack is, what it needs, and what rules it plays by.</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;3f6c2a9e-8b1d-4c57-9e2f-7a0d5b4c1e88&quot;,
+  &quot;isChronicle&quot;: true,
+  &quot;description&quot;: &quot;My Streets of Rage 2 New Era mod.&quot;,
+  &quot;dependencies&quot;: [&quot;Classic&quot;],
+  &quot;dependenciesChecksums&quot;: [&quot;&quot;],
+  &quot;settings&quot;: {
+    &quot;hasWideScreen&quot;: true,
+    &quot;hasImprovements&quot;: true,
+    &quot;bufferGlitchFixMode&quot;: 2,
+    &quot;scoreForLives&quot;: [20000, 50000, 150000],
+    &quot;difficultySettings&quot;: []
+  }
+}
+</code></pre>
+<p>Every field is optional. An omitted field takes its type default.</p>
+<h2 id="top-level">Top level<a class="headerlink" href="#top-level" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>The mod's stable unique identifier: a random UUID, created once with the mod and never changed. The engine identifies the pack by it, so renaming the mod keeps everything that refers to it. See <a href="#mod-identity">Mod identity</a>.</td>
+</tr>
+<tr>
+<td><code>isChronicle</code></td>
+<td>bool</td>
+<td>Marks the pack as a full Chronicle: a standalone campaign that appears as its own game, rather than a skin layered over another pack. Set during export when applicable.</td>
+</tr>
+<tr>
+<td><code>expandHudSpacing</code></td>
+<td>bool</td>
+<td>In widescreen, reserve a 32px lane beside the timer for custom HUD art. Defaults to false. If the campaign or any active character pack enables it, all player HUDs use the expanded layout.</td>
+</tr>
+<tr>
+<td><code>hudLayout</code></td>
+<td>object</td>
+<td>Optional <code>normal</code> and <code>widescreen</code> profiles configuring player columns, timer offsets, and lives counters in 8px tiles. See below.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Text shown in mod listings.</td>
+</tr>
+<tr>
+<td><code>dependencies</code></td>
+<td>string array</td>
+<td>Names of packs this pack needs at load time. A Classic reskin must list <code>"Classic"</code>.</td>
+</tr>
+<tr>
+<td><code>dependenciesChecksums</code></td>
+<td>string array</td>
+<td>Checksum of each dependency, <strong>positionally matched</strong> to <code>dependencies</code>. Editable source packs have no checksum, so empty strings are normal; the exporter fills them in.</td>
+</tr>
+<tr>
+<td><code>dependenciesIds</code></td>
+<td>string array</td>
+<td>The <code>id</code> of each dependency, <strong>positionally matched</strong> to <code>dependencies</code>; <code>null</code> for a dependency without one. Optional. When present, the dependency is found by its id, so it survives being renamed. The editor writes it when it saves the pack.</td>
+</tr>
+<tr>
+<td><code>preEntityUpdateScripts</code></td>
+<td><code>ScriptData</code> array</td>
+<td>Lua scripts run once per frame before any entity updates.</td>
+</tr>
+<tr>
+<td><code>postEntityUpdateScripts</code></td>
+<td><code>ScriptData</code> array</td>
+<td>Lua scripts run once per frame after all entity updates.</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td>object</td>
+<td>Session rules. The rest of this page.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mod-identity">Mod identity<a class="headerlink" href="#mod-identity" title="Permanent link">&para;</a></h2>
+<p>A pack whose <code>config.json</code> has an <code>id</code> is identified by that id. A pack without one is identified by its name (its folder or file name), as before, and keeps working unchanged.</p>
+<ul>
+<li><strong>Create it once, never change it.</strong> The id is a random UUID (version 4), such as <code>3f6c2a9e-8b1d-4c57-9e2f-7a0d5b4c1e88</code>. It is not derived from the name or anything else. The editor creates one for every new mod. Changing an id makes the mod a different mod: replays, saves, netplay and other mods' references to the old id stop finding it.</li>
+<li><strong>Copying a mod folder copies its id.</strong> Give the copy a new id (or remove the field). When two loaded mods declare the same id, the second one is identified by its name and an error is logged.</li>
+<li><strong>Built-in packs</strong> (<code>Classic</code>, <code>30th Anniversary</code>, <code>Ninpo Kage Bunshin</code>) are always identified by name; an <code>id</code> on them is ignored.</li>
+<li><strong>References by name keep working.</strong> Everywhere a pack is referenced by name — <code>dependencies</code>, a <code>packName</code> in entity, level or script data, an audio replacement or palette folder, <code>additionalCharacters</code>, a Lua argument — the name resolves to the pack's id. Any of them may also be written as the pack's <code>id</code> instead, which survives a rename of that pack. Folder names (<code>Palettes/&lt;pack&gt;</code>, <code>Audio Replacements/&lt;pack&gt;</code>, <code>Entity Replacements/Classic</code>) stay names.</li>
+<li><strong>Recorded hashes.</strong> Fields that store a pack as a number, such as <code>settings.allowedCharacters[].packHash</code>, hold the hash of the id when the pack has one. Data recorded before a pack declared an id — old replays, saves, preferences, <code>packHash</code> values — holds the hash of its name and is translated to the id automatically.</li>
+<li><strong>Netplay</strong> compares mods by id when they have one, so players may know the same mod under different names.</li>
+</ul>
+<h2 id="hud-layout">HUD layout<a class="headerlink" href="#hud-layout" title="Permanent link">&para;</a></h2>
+<p><code>hudLayout</code> contains independent <code>normal</code> and <code>widescreen</code> profiles. The campaign's profile takes precedence; otherwise the first existing player (in slot order) whose character pack supplies that profile selects it for the whole session. Profiles are not merged. A missing profile keeps the built-in layout, including <code>expandHudSpacing</code> if enabled.</p>
+<p>Set <code>"hidden": true</code> (beside the profiles) on the campaign to turn the built-in HUD off entirely: names, health bars, scores, lives, the clock (including TIME OVER) and the continue/game-over prompts. Characters' <code>hudScript</code> drawings still show, so the pack can draw its own HUD; they receive <code>score</code> and <code>lives</code>.</p>
+<p>Each profile accepts:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>leftPlayerX</code>, <code>rightPlayerX</code></td>
+<td>Absolute X tile coordinates of the left and right player HUD origins. Omitted/null values retain the built-in columns. Row placement and automatic slot relocation still apply.</td>
+</tr>
+<tr>
+<td><code>timerOffsetX</code>, <code>timerOffsetY</code></td>
+<td>Offsets from the built-in clock position, in tiles; default 0. Move both its frame and digits.</td>
+</tr>
+<tr>
+<td><code>lives</code></td>
+<td>Optional single-row lives counter layout. Omitted/null keeps the built-in large counter.</td>
+</tr>
+</tbody>
+</table>
+<p><code>lives</code> accepts <code>leftX</code>, <code>rightX</code>, and <code>y</code>, relative to the player HUD origin (default 0), plus <code>width</code> (2 or 3 tiles, default 3). It displays total lives, clamped to 0–99, with an icon when space permits. Viewer-driven inactive counters remain hidden. Drawing and clearing use the same configured bounds, including when a player HUD moves to another slot.</p>
+<p>For example, a pack can move player columns outward and place its own art in the resulting space:</p>
+<pre><code class="language-json">{
+  &quot;hudLayout&quot;: {
+    &quot;widescreen&quot;: {
+      &quot;leftPlayerX&quot;: -4,
+      &quot;rightPlayerX&quot;: 27,
+      &quot;timerOffsetX&quot;: -1,
+      &quot;lives&quot;: { &quot;leftX&quot;: 18, &quot;rightX&quot;: -6, &quot;y&quot;: 2, &quot;width&quot;: 3 }
+    },
+    &quot;normal&quot;: {
+      &quot;lives&quot;: { &quot;leftX&quot;: 15, &quot;rightX&quot;: 15, &quot;y&quot;: 3, &quot;width&quot;: 2 }
+    }
+  }
+}
+</code></pre>
+<p>Custom meter sprites and their relative positions belong to the entity's <code>hudScript</code>; the engine interprets only these layout coordinates.</p>
+<p>A <code>ScriptData</code> is <code>{ "packName": "...", "scriptName": "..." }</code>, resolving to <code>Scripts/&lt;scriptName&gt;.lua</code> inside <code>packName</code>. The <code>.lua</code> extension is optional.</p>
+<p>Every pack you reference anywhere — a sprite reference, a logic reference, a spawned entity, a replacement target, a borrowed sound — should appear in <code>dependencies</code>. A reference to a pack that is not loaded is not a load error; it fails later, silently, as a missing sprite or sound.</p>
+<h2 id="session-settings">Session settings<a class="headerlink" href="#session-settings" title="Permanent link">&para;</a></h2>
+<p><code>settings</code> is a <code>GameSessionData</code>. It is what makes a Chronicle play differently from Classic.</p>
+<h3 id="core-rules">Core rules<a class="headerlink" href="#core-rules" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hasWideScreen</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Allow the wider-than-original playfield.</td>
+</tr>
+<tr>
+<td><code>hasImprovements</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Enable the New Era quality-of-life changes over original ROM behaviour. Turning this off is what "Classic rules" means.</td>
+</tr>
+<tr>
+<td><code>bufferGlitchFixMode</code></td>
+<td>int</td>
+<td>0</td>
+<td>How far to go fixing the original sprite buffer glitch: <code>0</code> NoFix, <code>1</code> AllButGroundUpper, <code>2</code> All.</td>
+</tr>
+<tr>
+<td><code>emulateClassicLag</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Reproduce the original hardware slowdown.</td>
+</tr>
+<tr>
+<td><code>useSmoothControls</code></td>
+<td>bool</td>
+<td>true</td>
+<td>Use modern smoothed input handling rather than the original stepped one.</td>
+</tr>
+<tr>
+<td><code>useCoupleEnemiesAdvanceCheck</code></td>
+<td>bool</td>
+<td>true</td>
+<td>Keep the original rule that the camera only advances once few enough enemies remain.</td>
+</tr>
+<tr>
+<td><code>initialPlayerHealth</code></td>
+<td>int</td>
+<td>max</td>
+<td>Starting health for players.</td>
+</tr>
+<tr>
+<td><code>scoreForLives</code></td>
+<td>int array</td>
+<td>none</td>
+<td>Score thresholds granting an extra life, ascending.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="player-count">Player count<a class="headerlink" href="#player-count" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minimumPlayers</code></td>
+<td>int</td>
+<td>1</td>
+<td>Fewest players this pack supports.</td>
+</tr>
+<tr>
+<td><code>maximumPlayers</code></td>
+<td>int</td>
+<td>-1</td>
+<td>Most players. <code>-1</code> means the engine maximum.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-mechanics">Optional mechanics<a class="headerlink" href="#optional-mechanics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hasEnemiesHittingEachOther</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Enemy attacks damage other enemies.</td>
+</tr>
+<tr>
+<td><code>hasFriendlyDamage</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Players can damage each other. Without it, players also cannot grab each other, and a thrown body never hits a player.</td>
+</tr>
+<tr>
+<td><code>thrownCharactersSparePlayers</code></td>
+<td>bool</td>
+<td>false</td>
+<td>With <code>hasFriendlyDamage</code> on, a character thrown by a player does not hit or knock down other players; players can still hit and grab each other. No effect without <code>hasFriendlyDamage</code>.</td>
+</tr>
+<tr>
+<td><code>keepDirectionOnHit</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Do not force the victim to turn towards the attacker when hit.</td>
+</tr>
+<tr>
+<td><code>hasNinpoKageBunshin</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Enable the ninja shadow-clone mechanic.</td>
+</tr>
+<tr>
+<td><code>hasKillerEnemies</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Killer enemies: attack frames without a hitbox play for one update, and an attack that hits a player stuns and restarts instead of knocking down, so it chains. See <a href="../../../scripting/api/character/#killer-mode">Killer Mode</a>.</td>
+</tr>
+<tr>
+<td><code>hasExplodingEnemies</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Enemies explode on death.</td>
+</tr>
+<tr>
+<td><code>hasInstantSpawns</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Skip spawn introduction sequences.</td>
+</tr>
+<tr>
+<td><code>hasInfiniteContinuesOverrider</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Force infinite continues regardless of difficulty.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="global-multipliers">Global multipliers<a class="headerlink" href="#global-multipliers" title="Permanent link">&para;</a></h3>
+<p>These override the corresponding per-difficulty multipliers for the whole pack.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Applies to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enemiesHealthMultiplierOverrider</code></td>
+<td>Enemy health.</td>
+</tr>
+<tr>
+<td><code>enemiesDamageMultiplierOverrider</code></td>
+<td>Damage enemies deal.</td>
+</tr>
+<tr>
+<td><code>enemiesVelocityMultiplierOverrider</code></td>
+<td>Enemy movement speed.</td>
+</tr>
+<tr>
+<td><code>playersDamageMultiplierOverrider</code></td>
+<td>Damage players deal.</td>
+</tr>
+<tr>
+<td><code>scrollSpeedMultiplier</code></td>
+<td>Level scroll speed.</td>
+</tr>
+</tbody>
+</table>
+<p>A multiplier is a rational number, not a float:</p>
+<pre><code class="language-json">&quot;enemiesHealthMultiplier&quot;: { &quot;numerator&quot;: 3, &quot;denominator&quot;: 2 }
+</code></pre>
+<p>The game uses integer maths so that replays and netplay stay deterministic across machines. <code>denominator</code> must not be zero.</p>
+<h3 id="randomisation">Randomisation<a class="headerlink" href="#randomisation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enemiesRandomizerMode</code></td>
+<td>int</td>
+<td>0</td>
+<td>Enemy randomiser mode. <code>0</code> disables randomisation.</td>
+</tr>
+<tr>
+<td><code>randomValue</code></td>
+<td>int</td>
+<td>0</td>
+<td>Seed used by the randomiser modes.</td>
+</tr>
+<tr>
+<td><code>enemiesMultiplier</code></td>
+<td>int</td>
+<td>1</td>
+<td>Multiplies how many enemies each wave spawns.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="borrowing-from-other-packs">Borrowing from other packs<a class="headerlink" href="#borrowing-from-other-packs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>additionalCharacters</code></td>
+<td>string array</td>
+<td>Names of other packs whose playable characters are offered alongside this pack's own.</td>
+</tr>
+<tr>
+<td><code>additionalMechanics</code></td>
+<td>string array</td>
+<td>Names of other packs whose gameplay mechanics are layered onto this pack.</td>
+</tr>
+</tbody>
+</table>
+<p>Packs listed here should also be in the top-level <code>dependencies</code>.</p>
+<h3 id="restricting-character-select">Restricting character select<a class="headerlink" href="#restricting-character-select" title="Permanent link">&para;</a></h3>
+<p><code>allowedCharacters</code> limits character select to a specific list. An empty list means no restriction.</p>
+<pre><code class="language-json">&quot;allowedCharacters&quot;: [
+  { &quot;packHash&quot;: -346761093, &quot;entityType&quot;: 1531339648 }
+]
+</code></pre>
+<p>Unlike everywhere else in these formats, this identifies characters by <strong>hash, not name</strong>: <code>packHash</code> is the hash of the pack's <code>id</code> when it has one (the lowercase, hyphenated UUID string), otherwise of the pack name, and <code>entityType</code> is the hash of the entity folder name. See <a href="../enums/#the-name-hash">the name hash</a> for how to compute them. <code>-346761093</code> is <code>"Classic"</code>.</p>
+<h2 id="difficulty-settings">Difficulty settings<a class="headerlink" href="#difficulty-settings" title="Permanent link">&para;</a></h2>
+<p><code>difficultySettings</code> is an ordered list. Index <code>0</code> is the easiest, and the in-game difficulty selection indexes into it.</p>
+<p>Per difficulty (<code>DifficultySetting</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Label on the difficulty screen.</td>
+</tr>
+<tr>
+<td><code>enemiesDifficulty</code></td>
+<td>int</td>
+<td>Difficulty level passed to enemy AI, and the value a loadcue's <code>minimumDifficulty</code> is compared against.</td>
+</tr>
+<tr>
+<td><code>maxInitialLives</code></td>
+<td>int</td>
+<td>Highest number of starting lives selectable.</td>
+</tr>
+<tr>
+<td><code>initialCredits</code></td>
+<td>int</td>
+<td>Continues granted at the start of a run.</td>
+</tr>
+<tr>
+<td><code>hasInfiniteContinues</code></td>
+<td>bool</td>
+<td>Never run out of continues.</td>
+</tr>
+<tr>
+<td><code>hasInstantEnemiesPulling</code></td>
+<td>bool</td>
+<td>Enemies close distance immediately instead of easing in.</td>
+</tr>
+<tr>
+<td><code>settingsPerNumPlayers</code></td>
+<td>array</td>
+<td>One entry per player count.</td>
+</tr>
+</tbody>
+</table>
+<p><code>settingsPerNumPlayers</code> index <code>n-1</code> applies to an <code>n</code> player game. Provide as many entries as <code>maximumPlayers</code> allows; the engine reads the entry matching the current player count.</p>
+<p>Per player count (<code>DifficultySettingPerNumberOfPlayers</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxNumEnemies</code></td>
+<td>int</td>
+<td>Most enemies allowed on screen at once.</td>
+</tr>
+<tr>
+<td><code>enemiesHealthMultiplier</code></td>
+<td>Multiplier</td>
+<td>Enemy health.</td>
+</tr>
+<tr>
+<td><code>bossesHealthMultiplier</code></td>
+<td>Multiplier</td>
+<td>Boss health, separately from regular enemies.</td>
+</tr>
+<tr>
+<td><code>enemiesDamageMultiplier</code></td>
+<td>Multiplier</td>
+<td>Damage enemies deal.</td>
+</tr>
+<tr>
+<td><code>enemiesVelocityMultiplier</code></td>
+<td>Multiplier</td>
+<td>Enemy movement speed.</td>
+</tr>
+<tr>
+<td><code>playersDamageMultiplier</code></td>
+<td>Multiplier</td>
+<td>Damage players deal.</td>
+</tr>
+<tr>
+<td><code>enemiesOnScreenActivationMultiplier</code></td>
+<td>Multiplier</td>
+<td>Scales the on-screen enemy count that wave triggers compare against.</td>
+</tr>
+<tr>
+<td><code>timeActivationMultiplier</code></td>
+<td>Multiplier</td>
+<td>Scales wave timer thresholds.</td>
+</tr>
+<tr>
+<td><code>useNextSpawnsDifficulty</code></td>
+<td>bool</td>
+<td>Draw spawns from the next difficulty's loadcue set instead of this one's.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Very Easy&quot;,
+  &quot;maxInitialLives&quot;: 9,
+  &quot;initialCredits&quot;: 3,
+  &quot;settingsPerNumPlayers&quot;: [
+    {
+      &quot;maxNumEnemies&quot;: 5,
+      &quot;enemiesHealthMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 2 },
+      &quot;bossesHealthMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 2 },
+      &quot;enemiesDamageMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 1 },
+      &quot;enemiesVelocityMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 1 },
+      &quot;playersDamageMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 1 },
+      &quot;enemiesOnScreenActivationMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 1 },
+      &quot;timeActivationMultiplier&quot;: { &quot;numerator&quot;: 1, &quot;denominator&quot;: 1 }
+    }
+  ]
+}
+</code></pre>
+<p>An editor-created pack ships a large, fully populated <code>difficultySettings</code>. Keep it unless you know which behaviour you are changing: an empty or short list narrows how many difficulties players can pick.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../mod-config/">Mod Config Reference</a></li>
+<li><a href="../../difficulty-settings/">Difficulty Settings Reference</a></li>
+<li><a href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../pack-layout/" class="btn btn-neutral float-left" title="Pack Layout and Conventions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../entities/" class="btn btn-neutral float-right" title="Entity Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../pack-layout/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../entities/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

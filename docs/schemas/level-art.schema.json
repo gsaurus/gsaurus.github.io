@@ -1,0 +1,455 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/level-art.schema.json",
+  "title": "LocalLevelBackgroundData",
+  "description": "Visual scene data. This one schema covers every art file: Levels/level <n> - art.json, Levels/level <n> - cutscenes.json, Levels/title.json, Levels/presentation.json, Levels/ending.json, and the same file names under Level Replacements/<Target Pack>/. Deserialized as Sor2NewEra.Gameplay.LocalLevelBackgroundData. Every image referenced here is a file in Levels/Art/.",
+  "type": "object",
+  "properties": {
+    "scenes": {
+      "description": "Ordered scenes. In a level art file, scene i pairs with scene i of the matching level <n>.json. A null entry reuses the previous scene's background. In a cutscene file, scenes advance on cutsceneEndTimeInSeconds.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "#/$defs/sceneBackground"
+          }
+        ]
+      }
+    },
+    "animationsDefinition": {
+      "description": "Animation library for this file. Layers reference entries by index through animations[].animationId, so reordering this array silently repoints every reference.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/$defs/layerAnimation"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sceneBackground": {
+      "title": "LocalSceneBackgroundData",
+      "type": "object",
+      "properties": {
+        "screenShakeType": {
+          "description": "0 Default, 1 Truck, 2 Boat.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2
+          ]
+        },
+        "musicPackName": {
+          "description": "Pack the music track is loaded from. Empty means this pack.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "musicName": {
+          "description": "Music track played during this scene, as a base file name without extension.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cutsceneEndTimeInSeconds": {
+          "description": "How long a cutscene scene lasts before advancing, in seconds. -1, the default, means the scene does not advance on its own, which is what gameplay scenes use.",
+          "type": "number",
+          "default": -1
+        },
+        "layers": {
+          "description": "Visual layers, drawn according to their zOrder.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/layer"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "layer": {
+      "title": "LocalSceneBackgroundLayerData",
+      "type": "object",
+      "properties": {
+        "layerName": {
+          "description": "Editor label for the layer.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parallax": {
+          "description": "How fast the layer scrolls relative to the camera. 1 moves with the camera; below 1 is a slower background; above 1 is a faster foreground.",
+          "$ref": "common.schema.json#/$defs/vector2",
+          "default": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "autoScroll": {
+          "description": "Constant self-scrolling speed in pixels per second, independent of the camera.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "scrollLoopLimits": {
+          "description": "Wrap distance on each axis. A positive value makes the layer tile endlessly over that span; 0 disables wrapping on that axis.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "useClassicLayerMotion": {
+          "type": "boolean",
+          "description": "Opt into the original Classic layer motion and vertical art offset. Uses updateType for rain, scenery, elevators and the swinging boat. Defaults to false."
+        },
+        "staticParallaxType": {
+          "type": "integer",
+          "enum": [0, 1, 2],
+          "description": "Classic static widescreen registration when useClassicLayerMotion is true: 0 Normal, 1 Skyline, 2 Stage7Elevator."
+        },
+        "updateType": {
+          "description": "Special per-frame layer behaviour: 0 Normal, 1 BackyardRain, 2 TruckBrokenDoor, 3 Stage4Elevator, 4 ArenaSpectators, 5 Stage7Elevator, 6 Stage7ElevatorExtra, 7 Stage8Elevator, 8 AntiCameraY, 9 WaveEffect, 10 SmallWaveEffect, 11 SwingingBoat.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        "reactToQuakeEffect": {
+          "description": "Shake this layer along with the screen during a quake.",
+          "type": "boolean"
+        },
+        "positionOffset": {
+          "description": "Shift applied to everything on the layer, in pixels.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "zOrder": {
+          "description": "Draw order. Higher values draw in front. Gameplay entities sit at 0, so backgrounds use negative values and foregrounds positive ones.",
+          "type": "number"
+        },
+        "staticImages": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/staticImage"
+          }
+        },
+        "titleScreenImages": {
+          "description": "Animated entrance images used by title and character select screens.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/titleScreenImage"
+          }
+        },
+        "animations": {
+          "description": "Placed instances of entries in the file's animationsDefinition.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/animationReference"
+          }
+        },
+        "visualScript": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "packName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scriptName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tilemap": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "width",
+            "height",
+            "tiles",
+            "cells",
+            "palette"
+          ],
+          "properties": {
+            "scale": {
+              "type": "number",
+              "description": "Uniform size multiplier around the layer's top-left origin. 0 is treated as 1."
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2048
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2048
+            },
+            "tiles": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "cells": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              }
+            },
+            "palette": {
+              "type": "array",
+              "minItems": 64,
+              "maxItems": 64,
+              "items": {
+                "type": "integer",
+                "minimum": -1,
+                "maximum": 3822,
+                "description": "Genesis 0BGR color word (even channels, mask 0xEEE), or -1 for transparent."
+              }
+            },
+            "paletteCycles": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "object",
+                "required": [
+                  "startIndex",
+                  "ticksPerFrame",
+                  "frames"
+                ],
+                "properties": {
+                  "startIndex": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 63
+                  },
+                  "ticksPerFrame": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "frames": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 64,
+                      "items": {
+                        "type": "integer",
+                        "minimum": -1,
+                        "maximum": 3822,
+                        "description": "Genesis 0BGR color word (even channels, mask 0xEEE), or -1 for transparent."
+                      }
+                    }
+                  },
+                  "preserveInitialPalette": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Keep base palette until ticksPerFrame, then use normal cycle phase (frame one at the first boundary)."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "staticImage": {
+      "title": "LocalLayerStaticImage",
+      "type": "object",
+      "properties": {
+        "imageName": {
+          "description": "File name inside Levels/Art/, including its extension.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position": {
+          "description": "Position within the layer, in pixels.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "scale": {
+          "description": "Size multiplier. 0 is treated as 1, and the absolute value is used. A non-integer scale switches that image to bilinear filtering; integer scales stay pixel sharp.",
+          "type": "number",
+          "default": 1
+        },
+        "packName": {
+          "description": "Written by the Level Editor but not read by the runtime: images resolve inside the owning pack's Levels/Art/ folder.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "titleScreenImage": {
+      "title": "LocalLayerTitleScreenImage",
+      "type": "object",
+      "properties": {
+        "imageName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position": {
+          "description": "Final resting position, in pixels.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "scale": {
+          "type": "number",
+          "default": 1
+        },
+        "initialXPosition": {
+          "description": "Horizontal offset the image starts from before easing towards position.",
+          "type": "number"
+        },
+        "lerpSpeed": {
+          "description": "How quickly the image eases towards its target. Higher catches up faster.",
+          "type": "number"
+        },
+        "initialDelay": {
+          "description": "Seconds to wait before the image starts moving.",
+          "type": "number"
+        },
+        "wiggleAmplitude": {
+          "description": "How far the image wiggles off its path, in pixels. 0 disables the wiggle.",
+          "type": "number"
+        },
+        "wiggleFrequency": {
+          "description": "How fast the image wiggles back and forth.",
+          "type": "number"
+        },
+        "requireCharacterName": {
+          "description": "Only use this entry when the character's name matches, instead of applying it to everyone.",
+          "type": "boolean"
+        },
+        "isAICharacter": {
+          "description": "Present this portrait as computer-controlled rather than as a player.",
+          "type": "boolean"
+        },
+        "packName": {
+          "description": "Written by the Level Editor but not read by the runtime: images resolve inside the owning pack's Levels/Art/ folder.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "animationReference": {
+      "title": "LocalLayerAnimationReference",
+      "type": "object",
+      "properties": {
+        "animationId": {
+          "description": "Index into the file's animationsDefinition array.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "position": {
+          "description": "Placement within the layer, in pixels.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        }
+      },
+      "additionalProperties": false
+    },
+    "layerAnimation": {
+      "title": "LocalLayerAnimation",
+      "type": "object",
+      "properties": {
+        "frames": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/layerAnimationFrame"
+          }
+        },
+        "packName": {
+          "description": "Written by the Level Editor but not read by the runtime: every image referenced by an art file is resolved inside the owning pack's Levels/Art/ folder.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "layerAnimationFrame": {
+      "title": "LocalLayerAnimationFrame",
+      "type": "object",
+      "properties": {
+        "imageName": {
+          "description": "File name inside Levels/Art/, including its extension.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "delayFrames": {
+          "description": "Game frames this image is held for before the next one.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "pivotInPixels": {
+          "description": "Point of the image that sits at the placement position, in pixels from its top-left corner.",
+          "$ref": "common.schema.json#/$defs/vector2"
+        },
+        "scale": {
+          "description": "Size multiplier. 0 is treated as 1.",
+          "type": "number",
+          "default": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

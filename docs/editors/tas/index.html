@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/editors/tas/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>TAS Editor - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "TAS Editor";
+        var mkdocs_page_input_path = "editors\\tas\\index.md";
+        var mkdocs_page_url = "/docs/editors/tas/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">TAS Editor</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-screen">The screen</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reading-the-input-timeline">Reading the input timeline</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#moving-through-the-run">Moving through the run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#editing-input">Editing input</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recording-instead-of-typing">Recording instead of typing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#macros">Macros</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#replaying-and-trust">Replaying and trust</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inspector">Inspector</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gamepad">Gamepad</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#full-shortcut-list">Full shortcut list</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Editors</li>
+      <li class="breadcrumb-item active">TAS Editor</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tas-editor">TAS Editor<a class="headerlink" href="#tas-editor" title="Permanent link">&para;</a></h1>
+<p>The TAS (tool-assisted speedrun) editor lets you build a run one frame at a time. Instead of
+playing in real time, you stop on a single frame, decide exactly which buttons are held, and
+step forward. The game replays your recorded input deterministically, so the result is
+reproducible every time.</p>
+<p>You do not need to understand anything else in this page to get started. Open the editor, press
+<strong>F1</strong>, and everything below is on screen.</p>
+<h2 id="the-screen">The screen<a class="headerlink" href="#the-screen" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top left</td>
+<td>The gameplay view. It is deliberately wider than the game camera so you can see enemies and items before they scroll on.</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>The <strong>input timeline</strong> — the frame-by-frame grid, with the controls that move through it directly underneath.</td>
+</tr>
+<tr>
+<td>Bottom</td>
+<td>The overview bar, then one titled box per job.</td>
+</tr>
+</tbody>
+</table>
+<p>The timeline column is only as wide as the players in your run need, so a one-player TAS leaves
+most of the screen to the gameplay view.</p>
+<p>Every control lives in the box for the job it does, so you never have to hunt along a row of
+unrelated buttons:</p>
+<table>
+<thead>
+<tr>
+<th>Box</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input Timeline</strong> (right column)</td>
+<td>Choosing <em>where</em> in the run you are. Back / Play / Fwd and Prev Key / Next Key sit right under the grid they move.</td>
+</tr>
+<tr>
+<td><strong>Session</strong></td>
+<td>Read-only. Which frame you are on, which player and button you are editing, and whether anything still needs replaying.</td>
+</tr>
+<tr>
+<td><strong>Write Input</strong></td>
+<td>The buttons that change the movie: the eleven pad buttons, the tap-versus-hold hint, and Undo / Redo.</td>
+</tr>
+<tr>
+<td><strong>Record</strong></td>
+<td>The alternative to typing input by hand. Shows whether you are editing or recording, and holds Record and the playback speed.</td>
+</tr>
+<tr>
+<td><strong>Macros</strong></td>
+<td>Saving and re-applying short input sequences.</td>
+</tr>
+<tr>
+<td><strong>Inspector</strong></td>
+<td>Reading the game's live values.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trim Future</strong> and <strong>Help (F1)</strong> sit in the title bar, away from anything you use routinely.</p>
+<h2 id="reading-the-input-timeline">Reading the input timeline<a class="headerlink" href="#reading-the-input-timeline" title="Permanent link">&para;</a></h2>
+<p>The timeline is a table. One row is one frame. One column is one button.</p>
+<pre><code>  frame  UDLRABCXYZS
+ 001230  ...R.......
+ 001231  ...RA......
+&gt;001232* ...RA......
+ 001233  ...RA......
+ 001234  ....A......
+</code></pre>
+<ul>
+<li>A <strong>letter</strong> means that button is held on that frame. A <strong>dot</strong> means it is free.</li>
+<li>Because the columns are fixed, a button held over several frames draws a solid vertical bar.
+  That is the fastest way to see the shape of a movement at a glance.</li>
+<li><code>&gt;</code> marks the frame you are on. The row is highlighted.</li>
+<li>The blue box marks the <strong>selected cell</strong> — the frame and button your next edit will apply to.</li>
+<li><code>*</code> after the frame number means the frame still has to be replayed before its result can be
+  trusted. This appears after you edit something in the past.</li>
+<li><code>~</code> means a scene transition is playing on that frame.</li>
+<li><code>#</code> means the game's luck seed changed on that frame. Useful when hunting for a specific
+  enemy behaviour or item drop.</li>
+</ul>
+<p>The <strong>What the grid means</strong> key under the grid repeats all of this on screen.</p>
+<p>When more than one player is active, each gets its own group of columns, labelled <strong>P1</strong>, <strong>P2</strong>
+and so on above the grid. The lane you are editing is drawn brighter than the others.</p>
+<p>To switch lanes, click the <strong>P1 / P2 / P3 / P4</strong> buttons next to <em>Editing:</em> at the top of the
+timeline column, press <strong>Tab</strong>, or click any cell in the lane you want. That row is hidden
+entirely in a one-player run.</p>
+<h2 id="moving-through-the-run">Moving through the run<a class="headerlink" href="#moving-through-the-run" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Do this</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Up</strong> / <strong>Down</strong></td>
+<td>Go back or forward one frame. Hold to run at 60 frames per second.</td>
+</tr>
+<tr>
+<td><strong>Page Up</strong> / <strong>Page Down</strong></td>
+<td>Jump 30 frames.</td>
+</tr>
+<tr>
+<td><strong>Home</strong> / <strong>End</strong></td>
+<td>Go to the first or last frame.</td>
+</tr>
+<tr>
+<td><strong>Space</strong></td>
+<td>Play or stop.</td>
+</tr>
+<tr>
+<td>Mouse wheel over the grid</td>
+<td>Scrub through frames.</td>
+</tr>
+<tr>
+<td>Click a frame number</td>
+<td>Jump straight to that frame.</td>
+</tr>
+<tr>
+<td>Drag up or down in the grid</td>
+<td>Scrub through frames.</td>
+</tr>
+<tr>
+<td>Drag the overview bar</td>
+<td>Scrub across the whole run.</td>
+</tr>
+</tbody>
+</table>
+<p>The mouse cursor turns into a vertical double arrow whenever it is over the grid or the overview
+bar, as a reminder that both are draggable.</p>
+<p>The overview bar under the gameplay view shows the entire run at once: orange ticks are level
+starts, smaller ticks are waves and saved states, and the red wash marks the region that still
+needs replaying.</p>
+<h2 id="editing-input">Editing input<a class="headerlink" href="#editing-input" title="Permanent link">&para;</a></h2>
+<p>The vertical axis is time and the horizontal axis is buttons, so the arrow keys do what the
+grid looks like they should.</p>
+<table>
+<thead>
+<tr>
+<th>Do this</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Left</strong> / <strong>Right</strong></td>
+<td>Pick which button column you are editing.</td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td>Tap the picked button on the current frame.</td>
+</tr>
+<tr>
+<td><strong>Shift</strong> + <strong>Enter</strong></td>
+<td>Hold the picked button from this frame onwards.</td>
+</tr>
+<tr>
+<td>Click a cell</td>
+<td>Move there. Click the same cell again to toggle it.</td>
+</tr>
+<tr>
+<td><strong>1 2 3 4</strong></td>
+<td>Up, Down, Left, Right.</td>
+</tr>
+<tr>
+<td><strong>5 6 7 8 9 0</strong></td>
+<td>A, B, C, X, Y, Z.</td>
+</tr>
+<tr>
+<td><strong>-</strong></td>
+<td>Start.</td>
+</tr>
+<tr>
+<td><strong>Shift</strong> + <strong>Up</strong> / <strong>Down</strong></td>
+<td>Shift this frame and every later frame back or forward in time.</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Z</strong> / <strong>Ctrl+Y</strong></td>
+<td>Undo / redo.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tap versus hold</strong> is the one thing worth learning. A plain toggle affects a single frame; the
+same toggle with <strong>Shift</strong> held changes the button from this frame to the end of the run. The
+hint line under the control panel tells you which one you are about to do, and changes as soon
+as you press Shift.</p>
+<p>Clicking a cell never edits it on the first click. The first click moves the cursor there; a
+second click on the same cell toggles it. A misplaced click cannot change your run.</p>
+<h2 id="recording-instead-of-typing">Recording instead of typing<a class="headerlink" href="#recording-instead-of-typing" title="Permanent link">&para;</a></h2>
+<p>Typing every frame is slow for long stretches of ordinary movement. Press <strong>Ctrl+R</strong> to switch
+to recording, press <strong>Space</strong> to play, and whatever you hold on your controller is written into
+the movie as it advances. Drop the speed to 1/4 or 1/8 with <strong>Ctrl+F</strong> to get precise input at
+a manageable pace, then switch back to editing to clean it up frame by frame.</p>
+<p>The mode line in the control panel always says which of the two you are in.</p>
+<h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h2>
+<p><strong>Capture Macro</strong> saves the next ten frames of the current player's input under a name.
+<strong>Apply Macro</strong> writes it in at the current frame. Use <strong>Alt+Up</strong> / <strong>Alt+Down</strong> to pick which
+saved macro is applied. This is worth doing for any input sequence you repeat — a dash, a
+grab-and-throw, a specific combo.</p>
+<h2 id="replaying-and-trust">Replaying and trust<a class="headerlink" href="#replaying-and-trust" title="Permanent link">&para;</a></h2>
+<p>When you change input in the past, everything after it is no longer valid — the game has not
+been simulated with the new input yet. Those frames get a <code>*</code> and the status panel says
+<strong>Needs replay from frame N</strong>.</p>
+<p>Stepping or playing forward through the region replays it and clears the mark. <strong>Next Key</strong>
+jumps forward to the next saved state that is already up to date, which is a fast way to check
+whether your change broke something later on.</p>
+<p><strong>Trim Future</strong> deletes everything after the current frame. It asks first.</p>
+<h2 id="inspector">Inspector<a class="headerlink" href="#inspector" title="Permanent link">&para;</a></h2>
+<p>Click any player, enemy, or item in the gameplay view, or use the target buttons, to see its
+live values. Values that changed on this frame are highlighted, which makes it practical to
+find the exact frame an attack connects or a state flips. The filter box takes a regular
+expression if the list is long.</p>
+<h2 id="gamepad">Gamepad<a class="headerlink" href="#gamepad" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-pad Up / Down, or LB / RB</td>
+<td>Step frames</td>
+</tr>
+<tr>
+<td>D-pad Left / Right</td>
+<td>Pick a button column</td>
+</tr>
+<tr>
+<td>A, B, C, X, Y, Z</td>
+<td>Toggle that button on the current frame</td>
+</tr>
+<tr>
+<td>Back</td>
+<td>Open the menu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="full-shortcut-list">Full shortcut list<a class="headerlink" href="#full-shortcut-list" title="Permanent link">&para;</a></h2>
+<p>Press <strong>F1</strong> at any time. Everything on this page is listed there, in the app.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../audio/replace-classic-sounds/" class="btn btn-neutral float-left" title="Replace Classic Voice and SFX"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../guides/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../audio/replace-classic-sounds/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../guides/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

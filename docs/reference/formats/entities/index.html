@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/reference/formats/entities/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Entity Files - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Entity Files";
+        var mkdocs_page_input_path = "reference\\formats\\entities.md";
+        var mkdocs_page_url = "/docs/reference/formats/entities/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >File Formats</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Entity Files</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#the-sprite-index-model">The sprite index model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-reference-fallback-model">The reference fallback model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spritesettingsjson">spriteSettings.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animationsjson">animations.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logicjson">logic.json</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#identity-and-references">Identity and references</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#movement">Movement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#combat">Combat</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#projectile-behaviour">Projectile behaviour</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sounds">Sounds</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#aidata">aiData</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animation-logic">Animation logic</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#hitboxes">Hitboxes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#body-boxes">Body boxes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#throw-logic">Throw logic</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scripts">Scripts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#reference-behaviour">Reference behaviour</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logic-events">Logic events</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#movement_1">Movement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#animation-flow">Animation flow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#spawning-and-interaction">Spawning and interaction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#state">State</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#audio">Audio</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dependenciesjson">dependencies.json</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#related-pages">Related pages</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#visual-afterimages">Visual afterimages</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#weapon-health-budgets">Weapon health budgets</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+          <li class="breadcrumb-item">File Formats</li>
+      <li class="breadcrumb-item active">Entity Files</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="entity-files">Entity Files<a class="headerlink" href="#entity-files" title="Permanent link">&para;</a></h1>
+<p>An entity is a playable character, an enemy, an item, a container, or a piece of scenery. Everything about it lives in one folder:</p>
+<pre><code class="language-text">Entities/&lt;Entity Name&gt;/          own content
+Entity Replacements/Classic/&lt;Entity Name&gt;/   replacement for a Classic entity
+</code></pre>
+<p>Both use exactly the same file set. The folder name is the entity name used by every <code>entityName</code> reference.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Required</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spriteSettings.json</code></td>
+<td>yes</td>
+<td>How many sprite frames the entity has, and where each one's pivot sits.</td>
+</tr>
+<tr>
+<td><code>animations.json</code></td>
+<td>yes</td>
+<td>Which frame is shown for how long, per animation.</td>
+</tr>
+<tr>
+<td><code>logic.json</code></td>
+<td>yes</td>
+<td>Gameplay behaviour: stats, boxes, events, scripts.</td>
+</tr>
+<tr>
+<td><code>dependencies.json</code></td>
+<td>no</td>
+<td>Declared references to other packs' assets.</td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;.png</code></td>
+<td>as needed</td>
+<td>Own sprite frames, zero-based.</td>
+</tr>
+<tr>
+<td><code>portrait.png</code>, <code>preview.png</code></td>
+<td>no</td>
+<td>Character select art.</td>
+</tr>
+<tr>
+<td><code>Palettes/palette &lt;n&gt;.png</code></td>
+<td>no</td>
+<td>Palette guides for this entity. See <a href="../palettes/">Palette Files</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Three ideas govern all of it: the <strong>sprite index model</strong>, the <strong>reference fallback model</strong>, and the <strong>parallel animation arrays</strong>. Get these right and the rest is data entry.</p>
+<h2 id="the-sprite-index-model">The sprite index model<a class="headerlink" href="#the-sprite-index-model" title="Permanent link">&para;</a></h2>
+<p>Everything that names a sprite uses an <strong>effective index</strong>, and effective indices are not PNG numbers.</p>
+<p>An entity may borrow another entity's sprite frames by setting <code>referenceEntityPackName</code> and <code>referenceEntityName</code> in <code>spriteSettings.json</code>. When it does, the combined frame list is:</p>
+<pre><code class="language-text">index 0 .. R-1      the reference entity's frames, in its own order
+index R .. R+N-1    this entity's own frames, where own frame k is the file k.png
+</code></pre>
+<p><code>R</code> is the reference entity's total frame count. <code>N</code> is the length of this entity's <code>pivots</code> array.</p>
+<p>Without a reference, <code>R</code> is 0 and effective index <code>k</code> is simply <code>k.png</code>.</p>
+<p>This matters in three places:</p>
+<ul>
+<li><code>animations.json</code> <code>frames[].imageId</code> is an effective index.</li>
+<li><code>spriteSettings.json</code> <code>iconIndex</code> is an effective index.</li>
+<li>Changing the sprite reference changes <code>R</code>, which shifts every own frame's effective index. The Character Editor remaps <code>imageId</code> values when you change the reference; a hand edit must do the same.</li>
+</ul>
+<p><strong><code>pivots</code> defines the frame count, not the files.</strong> If <code>pivots</code> has 12 entries, the entity has own frames <code>0.png</code> through <code>11.png</code>. A <code>12.png</code> sitting in the folder is invisible. A missing <code>7.png</code> with a pivot at index 7 is a frame that draws nothing.</p>
+<h2 id="the-reference-fallback-model">The reference fallback model<a class="headerlink" href="#the-reference-fallback-model" title="Permanent link">&para;</a></h2>
+<p><code>logic.json</code> can set <code>referencePackName</code> and <code>referenceEntityName</code> to inherit behaviour from another entity, usually a Classic one. This is how "an Axel that plays like Axel but hits harder" is authored.</p>
+<p>The fallback rule is blunt and worth memorising:</p>
+<blockquote>
+<p>On an entity with a logic reference, <strong>every numeric field left at <code>0</code>, and every array left <code>null</code>, falls through to the referenced entity.</strong></p>
+</blockquote>
+<p>So on a referencing entity you cannot say "this character's walk speed is zero". Writing <code>"walkSpeed": 0</code> and omitting <code>walkSpeed</code> mean the same thing: use the reference's value. Fields that behave this way are marked <em>falls through</em> in the table below.</p>
+<p><code>sprite</code> references and <code>logic</code> references are independent. An entity can borrow Classic Axel's art while inheriting Classic Blaze's logic, or borrow art with no logic reference at all.</p>
+<p>There is a second, per-animation reference: <code>animationsLogic[i].referenceBehaviour</code>, which borrows one Classic move controller for one animation. It is subject to an override rule described under <a href="#animation-logic">Animation logic</a>.</p>
+<h2 id="spritesettingsjson"><code>spriteSettings.json</code><a class="headerlink" href="#spritesettingsjson" title="Permanent link">&para;</a></h2>
+<p>Root object: <code>SpriteSettingsData</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scale</code></td>
+<td>float</td>
+<td>Uniform draw scale for own frames. <code>0</code> is treated as <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>shadowAlwaysOn</code></td>
+<td>bool</td>
+<td>Draw the ground shadow even in states that normally hide it.</td>
+</tr>
+<tr>
+<td><code>useSourceAnimations</code></td>
+<td>bool</td>
+<td>Visual skins only: draw the original gameplay entity's animation sequence using this skin's frame providers. All source frame indices, including playable variants' appended frames, must exist in the skin. Gameplay logic stays unchanged. Defaults to false.</td>
+</tr>
+<tr>
+<td><code>pivots</code></td>
+<td>array of <code>{x, y}</code> floats</td>
+<td>One pivot per own frame, in pixels from the image's <strong>bottom-left</strong> corner: <code>x</code> from the left edge, <code>y</code> up from the bottom edge. <strong>Array length is the own frame count.</strong></td>
+</tr>
+<tr>
+<td><code>iconIndex</code></td>
+<td>int</td>
+<td>Effective sprite index used as the HUD icon. <code>-1</code> for none.</td>
+</tr>
+<tr>
+<td><code>referenceEntityPackName</code></td>
+<td>string</td>
+<td>Pack owning the entity whose frames are borrowed.</td>
+</tr>
+<tr>
+<td><code>referenceEntityName</code></td>
+<td>string</td>
+<td>Entity whose frames are borrowed.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">{
+  &quot;scale&quot;: 1.0,
+  &quot;shadowAlwaysOn&quot;: false,
+  &quot;iconIndex&quot;: 4,
+  &quot;pivots&quot;: [
+    { &quot;x&quot;: 22.0, &quot;y&quot;: 1.0 },
+    { &quot;x&quot;: 22.0, &quot;y&quot;: 1.0 }
+  ]
+}
+</code></pre>
+<p>A pivot is the point of the image that sits on the character's position — for a standing character, the point between the feet. Because <code>y</code> counts up from the bottom edge, a standing frame whose feet touch the bottom row has a pivot <code>y</code> of about <code>1</code>.</p>
+<h2 id="animationsjson"><code>animations.json</code><a class="headerlink" href="#animationsjson" title="Permanent link">&para;</a></h2>
+<p>Root object: <code>AnimationsSetData</code>, a single <code>animations</code> array.</p>
+<p><strong>The array index is the animation id.</strong> For entities based on Classic behaviour, index <code>i</code> corresponds to the Classic <code>AnimationId</code> value <code>i * 2</code>; the full slot table is in <a href="../enums/">Enums and Identifiers</a>. Entries may be <code>null</code> to leave a slot empty. Never reorder the array.</p>
+<p>Per animation (<code>AnimationData</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Editor label. Cosmetic; the runtime addresses animations by index.</td>
+</tr>
+<tr>
+<td><code>frames</code></td>
+<td>array</td>
+<td>Ordered frames.</td>
+</tr>
+<tr>
+<td><code>referenceTotalFrames</code></td>
+<td>int</td>
+<td>Total frame count of the same animation on the reference entity, used by the editor to keep a reskin aligned with original timing. <code>0</code> when there is no reference.</td>
+</tr>
+</tbody>
+</table>
+<p>Per frame (<code>AnimationFrameData</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>duration</code></td>
+<td>int</td>
+<td>Game frames this image is held. The game runs at 60 fps.</td>
+</tr>
+<tr>
+<td><code>imageId</code></td>
+<td>int</td>
+<td>Effective sprite index. Negative draws nothing.</td>
+</tr>
+<tr>
+<td><code>weapon</code></td>
+<td>object or null</td>
+<td>Optional weapon overlay.</td>
+</tr>
+</tbody>
+</table>
+<p>Weapon overlay (<code>AnimationFrameWeaponData</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>direction</code></td>
+<td>int</td>
+<td><code>WeaponAngle</code>: 0 Up, 1 UpLeft, 2 Left, 3 DownLeft, 4 Down, 5 DownRight, 6 Right, 7 UpRight.</td>
+</tr>
+<tr>
+<td><code>showBehind</code></td>
+<td>bool</td>
+<td>Draw behind the character rather than in front.</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Offset from the character pivot, in pixels.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">{
+  &quot;animations&quot;: [
+    {
+      &quot;name&quot;: &quot;Standing&quot;,
+      &quot;frames&quot;: [
+        { &quot;duration&quot;: 8, &quot;imageId&quot;: 0 },
+        { &quot;duration&quot;: 8, &quot;imageId&quot;: 1 },
+        { &quot;duration&quot;: 10, &quot;imageId&quot;: 2 }
+      ]
+    },
+    null,
+    { &quot;name&quot;: &quot;Jump&quot;, &quot;frames&quot;: [{ &quot;duration&quot;: 4, &quot;imageId&quot;: 12 }] }
+  ]
+}
+</code></pre>
+<p><strong>The animation's length is the sum of its frame durations.</strong> That total is the timeline every frame number in <code>logic.json</code> is measured against. An event at <code>"frame": 26</code> fires 26 game frames into the animation, which may be partway through the fourth image, not on the 26th image.</p>
+<h2 id="logicjson"><code>logic.json</code><a class="headerlink" href="#logicjson" title="Permanent link">&para;</a></h2>
+<p>Root object: <code>LogicData</code>.</p>
+<h3 id="identity-and-references">Identity and references<a class="headerlink" href="#identity-and-references" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entityType</code></td>
+<td>int</td>
+<td><code>0</code> Player, <code>1</code> BasicEnemy, <code>2</code> Enemy, <code>3</code> PickUpItem, <code>4</code> Container, <code>5</code> Scenery, <code>6</code> Other. The Character Editor only offers 0-3. BasicEnemy marks a common street enemy the difficulty system may multiply; Enemy marks a boss-class entity.</td>
+</tr>
+<tr>
+<td><code>referencePackName</code></td>
+<td>string</td>
+<td>Pack to inherit logic from.</td>
+</tr>
+<tr>
+<td><code>referenceEntityName</code></td>
+<td>string</td>
+<td>Entity to inherit logic from.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="movement">Movement<a class="headerlink" href="#movement" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Falls through</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>walkSpeed</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Walking speed.</td>
+</tr>
+<tr>
+<td><code>runSpeed</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Running speed.</td>
+</tr>
+<tr>
+<td><code>jumpForce</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Upward jump impulse. Falls through to the reference, then to the Classic per-character table.</td>
+</tr>
+<tr>
+<td><code>jumpDelayFrames</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Crouch frames before leaving the ground.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="combat">Combat<a class="headerlink" href="#combat" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Falls through</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>globalBodyBox</code></td>
+<td><code>BoundingBox</code></td>
+<td>no</td>
+<td>Default hurt volume, used on every animation that does not define its own <code>bodyBoxes</code>.</td>
+</tr>
+<tr>
+<td><code>canUseWeapons</code></td>
+<td>bool</td>
+<td>no</td>
+<td>Whether the entity can pick up and use weapons.</td>
+</tr>
+<tr>
+<td><code>comboRepetitions</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Times the standing attack chain repeats before the finisher.</td>
+</tr>
+<tr>
+<td><code>grabComboRepetitions</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Times the grab attack repeats before the grab finisher.</td>
+</tr>
+<tr>
+<td><code>chargeDelay</code></td>
+<td>int</td>
+<td>no</td>
+<td>Frames a button must be held before a charged move is available.</td>
+</tr>
+<tr>
+<td><code>noChargeFlash</code></td>
+<td>bool</td>
+<td>no</td>
+<td>Players only: <code>true</code> turns off the white flash shown when holding attack completes the charge. The charge and the charged attack still work. Default <code>false</code> keeps the flash.</td>
+</tr>
+<tr>
+<td><code>grabRange</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Horizontal reach of a grab attempt, in pixels.</td>
+</tr>
+<tr>
+<td><code>frontGrabOffset</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Distance the victim snaps to when grabbed from the front.</td>
+</tr>
+<tr>
+<td><code>backGrabOffset</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Distance the victim snaps to when grabbed from behind.</td>
+</tr>
+<tr>
+<td><code>heldFrontGrabOffset</code></td>
+<td>int</td>
+<td>no</td>
+<td>Distance this entity is held at when grabbed from the front, whoever grabs it (pixels; 0 = the grabber's <code>frontGrabOffset</code>).</td>
+</tr>
+<tr>
+<td><code>heldBackGrabOffset</code></td>
+<td>int</td>
+<td>no</td>
+<td>Same, when grabbed from behind (0 = the grabber's <code>backGrabOffset</code>).</td>
+</tr>
+<tr>
+<td><code>knockedDownQuakeEffect</code></td>
+<td>float</td>
+<td>yes</td>
+<td>Screen shake when this entity hits the ground knocked down.</td>
+</tr>
+<tr>
+<td><code>thrownQuakeEffect</code></td>
+<td>float</td>
+<td>yes</td>
+<td>Screen shake when this entity lands from a throw.</td>
+</tr>
+</tbody>
+</table>
+<p><code>BoundingBox</code> is <code>{ "halfWidth": int, "height": int, "depth": int }</code>. The volume spans <code>-halfWidth..+halfWidth</code> horizontally, <code>0..height</code> upwards from the feet, and <code>±depth</code> on the depth axis.</p>
+<p>Canonical <code>globalCombatBounds</code> and animation <code>bodyBoxes[].combatBounds</code> use
+<code>enabled</code>, <code>xMin</code>, <code>xMax</code>, <code>heightMin</code>, <code>heightMax</code>, <code>depthMin</code>, and <code>depthMax</code>.
+An optional <code>regions</code> array supplies disjoint hurt rectangles in the same
+entity-local coordinates. The outer rectangle still provides world and grab
+dimensions; attack contact must intersect one enabled region. Omit <code>regions</code>
+for one solid rectangle, or use an empty array for no hurt contact. Regions
+mirror with facing and scale independently of sprite rendering. The Character
+Editor preserves these regions when saving the outer rectangle. On an item that
+hits as a projectile, its body regions are also its striking rectangles: a hit
+needs one of them to meet the target (thrown bodies keep the outer rectangle).</p>
+<h3 id="projectile-behaviour">Projectile behaviour<a class="headerlink" href="#projectile-behaviour" title="Permanent link">&para;</a></h3>
+<p>Applies when this entity is thrown or spawned as a projectile.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Falls through</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>projectileDamage</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Damage on hit.</td>
+</tr>
+<tr>
+<td><code>projectileHitPause</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Hit-stop frames on hit.</td>
+</tr>
+<tr>
+<td><code>projectileHitSoundName</code></td>
+<td>string</td>
+<td>yes</td>
+<td>Sound on hit, base file name without extension.</td>
+</tr>
+<tr>
+<td><code>projectileHitSoundPack</code></td>
+<td>string</td>
+<td>yes</td>
+<td>Pack owning that sound.</td>
+</tr>
+<tr>
+<td><code>projectileHitSoundChannel</code></td>
+<td>int</td>
+<td>yes</td>
+<td>Audio channel slot.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sounds">Sounds<a class="headerlink" href="#sounds" title="Permanent link">&para;</a></h3>
+<p>Playable entities may declare <code>playerUpdateScript</code> (runs before the controller
+in every animation), <code>specialMoveScript</code> (special eligibility and entry cost),
+and <code>invincibleOffensiveSpecial</code> (invulnerability on offensive-special entry).
+These fields apply to the entity itself, without reference fallback. The special
+hook must explicitly return <code>true</code>; it replaces the native health gate and later
+health deduction. See <a href="../../../scripting/">Lua scripting</a> for the hook
+contract and scripted cancel entry.</p>
+<p><code>sounds</code> is a <code>DefaultSoundsData</code>: a <code>packName</code> plus sixteen named groups. Each group is an array of base sound file names without extension; the runtime picks one at random each time. A <code>null</code> group falls through to the reference entity.</p>
+<p>Groups: <code>jump</code>, <code>landing</code>, <code>quake</code>, <code>attack</code>, <code>weaponThrow</code>, <code>jumpAttack</code>, <code>blitz</code>, <code>defspecial</code>, <code>offspecial</code>, <code>grabMove1</code>, <code>grabMove2</code>, <code>grabMove3</code>, <code>death</code>, <code>run</code>, <code>lowHealth</code>, <code>lastLifeDeath</code>.</p>
+<pre><code class="language-json">&quot;sounds&quot;: {
+  &quot;packName&quot;: &quot;My Pack&quot;,
+  &quot;attack&quot;: [&quot;punch-a&quot;, &quot;punch-b&quot;],
+  &quot;death&quot;: [&quot;scream&quot;]
+}
+</code></pre>
+<h3 id="aidata"><code>aiData</code><a class="headerlink" href="#aidata" title="Permanent link">&para;</a></h3>
+<p>A raw two-dimensional enemy AI table imported from the ROM. Hand-authoring is not supported. Copy it from a reference entity, or leave it out and let the logic reference supply it.</p>
+<h2 id="animation-logic">Animation logic<a class="headerlink" href="#animation-logic" title="Permanent link">&para;</a></h2>
+<p><code>animationsLogic</code> is an array parallel to <code>animations.json</code> <code>animations</code>. Index <code>i</code> describes animation <code>i</code>. Entries may be <code>null</code>, and the array may be shorter than the animation list.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>duration</code></td>
+<td>int</td>
+<td>Logic length of the animation in game frames.</td>
+</tr>
+<tr>
+<td><code>hitboxes</code></td>
+<td>array</td>
+<td>Attack boxes active during frame windows.</td>
+</tr>
+<tr>
+<td><code>bodyBoxes</code></td>
+<td>array</td>
+<td>Per-frame hurt volumes overriding <code>globalBodyBox</code>.</td>
+</tr>
+<tr>
+<td><code>throwLogic</code></td>
+<td>object or null</td>
+<td>Grab and throw choreography.</td>
+</tr>
+</tbody>
+</table>
+<p>For moving or aerial throws, <code>throwLogic.relativeToAttacker: true</code> anchors victim
+offsets to the attacker's current position and height for both enemy and player
+victims. It omits the legacy front/back grab-distance addition. Author the offsets
+with the usual victim-facing X sign and set <code>useLegacyHardcodedMechanics: false</code>.
+The default remains false, preserving existing pack choreography.
+| <code>events</code> | array | Frame-bound logic events. |
+| <code>script</code> | object or null | Lua script run every frame of this animation. |
+| <code>referenceBehaviour</code> | object or null | Classic move controller to borrow. |</p>
+<div class="admonition warning">
+<p class="admonition-title">Events override borrowed behaviour</p>
+<p>If <code>events</code> is non-empty, the animation runs its events plus the default physics step and <strong>skips the referenced Classic move controller entirely</strong>. This is deliberate: it stops original mode side effects — forced mode changes, timers, hard-coded spawns, damage transitions — from leaking into a custom event-driven animation. A <code>script</code> still runs either way; <code>referenceBehaviour</code> and Classic fallback only apply to animations without events.</p>
+</div>
+<p><code>animationsLogic[i].name</code> also appears in files the Character Editor writes. It is a mirror of the matching <code>animations.json</code> name, kept for readability, and the runtime ignores it.</p>
+<h3 id="hitboxes">Hitboxes<a class="headerlink" href="#hitboxes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame</code></td>
+<td>int</td>
+<td>First animation frame the box is active on.</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>int</td>
+<td>Frames it stays active.</td>
+</tr>
+<tr>
+<td><code>hitBox</code></td>
+<td><code>{x, y, width, height}</code> int</td>
+<td>Geometry in pixels relative to the entity pivot. Mirrored automatically when facing left.</td>
+</tr>
+<tr>
+<td><code>damage</code></td>
+<td>int</td>
+<td>Damage on hit.</td>
+</tr>
+<tr>
+<td><code>knockDown</code></td>
+<td>bool</td>
+<td>Send the victim into the knocked-down state.</td>
+</tr>
+<tr>
+<td><code>hitBackwards</code></td>
+<td>bool</td>
+<td>Push the victim away from the attacker's back rather than its front.</td>
+</tr>
+<tr>
+<td><code>hitPause</code></td>
+<td>int</td>
+<td>Hit-stop frames applied to both parties.</td>
+</tr>
+<tr>
+<td><code>hitEachTargetOnce</code></td>
+<td>bool</td>
+<td>While the hitbox stays active, strike each target once, on any frame (up to four). Without it, once the hitbox connects it skips anyone this character hit last, until the hitbox changes.</td>
+</tr>
+<tr>
+<td><code>soundName</code></td>
+<td>string</td>
+<td>Sound on connect, base name without extension.</td>
+</tr>
+<tr>
+<td><code>packName</code></td>
+<td>string</td>
+<td>Pack owning that sound.</td>
+</tr>
+<tr>
+<td><code>channel</code></td>
+<td>int</td>
+<td>Audio channel slot.</td>
+</tr>
+<tr>
+<td><code>soundId</code></td>
+<td>int</td>
+<td>Classic sound slot used when <code>soundName</code> is empty.</td>
+</tr>
+</tbody>
+</table>
+<p>At most one hitbox is active at a time. They are scanned in array order, so keep them ordered by <code>frame</code> and non-overlapping.</p>
+<h3 id="body-boxes">Body boxes<a class="headerlink" href="#body-boxes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame</code></td>
+<td>int</td>
+<td>First animation frame.</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>int</td>
+<td>Frames active.</td>
+</tr>
+<tr>
+<td><code>boundingBox</code></td>
+<td><code>BoundingBox</code></td>
+<td>Hurt volume for that window.</td>
+</tr>
+</tbody>
+</table>
+<p>Outside every body box window, <code>globalBodyBox</code> applies.</p>
+<h3 id="throw-logic">Throw logic<a class="headerlink" href="#throw-logic" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>offsets</code></td>
+<td>array</td>
+<td>Keyframes placing the held opponent.</td>
+</tr>
+<tr>
+<td><code>releaseVelocity</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Velocity given to the opponent on release. <code>x</code> is whole pixels per frame, pushed towards the victim's own back. <code>y</code> is <strong>raw 16.16 fixed point</strong> (65536 per pixel), negative is up: <code>-180224</code> is 2.75 px per frame upward. Not the 1/1000 unit used by <code>VelocityEvent</code>.</td>
+</tr>
+<tr>
+<td><code>releaseDamage</code></td>
+<td>int</td>
+<td>Damage applied when the thrown opponent <strong>lands</strong>.</td>
+</tr>
+<tr>
+<td><code>useLegacyHardcodedMechanics</code></td>
+<td>bool</td>
+<td>Index the offsets by the <strong>victim's</strong> animation tick and ignore <code>opponentFrame</code>, as every ROM throw does. When <code>false</code> the <strong>thrower's</strong> tick indexes the offsets and <code>opponentFrame</code> freezes the victim on that tick. It does not skip the offsets.</td>
+</tr>
+</tbody>
+</table>
+<p>Each offset (<code>OffsetData</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame</code></td>
+<td>int</td>
+<td>Animation tick (game frames elapsed, not image index) the placement applies from.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Opponent placement in pixels. Negative <code>y</code> is up. <code>x</code> is mirrored so that negative is in front of the opponent.</td>
+</tr>
+<tr>
+<td><code>opponentAnimation</code></td>
+<td>int</td>
+<td>Animation id forced on the opponent every frame. Leaving it <code>0</code> forces Standing; use the victim slots 18-23 described in <a href="../../classic-mechanics/#grabs-and-throws">Classic Game Mechanics</a>.</td>
+</tr>
+<tr>
+<td><code>opponentFrame</code></td>
+<td>int</td>
+<td>Tick the opponent's animation is held at while this keyframe is active. Only used when <code>useLegacyHardcodedMechanics</code> is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>opponentFacesSameDirection</code></td>
+<td>bool</td>
+<td>Face the opponent the same way as the holder rather than towards it.</td>
+</tr>
+</tbody>
+</table>
+<p>Negative <code>frame</code> values appear in some existing files, left behind by editor frame-shift operations. They never match a real frame and are dead data.</p>
+<h3 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h3>
+<pre><code class="language-json">&quot;script&quot;: { &quot;packName&quot;: &quot;My Pack&quot;, &quot;scriptName&quot;: &quot;Block&quot; }
+</code></pre>
+<p><code>scriptName</code> resolves to <code>Scripts/&lt;scriptName&gt;.lua</code> inside <code>packName</code>. The <code>.lua</code> extension is optional and appended when missing. See <a href="../../../scripting/">Lua Scripting</a>.</p>
+<p>At the root of <code>logic.json</code>, playable entities may set <code>hudScript</code> to draw
+pack-owned sprites beside their own health bar. It runs in a separate, view-only
+Lua VM and receives copied player state. Items may set <code>pickupScript</code>; it runs
+when a player attempts to collect the item. Returning <code>true</code> consumes the item;
+returning <code>false</code> or failing leaves it on the ground. Unknown custom items with
+no <code>pickupScript</code> are ignored. Neither field is inherited from a logic reference.
+See <a href="../../../scripting/#custom-hud-and-pickups">Custom HUD and pickups</a>.</p>
+<p>A weapon item may set <code>"throwOnlyWeapon": true</code> at the root of its <code>logic.json</code>. It is
+then only thrown, like the Classic grenade: a player's attack throws it instead of
+swinging or stabbing with it, whatever weapon it references (a pepper bottle that
+references the Classic Knife, for example). The flag is read from the item's own logic,
+not inherited from a logic reference. Scripts read it as <code>is_throw_only_weapon</code>.</p>
+<p>Two more weapon options, also read from the item's own logic only:</p>
+<ul>
+<li><code>"meleeOnlyWeapon": true</code>: the weapon is never thrown. A player's throw inputs act as if it
+  could not be thrown: the back attack inputs make a back attack, the pick up button drops it.
+  Scripts read it as <code>is_melee_only_weapon</code>.</li>
+<li><code>"brokenWeapon": { "packName": ..., "entityName": ... }</code>: on its first hit in a weapon
+  attack the held item becomes that entity, still in the same hand, and the weapon's
+  <code>breakSound</code> plays (a bottle that cracks into a broken bottle). Native characters break it
+  from their weapon attack; scripted ones call <code>break_held_weapon()</code> after a hit. Scripts
+  read it as <code>is_breakable_weapon</code>.</li>
+</ul>
+<p><code>"breakSound": { "packName": ..., "soundName": ... }</code> also names the sound a container item
+plays when it breaks open, in place of the referenced Classic container's.</p>
+<p>What kind of weapon an item is comes from the Classic weapon it references: <code>Knife</code>, <code>Kunai</code>,
+<code>Pipe</code>, <code>Sword</code> or <code>Grenade</code>. The native weapon attack and throw use it, and scripts read it as
+<code>classic_name</code>. Scripts that give weapons their own moves should test <code>classic_name</code> (with
+<code>is_throw_only_weapon</code> and <code>is_breakable_weapon</code>) rather than the item's <code>name</code>, so that
+every pack's knife counts as a knife: the Streets of Rage 1 knife is <code>SOR1 item 08</code>, a
+baseball bat or a plank references the Classic Pipe.</p>
+<p>On a character, the weapon throw animation (slot 44) runs the native throw, which releases
+the weapon at the tick the referenced Classic character releases it: Axel 7, Blaze 12,
+Skate 5, others 9. A character whose throw has other art or timing sets
+<code>"weaponThrowFrame"</code> on that <code>animationsLogic</code> entry to the animation tick of its release.
+<code>0</code> keeps the Classic tick.</p>
+<h3 id="reference-behaviour">Reference behaviour<a class="headerlink" href="#reference-behaviour" title="Permanent link">&para;</a></h3>
+<pre><code class="language-json">&quot;referenceBehaviour&quot;: { &quot;packName&quot;: &quot;Classic&quot;, &quot;type&quot;: 0, &quot;animationId&quot;: 0, &quot;objectMode&quot;: 2 }
+</code></pre>
+<p><code>objectMode</code> is a move controller mode value: for players and enemies it is <code>controller index * 2</code>; for items it is <code>(controller index + 1) * 2</code>. <code>type</code> is the reference entity's type hash within the pack. The full tables are in <a href="../../entity-types-modes/">Behaviour Modes</a>.</p>
+<h2 id="logic-events">Logic events<a class="headerlink" href="#logic-events" title="Permanent link">&para;</a></h2>
+<p>Each entry in <code>events</code> is an object with a <code>$type</code> and that type's own fields. The editor display names are mapped to these class names in <a href="../../logic-events/">Logic Events</a>.</p>
+<p><code>$type</code> must read exactly <code>Sor2NewEra.Gameplay.&lt;ClassName&gt;, Sor2NewEra</code>.</p>
+<p>Most events fire on a single <code>frame</code>. Some instead watch a window with <code>afterFrame</code> and <code>beforeFrame</code>, where <code>beforeFrame</code> of <code>0</code> means no upper bound. A few watch continuously from an <code>initialFrame</code>.</p>
+<h3 id="movement_1">Movement<a class="headerlink" href="#movement_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><code>$type</code> class</th>
+<th>Fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VelocityEvent</code></td>
+<td><code>frame</code>, <code>velocity</code> <code>{x,y,z}</code>, <code>useAxisFlags</code>, <code>affectX</code>, <code>affectY</code>, <code>affectZ</code></td>
+<td>Set velocity. Without <code>useAxisFlags</code>, a zero component still overwrites that axis; with it, only the flagged axes are touched.</td>
+</tr>
+<tr>
+<td><code>AccelerationEvent</code></td>
+<td><code>frame</code>, <code>acceleration</code> <code>{x,y,z}</code>, <code>useAxisFlags</code>, <code>affectX</code>, <code>affectY</code>, <code>affectZ</code></td>
+<td>Set acceleration, same axis rules.</td>
+</tr>
+<tr>
+<td><code>InputVelocityEvent</code></td>
+<td><code>strength</code> <code>{x,y}</code>, <code>afterFrame</code>, <code>beforeFrame</code></td>
+<td>Apply stick-driven velocity during a window.</td>
+</tr>
+<tr>
+<td><code>InputAccelerationEvent</code></td>
+<td><code>strength</code> <code>{x,y}</code></td>
+<td>Apply stick-driven acceleration on every frame of the animation.</td>
+</tr>
+<tr>
+<td><code>PositionOffsetEvent</code></td>
+<td><code>frame</code>, <code>offset</code> <code>{x,y,z}</code></td>
+<td>Teleport, in pixels. <code>x</code> mirrors with facing, <code>z</code> moves on the depth axis. <code>y</code> is added to the depth velocity, not to height; use <code>VelocityEvent</code> for vertical motion.</td>
+</tr>
+<tr>
+<td><code>StopEvent</code></td>
+<td><code>frame</code></td>
+<td>Stop movement.</td>
+</tr>
+<tr>
+<td><code>StopOnHorizontalStop</code></td>
+<td>none</td>
+<td>Stop once horizontal motion ends.</td>
+</tr>
+</tbody>
+</table>
+<p>On the axis vectors, <code>x</code> is horizontal, <code>y</code> is vertical (the jump axis), and <code>z</code> is depth.</p>
+<h3 id="animation-flow">Animation flow<a class="headerlink" href="#animation-flow" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><code>$type</code> class</th>
+<th>Fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>JumpToAnimationEvent</code></td>
+<td><code>frame</code>, <code>animationId</code>, <code>animationFrame</code></td>
+<td>Switch to another animation.</td>
+</tr>
+<tr>
+<td><code>JumpToAnimationOnInputButton</code></td>
+<td><code>input</code>, <code>animationId</code>, <code>afterFrame</code>, <code>beforeFrame</code></td>
+<td>Switch when a button is pressed during the window. <code>input</code> is an <code>InputButtons</code> flag value.</td>
+</tr>
+<tr>
+<td><code>JumpToAnimationOnInputCombo</code></td>
+<td><code>input</code>, <code>animationId</code>, <code>afterFrame</code>, <code>beforeFrame</code></td>
+<td>Switch when a button chain is entered. <code>input</code> is a string, one character per step.</td>
+</tr>
+<tr>
+<td><code>JumpToAnimationOnHit</code></td>
+<td><code>animationId</code>, <code>afterFrame</code>, <code>beforeFrame</code></td>
+<td>Switch when this entity's attack connects.</td>
+</tr>
+<tr>
+<td><code>JumpToAnimationOnLanding</code></td>
+<td><code>initialFrame</code>, <code>animationId</code>, <code>animationFrame</code></td>
+<td>Switch on landing.</td>
+</tr>
+<tr>
+<td><code>JumpToFrameOnLanding</code></td>
+<td><code>initialFrame</code>, <code>jumpFrame</code></td>
+<td>Jump within the same animation on landing.</td>
+</tr>
+<tr>
+<td><code>JumpToFrameOnHorizontalStop</code></td>
+<td><code>initialFrame</code>, <code>jumpFrame</code></td>
+<td>Jump within the same animation once horizontal motion ends.</td>
+</tr>
+</tbody>
+</table>
+<p><code>animationId</code> is the array index in <code>animations.json</code>, the same index used everywhere else.</p>
+<p>Combo notation for <code>JumpToAnimationOnInputCombo</code>: one character per step, matched in order. <code>^</code> up, <code>v</code> down, <code>&lt;</code> left, <code>&gt;</code> right, and <code>a</code> <code>b</code> <code>c</code> <code>x</code> <code>y</code> <code>z</code> for the face buttons. Parsed case-insensitively. Left and right mirror with facing, so a combo written facing right works facing left. <code>"v&gt;a"</code> is down, forward, A.</p>
+<h3 id="spawning-and-interaction">Spawning and interaction<a class="headerlink" href="#spawning-and-interaction" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><code>$type</code> class</th>
+<th>Fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SpawnEnemyEvent</code></td>
+<td><code>frame</code>, <code>packName</code>, <code>entityName</code>, <code>animationId</code>, <code>mode</code></td>
+<td>Spawn an enemy.</td>
+</tr>
+<tr>
+<td><code>SpawnItemEvent</code></td>
+<td><code>frame</code>, <code>packName</code>, <code>entityName</code>, <code>animationId</code>, <code>mode</code>, <code>lifetime</code>, <code>positionOffset</code>, <code>velocity</code>, <code>isProjectile</code>, <code>damage</code>, <code>hitPause</code>, <code>hitSoundName</code>, <code>hitSoundPack</code>, <code>hitSoundChannel</code></td>
+<td>Spawn an item, optionally as a damaging projectile. This is how fireballs are built.</td>
+</tr>
+<tr>
+<td><code>GrabEvent</code></td>
+<td><code>frame</code></td>
+<td>Grab the character this entity is currently attacking.</td>
+</tr>
+<tr>
+<td><code>FlipEvent</code></td>
+<td><code>frame</code></td>
+<td>Reverse facing.</td>
+</tr>
+<tr>
+<td><code>DestroyEvent</code></td>
+<td><code>frame</code></td>
+<td>Destroy this entity.</td>
+</tr>
+</tbody>
+</table>
+<p><code>SpawnItemEvent</code> <code>positionOffset</code> and <code>velocity</code> are in internal position units, not pixels: about 65.5 units per pixel, <code>+x</code> forward, <code>+y</code> up, so editor-written values are typically in the thousands. <code>lifetime</code> of <code>0</code> means <strong>60 frames</strong>, not "never expire". See <a href="../../classic-mechanics/#coordinate-systems-and-units">Classic Game Mechanics</a>.</p>
+<h3 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><code>$type</code> class</th>
+<th>Fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InvincibilityEvent</code></td>
+<td><code>frame</code>, <code>invincible</code></td>
+<td>Turn invincibility on or off. Always pair the two.</td>
+</tr>
+<tr>
+<td><code>HealthEvent</code></td>
+<td><code>frame</code>, <code>health</code></td>
+<td>Add health. Negative subtracts, which is how special-move self-damage is authored.</td>
+</tr>
+<tr>
+<td><code>SetCustomValueEvent</code></td>
+<td><code>frame</code>, <code>valueId</code>, <code>value</code></td>
+<td>Write a custom value slot, readable and writable from Lua.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="audio">Audio<a class="headerlink" href="#audio" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><code>$type</code> class</th>
+<th>Fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SoundEvent</code></td>
+<td><code>frame</code>, <code>packName</code>, <code>soundName</code>, <code>soundNames</code>, <code>channel</code></td>
+<td>Play a sound. <code>soundNames</code> is a random pool and takes precedence over <code>soundName</code> when non-empty.</td>
+</tr>
+<tr>
+<td><code>MusicEvent</code></td>
+<td><code>frame</code>, <code>packName</code>, <code>musicName</code></td>
+<td>Change the music track.</td>
+</tr>
+</tbody>
+</table>
+<p><code>channel</code> decides which audio slot the sound occupies. Sounds on the same slot cut each other off, so use different slots for sounds that should overlap. <code>0</code> sfx, <code>1</code> sfxBgm, <code>2</code> voice and <code>3</code> prioritary are the named slots, but the runtime treats the value as a plain index and allocates as many slots as it sees, so any non-negative number is a valid private channel.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>A fireball spawned on frame 40 of animation 47, with a voice line on frame 36:</p>
+<pre><code class="language-json">{
+  &quot;duration&quot;: 60,
+  &quot;hitboxes&quot;: [],
+  &quot;bodyBoxes&quot;: [],
+  &quot;events&quot;: [
+    {
+      &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra&quot;,
+      &quot;frame&quot;: 36,
+      &quot;packName&quot;: &quot;My Pack&quot;,
+      &quot;soundName&quot;: &quot;hadoken&quot;,
+      &quot;channel&quot;: 2
+    },
+    {
+      &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SpawnItemEvent, Sor2NewEra&quot;,
+      &quot;frame&quot;: 40,
+      &quot;packName&quot;: &quot;My Pack&quot;,
+      &quot;entityName&quot;: &quot;Fireball&quot;,
+      &quot;animationId&quot;: 0,
+      &quot;mode&quot;: -1,
+      &quot;lifetime&quot;: 0,
+      &quot;positionOffset&quot;: { &quot;x&quot;: 2750, &quot;y&quot;: 2750 },
+      &quot;velocity&quot;: { &quot;x&quot;: 250, &quot;y&quot;: 0 },
+      &quot;isProjectile&quot;: true,
+      &quot;damage&quot;: 30,
+      &quot;hitPause&quot;: 6
+    }
+  ]
+}
+</code></pre>
+<h2 id="dependenciesjson"><code>dependencies.json</code><a class="headerlink" href="#dependenciesjson" title="Permanent link">&para;</a></h2>
+<p>Optional. Declares assets from other packs that this entity needs, so they are loaded and shipped.</p>
+<pre><code class="language-json">{
+  &quot;entities&quot;: [{ &quot;packName&quot;: &quot;Classic&quot;, &quot;entityName&quot;: &quot;Shiva&quot; }],
+  &quot;sounds&quot;: [{ &quot;packName&quot;: &quot;Classic&quot;, &quot;soundName&quot;: &quot;29&quot; }]
+}
+</code></pre>
+<p>The file may also contain a literal <code>null</code>, which the editor writes for an entity with no declared dependencies. That is the same as the file being absent.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../logic-events/">Logic Events</a> for editor names.</li>
+<li><a href="../../entity-types-modes/">Behaviour Modes</a> for <code>objectMode</code> and <code>referenceBehaviour</code>.</li>
+<li><a href="../enums/">Enums and Identifiers</a> for the animation slot table and Classic entity names.</li>
+<li><a href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>.</li>
+<li><a href="../../classic-mechanics/">Classic Game Mechanics</a> for units, throw choreography, running, items, containers and AI as the original game implements them.</li>
+</ul>
+<h3 id="visual-afterimages">Visual afterimages<a class="headerlink" href="#visual-afterimages" title="Permanent link">&para;</a></h3>
+<p>Set <code>afterimages: true</code> on an <code>animationsLogic</code> entry to show recent player poses through the existing Ninpo shadow renderer. This is visual only: it does not enable clone attacks or add collision bodies. Defaults to false, is suppressed during cinematics, and rejects history from another entity or animation. Requires the generic authored-afterimage engine support.</p>
+<h3 id="weapon-health-budgets">Weapon health budgets<a class="headerlink" href="#weapon-health-budgets" title="Permanent link">&para;</a></h3>
+<p><code>logic.weaponHealth &gt; 0</code> opts a weapon into a health budget instead of Classic's drop counter. <code>weaponDropHealthCost</code> is consumed on landing or swap. <code>animationsLogic[].weaponHealthCost</code> charges on completion if at least one hit connected (misses and interrupted moves do not pay), while <code>hitboxes[].weaponHealthCost</code> charges per connected hitbox; both are independent of damage multipliers. Exhaustion drops the held weapon and its next landing expires it. All counters are in <code>ItemModel</code>, not Lua upvalues, and are restored by rollback. Zero-valued configuration preserves Classic behaviour. Normal attacks without authored wear do not consume health.</p>
+<p>Lua <code>item.weapon_health</code> reads/writes the rollback health counter, allowing original spawn or container tables to override the default budget. This does not enable the feature on entities whose <code>weaponHealth</code> configuration is zero.</p>
+<p><code>weaponContactHealthCost</code> optionally overrides a positive hitbox wear cost using the held weapon's own value. Zero preserves attack-authored costs. Zero-cost hitboxes remain free, and animation-completion fees are unaffected. Use this for weapons whose wear differs even when they share a character move.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../config/" class="btn btn-neutral float-left" title="Pack Config"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../levels/" class="btn btn-neutral float-right" title="Level Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../config/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../levels/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

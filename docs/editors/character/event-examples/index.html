@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/editors/character/event-examples/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Logic Event Examples - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Logic Event Examples";
+        var mkdocs_page_input_path = "editors\\character\\event-examples.md";
+        var mkdocs_page_url = "/docs/editors/character/event-examples/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Character Editor</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Logic Event Examples</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#runtime-rules-that-matter">Runtime Rules That Matter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jump-startup-with-events">Jump Startup With Events</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#aerial-spinning-kick">Aerial Spinning Kick</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#projectile-attack">Projectile Attack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#input-combo-special">Input Combo Special</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#button-cancel-window">Button Cancel Window</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hit-confirm-branch">Hit-Confirm Branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hitbox-into-grab">Hitbox Into Grab</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#teleport-or-step-offset">Teleport Or Step Offset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#health-cost-or-healing">Health Cost Or Healing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-value-marker">Custom Value Marker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#choosing-events-or-lua">Choosing Events Or Lua</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Editors</li>
+          <li class="breadcrumb-item">Character Editor</li>
+      <li class="breadcrumb-item active">Logic Event Examples</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="logic-event-examples">Logic Event Examples<a class="headerlink" href="#logic-event-examples" title="Permanent link">&para;</a></h1>
+<p>Logic events add behaviour to animations, effectively replacing the classic reference behaviour: play this sound at frame 2, set this velocity at frame 4, spawn this projectile at frame 9, branch when landing, branch when the player enters a command.</p>
+<p>Use events when the behaviour follows a fixed timeline. Use Lua when the move needs target searches, damage scaling, cooldowns, or conditional state machines.</p>
+<p>The examples below show the saved JSON so you can see exactly what each event stores. You build all of it through the <strong>Events</strong> section of the Inspector — see <a href="../logic-events/">Logic Events</a> for the interface.</p>
+<h2 id="runtime-rules-that-matter">Runtime Rules That Matter<a class="headerlink" href="#runtime-rules-that-matter" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Exact-frame events run only when <code>current_animation_frame</code> equals their <code>frame</code>.</li>
+<li>Windowed events use <code>afterFrame</code> and <code>beforeFrame</code>; if both are <code>0</code>, the event is active during the entirety of the animation.</li>
+<li>Events run before an animation's Lua script.</li>
+<li>Animation IDs in the engine are doubled internally, e.g. animation 7 has the ID 14 (or 0xD in hexadecimal).</li>
+<li><code>VelocityEvent</code> and <code>AccelerationEvent</code> take character facing direction into account: positive means moving forward, negative means moving backward.</li>
+<li>In velocity and acceleration events, positive Y means upward in editor terms; Internally, the engine stores them with the inverse value, i.e. upward impulse as negative, downwards as positive.</li>
+<li><code>VelocityEvent</code> and <code>AccelerationEvent</code> can enable or disable each affected axis. Disabled axis input boxes are ignored, which lets you set one component to zero while preserving the other components.</li>
+<li><code>InputVelocityEvent</code>, <code>InputAccelerationEvent</code>, <code>JumpToAnimationOnInputButton</code>, and <code>JumpToAnimationOnInputCombo</code> only act on players.</li>
+<li><code>JumpToAnimationOnHit</code> only acts on players and triggers when <code>hitPauseTimer == 1</code>.</li>
+<li><code>GrabEvent</code> needs <code>attackedCharacterId</code> to already point to a valid victim, usually because a hitbox connected earlier in the animation.</li>
+</ul>
+<h2 id="jump-startup-with-events">Jump Startup With Events<a class="headerlink" href="#jump-startup-with-events" title="Permanent link">&para;</a></h2>
+<p>This event stack starts an airborne move by setting upward velocity, then applies gravity. It is useful for a jump attack or special that should not need Lua.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.VelocityEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;velocity&quot;: { &quot;x&quot;: 90, &quot;y&quot;: 360, &quot;z&quot;: 0 }
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.AccelerationEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 1,
+    &quot;acceleration&quot;: { &quot;x&quot;: 0, &quot;y&quot;: -18, &quot;z&quot;: 0 }
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationOnLanding, Sor2NewEra&quot;,
+    &quot;initialFrame&quot;: 4,
+    &quot;animationId&quot;: 0,
+    &quot;animationFrame&quot;: 0
+  }
+]
+</code></pre>
+<p>Field notes:</p>
+<ul>
+<li><code>velocity.x</code> moves forward because the event multiplies it by facing direction.</li>
+<li><code>velocity.y</code> is written as positive upward in the event, then converted to negative internal vertical impulse.</li>
+<li><code>acceleration.y</code> is negative here because after conversion it becomes downward gravity.</li>
+<li><code>JumpToAnimationOnLanding</code> waits until <code>impulse.y &gt; 0</code>, the frame is at least <code>initialFrame</code>, and height has reached the ground.</li>
+</ul>
+<h2 id="aerial-spinning-kick">Aerial Spinning Kick<a class="headerlink" href="#aerial-spinning-kick" title="Permanent link">&para;</a></h2>
+<p>This is an event-only version of a forward aerial spinning special. It starts with a lift, moves forward, becomes briefly invincible, spawns sound, then returns to standing on landing.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;soundName&quot;: &quot;spin-start&quot;,
+    &quot;channel&quot;: 2
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.InvincibilityEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;invincible&quot;: true
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.VelocityEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;velocity&quot;: { &quot;x&quot;: 180, &quot;y&quot;: 250, &quot;z&quot;: 0 }
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.AccelerationEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 1,
+    &quot;acceleration&quot;: { &quot;x&quot;: -4, &quot;y&quot;: -12, &quot;z&quot;: 0 }
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.InputVelocityEvent, Sor2NewEra&quot;,
+    &quot;afterFrame&quot;: 2,
+    &quot;beforeFrame&quot;: 18,
+    &quot;strength&quot;: { &quot;x&quot;: 12, &quot;y&quot;: 6 }
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 8,
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;soundName&quot;: &quot;spin-loop&quot;,
+    &quot;channel&quot;: 2
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.InvincibilityEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 20,
+    &quot;invincible&quot;: false
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationOnLanding, Sor2NewEra&quot;,
+    &quot;initialFrame&quot;: 10,
+    &quot;animationId&quot;: 0,
+    &quot;animationFrame&quot;: 0
+  }
+]
+</code></pre>
+<p>Why this works:</p>
+<ul>
+<li>The first velocity starts the arc.</li>
+<li>Acceleration gradually removes forward speed and pulls the character down.</li>
+<li><code>InputVelocityEvent</code> adds held input to <code>velocity</code>, not impulse. That makes it a direct per-frame nudge during the active window.</li>
+<li>The landing event clamps height to ground and queues the standing animation.</li>
+<li>If this move also needs complex hit-pause rebound, a Lua script should handle the rebound and return <code>false</code> during the custom physics frames.</li>
+</ul>
+<h2 id="projectile-attack">Projectile Attack<a class="headerlink" href="#projectile-attack" title="Permanent link">&para;</a></h2>
+<p>A projectile attack usually needs two animations: the character's firing animation and the projectile item's active animation.</p>
+<p>Character firing animation:</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 6,
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;soundName&quot;: &quot;projectile-release&quot;,
+    &quot;channel&quot;: 2
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SpawnItemEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 7,
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;entityName&quot;: &quot;Energy Projectile&quot;,
+    &quot;animationId&quot;: 0,
+    &quot;mode&quot;: -1,
+    &quot;lifetime&quot;: 80,
+    &quot;positionOffset&quot;: { &quot;x&quot;: 1100, &quot;y&quot;: 0 },
+    &quot;velocity&quot;: { &quot;x&quot;: 520, &quot;y&quot;: 0 },
+    &quot;isProjectile&quot;: true,
+    &quot;damage&quot;: 8,
+    &quot;hitPause&quot;: 4,
+    &quot;hitSoundName&quot;: &quot;projectile-hit&quot;,
+    &quot;hitSoundPack&quot;: &quot;My Pack&quot;,
+    &quot;hitSoundChannel&quot;: 0
+  }
+]
+</code></pre>
+<p>Projectile impact animation:</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;soundName&quot;: &quot;projectile-impact&quot;,
+    &quot;channel&quot;: 0
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.DestroyEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 5
+  }
+]
+</code></pre>
+<p>Field notes:</p>
+<ul>
+<li><code>SpawnItemEvent.positionOffset</code> is converted by the engine and applied relative to the source convention. Test positive and negative values in-game because spawn helpers intentionally negate the stored offsets before calling the original item spawner.</li>
+<li><code>animationId</code> is the projectile's editor animation ID.</li>
+<li><code>isProjectile</code> enables projectile hit metadata: damage, hit pause, and hit sound.</li>
+<li>If the projectile needs custom movement, attach a Lua script to the projectile's active animation and let the spawn event handle only creation.</li>
+</ul>
+<h2 id="input-combo-special">Input Combo Special<a class="headerlink" href="#input-combo-special" title="Permanent link">&para;</a></h2>
+<p>Use <code>JumpToAnimationOnInputCombo</code> for command moves. This example watches for a quarter-turn-style chain during a normal animation and jumps to a special animation.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationOnInputCombo, Sor2NewEra&quot;,
+    &quot;afterFrame&quot;: 0,
+    &quot;beforeFrame&quot;: 12,
+    &quot;input&quot;: &quot;v&gt;b&quot;,
+    &quot;animationId&quot;: 42
+  }
+]
+</code></pre>
+<p>Field notes:</p>
+<ul>
+<li><code>input</code> is parsed by the player input chain parser.</li>
+<li>The event checks the player's input history, not just the current frame.</li>
+<li>When the chain matches, the event sets the target animation and returns <code>false</code> internally, stopping later event evaluation for that controller path.</li>
+</ul>
+<h2 id="button-cancel-window">Button Cancel Window<a class="headerlink" href="#button-cancel-window" title="Permanent link">&para;</a></h2>
+<p>This event lets an attack cancel into another animation only during frames 9 through 16.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationOnInputButton, Sor2NewEra&quot;,
+    &quot;afterFrame&quot;: 9,
+    &quot;beforeFrame&quot;: 16,
+    &quot;input&quot;: 16,
+    &quot;animationId&quot;: 18
+  }
+]
+</code></pre>
+<p><code>input</code> is the numeric <code>InputButtons</code> value. Common values are <code>16</code> for B (attack), <code>32</code> for C (jump), <code>64</code> for A (special), <code>65536</code> for X (back attack), <code>131072</code> for Y (pick-up), and <code>1048576</code> for Z (super move). Use this for simple cancels. Use Lua when the cancel depends on <code>hit_pause_timer</code>, <code>attacked_character_id</code>, or <code>custom_value_*</code>.</p>
+<h2 id="hit-confirm-branch">Hit-Confirm Branch<a class="headerlink" href="#hit-confirm-branch" title="Permanent link">&para;</a></h2>
+<p>This branch changes animation when the player's hitbox connects during a window. Internally it checks <code>hitPauseTimer == 1</code>, so it reacts to the first hit-pause frame.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationOnHit, Sor2NewEra&quot;,
+    &quot;afterFrame&quot;: 5,
+    &quot;beforeFrame&quot;: 18,
+    &quot;animationId&quot;: 27
+  }
+]
+</code></pre>
+<p>Use this when the follow-up should happen only after contact. If the move must distinguish blocked hits, projectiles, wall hits, or different victims, use Lua.</p>
+<h2 id="hitbox-into-grab">Hitbox Into Grab<a class="headerlink" href="#hitbox-into-grab" title="Permanent link">&para;</a></h2>
+<p>Use <code>GrabEvent</code> when a hitbox should convert into a grab. The hitbox must have already set <code>attackedCharacterId</code>.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.GrabEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 6
+  },
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.JumpToAnimationEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 7,
+    &quot;animationId&quot;: 4,
+    &quot;animationFrame&quot;: 0
+  }
+]
+</code></pre>
+<p>Authoring notes:</p>
+<ul>
+<li>Place the hitbox on the same frame or an earlier frame than the <code>GrabEvent</code>.</li>
+<li>Let the animation recover naturally may the hit grab miss.</li>
+<li>For scripted throws, events can start the grab, then a Lua grab controller can own victim positioning.</li>
+</ul>
+<h2 id="teleport-or-step-offset">Teleport Or Step Offset<a class="headerlink" href="#teleport-or-step-offset" title="Permanent link">&para;</a></h2>
+<p><code>PositionOffsetEvent</code> changes real position immediately and marks the object as teleported for the animation system.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.PositionOffsetEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 3,
+    &quot;offset&quot;: { &quot;x&quot;: 24, &quot;y&quot;: 0, &quot;z&quot;: -8 }
+  }
+]
+</code></pre>
+<p>Field notes:</p>
+<ul>
+<li><code>offset.x</code> follows facing direction.</li>
+<li><code>offset.z</code> moves along the belt-scroller depth axis.</li>
+<li><code>offset.y</code> is added to vertical velocity, not height position directly.</li>
+<li>Use this for short steps, snaps, and throw alignment. Use Lua if the offset depends on target position.</li>
+</ul>
+<h2 id="health-cost-or-healing">Health Cost Or Healing<a class="headerlink" href="#health-cost-or-healing" title="Permanent link">&para;</a></h2>
+<p><code>HealthEvent</code> adds or removes to health. Use a negative value for a health cost.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.HealthEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;health&quot;: -8
+  }
+]
+</code></pre>
+<p>Common scenario is for health cost during a custom special move.
+For moves that are not classic specials and should fail if health is too low, use Lua. This event itself always applies the value, ideal for use in classic special moves.</p>
+<h2 id="custom-value-marker">Custom Value Marker<a class="headerlink" href="#custom-value-marker" title="Permanent link">&para;</a></h2>
+<p>Use <code>SetCustomValueEvent</code> when events need to communicate with Lua scripts or global hooks.</p>
+<pre><code class="language-json">[
+  {
+    &quot;$type&quot;: &quot;Sor2NewEra.Gameplay.SetCustomValueEvent, Sor2NewEra&quot;,
+    &quot;frame&quot;: 0,
+    &quot;valueId&quot;: 1,
+    &quot;value&quot;: 3
+  }
+]
+</code></pre>
+<p>Example use: set <code>custom_value_1</code> to <code>3</code> at the start of a move, then have a shared Lua air-control script choose a movement profile from that value.</p>
+<h2 id="choosing-events-or-lua">Choosing Events Or Lua<a class="headerlink" href="#choosing-events-or-lua" title="Permanent link">&para;</a></h2>
+<p>Use events when the answer is fixed by frame number:</p>
+<ul>
+<li>play sound</li>
+<li>start movement</li>
+<li>spawn item</li>
+<li>toggle invincibility</li>
+<li>jump on landing</li>
+<li>branch on simple input</li>
+</ul>
+<p>Use Lua when the answer depends on runtime state:</p>
+<ul>
+<li>target distance</li>
+<li>current health or meter</li>
+<li>victim existence</li>
+<li>hitbox result with custom recoil</li>
+<li>weapon type</li>
+<li>multiple hits with cooldowns</li>
+<li>grab victim alignment</li>
+<li>enemy AI phase</li>
+</ul>
+<p>Event-driven moves and Lua scripts can be combined. A good pattern is events for the predictable timeline and Lua for the exceptional branches.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../logic-events/" class="btn btn-neutral float-left" title="Logic Events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../weapon-specific-animation/" class="btn btn-neutral float-right" title="Weapon-Specific Animation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../logic-events/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../weapon-specific-animation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

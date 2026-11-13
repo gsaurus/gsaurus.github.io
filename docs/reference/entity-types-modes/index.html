@@ -1,0 +1,7277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/reference/entity-types-modes/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Entity Types and Behaviour Modes - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Entity Types and Behaviour Modes";
+        var mkdocs_page_input_path = "reference\\entity-types-modes.md";
+        var mkdocs_page_url = "/docs/reference/entity-types-modes/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Entity Types and Behaviour Modes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#animation-event-override">Animation event override</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#player-modes">Player Modes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#max">Max</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#axel">Axel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blaze">Blaze</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skate">Skate</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enemy-modes">Enemy Modes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#galsia">Galsia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#donovan">Donovan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jack">Jack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#barbon">Barbon</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#electra">Electra</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signal">Signal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#biker">Biker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ninja">Ninja</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bongo">Bongo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hakuyo">Hakuyo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kickboxer">Kickboxer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jet">Jet</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zamza">Zamza</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rbear">R.Bear</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#abadede">Abadede</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#particle">Particle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mrx">Mr.X</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shiva">Shiva</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ninja-kunai">Ninja (Kunai)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ninja-sword">Ninja (Sword)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blast">Blast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vehelits">Vehelits</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#item-modes">Item Modes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#knife">Knife</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pipe">Pipe</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#galsia-2">Galsia (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sword">Sword</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kunai">Kunai</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grenade">Grenade</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#galsia-3">Galsia (3)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#barbon-jacket">Barbon Jacket</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bin">Bin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#manhole">Manhole</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lamp">Lamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#menu">Menu</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#table">Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#table-2">Table (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#table-3">Table (3)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#table-4">Table (4)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chair">Chair</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trash-can">Trash Can</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oil-barrel">Oil Barrel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#truck-door-debris">Truck door debris</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#truck-door-debris-2">Truck door debris (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#electric-box">Electric box</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#electric-box-2">Electric box (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#barrier">Barrier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#light">Light</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arcade">Arcade</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ship-pole">Ship Pole</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obj-2">Obj 2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obj-3">Obj 3</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obj-4">Obj 4</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sandbag">Sandbag</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sandbag-2">Sandbag (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sandbag-3">Sandbag (3)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sandbag-4">Sandbag (4)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#crate">Crate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obj-5">Obj 5</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vehelits-2">Vehelits (2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metal-crate">Metal Crate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vase">Vase</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alien-egg">Alien Egg</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cash-bag">Cash Bag</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gold-bars">Gold Bars</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#1up">1UP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apple">Apple</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chicken">Chicken</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+      <li class="breadcrumb-item active">Entity Types and Behaviour Modes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="behaviour-modes">Behaviour Modes<a class="headerlink" href="#behaviour-modes" title="Permanent link">&para;</a></h1>
+<p>Behaviour fields store the same <code>objectMode</code> values used by the Unity runtime move tables. For players and enemies, the mode value is <code>controller array index * 2</code>. For items, the mode value is <code>(controller array index + 1) * 2</code>, because item mode <code>0x02</code> selects the first item controller.</p>
+<p>The editor behaviour picker is generated from <code>PlayersMoves.cs</code>, <code>EnemiesMoves.cs</code>, and <code>ItemsMoves.cs</code>. For animation Behaviour, the reference picker is limited by the edited character's Classic base: playable characters can reference only the four classic playable characters, enemies can reference classic enemies, and items can reference classic items. The behaviour list then comes from the selected reference entity.</p>
+<h2 id="animation-event-override">Animation event override<a class="headerlink" href="#animation-event-override" title="Permanent link">&para;</a></h2>
+<p>If an animation defines any logic events, those events override the default behaviour for that animation. In game, a local animation with events applies those events and the local default physics step, then skips the referenced classic move controller. This prevents original mode side effects such as forced mode changes, timers, hard-coded spawns, damage transitions, or special-case movement from leaking into custom event-based animations.</p>
+<p>Scripts can still provide custom logic. Animation Behaviour and fallback classic behaviour only run for animations without events.</p>
+<h2 id="player-modes">Player Modes<a class="headerlink" href="#player-modes" title="Permanent link">&para;</a></h2>
+<h3 id="max">Max<a class="headerlink" href="#max" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>StandingMoveController</code></td>
+<td>Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BeingHitMoveController</code></td>
+<td>Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>DeathMoveController</code></td>
+<td>Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>RespawnMoveController</code></td>
+<td>Respawn</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>KnockOutMoveController</code></td>
+<td>Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>BeingFrontGrabbedMoveController</code></td>
+<td>Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>BeingBackGrabbedMoveController</code></td>
+<td>Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>AttackComboMoveController</code></td>
+<td>Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>GrabAttackComboMoveController</code></td>
+<td>Grab Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>JumpMoveController</code></td>
+<td>Jump</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>GrabbingForwardMoveController</code></td>
+<td>Grabbing Forward</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>GrabbingBackwardMoveController</code></td>
+<td>Grabbing Backward</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>FrontGrabThrowMoveController</code></td>
+<td>Front Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BackGrabThrowMoveController</code></td>
+<td>Back Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>MaxGrabJumpMoveController</code></td>
+<td>Max Grab Jump</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>MaxDefSpecialMoveController</code></td>
+<td>Max Def Special</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>MaxBlitzMoveController</code></td>
+<td>Max Blitz</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>MaxOffSpecialMoveController</code></td>
+<td>Max Off Special</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>AlternativeGrabAttackMoveController</code></td>
+<td>Alternative Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>PickItemMoveController</code></td>
+<td>Pick Item</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>WeaponThrowMoveController</code></td>
+<td>Weapon Throw</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>WeaponAttackMoveController</code></td>
+<td>Weapon Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnterScreenMoveController</code></td>
+<td>Enter Screen</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>SelectCharacterToContinueController</code></td>
+<td>Select Character To Continue</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>PressStartToJoinController</code></td>
+<td>Press Start To Join</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>SelectContinueOrGameOverController</code></td>
+<td>Select Continue Or Game Over</td>
+</tr>
+</tbody>
+</table>
+<h3 id="axel">Axel<a class="headerlink" href="#axel" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>StandingMoveController</code></td>
+<td>Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BeingHitMoveController</code></td>
+<td>Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>DeathMoveController</code></td>
+<td>Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>RespawnMoveController</code></td>
+<td>Respawn</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>KnockOutMoveController</code></td>
+<td>Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>BeingFrontGrabbedMoveController</code></td>
+<td>Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>BeingBackGrabbedMoveController</code></td>
+<td>Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>AttackComboMoveController</code></td>
+<td>Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>GrabAttackComboMoveController</code></td>
+<td>Grab Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>JumpMoveController</code></td>
+<td>Jump</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>GrabbingForwardMoveController</code></td>
+<td>Grabbing Forward</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>GrabbingBackwardMoveController</code></td>
+<td>Grabbing Backward</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>FrontGrabThrowMoveController</code></td>
+<td>Front Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BackGrabThrowMoveController</code></td>
+<td>Back Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>VaultMoveController</code></td>
+<td>Vault</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>AxelDefSpecialMoveController</code></td>
+<td>Axel Def Special</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>AxelBlitzMoveController</code></td>
+<td>Axel Blitz</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>AxelOffSpecialMoveController</code></td>
+<td>Axel Off Special</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>AlternativeGrabAttackMoveController</code></td>
+<td>Alternative Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>PickItemMoveController</code></td>
+<td>Pick Item</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>WeaponThrowMoveController</code></td>
+<td>Weapon Throw</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>WeaponAttackMoveController</code></td>
+<td>Weapon Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnterScreenMoveController</code></td>
+<td>Enter Screen</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>SelectCharacterToContinueController</code></td>
+<td>Select Character To Continue</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>PressStartToJoinController</code></td>
+<td>Press Start To Join</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>SelectContinueOrGameOverController</code></td>
+<td>Select Continue Or Game Over</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>PlayerShivaTHrowWeaponController</code></td>
+<td>Player Shiva T Hrow Weapon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="blaze">Blaze<a class="headerlink" href="#blaze" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>StandingMoveController</code></td>
+<td>Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BeingHitMoveController</code></td>
+<td>Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>DeathMoveController</code></td>
+<td>Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>RespawnMoveController</code></td>
+<td>Respawn</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>KnockOutMoveController</code></td>
+<td>Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>BeingFrontGrabbedMoveController</code></td>
+<td>Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>BeingBackGrabbedMoveController</code></td>
+<td>Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>AttackComboMoveController</code></td>
+<td>Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>GrabAttackComboMoveController</code></td>
+<td>Grab Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>JumpMoveController</code></td>
+<td>Jump</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>GrabbingForwardMoveController</code></td>
+<td>Grabbing Forward</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>GrabbingBackwardMoveController</code></td>
+<td>Grabbing Backward</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>FrontGrabThrowMoveController</code></td>
+<td>Front Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BackGrabThrowMoveController</code></td>
+<td>Back Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>VaultMoveController</code></td>
+<td>Vault</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>BlazeDefSpecialMoveController</code></td>
+<td>Blaze Def Special</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>BlazeBlitzMoveController</code></td>
+<td>Blaze Blitz</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>BlazeOffSpecialMoveController</code></td>
+<td>Blaze Off Special</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>AlternativeGrabAttackMoveController</code></td>
+<td>Alternative Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>PickItemMoveController</code></td>
+<td>Pick Item</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>WeaponThrowMoveController</code></td>
+<td>Weapon Throw</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>WeaponAttackMoveController</code></td>
+<td>Weapon Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnterScreenMoveController</code></td>
+<td>Enter Screen</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>SelectCharacterToContinueController</code></td>
+<td>Select Character To Continue</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>PressStartToJoinController</code></td>
+<td>Press Start To Join</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>SelectContinueOrGameOverController</code></td>
+<td>Select Continue Or Game Over</td>
+</tr>
+</tbody>
+</table>
+<h3 id="skate">Skate<a class="headerlink" href="#skate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>StandingMoveController</code></td>
+<td>Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BeingHitMoveController</code></td>
+<td>Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>DeathMoveController</code></td>
+<td>Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>RespawnMoveController</code></td>
+<td>Respawn</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>KnockOutMoveController</code></td>
+<td>Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>BeingFrontGrabbedMoveController</code></td>
+<td>Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>BeingBackGrabbedMoveController</code></td>
+<td>Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>BeingThrownMoveController</code></td>
+<td>Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>AttackComboMoveController</code></td>
+<td>Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>GrabAttackComboMoveController</code></td>
+<td>Grab Attack Combo</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>JumpMoveController</code></td>
+<td>Jump</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>GrabbingForwardMoveController</code></td>
+<td>Grabbing Forward</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>GrabbingBackwardMoveController</code></td>
+<td>Grabbing Backward</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>FrontGrabThrowMoveController</code></td>
+<td>Front Grab Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>AlternativeGrabAttackMoveController</code></td>
+<td>Alternative Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>VaultMoveController</code></td>
+<td>Vault</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>SkateDefSpecialMoveController</code></td>
+<td>Skate Def Special</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>SkateBlitzMoveController</code></td>
+<td>Skate Blitz</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>SkateOffSpecialMoveController</code></td>
+<td>Skate Off Special</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>SkateThrowMoveController</code></td>
+<td>Skate Throw</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>PickItemMoveController</code></td>
+<td>Pick Item</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>WeaponThrowMoveController</code></td>
+<td>Weapon Throw</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>WeaponAttackMoveController</code></td>
+<td>Weapon Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnterScreenMoveController</code></td>
+<td>Enter Screen</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>SelectCharacterToContinueController</code></td>
+<td>Select Character To Continue</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>PressStartToJoinController</code></td>
+<td>Press Start To Join</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>SelectContinueOrGameOverController</code></td>
+<td>Select Continue Or Game Over</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enemy-modes">Enemy Modes<a class="headerlink" href="#enemy-modes" title="Permanent link">&para;</a></h2>
+<h3 id="galsia">Galsia<a class="headerlink" href="#galsia" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>GalsiaStandingController</code></td>
+<td>Galsia Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>GalsiaInitializationController</code></td>
+<td>Galsia Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyDistanceActivationController</code></td>
+<td>Enemy Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>DonovanManholeController</code></td>
+<td>Donovan Manhole</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>GalsiaFallFromSkyController</code></td>
+<td>Galsia Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>KnifeGalsiaController</code></td>
+<td>Knife Galsia</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>StandLyingDownController</code></td>
+<td>Stand Lying Down</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>GalsiaStandUpController_14336</code></td>
+<td>Galsia Stand Up</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>GalsiaFallFromSkyDistanceActivationController</code></td>
+<td>Galsia Fall From Sky Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>GalsiaController_143B4</code></td>
+<td>Galsia</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>StandLookingRightController</code></td>
+<td>Stand Looking Right</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>GalsiaPickUpWeaponController</code></td>
+<td>Galsia Pick Up Weapon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="donovan">Donovan<a class="headerlink" href="#donovan" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>GalsiaStandingController</code></td>
+<td>Galsia Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>GalsiaInitializationController</code></td>
+<td>Galsia Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyDistanceActivationController</code></td>
+<td>Enemy Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>DonovanManholeController</code></td>
+<td>Donovan Manhole</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>GalsiaFallFromSkyController</code></td>
+<td>Galsia Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>KnifeGalsiaController</code></td>
+<td>Knife Galsia</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>StandLyingDownController</code></td>
+<td>Stand Lying Down</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>GalsiaStandUpController_14336</code></td>
+<td>Galsia Stand Up</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>GalsiaFallFromSkyDistanceActivationController</code></td>
+<td>Galsia Fall From Sky Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>GalsiaController_143B4</code></td>
+<td>Galsia</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>StandLookingRightController</code></td>
+<td>Stand Looking Right</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>GalsiaPickUpWeaponController</code></td>
+<td>Galsia Pick Up Weapon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jack">Jack<a class="headerlink" href="#jack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>JackStandingController</code></td>
+<td>Jack Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>JackInitializationController</code></td>
+<td>Jack Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>JackPullKnifeController</code></td>
+<td>Jack Pull Knife</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>JackStabController</code></td>
+<td>Jack Stab</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>JackThrowKnifeController</code></td>
+<td>Jack Throw Knife</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>JackEnterFadeIn</code></td>
+<td>Jack Enter Fade In</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>JackController_14AD6</code></td>
+<td>Jack</td>
+</tr>
+</tbody>
+</table>
+<h3 id="barbon">Barbon<a class="headerlink" href="#barbon" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>BarbonStandingController</code></td>
+<td>Barbon Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BarbonBeingHitController_1572E</code></td>
+<td>Barbon Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>BarbonInitializationController</code></td>
+<td>Barbon Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>BarbonThrowController_15682</code></td>
+<td>Barbon Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>BarbonThrowController_15682</code></td>
+<td>Barbon Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>BarbonRoundKickController_1562A</code></td>
+<td>Barbon Round Kick</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BarbonController_156DC</code></td>
+<td>Barbon</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>BarbonWaitingBehindTheBarController</code></td>
+<td>Barbon Waiting Behind The Bar</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>BarbonBarMoveRightController_1543C</code></td>
+<td>Barbon Bar Move Right</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>BarbonTornJacket_154A8</code></td>
+<td>Barbon Torn Jacket</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>BarbonBlockRecoilController_157CA</code></td>
+<td>Barbon Block Recoil</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>BarbonBlockController_15826</code></td>
+<td>Barbon Block</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>BarbonBackAlleyWaitingController_15458</code></td>
+<td>Barbon Back Alley Waiting</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>BarbonStartFallingFromSkyController_15882</code></td>
+<td>Barbon Start Falling From Sky</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>BarbonFallFromSkyController_158AA</code></td>
+<td>Barbon Fall From Sky</td>
+</tr>
+</tbody>
+</table>
+<h3 id="electra">Electra<a class="headerlink" href="#electra" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ElectraStandingController</code></td>
+<td>Electra Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>ElectraInitializationController</code></td>
+<td>Electra Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>ElectraBarWaitingController</code></td>
+<td>Electra Bar Waiting</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>ElectraBarActivationController</code></td>
+<td>Electra Bar Activation</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>ElectraElectricWhipAttackController</code></td>
+<td>Electra Electric Whip Attack</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>ElectraFlyKickController</code></td>
+<td>Electra Fly Kick</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>ElectraShawlBitController</code></td>
+<td>Electra Shawl Bit</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>ElectraHandBitController</code></td>
+<td>Electra Hand Bit</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>Electra_UNUSED_Controller_1622A</code></td>
+<td>Electra_UNUSED_</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>Electra_UNUSED_Controller_1624A</code></td>
+<td>Electra_UNUSED_</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>Electra_UNUSED_Controller_1623E</code></td>
+<td>Electra_UNUSED_</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>ElectraWaitToFallController_162E0</code></td>
+<td>Electra Wait To Fall</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>ElectraInitiateFallController_16306</code></td>
+<td>Electra Initiate Fall</td>
+</tr>
+</tbody>
+</table>
+<h3 id="signal">Signal<a class="headerlink" href="#signal" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>SignalStandingController</code></td>
+<td>Signal Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>SignalInitializationController</code></td>
+<td>Signal Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>SignalJumpInActivationController</code></td>
+<td>Signal Jump In Activation</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>SignalThrowController</code></td>
+<td>Signal Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>SignalThrowController</code></td>
+<td>Signal Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>SignalSlideController</code></td>
+<td>Signal Slide</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>SignalFaceBackAndReturnToStandingController</code></td>
+<td>Signal Face Back And Return To Standing</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>SignalJumpingInController</code></td>
+<td>Signal Jumping In</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>SignalDistanceActivationController</code></td>
+<td>Signal Distance Activation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="biker">Biker<a class="headerlink" href="#biker" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>BikerStandingController_1C5CA</code></td>
+<td>Biker Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BikerBeingHitController_1CFEC</code></td>
+<td>Biker Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>BikerDeathController_1CFF8</code></td>
+<td>Biker Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>BikerKnockOutController_1D004</code></td>
+<td>Biker Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>BikerInitializationController_1C2EA</code></td>
+<td>Biker Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>BikerController_1CB80</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>BikerGrabController_1D436</code></td>
+<td>Biker Grab</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>BikerGrabController_1D436</code></td>
+<td>Biker Grab</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>BikerBikeCrashController_1D0E8</code></td>
+<td>Biker Bike Crash</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>EnemyDistanceActivationController</code></td>
+<td>Enemy Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>BikerSitWaitingController_1D4C2</code></td>
+<td>Biker Sit Waiting</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>BikerWaitForFirstEnemyToDieController_1D49A</code></td>
+<td>Biker Wait For First Enemy To Die</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>BikerWaitForFirstEnemyToDieController_1D49A</code></td>
+<td>Biker Wait For First Enemy To Die</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>BikerWaitForFirstEnemyToDieController_1D49A</code></td>
+<td>Biker Wait For First Enemy To Die</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>BikerController_1CBDA</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>BikerController_1CC2C</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>BikerController_1D276</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>BikerBackgroundJumpController_1D206</code></td>
+<td>Biker Background Jump</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>BikerController_1CCEE</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>BikerGrenadeThrowController_1CD88</code></td>
+<td>Biker Grenade Throw</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>BikerController_1CE98</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td>60</td>
+<td><code>BikerBikeRidingAirController_1CEE0</code></td>
+<td>Biker Bike Riding Air</td>
+</tr>
+<tr>
+<td><code>0x3E</code></td>
+<td>62</td>
+<td><code>BikerRidingController_1CF2E</code></td>
+<td>Biker Riding</td>
+</tr>
+<tr>
+<td><code>0x40</code></td>
+<td>64</td>
+<td><code>BikerBackgroundThrowGrenadeController_1D30E</code></td>
+<td>Biker Background Throw Grenade</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td>66</td>
+<td><code>BikerBikeRidingInitializationController_1CA04</code></td>
+<td>Biker Bike Riding Initialization</td>
+</tr>
+<tr>
+<td><code>0x44</code></td>
+<td>68</td>
+<td><code>BikerController_1CB72</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x46</code></td>
+<td>70</td>
+<td><code>BikerController_1D52A</code></td>
+<td>Biker</td>
+</tr>
+<tr>
+<td><code>0x48</code></td>
+<td>72</td>
+<td><code>BikerController_1D2EE</code></td>
+<td>Biker</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ninja">Ninja<a class="headerlink" href="#ninja" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>NinjaStandingController_1AD20</code></td>
+<td>Ninja Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>NinjaInitializationController_1AA0E</code></td>
+<td>Ninja Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>NinjaThrowController_1BA82</code></td>
+<td>Ninja Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>NinjaSingleShurikenController_1BAD4</code></td>
+<td>Ninja Single Shuriken</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>NinjaShurikenMovementController_1BBD0</code></td>
+<td>Ninja Shuriken Movement</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>NinjaController_1BC46</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>NinjaController_1BC86</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>NinjaShurikenDisappearController_1BCB6</code></td>
+<td>Ninja Shuriken Disappear</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>NinjaInitJumpController_1BCE6</code></td>
+<td>Ninja Init Jump</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>NinjaJumpController_1BD34</code></td>
+<td>Ninja Jump</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>NinjaController_1BDA6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>NinjaJumpAttackController_1BDBE</code></td>
+<td>Ninja Jump Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>NinjaTrippleShurikenController_1BE08</code></td>
+<td>Ninja Tripple Shuriken</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>NinjaEvadeController_1BF84</code></td>
+<td>Ninja Evade</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>NinjaController_1BFD6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td>60</td>
+<td><code>NinjaController_1C004</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3E</code></td>
+<td>62</td>
+<td><code>NinjaController_1C07A</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x40</code></td>
+<td>64</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td>66</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x44</code></td>
+<td>68</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x46</code></td>
+<td>70</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x48</code></td>
+<td>72</td>
+<td><code>NinjaWaitingHookedController_1C092</code></td>
+<td>Ninja Waiting Hooked</td>
+</tr>
+<tr>
+<td><code>0x4A</code></td>
+<td>74</td>
+<td><code>NinjaController_1C0E6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x4C</code></td>
+<td>76</td>
+<td><code>NinjaBeforeInitJumpController_1C0B8</code></td>
+<td>Ninja Before Init Jump</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bongo">Bongo<a class="headerlink" href="#bongo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>BongoStandingController_16DD6</code></td>
+<td>Bongo Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>BongoInitializationController_16BBE</code></td>
+<td>Bongo Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>BongoJumpKickController_172EA</code></td>
+<td>Bongo Jump Kick</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>BongoSquashController_173DC</code></td>
+<td>Bongo Squash</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>BongoBreathInBeforeFireThrowController_170F4</code></td>
+<td>Bongo Breath In Before Fire Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BongoFireThrowMovementController_17132</code></td>
+<td>Bongo Fire Throw Movement</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>BongoFireParticleController_1722A</code></td>
+<td>Bongo Fire Particle</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>BongoWaitToFallController_1744A</code></td>
+<td>Bongo Wait To Fall</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>BongoInitiateFallController_17470</code></td>
+<td>Bongo Initiate Fall</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>BongoFallController_174BA</code></td>
+<td>Bongo Fall</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hakuyo">Hakuyo<a class="headerlink" href="#hakuyo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>HakuyoStandingController_18752</code></td>
+<td>Hakuyo Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>HakuyoInitializationController_1851E</code></td>
+<td>Hakuyo Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>HakuyoFireFistController_18B7C</code></td>
+<td>Hakuyo Fire Fist</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>HakuyoJumpController_18A54</code></td>
+<td>Hakuyo Jump</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>HakuyoJumpKickController_18B44</code></td>
+<td>Hakuyo Jump Kick</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>HakuyoController_18BCE</code></td>
+<td>Hakuyo</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>HakuyoInitJumpController_18BF4</code></td>
+<td>Hakuyo Init Jump</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kickboxer">Kickboxer<a class="headerlink" href="#kickboxer" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>KickboxerStandingController_1930A</code></td>
+<td>Kickboxer Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>KickboxerInitializationController_190D6</code></td>
+<td>Kickboxer Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>KickboxerGrabKnockoutKickController_19866</code></td>
+<td>Kickboxer Grab Knockout Kick</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>KickboxerGrabKneeController_197F6</code></td>
+<td>Kickboxer Grab Knee</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>KickboxerGrabKneeController_197F6</code></td>
+<td>Kickboxer Grab Knee</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>KickboxerJumpKneeController_1968E</code></td>
+<td>Kickboxer Jump Knee</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>KickboxerBlockController_198BE</code></td>
+<td>Kickboxer Block</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>KickboxerCheckDistanceToFallFromSkyController_19924</code></td>
+<td>Kickboxer Check Distance To Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>KickboxerInitFallFromSkyController_1994A</code></td>
+<td>Kickboxer Init Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>KickboxerFallFromSkyController_19972</code></td>
+<td>Kickboxer Fall From Sky</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jet">Jet<a class="headerlink" href="#jet" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>JetStandingController_19CE8</code></td>
+<td>Jet Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>JetKnockOutController_1A0C6</code></td>
+<td>Jet Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>JetBeingBackGrabbedController_1A798</code></td>
+<td>Jet Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>JetInitializationController_19A2C</code></td>
+<td>Jet Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>JetRocketPunchController_1A4A8</code></td>
+<td>Jet Rocket Punch</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>JetController_1A26E</code></td>
+<td>Jet</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>JetRocketSlamController_1A5CE</code></td>
+<td>Jet Rocket Slam</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>JetRocketSlamController_1A5CE</code></td>
+<td>Jet Rocket Slam</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>JetPrepareRocketKickController_1A314</code></td>
+<td>Jet Prepare Rocket Kick</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>JetRocketKickController_1A376</code></td>
+<td>Jet Rocket Kick</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>JetController_1A3FE</code></td>
+<td>Jet</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>JetDropChargeController_1A420</code></td>
+<td>Jet Drop Charge</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>JetDropRocketPunchController_1A45C</code></td>
+<td>Jet Drop Rocket Punch</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>JetDropThrowController_1A4FA</code></td>
+<td>Jet Drop Throw</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>JetDropRocketSlamController_1A624</code></td>
+<td>Jet Drop Rocket Slam</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>JetOnDropSlamController_1A65E</code></td>
+<td>Jet On Drop Slam</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>JetAfterDropSlamController_1A722</code></td>
+<td>Jet After Drop Slam</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>JetGrabEscapeController_1A86E</code></td>
+<td>Jet Grab Escape</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>JetController_1A77E</code></td>
+<td>Jet</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>JetController_1A8CC</code></td>
+<td>Jet</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>JetController_1A904</code></td>
+<td>Jet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zamza">Zamza<a class="headerlink" href="#zamza" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ZamzaStandingController_1783C</code></td>
+<td>Zamza Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ZamzaBeingHitController_17E7C</code></td>
+<td>Zamza Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ZamzaKnockOutController_17C4A</code></td>
+<td>Zamza Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>ZamzaInitializationController_1759C</code></td>
+<td>Zamza Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>ZamzaController_17BAC</code></td>
+<td>Zamza</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>ZamzaThrowController_17BF2</code></td>
+<td>Zamza Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>ZamzaThrowController_17BF2</code></td>
+<td>Zamza Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>ZamzaStartJumpController_17FC4</code></td>
+<td>Zamza Start Jump</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>ZamzaJumpRollController_18040</code></td>
+<td>Zamza Jump Roll</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>ZamzaController_18116</code></td>
+<td>Zamza</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>ZamzaBlockController_17F10</code></td>
+<td>Zamza Block</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>ZamzaThrowEndController_17E30</code></td>
+<td>Zamza Throw End</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>ZamzaSlideController_1812E</code></td>
+<td>Zamza Slide</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>ZamzaPrepareRollAttackController_181A2</code></td>
+<td>Zamza Prepare Roll Attack</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>ZamzaRollController_181D4</code></td>
+<td>Zamza Roll</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>ZamzaJumpKickController_1804A</code></td>
+<td>Zamza Jump Kick</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>ZamzaUppercutController_1823E</code></td>
+<td>Zamza Uppercut</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>ZamzaShadowInitializationController_1830E</code></td>
+<td>Zamza Shadow Initialization</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>ZamzaShadowDropController_18364</code></td>
+<td>Zamza Shadow Drop</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>ZamzaShadowStay1Controller_183A4</code></td>
+<td>Zamza Shadow Stay1</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>ZamzaShadowStay2Controller_183C6</code></td>
+<td>Zamza Shadow Stay2</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>ZamzaShadowFadeInController_183D8</code></td>
+<td>Zamza Shadow Fade In</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td>60</td>
+<td><code>ZamzaReadyToFallFromSkyController_1845A</code></td>
+<td>Zamza Ready To Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x3E</code></td>
+<td>62</td>
+<td><code>ZamzaFallFromSkyController_1847A</code></td>
+<td>Zamza Fall From Sky</td>
+</tr>
+<tr>
+<td><code>0x40</code></td>
+<td>64</td>
+<td><code>ZamzaReturnToStandingAfterFallingController_184C6</code></td>
+<td>Zamza Return To Standing After Falling</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rbear">R.Bear<a class="headerlink" href="#rbear" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>BearStandingController_1201A</code></td>
+<td>Bear Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>BearBeingBackGrabbedController_12560</code></td>
+<td>Bear Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>BearInitializationController_11E0C</code></td>
+<td>Bear Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>BearPunchController_124A2</code></td>
+<td>Bear Punch</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>BearGrabAttackController_1236A</code></td>
+<td>Bear Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>BearGrabAttackController_1236A</code></td>
+<td>Bear Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>BearDashController_125AA</code></td>
+<td>Bear Dash</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>BearCrushController_1265A</code></td>
+<td>Bear Crush</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>BearUppercutController_127EC</code></td>
+<td>Bear Uppercut</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>BearDistanceActivationController_1288A</code></td>
+<td>Bear Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>BearInitializeFallController_128BE</code></td>
+<td>Bear Initialize Fall</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>BearFallController_128E6</code></td>
+<td>Bear Fall</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>BearController_12462</code></td>
+<td>Bear</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>BearHeadbuttController_123EE</code></td>
+<td>Bear Headbutt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="abadede">Abadede<a class="headerlink" href="#abadede" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>AbadedeStandingController_12C00</code></td>
+<td>Abadede Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>AbadedeBeingHitController_13180</code></td>
+<td>Abadede Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>AbadedeBeingFrontGrabbedController_137A4</code></td>
+<td>Abadede Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>AbadedeBeingBackGrabbedController_13826</code></td>
+<td>Abadede Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>AbadedeInitializationController_129DA</code></td>
+<td>Abadede Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>AbadedeController_1342A</code></td>
+<td>Abadede</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>AbadedeController_13400</code></td>
+<td>Abadede</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>AbadedeInitBackSlamController_138F6</code></td>
+<td>Abadede Init Back Slam</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>AbadedeInitBackSlamController_138F6</code></td>
+<td>Abadede Init Back Slam</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>AbadedeJumpAttackController_135F6</code></td>
+<td>Abadede Jump Attack</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>AbadedeDefSpecialController_129B0</code></td>
+<td>Abadede Def Special</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>AbadedeThrowController_1323A</code></td>
+<td>Abadede Throw</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>AbadedeInitHeadBashController_13306</code></td>
+<td>Abadede Init Head Bash</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>AbadedeHeadBashContinuationController_1339C</code></td>
+<td>Abadede Head Bash Continuation</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>AbadedeDistanceActivationController_138C0</code></td>
+<td>Abadede Distance Activation</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>AbadedeRunController_134CC</code></td>
+<td>Abadede Run</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>AbadedeBlitzController_135BA</code></td>
+<td>Abadede Blitz</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>AbadedeController_13954</code></td>
+<td>Abadede</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>AbadedeController_139AA</code></td>
+<td>Abadede</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>AbadedeFallFromSkyController_139D2</code></td>
+<td>Abadede Fall From Sky</td>
+</tr>
+</tbody>
+</table>
+<h3 id="particle">Particle<a class="headerlink" href="#particle" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ParticleStandingController_1D812</code></td>
+<td>Particle Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ParticleBeingHitController</code></td>
+<td>Particle Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ParticleDeathController</code></td>
+<td>Particle Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ParticleClearController_1DD7E</code></td>
+<td>Particle Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ParticleKnockOutController_1DDBC</code></td>
+<td>Particle Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ParticleBeingFrontGrabbedController_1E3F8</code></td>
+<td>Particle Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ParticleBeingBackGrabbedController_1E476</code></td>
+<td>Particle Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>ParticleInitializationController_1D5DE</code></td>
+<td>Particle Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>ParticleForwardSpikeController_1E08A</code></td>
+<td>Particle Forward Spike</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>ParticleUpSpikeController_1E100</code></td>
+<td>Particle Up Spike</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>ParticleRoundSpikeController_1E230</code></td>
+<td>Particle Round Spike</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>ParticleShootLaserController_1DF60</code></td>
+<td>Particle Shoot Laser</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>ParticleLaserController_1E050</code></td>
+<td>Particle Laser</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>ParticleController_1E540</code></td>
+<td>Particle</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>ParticleController_1E576</code></td>
+<td>Particle</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>ParticleController_1E59C</code></td>
+<td>Particle</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>ParticleFallFromSkyController_1E5C4</code></td>
+<td>Particle Fall From Sky</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mrx">Mr.X<a class="headerlink" href="#mrx" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>MrXStandingController_1E8BC</code></td>
+<td>Mr X Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>MrXDeathController_1F37C</code></td>
+<td>Mr X Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>MrXClearController_1F49C</code></td>
+<td>Mr X Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>MrXKnockedOutController_1F4FC</code></td>
+<td>Mr X Knocked Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>MrXInitializationController_1E6CC</code></td>
+<td>Mr X Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>MrXWaitToSendShivaController_1EBC0</code></td>
+<td>Mr X Wait To Send Shiva</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>MrXSendShivaController_1EC54</code></td>
+<td>Mr X Send Shiva</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>MrXWaitForShivaDeathController_1EC96</code></td>
+<td>Mr X Wait For Shiva Death</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>MrXStandUpController_1ED60</code></td>
+<td>Mr X Stand Up</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>MrXBulletRicochetFallDownController_1EE8C</code></td>
+<td>Mr X Bullet Ricochet Fall Down</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>MrXBossPhaseActivationController_1EEF6</code></td>
+<td>Mr X Boss Phase Activation</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>MrXHorizontalFireController_1EF74</code></td>
+<td>Mr X Horizontal Fire</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>MrXDiagonalFireController_1EFCA</code></td>
+<td>Mr X Diagonal Fire</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>MrXVerticalFireController_1F03C</code></td>
+<td>Mr X Vertical Fire</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>MrXBulletsRicochetPhysicsController_1F0BE</code></td>
+<td>Mr X Bullets Ricochet Physics</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>MrXBulletFlyController_1F340</code></td>
+<td>Mr X Bullet Fly</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shiva">Shiva<a class="headerlink" href="#shiva" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ShivaStandingController_1F800</code></td>
+<td>Shiva Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ShivaBeingHitController_2076A</code></td>
+<td>Shiva Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ShivaKnockedOutController_1FF3C</code></td>
+<td>Shiva Knocked Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ShivaBeingFrontGrabbedController_201DA</code></td>
+<td>Shiva Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ShivaBeingBackGrabbedController_20258</code></td>
+<td>Shiva Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>ShivaInitializationController_1F69A</code></td>
+<td>Shiva Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>ShivaFrontGrabController_1FCBC</code></td>
+<td>Shiva Front Grab</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>ShivaBackGrabController_1FCFC</code></td>
+<td>Shiva Back Grab</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>ShivaWaitToEnterController_1FDFC</code></td>
+<td>Shiva Wait To Enter</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>ShivaBackSlamController_1FD6E</code></td>
+<td>Shiva Back Slam</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>ShivaStandUpController_1FF0C</code></td>
+<td>Shiva Stand Up</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>ShivaBlockController_20174</code></td>
+<td>Shiva Block</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>ShivaInvincibleAttackController_207E6</code></td>
+<td>Shiva Invincible Attack</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>ShivaGrabAttackController_202D8</code></td>
+<td>Shiva Grab Attack</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>ShivaVaultController_2034E</code></td>
+<td>Shiva Vault</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>ShivaJumpController_2051E</code></td>
+<td>Shiva Jump</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>ShivaPrepareToDashController_203F4</code></td>
+<td>Shiva Prepare To Dash</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>ShivaDashController_20442</code></td>
+<td>Shiva Dash</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>ShivaStopDashController_204D0</code></td>
+<td>Shiva Stop Dash</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>ShivaJumpAttackController_2063A</code></td>
+<td>Shiva Jump Attack</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>ShivaFinalCrashController_20672</code></td>
+<td>Shiva Final Crash</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>ShivaJumpEntranceController_1FE38</code></td>
+<td>Shiva Jump Entrance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ninja-kunai">Ninja (Kunai)<a class="headerlink" href="#ninja-kunai" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>NinjaStandingController_1AD20</code></td>
+<td>Ninja Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>NinjaInitializationController_1AA0E</code></td>
+<td>Ninja Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>NinjaThrowController_1BA82</code></td>
+<td>Ninja Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>NinjaSingleShurikenController_1BAD4</code></td>
+<td>Ninja Single Shuriken</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>NinjaShurikenMovementController_1BBD0</code></td>
+<td>Ninja Shuriken Movement</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>NinjaController_1BC46</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>NinjaController_1BC86</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>NinjaShurikenDisappearController_1BCB6</code></td>
+<td>Ninja Shuriken Disappear</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>NinjaInitJumpController_1BCE6</code></td>
+<td>Ninja Init Jump</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>NinjaJumpController_1BD34</code></td>
+<td>Ninja Jump</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>NinjaController_1BDA6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>NinjaJumpAttackController_1BDBE</code></td>
+<td>Ninja Jump Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>NinjaTrippleShurikenController_1BE08</code></td>
+<td>Ninja Tripple Shuriken</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>NinjaEvadeController_1BF84</code></td>
+<td>Ninja Evade</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>NinjaController_1BFD6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td>60</td>
+<td><code>NinjaController_1C004</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3E</code></td>
+<td>62</td>
+<td><code>NinjaController_1C07A</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x40</code></td>
+<td>64</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td>66</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x44</code></td>
+<td>68</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x46</code></td>
+<td>70</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x48</code></td>
+<td>72</td>
+<td><code>NinjaWaitingHookedController_1C092</code></td>
+<td>Ninja Waiting Hooked</td>
+</tr>
+<tr>
+<td><code>0x4A</code></td>
+<td>74</td>
+<td><code>NinjaController_1C0E6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x4C</code></td>
+<td>76</td>
+<td><code>NinjaBeforeInitJumpController_1C0B8</code></td>
+<td>Ninja Before Init Jump</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ninja-sword">Ninja (Sword)<a class="headerlink" href="#ninja-sword" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>NinjaStandingController_1AD20</code></td>
+<td>Ninja Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>EnemyBeingHitController</code></td>
+<td>Enemy Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>EnemyDeathController</code></td>
+<td>Enemy Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>EnemyClearController</code></td>
+<td>Enemy Clear</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>EnemyKnockOutController</code></td>
+<td>Enemy Knock Out</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>EnemyBeingFrontGrabbedController</code></td>
+<td>Enemy Being Front Grabbed</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>EnemyBeingBackGrabbedController</code></td>
+<td>Enemy Being Back Grabbed</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>EnemyBeingThrownController</code></td>
+<td>Enemy Being Thrown</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>NinjaInitializationController_1AA0E</code></td>
+<td>Ninja Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x1A</code></td>
+<td>26</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1C</code></td>
+<td>28</td>
+<td><code>NinjaInitThrowController_1BA28</code></td>
+<td>Ninja Init Throw</td>
+</tr>
+<tr>
+<td><code>0x1E</code></td>
+<td>30</td>
+<td><code>NinjaThrowController_1BA82</code></td>
+<td>Ninja Throw</td>
+</tr>
+<tr>
+<td><code>0x20</code></td>
+<td>32</td>
+<td><code>NinjaSingleShurikenController_1BAD4</code></td>
+<td>Ninja Single Shuriken</td>
+</tr>
+<tr>
+<td><code>0x22</code></td>
+<td>34</td>
+<td><code>NinjaShurikenMovementController_1BBD0</code></td>
+<td>Ninja Shuriken Movement</td>
+</tr>
+<tr>
+<td><code>0x24</code></td>
+<td>36</td>
+<td><code>NinjaController_1BC46</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x26</code></td>
+<td>38</td>
+<td><code>NinjaController_1BC86</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x28</code></td>
+<td>40</td>
+<td><code>NinjaShurikenDisappearController_1BCB6</code></td>
+<td>Ninja Shuriken Disappear</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td>42</td>
+<td><code>NinjaInitJumpController_1BCE6</code></td>
+<td>Ninja Init Jump</td>
+</tr>
+<tr>
+<td><code>0x2C</code></td>
+<td>44</td>
+<td><code>NinjaJumpController_1BD34</code></td>
+<td>Ninja Jump</td>
+</tr>
+<tr>
+<td><code>0x2E</code></td>
+<td>46</td>
+<td><code>NinjaController_1BDA6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td>48</td>
+<td><code>NinjaJumpAttackController_1BDBE</code></td>
+<td>Ninja Jump Attack</td>
+</tr>
+<tr>
+<td><code>0x32</code></td>
+<td>50</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x34</code></td>
+<td>52</td>
+<td><code>NinjaTrippleShurikenController_1BE08</code></td>
+<td>Ninja Tripple Shuriken</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td>54</td>
+<td><code>NinjaEvadeController_1BF84</code></td>
+<td>Ninja Evade</td>
+</tr>
+<tr>
+<td><code>0x38</code></td>
+<td>56</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x3A</code></td>
+<td>58</td>
+<td><code>NinjaController_1BFD6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td>60</td>
+<td><code>NinjaController_1C004</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x3E</code></td>
+<td>62</td>
+<td><code>NinjaController_1C07A</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x40</code></td>
+<td>64</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td>66</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x44</code></td>
+<td>68</td>
+<td><code>EnemyAttackController</code></td>
+<td>Enemy Attack</td>
+</tr>
+<tr>
+<td><code>0x46</code></td>
+<td>70</td>
+<td><code>EnemyActivationByPlayerDistance</code></td>
+<td>Enemy Activation By Player Distance</td>
+</tr>
+<tr>
+<td><code>0x48</code></td>
+<td>72</td>
+<td><code>NinjaWaitingHookedController_1C092</code></td>
+<td>Ninja Waiting Hooked</td>
+</tr>
+<tr>
+<td><code>0x4A</code></td>
+<td>74</td>
+<td><code>NinjaController_1C0E6</code></td>
+<td>Ninja</td>
+</tr>
+<tr>
+<td><code>0x4C</code></td>
+<td>76</td>
+<td><code>NinjaBeforeInitJumpController_1C0B8</code></td>
+<td>Ninja Before Init Jump</td>
+</tr>
+</tbody>
+</table>
+<h3 id="blast">Blast<a class="headerlink" href="#blast" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ExplosionController_18E96</code></td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ExplosionController_18E90</code></td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ExplosionController_18DF8</code></td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ExplosionController_18E74</code></td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ExplosionController_18DC2</code></td>
+<td>Explosion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehelits">Vehelits<a class="headerlink" href="#vehelits" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td>0</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>VehelitsStandingController_2099C</code></td>
+<td>Vehelits Standing</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>VehelitsBeingHitController_20A7A</code></td>
+<td>Vehelits Being Hit</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>VehelitsDeathController_20B94</code></td>
+<td>Vehelits Death</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>VehelitsDeathController_20B94</code></td>
+<td>Vehelits Death</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>VehelitsBeingHitController_20A7A</code></td>
+<td>Vehelits Being Hit</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>VehelitsStandingController_2099C</code></td>
+<td>Vehelits Standing</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>VehelitsStandingController_2099C</code></td>
+<td>Vehelits Standing</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>VehelitsStandingController_2099C</code></td>
+<td>Vehelits Standing</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>18</td>
+<td><code>VehelitsStandingController_2099C</code></td>
+<td>Vehelits Standing</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>20</td>
+<td><code>VehelitsInitializationController_20822</code></td>
+<td>Vehelits Initialization</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>22</td>
+<td><code>VehelitsHitReactionController_20B16</code></td>
+<td>Vehelits Hit Reaction</td>
+</tr>
+<tr>
+<td><code>0x18</code></td>
+<td>24</td>
+<td><code>VehelitsSpawnController_20934</code></td>
+<td>Vehelits Spawn</td>
+</tr>
+</tbody>
+</table>
+<h2 id="item-modes">Item Modes<a class="headerlink" href="#item-modes" title="Permanent link">&para;</a></h2>
+<h3 id="knife">Knife<a class="headerlink" href="#knife" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pipe">Pipe<a class="headerlink" href="#pipe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="galsia-2">Galsia (2)<a class="headerlink" href="#galsia-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sword">Sword<a class="headerlink" href="#sword" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kunai">Kunai<a class="headerlink" href="#kunai" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grenade">Grenade<a class="headerlink" href="#grenade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>GrenadeController_11C7A</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>GrenadeController_11CA6</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>GrenadeController_11CF8</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>GrenadeController_11C7A</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>GrenadeController_11C7A</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>GrenadeController_11CF8</code></td>
+<td>Grenade</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>GrenadeController_11C62</code></td>
+<td>Grenade</td>
+</tr>
+</tbody>
+</table>
+<h3 id="galsia-3">Galsia (3)<a class="headerlink" href="#galsia-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemController_10E2E</code></td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="barbon-jacket">Barbon Jacket<a class="headerlink" href="#barbon-jacket" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>BarbonJacketStripsController</code></td>
+<td>Barbon Jacket Strips</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bin">Bin<a class="headerlink" href="#bin" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="manhole">Manhole<a class="headerlink" href="#manhole" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ManholeOffController</code></td>
+<td>Manhole Off</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lamp">Lamp<a class="headerlink" href="#lamp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="menu">Menu<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table">Table<a class="headerlink" href="#table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-2">Table (2)<a class="headerlink" href="#table-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-3">Table (3)<a class="headerlink" href="#table-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="table-4">Table (4)<a class="headerlink" href="#table-4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chair">Chair<a class="headerlink" href="#chair" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trash-can">Trash Can<a class="headerlink" href="#trash-can" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="oil-barrel">Oil Barrel<a class="headerlink" href="#oil-barrel" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="truck-door-debris">Truck door debris<a class="headerlink" href="#truck-door-debris" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="truck-door-debris-2">Truck door debris (2)<a class="headerlink" href="#truck-door-debris-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="electric-box">Electric box<a class="headerlink" href="#electric-box" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="electric-box-2">Electric box (2)<a class="headerlink" href="#electric-box-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="barrier">Barrier<a class="headerlink" href="#barrier" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="light">Light<a class="headerlink" href="#light" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arcade">Arcade<a class="headerlink" href="#arcade" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ship-pole">Ship Pole<a class="headerlink" href="#ship-pole" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obj-2">Obj 2<a class="headerlink" href="#obj-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obj-3">Obj 3<a class="headerlink" href="#obj-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obj-4">Obj 4<a class="headerlink" href="#obj-4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sandbag">Sandbag<a class="headerlink" href="#sandbag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sandbag-2">Sandbag (2)<a class="headerlink" href="#sandbag-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sandbag-3">Sandbag (3)<a class="headerlink" href="#sandbag-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sandbag-4">Sandbag (4)<a class="headerlink" href="#sandbag-4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="crate">Crate<a class="headerlink" href="#crate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obj-5">Obj 5<a class="headerlink" href="#obj-5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehelits-2">Vehelits (2)<a class="headerlink" href="#vehelits-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metal-crate">Metal Crate<a class="headerlink" href="#metal-crate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vase">Vase<a class="headerlink" href="#vase" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alien-egg">Alien Egg<a class="headerlink" href="#alien-egg" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ContainerBreakController_10C28</code></td>
+<td>Container Break</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>BreakingContainerController_10D0C</code></td>
+<td>Breaking Container</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>FlyingWeaponController</code></td>
+<td>Flying Weapon</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemOnTheGroundController_10DB8</code></td>
+<td>Item On The Ground</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>WeaponDisappearController</code></td>
+<td>Weapon Disappear</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>null</code></td>
+<td>No controller</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cash-bag">Cash Bag<a class="headerlink" href="#cash-bag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gold-bars">Gold Bars<a class="headerlink" href="#gold-bars" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1up">1UP<a class="headerlink" href="#1up" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+</tbody>
+</table>
+<h3 id="apple">Apple<a class="headerlink" href="#apple" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chicken">Chicken<a class="headerlink" href="#chicken" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Decimal</th>
+<th>Controller</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x02</code></td>
+<td>2</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>4</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>6</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td>8</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0A</code></td>
+<td>10</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td>12</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x0E</code></td>
+<td>14</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>16</td>
+<td><code>ItemDisappearToTheLeftController</code></td>
+<td>Item Disappear To The Left</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../difficulty-settings/" class="btn btn-neutral float-left" title="Difficulty Settings Reference"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../logic-events/" class="btn btn-neutral float-right" title="Logic Events Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../difficulty-settings/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../logic-events/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

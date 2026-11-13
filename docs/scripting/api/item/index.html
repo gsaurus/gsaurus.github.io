@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/scripting/api/item/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Item - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Item";
+        var mkdocs_page_input_path = "scripting\\api\\item.md";
+        var mkdocs_page_url = "/docs/scripting/api/item/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >API Reference</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Item</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#position-and-motion">Position And Motion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collision-and-body-data">Collision And Body Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripted-attack-policy">Scripted attack policy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#object-flags">Object Flags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#weapon-container-and-timers">Weapon, Container, And Timers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#projectile-fields">Projectile Fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check_projectile_hits">check_projectile_hits()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#check_projectile_hit_target">check_projectile_hit_target()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_pressing_against_containers">is_pressing_against_containers()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#has_ground_below">has_ground_below()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_falling_through_pit">is_falling_through_pit()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_on_pit">is_on_pit()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_on_treadmill">is_on_treadmill()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_on_custom_shapeshape_index">is_on_custom_shape(shape_index)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#try_spawn_itempack-name-anim-mode-off_x-off_y-vel_x-vel_y-lifetime-60-projectile_damage-0-projectile_hit_pause-0-hit_sound_name-nil-hit_sound_pack-nil-hit_sound_channel-0">try_spawn_item(pack, name, anim, mode, off_x, off_y, vel_x, vel_y, lifetime = 60, projectile_damage = 0, projectile_hit_pause = 0, hit_sound_name = nil, hit_sound_pack = nil, hit_sound_channel = 0)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#try_spawn_enemypack-entity_id-animation_id-mode-off_x-off_y">try_spawn_enemy(pack, entity_id, animation_id, mode, off_x, off_y)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#update_position_and_check_world_collisions">update_position_and_check_world_collisions()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_nearest_opponentin_same_line-forward_check-backward_check">get_nearest_opponent(in_same_line, forward_check, backward_check)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#predict_frame_being_hitframes_into_the_future">predict_frame_being_hit(frames_into_the_future)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_knocked_down_and_near_ground">is_knocked_down_and_near_ground</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-manual-projectile-loop">Example: Manual Projectile Loop</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lua Scripting</li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Item</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="item-api">Item API<a class="headerlink" href="#item-api" title="Permanent link">&para;</a></h1>
+<p><code>Item</code> represents physical objects in the world: character bodies, weapons, containers, pickups, projectiles, and other interactive objects. It inherits the <a href="../subitem/">SubItem API</a>, so animation fields are also available on items.</p>
+<h2 id="position-and-motion">Position And Motion<a class="headerlink" href="#position-and-motion" title="Permanent link">&para;</a></h2>
+<p>Most position and motion values are converted by the bridge. The engine stores them multiplied by <code>1000</code>; Lua reads and writes script units.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position_x</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>World X position.</td>
+</tr>
+<tr>
+<td><code>position_y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>World Y/depth position on the belt-scroller plane.</td>
+</tr>
+<tr>
+<td><code>position_offset_x</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Extra X offset used by some behaviours.</td>
+</tr>
+<tr>
+<td><code>position_offset_y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Height offset from ground. Negative means airborne, <code>0</code> means grounded.</td>
+</tr>
+<tr>
+<td><code>velocity_x</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Per-frame X movement accumulator.</td>
+</tr>
+<tr>
+<td><code>velocity_y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Per-frame Y/depth movement accumulator.</td>
+</tr>
+<tr>
+<td><code>impulse_x</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Horizontal impulse. Default physics adds this to <code>velocity_x</code>.</td>
+</tr>
+<tr>
+<td><code>impulse_y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Vertical/height impulse. Default physics adds this to <code>position_offset_y</code>.</td>
+</tr>
+<tr>
+<td><code>impulse_z</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Depth impulse. Default physics adds this to <code>velocity_y</code>.</td>
+</tr>
+<tr>
+<td><code>acceleration_x</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Added to <code>impulse_x</code> after movement.</td>
+</tr>
+<tr>
+<td><code>acceleration_y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Added to <code>impulse_y</code> after movement.</td>
+</tr>
+<tr>
+<td><code>acceleration_z</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Added to <code>impulse_z</code> after movement.</td>
+</tr>
+<tr>
+<td><code>wall_thrown_flight</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>A throw's flight state for walls with a <code>maxHeight</code> (rails): <code>1</code> thrown but not yet airborne, <code>3</code> airborne, <code>2</code> landed while still in a thrown mode, <code>0</code> otherwise. The engine updates it every frame from the throw modes (0x10/0x12) and height; a body in state <code>3</code> is pushed over a rail it comes down on, one in state <code>1</code> is put back on the floor side. A script that throws a body itself can set <code>1</code> (or <code>3</code> when already airborne) to get the same rail behaviour.</td>
+</tr>
+<tr>
+<td><code>is_in_the_air</code></td>
+<td><code>bool</code></td>
+<td>read</td>
+<td>Pit-aware air check. True when <code>position_offset_y &lt; 0</code>, while falling through a pit, or when there is no ground below.</td>
+</tr>
+<tr>
+<td><code>unknownPosition4_62_66_X</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Original engine position/scratch field. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>unknownPosition4_62_66_Y</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Original engine position/scratch field. Use exact spelling.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="collision-and-body-data">Collision And Body Data<a class="headerlink" href="#collision-and-body-data" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collision_box_half_width</code></td>
+<td><code>int</code></td>
+<td>read</td>
+<td>Current body box half-width. Exact bridge name is <code>CollisionBoxHalfWidth</code>.</td>
+</tr>
+<tr>
+<td><code>collision_box_height</code></td>
+<td><code>int</code></td>
+<td>read</td>
+<td>Current body box height.</td>
+</tr>
+<tr>
+<td><code>collision_box_depth</code></td>
+<td><code>int</code></td>
+<td>read</td>
+<td>Current body box depth.</td>
+</tr>
+<tr>
+<td><code>last_hitbox_index</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Last hitbox index used for collision checks. Reset when animation changes.</td>
+</tr>
+<tr>
+<td><code>hit_pause_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Hit pause countdown. Default physics decrements it and exits early.</td>
+</tr>
+<tr>
+<td><code>custom_hit_pause_delay_frames</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Animation-frame delay after hit pause. The animation updater decrements this before advancing frames.</td>
+</tr>
+<tr>
+<td><code>invincibility_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Timer used by invincibility logic.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scripted-attack-policy">Scripted attack policy<a class="headerlink" href="#scripted-attack-policy" title="Permanent link">&para;</a></h2>
+<p><code>override_attack_damage = true</code> uses <code>attack_damage_override</code> (non-negative) for
+authored character attack boxes. <code>suppress_attack_hits = true</code> suppresses those
+boxes entirely. Both character and container scans use the policy. It does not
+change projectile or throw damage. A script must clear the policy when it no
+longer applies; the value is saved in rollback state and reset on slot reuse.</p>
+<h2 id="object-flags">Object Flags<a class="headerlink" href="#object-flags" title="Permanent link">&para;</a></h2>
+<p>These map to original status bits.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_active</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Item/projectile active flag (<code>status4</code> bit 7). Projectiles often clear this when switching to a hit animation. This is not an enemy existence test: normal enemy initialization leaves it clear. Use <code>is_enabled</code> and character health/state when selecting enemies.</td>
+</tr>
+<tr>
+<td><code>is_obstacle</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Blocks movement as an obstacle.</td>
+</tr>
+<tr>
+<td><code>effect_players_only</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Effect applies only to players.</td>
+</tr>
+<tr>
+<td><code>has_weapon</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Character is holding a weapon.</td>
+</tr>
+<tr>
+<td><code>weapon</code></td>
+<td><code>Item</code></td>
+<td>read</td>
+<td>Held item if <code>has_weapon</code> and <code>held_item_id</code> are valid.</td>
+</tr>
+<tr>
+<td><code>is_being_thrown</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Throw initiation flag.</td>
+</tr>
+<tr>
+<td><code>can_land_safely</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Landing can return to a safe state.</td>
+</tr>
+<tr>
+<td><code>is_jump_down_attack</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Jump-down attack status.</td>
+</tr>
+<tr>
+<td><code>has_double_forward_tap</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Double-forward input status. Useful to clear when consuming dash-style inputs.</td>
+</tr>
+<tr>
+<td><code>is_lying_on_the_floor</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Floor/lying status.</td>
+</tr>
+<tr>
+<td><code>did_move_ended</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Move-ended status. Name follows the bridge field.</td>
+</tr>
+<tr>
+<td><code>is_jump_attack</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Jump attack status.</td>
+</tr>
+<tr>
+<td><code>is_blocking</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Blocking status.</td>
+</tr>
+<tr>
+<td><code>is_vulnerable</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Can be hit.</td>
+</tr>
+<tr>
+<td><code>is_knocked_down</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Knockdown status.</td>
+</tr>
+<tr>
+<td><code>is_grabbing</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Currently grabbing another character.</td>
+</tr>
+<tr>
+<td><code>is_being_grabbed</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Currently grabbed by another character.</td>
+</tr>
+<tr>
+<td><code>is_attacking</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Attack status.</td>
+</tr>
+<tr>
+<td><code>is_being_hit</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Hit reaction status.</td>
+</tr>
+<tr>
+<td><code>is_hitting_something</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Low-level hit flag. Character also exposes <code>is_hitting_someone</code>.</td>
+</tr>
+<tr>
+<td><code>was_hit_from_right</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Direction of the last incoming hit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="weapon-container-and-timers">Weapon, Container, And Timers<a class="headerlink" href="#weapon-container-and-timers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contained_item_pack_hash</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Pack hash for an item contained by a container.</td>
+</tr>
+<tr>
+<td><code>contained_item_entity_id</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Entity type/id for contained item.</td>
+</tr>
+<tr>
+<td><code>held_item_id</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Object ID of held item.</td>
+</tr>
+<tr>
+<td><code>weapon_health</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Remaining durability of a weapon whose logic sets <code>weaponHealth</code> above 0; reading starts it at that configured budget on first use. Writes are clamped to 0 or more; lowering it while a player holds the weapon shows the usage indicator, and the weapon breaks when an attack ends with it at 0. Weapons without a configured <code>weaponHealth</code> do not use it (they keep the classic drop counter).</td>
+</tr>
+<tr>
+<td><code>inside_for_two_players_only</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Container/item rule for two-player-only contents.</td>
+</tr>
+<tr>
+<td><code>mode_specific_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Behaviour-mode timer.</td>
+</tr>
+<tr>
+<td><code>grab_combo_count</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Grab combo counter.</td>
+</tr>
+<tr>
+<td><code>kill_count</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Kill counter used by some behaviours.</td>
+</tr>
+<tr>
+<td><code>grenadeVelocity_78</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Original grenade-specific velocity field. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>inner_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Generic inner timer. Projectiles use this as lifetime.</td>
+</tr>
+<tr>
+<td><code>customDamage_28</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Original custom damage field. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>requested_knockdown_attack</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Requests knockdown attack handling.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="projectile-fields">Projectile Fields<a class="headerlink" href="#projectile-fields" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>projectile_damage</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Damage for projectile hit checks.</td>
+</tr>
+<tr>
+<td><code>projectile_hit_pause</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Hit pause applied by projectile hits.</td>
+</tr>
+<tr>
+<td><code>projectile_hit_sound_hash</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Runtime hash of projectile hit sound; <code>-1</code> makes the hit silent, <code>0</code> uses the entity's <code>projectileHitSoundName</code>.</td>
+</tr>
+<tr>
+<td><code>projectile_hit_sound_pack_hash</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Runtime hash of sound pack.</td>
+</tr>
+<tr>
+<td><code>projectile_hit_sound_channel</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Audio channel for projectile hit sound.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="check_projectile_hits"><code>check_projectile_hits()</code><a class="headerlink" href="#check_projectile_hits" title="Permanent link">&para;</a></h3>
+<p>Runs projectile hit detection if <code>is_active</code> is true. Returns <code>true</code> when a hit was detected. Projectile scripts commonly use this result to decide whether to switch to an impact animation.</p>
+<h3 id="check_projectile_hit_target"><code>check_projectile_hit_target()</code><a class="headerlink" href="#check_projectile_hit_target" title="Permanent link">&para;</a></h3>
+<p>Runs the same active-projectile collision/damage pass as <code>check_projectile_hits()</code>, returning the hit entity ID or <code>-1</code> for no hit. Character IDs are below <code>game.first_item_id</code>; container hits return item IDs. Use this instead of the boolean method when a projectile should react differently to characters and containers. Do not call both methods for the same collision pass.</p>
+<h3 id="is_pressing_against_containers"><code>is_pressing_against_containers()</code><a class="headerlink" href="#is_pressing_against_containers" title="Permanent link">&para;</a></h3>
+<p>Checks collision pressure against containers.</p>
+<h3 id="has_ground_below"><code>has_ground_below()</code><a class="headerlink" href="#has_ground_below" title="Permanent link">&para;</a></h3>
+<p>Pit-aware ground check. Use this for landing checks in custom aerial scripts; when an item is over a pit, the function returns <code>false</code> even if <code>position_offset_y</code> has reached <code>0</code>.</p>
+<h3 id="is_falling_through_pit"><code>is_falling_through_pit()</code><a class="headerlink" href="#is_falling_through_pit" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when the item is in the falling-through-pit state — the item has been marked as currently falling into a pit zone. Use this to detect when a character or item is actively falling into a pit.</p>
+<h3 id="is_on_pit"><code>is_on_pit()</code><a class="headerlink" href="#is_on_pit" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when the item's position is inside a pit shape region. Unlike <code>is_falling_through_pit</code>, this checks only whether the current position overlaps a pit shape, regardless of fall state. Useful for detecting proximity to pit zones even before falling begins.</p>
+<h3 id="is_on_treadmill"><code>is_on_treadmill()</code><a class="headerlink" href="#is_on_treadmill" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when the item's position is inside a treadmill shape region. Treadmills apply velocity to grounded entities; this method lets scripts detect when the entity is over one.</p>
+<h3 id="is_on_custom_shapeshape_index"><code>is_on_custom_shape(shape_index)</code><a class="headerlink" href="#is_on_custom_shapeshape_index" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when the item's position is inside a custom shape region. Pass <code>1</code> for Custom1 shapes or <code>2</code> for Custom2 shapes. These shapes have no built-in engine effect and are intended for script-defined gameplay logic.</p>
+<h3 id="try_spawn_itempack-name-anim-mode-off_x-off_y-vel_x-vel_y-lifetime-60-projectile_damage-0-projectile_hit_pause-0-hit_sound_name-nil-hit_sound_pack-nil-hit_sound_channel-0"><code>try_spawn_item(pack, name, anim, mode, off_x, off_y, vel_x, vel_y, lifetime = 60, projectile_damage = 0, projectile_hit_pause = 0, hit_sound_name = nil, hit_sound_pack = nil, hit_sound_channel = 0)</code><a class="headerlink" href="#try_spawn_itempack-name-anim-mode-off_x-off_y-vel_x-vel_y-lifetime-60-projectile_damage-0-projectile_hit_pause-0-hit_sound_name-nil-hit_sound_pack-nil-hit_sound_channel-0" title="Permanent link">&para;</a></h3>
+<p>Spawns an item or projectile using the caller as the source object.</p>
+<p>Important internal details:</p>
+<ul>
+<li><code>pack</code> is hashed with <code>get_pack_hash</code>.</li>
+<li><code>name</code> is hashed as the entity name.</li>
+<li><code>anim</code> is converted to the internal doubled animation ID.</li>
+<li><code>off_x</code>, <code>off_y</code>, <code>vel_x</code>, and <code>vel_y</code> are converted to fixed-point units.</li>
+<li>The bridge negates the provided offsets and velocities before passing them to the engine. This matches the original spawn helper's coordinate convention.</li>
+<li><code>lifetime</code> initializes projectile lifetime state.</li>
+<li>The optional projectile hit fields are copied into the spawned item.</li>
+</ul>
+<h3 id="try_spawn_enemypack-entity_id-animation_id-mode-off_x-off_y"><code>try_spawn_enemy(pack, entity_id, animation_id, mode, off_x, off_y)</code><a class="headerlink" href="#try_spawn_enemypack-entity_id-animation_id-mode-off_x-off_y" title="Permanent link">&para;</a></h3>
+<p>Spawns an enemy by entity ID/type using the caller as the source object. The current implementation passes <code>animation_id</code> directly to the enemy spawn helper, so use the value expected by the target data.</p>
+<h3 id="update_position_and_check_world_collisions"><code>update_position_and_check_world_collisions()</code><a class="headerlink" href="#update_position_and_check_world_collisions" title="Permanent link">&para;</a></h3>
+<p>Applies position updates and world collision checks through the enemy/world collision helper. Returns <code>true</code> when vertical or horizontal collision occurred.</p>
+<p>Call this in scripts that return <code>false</code> and own their movement.</p>
+<h3 id="get_nearest_opponentin_same_line-forward_check-backward_check"><code>get_nearest_opponent(in_same_line, forward_check, backward_check)</code><a class="headerlink" href="#get_nearest_opponentin_same_line-forward_check-backward_check" title="Permanent link">&para;</a></h3>
+<p>Returns the nearest opponent character or <code>nil</code>.</p>
+<ul>
+<li><code>in_same_line</code>: require compatible depth/body-box line.</li>
+<li><code>forward_check</code>: allow targets in front of the object.</li>
+<li><code>backward_check</code>: allow targets behind the object.</li>
+</ul>
+<h3 id="predict_frame_being_hitframes_into_the_future"><code>predict_frame_being_hit(frames_into_the_future)</code><a class="headerlink" href="#predict_frame_being_hitframes_into_the_future" title="Permanent link">&para;</a></h3>
+<p>Returns a prediction from the hit scanner for when this item would be hit within the requested future window. Useful for parry, guard, dodge, or counter windows.</p>
+<h3 id="is_knocked_down_and_near_ground"><code>is_knocked_down_and_near_ground</code><a class="headerlink" href="#is_knocked_down_and_near_ground" title="Permanent link">&para;</a></h3>
+<p>Read-only bool. True when the object is knocked down and close enough to the ground for landing/ground impact logic.</p>
+<h2 id="example-manual-projectile-loop">Example: Manual Projectile Loop<a class="headerlink" href="#example-manual-projectile-loop" title="Permanent link">&para;</a></h2>
+<pre><code class="language-lua">return function()
+    local item = game.this_item
+
+    if item == nil then
+        return true
+    end
+
+    local should_destroy = item.check_projectile_hits()
+
+    item.velocity_x = item.velocity_x + item.impulse_x
+    item.velocity_y = item.velocity_y + item.impulse_z
+    item.inner_timer = item.inner_timer - 1
+
+    if item.inner_timer &lt;= 0 then
+        should_destroy = true
+    end
+
+    if item.update_position_and_check_world_collisions() then
+        should_destroy = true
+    end
+
+    if should_destroy then
+        item.set_animation(48)
+        item.is_active = false
+    end
+
+    return false
+end
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../enemy/" class="btn btn-neutral float-left" title="Enemy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../subitem/" class="btn btn-neutral float-right" title="SubItem">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../enemy/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../subitem/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

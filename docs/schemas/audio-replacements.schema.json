@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/audio-replacements.schema.json",
+  "title": "music-replacements.json and sound-replacements.json",
+  "description": "Redirects audio owned by another pack to audio owned by this one. Stored at Audio Replacements/<Target Pack>/music-replacements.json and Audio Replacements/<Target Pack>/sound-replacements.json, where <Target Pack> is usually Classic. Each file is a plain object keyed by the target pack's audio name, deserialized as MusicReplacementsData or SoundReplacementsData.",
+
+  "oneOf": [
+    { "$ref": "#/$defs/musicReplacements" },
+    { "$ref": "#/$defs/soundReplacements" }
+  ],
+
+  "$defs": {
+    "musicReplacements": {
+      "title": "MusicReplacementsData",
+      "description": "Keys are Classic music identifiers such as \"M00\", \"M03\". Values name the replacement track in the providing pack.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "packName": { "description": "Pack owning the replacement track.", "type": "string" },
+          "musicName": { "description": "Replacement track, as a base file name without extension, resolved under that pack's Musics/ folder.", "type": "string" }
+        },
+        "required": ["musicName"],
+        "additionalProperties": false
+      }
+    },
+
+    "soundReplacements": {
+      "title": "SoundReplacementsData",
+      "description": "Keys are Classic sound slot numbers written as strings, such as \"0\", \"13\". Values name the replacement sound in the providing pack.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "packName": { "description": "Pack owning the replacement sound.", "type": "string" },
+          "soundName": { "description": "Replacement sound, as a base file name without extension, resolved under that pack's Sounds/ folder.", "type": "string" }
+        },
+        "required": ["soundName"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

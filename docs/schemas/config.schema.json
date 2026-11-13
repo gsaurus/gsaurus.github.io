@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/config.schema.json",
+  "title": "config.json",
+  "description": "Pack manifest at the root of a mod folder. Deserialized as LocalContentPackSetup.LocalContentPackConfiguration, whose settings object is Sor2NewEra.Gameplay.GameSessionData.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "description": "The mod's stable unique identifier: a random UUID created once with the mod and never changed. The engine identifies the pack by it (rather than by its name), so renaming the mod keeps every reference to it. Omitted: the pack is identified by its name. Ignored on built-in packs.",
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "isChronicle": {
+      "description": "Marks the pack as a full Chronicle: a standalone campaign that appears as its own game rather than as a skin layered over another pack. Set when exporting if applicable.",
+      "type": "boolean"
+    },
+    "expandHudSpacing": {
+      "description": "Reserve a 32px lane beside the timer for pack-owned HUD art in widescreen. The default false keeps New Era's original HUD positions.",
+      "type": "boolean",
+      "default": false
+    },
+    "hudLayout": {
+      "description": "Session HUD layout in 8px tiles. Campaign profile takes priority, then the first active character pack profile. Omitted fields retain built-in positions.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "hidden": {
+          "description": "Turn the built-in HUD off (names, bars, scores, lives, clock and prompts). Characters' hudScript drawings still show.",
+          "type": "boolean",
+          "default": false
+        },
+        "normal": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leftPlayerX": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rightPlayerX": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "timerOffsetX": {
+              "type": "integer"
+            },
+            "timerOffsetY": {
+              "type": "integer"
+            },
+            "lives": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "leftX": {
+                  "type": "integer"
+                },
+                "rightX": {
+                  "type": "integer"
+                },
+                "y": {
+                  "type": "integer"
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 2,
+                  "maximum": 3,
+                  "default": 3
+                }
+              }
+            }
+          }
+        },
+        "widescreen": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leftPlayerX": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rightPlayerX": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "timerOffsetX": {
+              "type": "integer"
+            },
+            "timerOffsetY": {
+              "type": "integer"
+            },
+            "lives": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "leftX": {
+                  "type": "integer"
+                },
+                "rightX": {
+                  "type": "integer"
+                },
+                "y": {
+                  "type": "integer"
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 2,
+                  "maximum": 3,
+                  "default": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": {
+      "description": "Text shown in mod listings.",
+      "type": "string"
+    },
+    "dependencies": {
+      "description": "Names of packs this pack needs at load time. A Classic reskin must list \"Classic\". Order matters only in that dependenciesChecksums is positional against this list.",
+      "type": ["array", "null"],
+      "items": { "type": "string" }
+    },
+    "dependenciesChecksums": {
+      "description": "Checksums of each entry in dependencies, at the same index. Editable source packs have no checksum, so empty strings are normal here; the exporter fills them in.",
+      "type": ["array", "null"],
+      "items": { "type": "string" }
+    },
+    "dependenciesIds": {
+      "description": "The id of each entry in dependencies, at the same index; null for a dependency without one. A dependency with an id is found by it, so it survives being renamed.",
+      "type": ["array", "null"],
+      "items": {
+        "type": ["string", "null"],
+        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+      }
+    },
+    "preEntityUpdateScripts": {
+      "description": "Lua scripts run once per frame before any entity updates.",
+      "type": ["array", "null"],
+      "items": { "$ref": "common.schema.json#/$defs/scriptData" }
+    },
+    "postEntityUpdateScripts": {
+      "description": "Lua scripts run once per frame after all entity updates.",
+      "type": ["array", "null"],
+      "items": { "$ref": "common.schema.json#/$defs/scriptData" }
+    },
+    "settings": { "$ref": "#/$defs/gameSessionData" }
+  },
+
+  "additionalProperties": false,
+
+  "$defs": {
+
+    "gameSessionData": {
+      "title": "GameSessionData",
+      "description": "Session rules for this pack. Every field is optional; omitted fields take the runtime default shown here.",
+      "type": "object",
+      "properties": {
+
+        "hasWideScreen": { "description": "Allow the wider than original playfield.", "type": "boolean", "default": false },
+        "hasImprovements": { "description": "Enable the New Era quality-of-life changes over the original ROM behaviour. Turning this off is what \"Classic rules\" means.", "type": "boolean", "default": false },
+        "bufferGlitchFixMode": { "description": "How far to go in fixing the original sprite buffer glitch. See the Enums and Identifiers reference.", "type": "integer" },
+
+        "scoreForLives": {
+          "description": "Score thresholds granting an extra life, in ascending order.",
+          "type": ["array", "null"],
+          "items": { "type": "integer" }
+        },
+
+        "difficultySettings": {
+          "description": "Ordered difficulty list. Index 0 is the easiest. The in-game difficulty index selects into this list.",
+          "type": ["array", "null"],
+          "items": { "$ref": "#/$defs/difficultySetting" }
+        },
+
+        "enemiesVelocityMultiplierOverrider": { "description": "Overrides the per-difficulty enemy speed multiplier for the whole pack.", "$ref": "common.schema.json#/$defs/multiplier" },
+        "enemiesHealthMultiplierOverrider": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "enemiesDamageMultiplierOverrider": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "playersDamageMultiplierOverrider": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "scrollSpeedMultiplier": { "description": "Multiplier applied to level scroll speed.", "$ref": "common.schema.json#/$defs/multiplier" },
+
+        "hasEnemiesHittingEachOther": { "description": "Enemy attacks damage other enemies.", "type": "boolean", "default": false },
+        "keepDirectionOnHit": { "description": "Do not force the victim to turn towards the attacker when hit.", "type": "boolean", "default": false },
+        "hasNinpoKageBunshin": { "description": "Enable the ninja shadow-clone mechanic.", "type": "boolean", "default": false },
+        "hasKillerEnemies": { "description": "Killer enemies: attack frames without a hitbox play for one update, and an attack that hits a player stuns and restarts instead of knocking down.", "type": "boolean", "default": false },
+        "hasExplodingEnemies": { "description": "Enemies explode on death.", "type": "boolean", "default": false },
+        "hasFriendlyDamage": { "description": "Players can damage each other.", "type": "boolean", "default": false },
+        "thrownCharactersSparePlayers": { "description": "With hasFriendlyDamage on, a character thrown by a player does not hit or knock down other players; players can still hit and grab each other.", "type": "boolean", "default": false },
+        "hasInstantSpawns": { "description": "Skip spawn introduction sequences.", "type": "boolean", "default": false },
+        "hasInfiniteContinuesOverrider": { "description": "Force infinite continues regardless of the selected difficulty.", "type": "boolean", "default": false },
+
+        "enemiesRandomizerMode": { "description": "Enemy randomiser mode. 0 disables randomisation.", "type": "integer", "default": 0 },
+        "randomValue": { "description": "Seed used by the randomiser modes.", "type": "integer", "default": 0 },
+        "enemiesMultiplier": { "description": "Multiplies how many enemies each wave spawns.", "type": "integer", "default": 1 },
+
+        "useCoupleEnemiesAdvanceCheck": { "description": "Use the original rule that the camera only advances once few enough enemies remain.", "type": "boolean", "default": true },
+        "initialPlayerHealth": { "description": "Starting health for players. Defaults to the game's maximum health.", "type": "integer" },
+        "useSmoothControls": { "description": "Use the modern smoothed input handling instead of the original stepped one.", "type": "boolean", "default": true },
+        "emulateClassicLag": { "description": "Reproduce the original hardware slowdown.", "type": "boolean", "default": false },
+
+        "additionalCharacters": {
+          "description": "Names (or ids) of other packs whose playable characters are offered alongside this pack's own.",
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "additionalMechanics": {
+          "description": "Names (or ids) of other packs whose gameplay mechanics are layered onto this pack.",
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+
+        "allowedCharacters": {
+          "description": "Restricts character select to this list. An empty list means no restriction. Entries identify a character by 32-bit hash rather than by name, so they must be computed: hash = 23; for each char c: hash = (hash * 31 + codepoint(c)) wrapped to signed 32-bit. packHash hashes the pack's id when it has one, otherwise its name; entityType hashes the entity folder name.",
+          "type": ["array", "null"],
+          "items": {
+            "title": "AllowedCharacter",
+            "type": "object",
+            "properties": {
+              "packHash": { "description": "Hash of the owning pack's id when it has one, otherwise of its name. A hash of the name of a pack that has since gained an id still resolves to it.", "type": "integer" },
+              "entityType": { "description": "Hash of the entity's folder name.", "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+
+        "minimumPlayers": { "description": "Fewest players this pack supports.", "type": "integer", "default": 1 },
+        "maximumPlayers": { "description": "Most players this pack supports. -1 means the engine maximum.", "type": "integer", "default": -1 }
+      },
+      "additionalProperties": false
+    },
+
+    "difficultySetting": {
+      "title": "DifficultySetting",
+      "type": "object",
+      "properties": {
+        "name": { "description": "Label shown on the difficulty screen.", "type": "string" },
+        "enemiesDifficulty": { "description": "Difficulty level passed to enemy AI and to loadcue minimumDifficulty filtering.", "type": "integer" },
+        "maxInitialLives": { "description": "Highest number of starting lives selectable on this difficulty.", "type": "integer" },
+        "initialCredits": { "description": "Continues granted at the start of a run.", "type": "integer" },
+        "hasInfiniteContinues": { "description": "Never run out of continues on this difficulty.", "type": "boolean" },
+        "hasInstantEnemiesPulling": { "description": "Enemies close distance immediately instead of easing in.", "type": "boolean" },
+        "settingsPerNumPlayers": {
+          "description": "One entry per player count, starting at one player. The entry at index n-1 applies to an n player game.",
+          "type": ["array", "null"],
+          "items": { "$ref": "#/$defs/difficultyPerPlayers" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "difficultyPerPlayers": {
+      "title": "DifficultySettingPerNumberOfPlayers",
+      "type": "object",
+      "properties": {
+        "maxNumEnemies": { "description": "Most enemies allowed on screen at once.", "type": "integer" },
+        "enemiesHealthMultiplier": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "bossesHealthMultiplier": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "enemiesDamageMultiplier": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "enemiesVelocityMultiplier": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "playersDamageMultiplier": { "$ref": "common.schema.json#/$defs/multiplier" },
+        "enemiesOnScreenActivationMultiplier": { "description": "Scales the on-screen enemy count that wave triggers compare against.", "$ref": "common.schema.json#/$defs/multiplier" },
+        "timeActivationMultiplier": { "description": "Scales wave timer thresholds.", "$ref": "common.schema.json#/$defs/multiplier" },
+        "useNextSpawnsDifficulty": { "description": "Draw spawns from the next difficulty's loadcue set instead of this one's.", "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

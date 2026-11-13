@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/reference/formats/levels/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Level Files - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Level Files";
+        var mkdocs_page_input_path = "reference\\formats\\levels.md";
+        var mkdocs_page_url = "/docs/reference/formats/levels/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >File Formats</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Level Files</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#level-njson">level &lt;n&gt;.json</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#scenedata">SceneData</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#enemy-loadcues">Enemy loadcues</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#item-loadcues">Item loadcues</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#collisionbox_3_4_5">collisionBox_3_4_5</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#art-files">Art files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#scene-background">Scene background</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#layers">Layers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#images-and-animations">Images and animations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#related-pages">Related pages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripted-stage-extensions">Scripted stage extensions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#scripted-waves-inside-a-scene">Scripted waves inside a scene</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+          <li class="breadcrumb-item">File Formats</li>
+      <li class="breadcrumb-item active">Level Files</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="level-files">Level Files<a class="headerlink" href="#level-files" title="Permanent link">&para;</a></h1>
+<p>A level is stored as a <strong>pair of files</strong> that must stay aligned:</p>
+<pre><code class="language-text">Levels/level 1.json           gameplay: scenes, walls, scroll, spawns
+Levels/level 1 - art.json     visuals: layers, images, animations, music
+Levels/level 1 - cutscenes.json   optional cutscenes for that level
+</code></pre>
+<p>Both files contain a <code>scenes</code> array, and <strong>scene <code>i</code> in one is the same scene as scene <code>i</code> in the other</strong>. The gameplay file decides where you can walk and what spawns; the art file decides what you see and hear.</p>
+<p>Three more files use the art format on their own, with no gameplay counterpart:</p>
+<pre><code class="language-text">Levels/title.json           title screen
+Levels/presentation.json    opening presentation
+Levels/ending.json          ending sequence
+</code></pre>
+<p>And the same five art-format file names appear under <code>Level Replacements/Classic/</code> when you are reskinning the Classic game rather than building your own levels.</p>
+<p>Every image named by any of these files is a file in <code>Levels/Art/</code>.</p>
+<h2 id="level-njson"><code>level &lt;n&gt;.json</code><a class="headerlink" href="#level-njson" title="Permanent link">&para;</a></h2>
+<p>Root object: <code>LevelData</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entitiesScale</code></td>
+<td>float</td>
+<td>Uniform scale applied to characters and items in this level. <code>0</code> is treated as <code>1</code>. The view draws the world at this scale about world Y 220, which stays on the screen bottom: below <code>1</code> the playable width is <code>400 / entitiesScale</code> world pixels (<code>screen_width</code>, half extra width <code>40 / entitiesScale</code>), the view shows <code>224 / entitiesScale</code> pixels above Y 220, and scroll limits and camera positions stay in world pixels. Background art is not scaled: draw it at <code>entitiesScale</code> times the world's size. Jump-in entrances and respawns start that much higher, so they still fall in from above the view.</td>
+</tr>
+<tr>
+<td><code>Scenes</code></td>
+<td>array of <code>SceneData</code></td>
+<td>Ordered scenes. Written with a capital S by the Level Editor; <code>scenes</code> also loads, because Newtonsoft matches case-insensitively.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenedata"><code>SceneData</code><a class="headerlink" href="#scenedata" title="Permanent link">&para;</a></h3>
+<p><strong>Transitions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sceneEnterCodeId</code></td>
+<td>int</td>
+<td>How players enter: <code>0</code> JumpInFromTop, <code>1</code> Standing, <code>2</code> WalkFromLeft, <code>3</code> StartAhead.</td>
+</tr>
+<tr>
+<td><code>sceneExitCodeId</code></td>
+<td>int</td>
+<td>How the scene ends. See the table below.</td>
+</tr>
+<tr>
+<td><code>startOffsetType</code></td>
+<td>int</td>
+<td>Camera start offset preset: <code>0</code> Default, <code>1</code> ClosedRoom, <code>2</code> Stage1Poster, <code>3</code> Stage3SwingingBoat, <code>4</code> Stage5TopBoat, <code>5</code> Stage7Elevator, <code>6</code> Stage8Elevator.</td>
+</tr>
+<tr>
+<td><code>screenShakeType</code></td>
+<td>int</td>
+<td><code>0</code> Default, <code>1</code> Truck, <code>2</code> Boat.</td>
+</tr>
+<tr>
+<td><code>centerScreenForWidescreen</code></td>
+<td>bool</td>
+<td>Centre the scene horizontally on widescreen instead of anchoring left.</td>
+</tr>
+</tbody>
+</table>
+<p><code>sceneExitCodeId</code> values: <code>0</code> None, <code>1</code> SimpleFadeOut, <code>2</code> LeaveToTheRight, <code>3</code> BreakTruckDoor, <code>4</code> EnterBaseballElevator, <code>5</code> LeaveBaseballElevator, <code>6</code> Level8ElevatorHealth, <code>7</code> LevelEnding, <code>8</code> EndGame.</p>
+<p><code>6</code> is the odd one out: it is a health refill, not an exit, and the scene does not end on it.</p>
+<p><strong>Palette</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alternativePalette</code></td>
+<td>string</td>
+<td>Name of an alternative palette applied to enemies in this scene. Empty means default.</td>
+</tr>
+<tr>
+<td><code>copyAltPalette</code></td>
+<td>bool</td>
+<td>Reuse the previous scene's alternative palette instead of loading this scene's own.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Walls and walkable area</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wallLimitsData</code></td>
+<td>array of exactly 6 ints</td>
+<td>The walkable area, in pixels. See below.</td>
+</tr>
+<tr>
+<td><code>wallFlags</code></td>
+<td>int</td>
+<td>Bit flags over <code>wallLimitsData</code>.</td>
+</tr>
+<tr>
+<td><code>bottomWallLimit</code></td>
+<td>int</td>
+<td>Absolute world Y of the lowest walkable depth for players and enemies. <code>0</code> keeps the native limit, which follows the camera (camera Y + 216): set it when a scripted camera Y (a bobbing ship, a shaking elevator) must not push characters up.</td>
+</tr>
+<tr>
+<td><code>respawnPosition</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Where a respawning (or continuing) player drops in, in world pixels: <code>x</code> from the playable view's left edge (negative: from its right edge, and the player faces left), <code>y</code> the absolute world Y, like <code>bottomWallLimit</code>, so a scripted camera Y (a bobbing ship, a shaking elevator) does not move it. Leave it unset in a scene whose camera scrolls vertically. Each further player drops 16 pixels higher. The spot is kept above <code>bottomWallLimit</code> and, with <code>customWallShapes</code>, moved to the nearest point clear of walls and pits. Zero on both axes keeps the native spot, at the bottom left of the screen.</td>
+</tr>
+<tr>
+<td><code>customWallShapes</code></td>
+<td>array</td>
+<td>Extra collision shapes beyond the rectangular limits.</td>
+</tr>
+</tbody>
+</table>
+<p><code>wallLimitsData</code> positions, in order:</p>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Level Editor label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Horizon Y (Base)</td>
+<td>The base depth line: the nearest edge of the walkable floor.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Max Depth Y</td>
+<td>The far edge of the walkable floor.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Left Gate X</td>
+<td>Where the left wall blocks movement.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>L. Diag Anchor</td>
+<td>Anchor for a slanted left wall.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>R. Diag Anchor</td>
+<td>Anchor for a slanted right wall.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Right Gate X</td>
+<td>Where the right wall blocks movement.</td>
+</tr>
+</tbody>
+</table>
+<p><code>wallFlags</code> bits: <code>1</code> left wall enabled, <code>2</code> right wall enabled, <code>4</code> left wall is vertical rather than slanted. Remaining bits are unused.</p>
+<p>When the left wall flag is set, the engine requires index 1 to equal index 0, and the Level Editor enforces that. A deep floor with a far wall is only possible with the left wall off.</p>
+<p><code>customWallShapes</code> entries (<code>WallCollisionShapeData</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shapeType</code></td>
+<td>int</td>
+<td><code>0</code> Wall, <code>1</code> Treadmill, <code>2</code> Pit, <code>3</code> Custom1, <code>4</code> Custom2.</td>
+</tr>
+<tr>
+<td><code>points</code></td>
+<td>array of <code>{x, y}</code> int</td>
+<td>Corner points in pixels, joined in order.</td>
+</tr>
+<tr>
+<td><code>isClosed</code></td>
+<td>bool</td>
+<td>Join the last point back to the first.</td>
+</tr>
+<tr>
+<td><code>collideInsideOrAbove</code></td>
+<td>bool</td>
+<td>Which side of the shape blocks movement.</td>
+</tr>
+<tr>
+<td><code>treadmillVelocity</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Push applied to anyone standing on a Treadmill shape.</td>
+</tr>
+<tr>
+<td><code>pitDamage</code></td>
+<td>int</td>
+<td>Damage from a Pit shape. <code>0</code> makes it harmless.</td>
+</tr>
+<tr>
+<td><code>maxHeight</code></td>
+<td>int</td>
+<td>Wall shapes only. Above <code>0</code>, the wall only stops entities lower than this many pixels above the ground (a rail or low fence): higher jumps, throws and knockdowns pass over it. A thrown character (object modes <code>0x10</code>/<code>0x12</code>) is measured at its real height like anything else: it clears the wall during the high part of its arc and hits it when low, at the start or the end of the flight. A character left inside such a wall (it came down on it from above) is pushed out on the floor side, or, when knocked down or in a throw's airborne flight, onto a pit beyond it, through which it falls. A character whose move animation ends while it is still airborne above a pit keeps falling into it.</td>
+</tr>
+<tr>
+<td><code>thrownMaxHeight</code></td>
+<td>int</td>
+<td>Wall shapes with a <code>maxHeight</code> only. Above <code>0</code>, a thrown character in the airborne part of its throw passes over the wall from this height instead of <code>maxHeight</code> (throws arc lower than jumps). <code>0</code> uses <code>maxHeight</code>. Scripts mark a scripted thrown body with the item's <code>wallThrownFlight</code> (<code>3</code> while airborne).</td>
+</tr>
+</tbody>
+</table>
+<p>A player walking horizontally into a Wall edge that is close to horizontal (a shallow diagonal) stops at it; it slides along the edge in depth (up to 8 pixels) only while it is moving in depth itself. Pushing against a wall never moves a character in depth on its own.</p>
+<p><strong>Scrolling</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scrollXLimit</code></td>
+<td>int</td>
+<td>Horizontal scroll extent, in pixels. Editor-authored scenes use a negative value for a scene that scrolls to the right.</td>
+</tr>
+<tr>
+<td><code>diagonalScrollLimit</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Diagonal scroll bound. Zero on both axes means horizontal scrolling only.</td>
+</tr>
+<tr>
+<td><code>cinematicCameraRoute</code></td>
+<td>object or null</td>
+<td>Optional known directional route for cinematic presentation: <code>{start: {x, y}, end: {x, y}}</code>, in absolute Lua camera viewport pixels, plus optional <code>actorY</code>: a fixed depth, in pixels below the route's camera Y, for cinematic actors that cross the view on one line (0 or omitted: the script chooses). This declares geometry; it does not drive gameplay scrolling.</td>
+</tr>
+</tbody>
+</table>
+<p>Native forward scroll geometry can be queried without a declaration. A cinematic
+cannot infer the route owned by an arbitrary camera script. For a scripted stage
+with a known straight or diagonal route, declare its endpoints for each wave;
+decreasing X identifies right-to-left travel. X endpoints must differ. Y is
+sampled linearly between them. Coordinates must match the stage script's actual
+bounds at the configured viewport width; no widescreen correction is inferred.
+Free-scrolling or changing custom routes should leave this field null, so events
+can fall back to an earlier scene with known directional geometry.</p>
+<pre><code class="language-json">&quot;cinematicCameraRoute&quot;: {
+  &quot;start&quot;: {&quot;x&quot;: 1800, &quot;y&quot;: 0},
+  &quot;end&quot;: {&quot;x&quot;: 448, &quot;y&quot;: 256}
+}
+</code></pre>
+<p><strong>Spawns</strong></p>
+<p><code>loadcues</code> is a <code>SceneLoadcuesData</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enemies1</code>, <code>enemies2</code></td>
+<td>The two enemy wave tracks, which run in parallel.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>Items, weapons, food, and containers.</td>
+</tr>
+<tr>
+<td><code>extraEnemies1</code>, <code>extraEnemies2</code>, <code>extraItems</code></td>
+<td>Additional content used by the higher Classic difficulties.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enemy-loadcues">Enemy loadcues<a class="headerlink" href="#enemy-loadcues" title="Permanent link">&para;</a></h3>
+<p><code>CharacterLoadcueData</code>. Every enemy in a level is one of these.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>packName</code></td>
+<td>string</td>
+<td>Pack owning the entity. Empty means Classic.</td>
+</tr>
+<tr>
+<td><code>entityName</code></td>
+<td>string</td>
+<td>Entity folder name within that pack.</td>
+</tr>
+<tr>
+<td><code>position_A_C</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Spawn position in pixels. <code>x</code> is along the scene, <code>y</code> is depth.</td>
+</tr>
+<tr>
+<td><code>collisionBox_3_4_5</code></td>
+<td><code>BoundingBox</code></td>
+<td>Collision override. See the warning below.</td>
+</tr>
+<tr>
+<td><code>triggerType</code></td>
+<td>int</td>
+<td>What makes this wave spawn. See below.</td>
+</tr>
+<tr>
+<td><code>triggerArgument</code></td>
+<td>int</td>
+<td>Distance, enemy count, or delay, depending on <code>triggerType</code>.</td>
+</tr>
+<tr>
+<td><code>minimumDifficulty</code></td>
+<td>int</td>
+<td>Lowest difficulty this enemy appears on. Below it, it is left out entirely.</td>
+</tr>
+<tr>
+<td><code>useBossSlot</code></td>
+<td>bool</td>
+<td>Treat as the level boss: reserves the boss slot and shows the boss health bar.</td>
+</tr>
+<tr>
+<td><code>health</code></td>
+<td>int</td>
+<td>Starting health, nibble-encoded: <code>(health &amp; 0xF) + (health &gt;&gt; 4) * 12</code> hit points before the difficulty multiplier, every 12 of which is an extra life. <code>0</code> gives 8 hit points; there is no entity default. See <a href="../../classic-mechanics/#health-damage-and-special-moves">Classic Game Mechanics</a>.</td>
+</tr>
+<tr>
+<td><code>deathScore</code></td>
+<td>int</td>
+<td>Points for defeating it.</td>
+</tr>
+<tr>
+<td><code>enemyAgressiveness</code></td>
+<td>int</td>
+<td>AI aggression, cautious at low values to relentless at high ones.</td>
+</tr>
+<tr>
+<td><code>introductionType</code></td>
+<td>int</td>
+<td>Which introduction sequence plays on appearance, such as dropping in or climbing out of a sewer.</td>
+</tr>
+<tr>
+<td><code>palettePackName</code></td>
+<td>string</td>
+<td>Pack owning the palette. Empty means Classic.</td>
+</tr>
+<tr>
+<td><code>paletteIndex</code></td>
+<td>int</td>
+<td>Palette index for this entity within that pack.</td>
+</tr>
+<tr>
+<td><code>bikerWeaponFlag</code></td>
+<td>bool</td>
+<td>Give a spawned biker their pipe.</td>
+</tr>
+<tr>
+<td><code>bikerGrenadeFlag</code></td>
+<td>bool</td>
+<td>Spawn a foot biker holding a grenade instead of a pipe. Written by the ROM importer; the Level Editor shows it as Biker Grenade.</td>
+</tr>
+<tr>
+<td><code>ninjaHookHeight</code></td>
+<td>int</td>
+<td>Height a hooking ninja descends from, in pixels.</td>
+</tr>
+<tr>
+<td><code>displayName</code></td>
+<td>string</td>
+<td>Editor-only label. Does not affect the game.</td>
+</tr>
+</tbody>
+</table>
+<p>Trigger types, as the Level Editor presents them:</p>
+<table>
+<thead>
+<tr>
+<th><code>triggerType</code></th>
+<th><code>triggerArgument</code></th>
+<th>Spawns when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>unused</td>
+<td>Immediately, once the previous wave is cleared.</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>distance in pixels</td>
+<td>The player has travelled that far.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>enemy count, below 7</td>
+<td>Fewer than that many enemies remain on screen.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>7 or more</td>
+<td>That enemy count is reached, <strong>or</strong> a timer expires.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>delay</td>
+<td>After that delay.</td>
+</tr>
+</tbody>
+</table>
+<p>The split on <code>triggerArgument</code> 7 within type <code>2</code> is why the editor shows "Enemy Count" and "Time OR Enemy Count" as separate choices for the same underlying type.</p>
+<h3 id="item-loadcues">Item loadcues<a class="headerlink" href="#item-loadcues" title="Permanent link">&para;</a></h3>
+<p><code>ItemLoadcueData</code>. Weapons, food, score pickups, and breakable containers.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>packName</code>, <code>entityName</code></td>
+<td>string</td>
+<td>The object to place.</td>
+</tr>
+<tr>
+<td><code>position_A_C</code></td>
+<td><code>{x, y}</code> int</td>
+<td>Position in pixels.</td>
+</tr>
+<tr>
+<td><code>collisionBox_3_4_5</code></td>
+<td><code>BoundingBox</code></td>
+<td>Collision override. See the warning below.</td>
+</tr>
+<tr>
+<td><code>status_2</code></td>
+<td>int</td>
+<td>Spawn flags: bit 0 vulnerable, bit 1 obstacle, bit 2 active; bit 7 spawns a decorative sub-item instead of an interactive item. Use <code>7</code> for a hittable scripted fixture.</td>
+</tr>
+<tr>
+<td><code>animation_6</code></td>
+<td>int</td>
+<td>Animation the object starts in.</td>
+</tr>
+<tr>
+<td><code>mode_7</code></td>
+<td>int</td>
+<td>Object mode. For items this is <code>(controller index + 1) * 2</code>, so <code>2</code> is the first item controller.</td>
+</tr>
+<tr>
+<td><code>height_8</code></td>
+<td>int</td>
+<td>Height above the ground, in pixels.</td>
+</tr>
+<tr>
+<td><code>containedItemPackName</code></td>
+<td>string</td>
+<td>Pack owning the item hidden inside.</td>
+</tr>
+<tr>
+<td><code>containedItemEntityName</code></td>
+<td>string</td>
+<td>Item revealed when this container is broken open.</td>
+</tr>
+<tr>
+<td><code>insideForTwoPlayersOnly_10_b7</code></td>
+<td>bool</td>
+<td>Only place the contained item in a two player game.</td>
+</tr>
+<tr>
+<td><code>palettePackName</code>, <code>paletteIndex</code></td>
+<td>string, int</td>
+<td>Palette for the object.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>_2</code>, <code>_6</code>, <code>_7</code>, <code>_8</code> suffixes are byte offsets in the original ROM structure. They are part of the field names; do not drop them.</p>
+<h3 id="collisionbox_3_4_5"><code>collisionBox_3_4_5</code><a class="headerlink" href="#collisionbox_3_4_5" title="Permanent link">&para;</a></h3>
+<p>The runtime reads this field as a <code>BoundingBox</code>. That is the canonical shape — the only one the game deserializes, and what both the ROM importer and the Level Editor write:</p>
+<pre><code class="language-json">&quot;collisionBox_3_4_5&quot;: {
+  &quot;halfWidth&quot;: 14,
+  &quot;height&quot;: 72,
+  &quot;depth&quot;: 6
+}
+</code></pre>
+<p>All three values are raw ROM bytes, from offsets <code>0xD</code>, <code>0xE</code>, and <code>0xF</code>. <code>halfWidth</code> is half the box width, so the box spans <code>-halfWidth</code> to <code>+halfWidth</code> around the spawn position. A <code>height</code> of <code>0</code> means "no override": the entity falls back to its animation body box, and then to its global body box.</p>
+<p>Two superseded shapes still exist in files written by older builds. The Level Editor reads all three and always writes the canonical one, so opening a level and saving it migrates that level. <code>tools/migrate_collision_boxes.py</code> converts files in bulk without opening them.</p>
+<table>
+<thead>
+<tr>
+<th>Legacy shape</th>
+<th>Written by</th>
+<th>Converts to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{depth, rect: {x, y, width, height}}</code></td>
+<td>The runtime, before mid-2024.</td>
+<td><code>halfWidth</code> = <code>rect.width</code>, <code>height</code> = <code>rect.height</code>, <code>depth</code> = <code>depth</code>.</td>
+</tr>
+<tr>
+<td><code>{x, y, width, height}</code></td>
+<td>The Level Editor, before it was fixed.</td>
+<td>Nothing recoverable — an all-zero box.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>rect.width</code> is a half width, not a full width</p>
+<p>The build that wrote the nested shape stored the raw ROM byte in <code>rect.width</code>, then derived <code>rect.x = -rect.width / 2</code>. So <code>rect.width</code> already holds <code>halfWidth</code>. Halving it when converting shrinks every box to half its intended size.</p>
+</div>
+<p>The flat shape carries no information at all: the editor parsed the field as a plain rectangle, which dropped <code>halfWidth</code> and <code>depth</code> on load and wrote them back as zeros. Levels saved in that state lost their per-spawn overrides for good, and need them re-authored.</p>
+<p>Until a file is migrated, the runtime reads any non-canonical shape as all zeros and ignores the override entirely.</p>
+<h2 id="art-files">Art files<a class="headerlink" href="#art-files" title="Permanent link">&para;</a></h2>
+<p>Root object: <code>LocalLevelBackgroundData</code>. Used by <code>- art.json</code>, <code>- cutscenes.json</code>, <code>title.json</code>, <code>presentation.json</code>, and <code>ending.json</code>, in <code>Levels/</code> and in <code>Level Replacements/&lt;Target Pack&gt;/</code> alike.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scenes</code></td>
+<td>array of <code>LocalSceneBackgroundData</code></td>
+<td>One per scene. A <code>null</code> entry reuses the previous scene's background.</td>
+</tr>
+<tr>
+<td><code>animationsDefinition</code></td>
+<td>array of <code>LocalLayerAnimation</code></td>
+<td>The file's animation library. Layers reference entries <strong>by array index</strong>, so reordering silently repoints every reference.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scene-background">Scene background<a class="headerlink" href="#scene-background" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>layers</code></td>
+<td>array</td>
+<td>Visual layers, drawn by <code>zOrder</code>.</td>
+</tr>
+<tr>
+<td><code>musicPackName</code></td>
+<td>string</td>
+<td>Pack the music is loaded from. Empty means this pack.</td>
+</tr>
+<tr>
+<td><code>musicName</code></td>
+<td>string</td>
+<td>Music track, base file name without extension.</td>
+</tr>
+<tr>
+<td><code>screenShakeType</code></td>
+<td>int</td>
+<td><code>0</code> Default, <code>1</code> Truck, <code>2</code> Boat.</td>
+</tr>
+<tr>
+<td><code>cutsceneEndTimeInSeconds</code></td>
+<td>float</td>
+<td>How long a cutscene scene lasts before advancing. <code>-1</code>, the default, means it does not advance on its own — which is what gameplay scenes use.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scene music lives here, in the art file, not in the gameplay file.</strong> Some older files carry <code>musicName</code> and <code>musicPackName</code> inside <code>level &lt;n&gt;.json</code> scenes; the runtime ignores them there.</p>
+<h3 id="layers">Layers<a class="headerlink" href="#layers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>layerName</code></td>
+<td>string</td>
+<td>Editor label.</td>
+</tr>
+<tr>
+<td><code>zOrder</code></td>
+<td>float</td>
+<td>Draw order. Lower values draw in front. Built-in backgrounds use about <code>10</code>, and foregrounds use about <code>-6</code>.</td>
+</tr>
+<tr>
+<td><code>parallax</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Scroll speed relative to the camera. <code>1</code> moves with the camera, below <code>1</code> is a slower background, above <code>1</code> a faster foreground. Defaults to <code>{1, 1}</code>.</td>
+</tr>
+<tr>
+<td><code>autoScroll</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Constant self-scrolling in pixels per second, independent of the camera.</td>
+</tr>
+<tr>
+<td><code>scrollLoopLimits</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Wrap distance per axis. A positive value tiles the layer endlessly over that span; <code>0</code> disables wrapping on that axis.</td>
+</tr>
+<tr>
+<td><code>positionOffset</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Shift applied to everything on the layer, in pixels.</td>
+</tr>
+<tr>
+<td><code>reactToQuakeEffect</code></td>
+<td>bool</td>
+<td>Shake with the screen during a quake. The shake is an offset on top of the layer's own position, so a layer that scrolls vertically or is moved by its <code>visualScript</code> keeps moving while it shakes.</td>
+</tr>
+<tr>
+<td><code>updateType</code></td>
+<td>int</td>
+<td>Special per-frame behaviour. See below.</td>
+</tr>
+<tr>
+<td><code>staticImages</code></td>
+<td>array</td>
+<td>Still images placed on the layer.</td>
+</tr>
+<tr>
+<td><code>titleScreenImages</code></td>
+<td>array</td>
+<td>Animated entrance images, for title and character select screens.</td>
+</tr>
+<tr>
+<td><code>animations</code></td>
+<td>array</td>
+<td>Placed instances of <code>animationsDefinition</code> entries.</td>
+</tr>
+</tbody>
+</table>
+<p><code>updateType</code> values: <code>0</code> Normal, <code>1</code> BackyardRain, <code>2</code> TruckBrokenDoor, <code>3</code> Stage4Elevator, <code>4</code> ArenaSpectators, <code>5</code> Stage7Elevator, <code>6</code> Stage7ElevatorExtra, <code>7</code> Stage8Elevator, <code>8</code> AntiCameraY, <code>9</code> WaveEffect, <code>10</code> SmallWaveEffect, <code>11</code> SwingingBoat.</p>
+<p>These reproduce specific original-game effects and mostly assume the scene is laid out like the stage they came from. <code>0</code> is what a new layer wants.</p>
+<p>Local <code>WaveEffect</code> and <code>SmallWaveEffect</code> layers use the Classic wave shader,
+wave tables and effect-camera ordering. Static images and animated children on
+all matching layers receive that effect. Dry scenes reset their render layers
+and disable the effect camera. <code>useClassicLayerMotion: true</code> separately delegates
+the layer transform to the original controller, preserving elevator and other
+stage-specific movement.
+For stationary Classic layers, <code>staticParallaxType</code> also preserves widescreen
+registration: <code>0</code> Normal, <code>1</code> Skyline, <code>2</code> Stage7Elevator. It requires
+<code>useClassicLayerMotion: true</code>; the controller then supplies the native -34px
+vertical offset, so do not add that offset a second time in <code>positionOffset</code>.</p>
+<h3 id="images-and-animations">Images and animations<a class="headerlink" href="#images-and-animations" title="Permanent link">&para;</a></h3>
+<p><code>staticImages</code> entries:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imageName</code></td>
+<td>string</td>
+<td>File name inside <code>Levels/Art/</code>, <strong>including its extension</strong>.</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Position within the layer, in pixels.</td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td>float</td>
+<td>Size multiplier. <code>0</code> is treated as <code>1</code>, and the absolute value is used.</td>
+</tr>
+</tbody>
+</table>
+<p><code>titleScreenImages</code> entries add an entrance animation on top of those three fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialXPosition</code></td>
+<td>float</td>
+<td>Horizontal offset the image starts from.</td>
+</tr>
+<tr>
+<td><code>initialDelay</code></td>
+<td>float</td>
+<td>Seconds to wait before it starts moving.</td>
+</tr>
+<tr>
+<td><code>lerpSpeed</code></td>
+<td>float</td>
+<td>How quickly it eases towards <code>position</code>. Higher catches up faster.</td>
+</tr>
+<tr>
+<td><code>wiggleAmplitude</code></td>
+<td>float</td>
+<td>How far it wiggles off its path, in pixels. <code>0</code> disables.</td>
+</tr>
+<tr>
+<td><code>wiggleFrequency</code></td>
+<td>float</td>
+<td>How fast it wiggles.</td>
+</tr>
+<tr>
+<td><code>requireCharacterName</code></td>
+<td>bool</td>
+<td>Only use this entry when the character's name matches, rather than for everyone.</td>
+</tr>
+<tr>
+<td><code>isAICharacter</code></td>
+<td>bool</td>
+<td>Present this portrait as computer-controlled rather than as a player.</td>
+</tr>
+</tbody>
+</table>
+<p><code>animations</code> entries are just a placement:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>animationId</code></td>
+<td>int</td>
+<td>Index into this file's <code>animationsDefinition</code>.</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td><code>{x, y}</code> float</td>
+<td>Placement within the layer, in pixels.</td>
+</tr>
+</tbody>
+</table>
+<p><code>animationsDefinition</code> entries hold <code>frames</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imageName</code></td>
+<td>string</td>
+<td>File name inside <code>Levels/Art/</code>, including extension.</td>
+</tr>
+<tr>
+<td><code>delayFrames</code></td>
+<td>int</td>
+<td>Game frames this image is held.</td>
+</tr>
+<tr>
+<td><code>pivotInPixels</code></td>
+<td><code>{x, y}</code> float</td>
+<td>The point of the image that sits at the placement position, in pixels from its bottom-left corner.</td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td>float</td>
+<td>Size multiplier. <code>0</code> is treated as <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The same animation can be placed many times on many layers; that is the point of the shared library.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-json">{
+  &quot;animationsDefinition&quot;: [
+    {
+      &quot;frames&quot;: [
+        { &quot;imageName&quot;: &quot;water-1.png&quot;, &quot;delayFrames&quot;: 8, &quot;pivotInPixels&quot;: { &quot;x&quot;: 0, &quot;y&quot;: 0 }, &quot;scale&quot;: 1 },
+        { &quot;imageName&quot;: &quot;water-2.png&quot;, &quot;delayFrames&quot;: 8, &quot;pivotInPixels&quot;: { &quot;x&quot;: 0, &quot;y&quot;: 0 }, &quot;scale&quot;: 1 }
+      ]
+    }
+  ],
+  &quot;scenes&quot;: [
+    {
+      &quot;musicPackName&quot;: &quot;My Pack&quot;,
+      &quot;musicName&quot;: &quot;stage-1&quot;,
+      &quot;cutsceneEndTimeInSeconds&quot;: -1,
+      &quot;layers&quot;: [
+        {
+          &quot;layerName&quot;: &quot;Sky&quot;,
+          &quot;zOrder&quot;: -30,
+          &quot;parallax&quot;: { &quot;x&quot;: 0.25, &quot;y&quot;: 0.25 },
+          &quot;scrollLoopLimits&quot;: { &quot;x&quot;: 512, &quot;y&quot;: 0 },
+          &quot;staticImages&quot;: [
+            { &quot;imageName&quot;: &quot;clouds.png&quot;, &quot;position&quot;: { &quot;x&quot;: 0, &quot;y&quot;: 0 }, &quot;scale&quot;: 1 }
+          ]
+        },
+        {
+          &quot;layerName&quot;: &quot;Water&quot;,
+          &quot;zOrder&quot;: -10,
+          &quot;parallax&quot;: { &quot;x&quot;: 1, &quot;y&quot;: 1 },
+          &quot;animations&quot;: [{ &quot;animationId&quot;: 0, &quot;position&quot;: { &quot;x&quot;: 120, &quot;y&quot;: 40 } }]
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a></li>
+<li><a href="../../../editors/level/background-layers/">Background Layers</a></li>
+<li><a href="../../../guides/create-levels/">Create Custom Levels</a></li>
+<li><a href="../enums/">Enums and Identifiers</a></li>
+</ul>
+<h2 id="scripted-stage-extensions">Scripted stage extensions<a class="headerlink" href="#scripted-stage-extensions" title="Permanent link">&para;</a></h2>
+<p>Scenes support <code>scriptedItems</code> for explicit item spawning through <code>game.spawn_scene_item(index)</code>. Scenes support <code>updateScript</code>, and <code>updateScriptDuringCinematics: true</code> to keep running it, for presentation only, behind a gameplay cinematic. Art layers support <code>tilemap</code> and <code>visualScript</code>. See the scripted-stage Lua documentation for coordinates, data formats and rollback rules.</p>
+<p>Scene <code>enterScript</code> uses the same reference as <code>updateScript</code>. <code>scriptedEntrance</code> skips automatic entrance walking when the script owns placement. <code>scriptedClock</code> leaves the HUD timer under Lua control. <code>scriptedEnemies</code> disables automatic enemy cues so the stage script can spawn individual <code>enemies1</code> cues with <code>game.spawn_scene_enemy(index)</code> and maintain persistent area encounters. See <a href="../../../scripting/stages/">Scripted stages</a> for lifecycle, units and rollback rules.</p>
+<h3 id="scripted-waves-inside-a-scene">Scripted waves inside a scene<a class="headerlink" href="#scripted-waves-inside-a-scene" title="Permanent link">&para;</a></h3>
+<p><code>scriptedWaveCount</code> (default 0, equivalent to one) exposes multiple authored
+waves in the custom-game wave selector. <code>scriptedWaveCustomValue</code> (0–16; zero
+disables seeding) selects the game custom variable receiving the one-based
+starting wave. These are camera-lock encounter groups within one background
+scene; scene fades still occur only at physical scene boundaries.
+Use <code>game.complete_scene()</code> from the gameplay script to execute the configured
+walk/fade or stage-clear exit before advancing to the next physical scene.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../entities/" class="btn btn-neutral float-left" title="Entity Files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../palettes/" class="btn btn-neutral float-right" title="Palette Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../entities/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../palettes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

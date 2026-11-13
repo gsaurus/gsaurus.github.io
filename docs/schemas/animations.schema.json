@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/animations.schema.json",
+  "title": "animations.json",
+  "description": "Animation frame timeline for one entity, stored at Entities/<Entity Name>/animations.json. Deserialized as Sor2NewEra.Gameplay.AnimationsSetData. The array index of each animation is its animation id; see the Enums and Identifiers reference for the Classic animation slot table.",
+  "type": "object",
+  "properties": {
+    "animations": {
+      "description": "One entry per animation slot. Index i is animation id i, which equals the Classic AnimationId value divided by two. Entries may be null to leave a slot empty; never reorder the array to rename an animation.",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "#/$defs/animation"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "animations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "animation": {
+      "title": "AnimationData",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Editor label for this animation. Purely cosmetic: the runtime addresses animations by index. The Character Editor mirrors this value into logic.json animationsLogic[i].name on save.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frames": {
+          "description": "Ordered frames. The animation's total length in game frames is the sum of every frame duration, and that total is what event and box frame numbers are measured against.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/frame"
+          }
+        },
+        "referenceTotalFrames": {
+          "description": "Total frame count of the same animation on the reference entity. Used by the editor to keep a Classic reskin aligned with the original timing; leave at 0 when there is no reference.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "TotalFrames": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the sum of the frame durations.",
+          "type": "integer",
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "frame": {
+      "title": "AnimationFrameData",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "description": "How many game frames this image is held for. The game runs at 60 frames per second.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 4
+        },
+        "imageId": {
+          "description": "Effective sprite index. Indexes the combined frame list: borrowed reference frames occupy indices 0..R-1, and this entity's own frames follow at R..R+N-1, where own frame k is the file <k>.png. A negative value draws nothing.",
+          "type": "integer"
+        },
+        "weapon": {
+          "description": "Optional weapon overlay drawn on this frame.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/weapon"
+            }
+          ]
+        },
+        "useReferenceArt": {
+          "description": "Editor artifact from an older sprite-reference model. Whether a frame uses reference art is now derived from imageId falling below the reference frame count.",
+          "type": "boolean",
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "weapon": {
+      "title": "AnimationFrameWeaponData",
+      "type": "object",
+      "properties": {
+        "direction": {
+          "description": "WeaponAngle: 0 Up, 1 UpLeft, 2 Left, 3 DownLeft, 4 Down, 5 DownRight, 6 Right, 7 UpRight.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "showBehind": {
+          "description": "Draw the weapon behind the character instead of in front.",
+          "type": "boolean",
+          "default": false
+        },
+        "position": {
+          "description": "Weapon offset from the character pivot, in pixels.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/scripting/api/enemy/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Enemy - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Enemy";
+        var mkdocs_page_input_path = "scripting\\api\\enemy.md";
+        var mkdocs_page_url = "/docs/scripting/api/enemy/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >API Reference</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../player/">Player</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Enemy</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#identity-and-general-ai">Identity And General AI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enemy-specific-values">Enemy-Specific Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ai-override-values">AI Override Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#boss-ai-read-only-values">Boss AI Read-Only Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#return_to_standing">return_to_standing()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-retarget-and-attack">Example: Retarget And Attack</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lua Scripting</li>
+          <li class="breadcrumb-item">API Reference</li>
+      <li class="breadcrumb-item active">Enemy</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="enemy-api">Enemy API<a class="headerlink" href="#enemy-api" title="Permanent link">&para;</a></h1>
+<p><code>Enemy</code> extends <a href="../character/">Character</a> with AI state, targeting, movement intent, and enemy-specific counters. It also exposes item and sub-item fields through flattening.</p>
+<h2 id="identity-and-general-ai">Identity And General AI<a class="headerlink" href="#identity-and-general-ai" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_alive</code></td>
+<td><code>bool</code></td>
+<td>read</td>
+<td>True when the slot exists and either health or extra health bars (<code>lives</code>) remain. Does not require the item/projectile <code>is_active</code> flag. Exact bridge name is <code>IsAlive</code>.</td>
+</tr>
+<tr>
+<td><code>is_commoner</code></td>
+<td><code>bool</code></td>
+<td>read</td>
+<td>True when the entity logic marks this as a common enemy. Exact bridge name is <code>IsCommoner</code>.</td>
+</tr>
+<tr>
+<td><code>entity_type</code></td>
+<td><code>int</code></td>
+<td>read</td>
+<td>Enemy entity type. Exact bridge name is <code>EntityType</code>; <code>entity_type</code> from SubItem is also available and writable.</td>
+</tr>
+<tr>
+<td><code>character</code></td>
+<td><code>Character</code></td>
+<td>read</td>
+<td>Same object, exposed for interface symmetry.</td>
+</tr>
+<tr>
+<td><code>pack_hash</code></td>
+<td><code>int</code></td>
+<td>read</td>
+<td>Pack hash inherited from SubItem.</td>
+</tr>
+<tr>
+<td><code>pack_name</code></td>
+<td><code>string</code></td>
+<td>read</td>
+<td>Pack name inherited from SubItem.</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Current AI/behaviour mode.</td>
+</tr>
+<tr>
+<td><code>mode_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Frames remaining or elapsed for the current mode, depending on controller.</td>
+</tr>
+<tr>
+<td><code>moving_dinrection</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Original field name contains the typo <code>Dinrection</code>. Snake-case scripts should use <code>moving_dinrection</code>.</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Target distance or mode distance parameter.</td>
+</tr>
+<tr>
+<td><code>movement_speed</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Base movement speed.</td>
+</tr>
+<tr>
+<td><code>enemy_status</code></td>
+<td><code>EnemyStatus</code></td>
+<td>read/write</td>
+<td>Overall AI status enum/bitfield.</td>
+</tr>
+<tr>
+<td><code>is_boss</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Boss mode. When the last boss in boss mode dies, every other enemy dies with it and its body stays longer before the wave can end. Set it right after spawning a scripted boss.</td>
+</tr>
+<tr>
+<td><code>enemy_agressiveness</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Aggressiveness value. The bridge and source use the misspelling <code>agressiveness</code>.</td>
+</tr>
+<tr>
+<td><code>homing_target_id</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Target object ID. Usually a player ID.</td>
+</tr>
+<tr>
+<td><code>homing_timer</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Retargeting or homing timer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enemy-specific-values">Enemy-Specific Values<a class="headerlink" href="#enemy-specific-values" title="Permanent link">&para;</a></h2>
+<p>These fields mirror original enemy memory slots. They are useful when extending a matching behaviour mode, but they are not general-purpose storage. Prefer <code>custom_value_*</code> for new script state.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enemySpecific_C0</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Generic enemy-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecific_C1</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecific_C2</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>enemySpecific_C3</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Generic enemy-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>enemySpecific_C4</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Generic enemy-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>enemySpecificCounter_C5</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Generic counter slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecific_C6</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecific_C7</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecificTargetId_C8</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific target ID. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>abadedeSpecificCounter_CC</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific counter. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>shivaSpecific_B0</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Boss-specific slot. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>isBikerRidingBike_CA</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Bike-riding state. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>bikerSpecialCounter_CB</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Biker-specific counter. Use exact spelling.</td>
+</tr>
+<tr>
+<td><code>biker_next_animation_id</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Biker next-animation helper.</td>
+</tr>
+<tr>
+<td><code>use_biker_pipe</code></td>
+<td><code>bool</code></td>
+<td>read/write</td>
+<td>Requests biker pipe behaviour.</td>
+</tr>
+<tr>
+<td><code>initial_ninja_hook_heigh</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+<td>Ninja hook height field. Name follows source spelling.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-override-values">AI Override Values<a class="headerlink" href="#ai-override-values" title="Permanent link">&para;</a></h2>
+<p>Override fields are writable; probability, timer, speed, and distance fields are read-only values from AI data.</p>
+<p>The read-only values come from the enemy logic's <code>aiData</code> table: one row per aggressiveness level (<code>enemy_agressiveness</code>, clamped to the last row), one column per value. The suffix is the original RAM offset; the number after <code>Mode_</code> is the AI mode the value belongs to. An entity with no AI data reads <code>0</code> everywhere.</p>
+<p>When the native AI picks a random mode it rolls <code>0..99</code> and subtracts <code>ProbabilityMode_E0</code>, then <code>E1</code>, <code>E2</code>, <code>E3</code> and <code>E4</code> in turn: the first value that takes the roll below zero selects modes 0 to 4, so each is that mode's chance in percent. Writing a non-zero <code>override_aiData_En</code> replaces column <code>n</code> for this enemy only (some native bosses do this at runtime); <code>0</code> restores the table value.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>override_aiData_E0</code>, <code>override_aiData_E1</code>, <code>override_aiData_E2</code>, <code>override_aiData_E3</code>, <code>override_aiData_E4</code></td>
+<td><code>int</code></td>
+<td>read/write</td>
+</tr>
+<tr>
+<td><code>ProbabilityMode_E0</code>, <code>ProbabilityMode_E1</code>, <code>ProbabilityMode_E2</code>, <code>ProbabilityMode_E3</code>, <code>ProbabilityMode_E4</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_0_E6</code>, <code>RandomTimerMode_0_E7</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_1_E8</code>, <code>RandomTimerMode_1_E9</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinSpeedMode_1_EA</code>, <code>RandomSpeedMode_1_EB</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>TimerMode_2_EC</code>, <code>MinSpeedMode_2_ED</code>, <code>RandomSpeedMode_2_EE</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinDistanceMode_3_EF</code>, <code>RandomDistanceMode_3_F0</code>, <code>MinTimerMode_3_F1</code>, <code>RandomTimerMode_3_F2</code>, <code>SpeedMode_3_F3</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_4_F4</code>, <code>RandomTimerMode_4_F5</code>, <code>MinSpeedMode_4_F6</code>, <code>RandomSpeedMode_4_F7</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_5_F8</code>, <code>RandomTimerMode_5_F9</code>, <code>MinSpeedMode_5_FA</code>, <code>RandomSpeedMode_5_FB</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_6_FC</code>, <code>RandomTimerMode_6_FD</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+<tr>
+<td><code>MinTimerMode_7_FE</code>, <code>RandomTimerMode_7_FF</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+</tbody>
+</table>
+<h2 id="boss-ai-read-only-values">Boss AI Read-Only Values<a class="headerlink" href="#boss-ai-read-only-values" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Read/Write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShivaAI_C0</code>, <code>ShivaAI_C1</code>, <code>ShivaAI_C2</code>, <code>ShivaAI_C3</code>, <code>ShivaAI_C4</code>, <code>ShivaAI_C5</code>, <code>ShivaAI_C6</code>, <code>ShivaAI_C7</code></td>
+<td><code>int</code></td>
+<td>read</td>
+</tr>
+</tbody>
+</table>
+<p>AI data columns <code>0x20</code>..<code>0x27</code> of the same row, used by Shiva's native controller: <code>C0</code>, <code>C1</code> and <code>C2</code> set the length of his waits (each wait lasts between the value and twice the value, in frames), <code>C3</code> and <code>C4</code> are 0..255 thresholds compared against a random byte to choose his next action. <code>C5</code>..<code>C7</code> are read from the table but not used by the native controller, so a custom boss script can use them as its own tuning values.</p>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="return_to_standing"><code>return_to_standing()</code><a class="headerlink" href="#return_to_standing" title="Permanent link">&para;</a></h3>
+<p>Resets the enemy to its standing state through the original enemy controller helper.</p>
+<pre><code class="language-lua">return function()
+    local enemy = game.this_enemy
+
+    if enemy ~= nil and enemy.is_animation_over then
+        enemy.return_to_standing()
+        return false
+    end
+
+    return true
+end
+</code></pre>
+<p>Enemies also inherit all character, item, and sub-item methods.</p>
+<h2 id="example-retarget-and-attack">Example: Retarget And Attack<a class="headerlink" href="#example-retarget-and-attack" title="Permanent link">&para;</a></h2>
+<pre><code class="language-lua">return function()
+    local enemy = game.this_enemy
+
+    if enemy == nil then
+        return true
+    end
+
+    local target = enemy.get_nearest_opponent(true, true, true)
+
+    if target ~= nil then
+        enemy.homing_target_id = target.object_index
+        enemy.is_facing_right = target.position_x &gt; enemy.position_x
+
+        if enemy.mode_timer &lt;= 0 then
+            enemy.set_animation(12)
+            enemy.mode_timer = 60
+            return false
+        end
+    end
+
+    return true
+end
+</code></pre>
+<p>the inherited ten custom variables. These are signed integer fields in EnemyModel,
+with no native AI meaning. They participate in snapshot copies and serialization,
+and reset when an enemy slot is cleared. Coordinate ownership with other scripts.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../player/" class="btn btn-neutral float-left" title="Player"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../item/" class="btn btn-neutral float-right" title="Item">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../player/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../item/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

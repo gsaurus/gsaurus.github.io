@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/scripting/getting-started/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Getting Started - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Getting Started";
+        var mkdocs_page_input_path = "scripting\\getting-started.md";
+        var mkdocs_page_url = "/docs/scripting/getting-started/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting Started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#minimal-script">Minimal Script</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-the-script-to-a-pack">Add The Script To A Pack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-game-global">The game Global</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#first-safe-reads">First Safe Reads</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#first-safe-writes">First Safe Writes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#replacing-the-controller">Replacing The Controller</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lua-pitfalls">Lua Pitfalls</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#no-math-module">No math module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#every-call-has-an-instruction-budget">Every call has an instruction budget</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initialise-every-local">Initialise every local</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-other-files">Loading other files</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lua Scripting</li>
+      <li class="breadcrumb-item active">Getting Started</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started-with-lua">Getting Started With Lua<a class="headerlink" href="#getting-started-with-lua" title="Permanent link">&para;</a></h1>
+<p>A Lua script is a text file with the <code>.lua</code> extension. The game loads it from a mod pack when an animation, entity, or pack-level update hook references it.</p>
+<h2 id="minimal-script">Minimal Script<a class="headerlink" href="#minimal-script" title="Permanent link">&para;</a></h2>
+<p>A script returns its <strong>update function</strong>. The game runs the file once, then calls that function on
+every update; the function's return value tells the engine what to do next. See
+<a href="../#script-structure">Script Structure</a>.</p>
+<pre><code class="language-lua">return function()
+    local character = game.this_character
+
+    -- The same script can be accidentally attached to an item or global hook.
+    -- Guarding the context keeps the script safe.
+    if character == nil then
+        return true
+    end
+
+    -- This field is set by the combat controller after hitbox collision checks.
+    -- If the original controller has not run yet this frame, it may still reflect
+    -- the previous frame, so use it for reactions, not for guaranteed startup.
+    if character.is_hitting_someone then
+        character.play_sound(&quot;My Pack&quot;, &quot;impact-heavy&quot;, 1)
+    end
+
+    -- true means &quot;continue with animation behaviour or original controller&quot;.
+    return true
+end
+</code></pre>
+<h2 id="add-the-script-to-a-pack">Add The Script To A Pack<a class="headerlink" href="#add-the-script-to-a-pack" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create the script:</li>
+</ol>
+<pre><code class="language-text">Editor/&lt;Pack Name&gt;/Scripts/Impact Sound.lua
+</code></pre>
+<ol>
+<li>Open the entity in the Character Editor.</li>
+<li>Select the animation that should run the script.</li>
+<li>Assign the script in the animation logic.</li>
+<li>Test the animation in game.</li>
+</ol>
+<p>The saved <code>logic.json</code> entry looks like:</p>
+<pre><code class="language-json">{
+  &quot;script&quot;: {
+    &quot;packName&quot;: &quot;My Pack&quot;,
+    &quot;scriptName&quot;: &quot;Impact Sound&quot;
+  }
+}
+</code></pre>
+<h2 id="the-game-global">The <code>game</code> Global<a class="headerlink" href="#the-game-global" title="Permanent link">&para;</a></h2>
+<p>The <code>game</code> object is the entry point for the current update. Read the context objects from it
+inside the update function, on every call:</p>
+<pre><code class="language-lua">local character = game.this_character
+local player = game.this_player
+local enemy = game.this_enemy
+local item = game.this_item
+</code></pre>
+<p>Only some of these are valid in a given context:</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Valid objects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player animation script</td>
+<td><code>this_player</code>, <code>this_character</code></td>
+</tr>
+<tr>
+<td>Enemy animation script</td>
+<td><code>this_enemy</code>, <code>this_character</code></td>
+</tr>
+<tr>
+<td>Item animation script</td>
+<td><code>this_item</code></td>
+</tr>
+<tr>
+<td>Pack-level player hook</td>
+<td><code>this_player</code>, <code>this_character</code></td>
+</tr>
+<tr>
+<td>Pack-level enemy hook</td>
+<td><code>this_enemy</code>, <code>this_character</code></td>
+</tr>
+<tr>
+<td>Pack-level item hook</td>
+<td><code>this_item</code></td>
+</tr>
+</tbody>
+</table>
+<p>Always check context-specific objects for <code>nil</code> before using them.</p>
+<h2 id="first-safe-reads">First Safe Reads<a class="headerlink" href="#first-safe-reads" title="Permanent link">&para;</a></h2>
+<p>Start with scripts that read state and call one helper:</p>
+<pre><code class="language-lua">return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    -- pressed_button_b is true only on the frame the attack button was pressed.
+    if player.pressed_button_b then
+        player.play_sound(&quot;My Pack&quot;, &quot;debug-click&quot;, 0)
+    end
+
+    return true
+end
+</code></pre>
+<h2 id="first-safe-writes">First Safe Writes<a class="headerlink" href="#first-safe-writes" title="Permanent link">&para;</a></h2>
+<p>Then move to state changes. Frame <code>0</code> is useful for one-time setup because the animation frame is advanced later by the animation controller.</p>
+<pre><code class="language-lua">return function()
+    local character = game.this_character
+
+    if character == nil then
+        return true
+    end
+
+    if character.current_animation_frame == 0 then
+        -- Stop inherited horizontal motion at the start of this animation.
+        character.velocity_x = 0
+        character.impulse_x = 0
+    end
+
+    return true
+end
+</code></pre>
+<h2 id="replacing-the-controller">Replacing The Controller<a class="headerlink" href="#replacing-the-controller" title="Permanent link">&para;</a></h2>
+<p>If your script performs its own physics, collisions, and hit checks, return <code>false</code>.</p>
+<pre><code class="language-lua">return function()
+    local item = game.this_item
+
+    if item == nil then
+        return true
+    end
+
+    -- Item projectiles normally need manual movement when Lua owns the frame.
+    local should_destroy = item.check_projectile_hits()
+
+    item.velocity_x = item.velocity_x + item.impulse_x
+    item.velocity_y = item.velocity_y + item.impulse_z
+    item.inner_timer = item.inner_timer - 1
+
+    if item.inner_timer &lt;= 0 then
+        should_destroy = true
+    end
+
+    if item.update_position_and_check_world_collisions() then
+        item.play_sound(&quot;Classic&quot;, &quot;SE10&quot;, 0)
+        should_destroy = true
+    end
+
+    if should_destroy then
+        item.set_animation(48)
+        item.is_active = false
+    end
+
+    -- false stops fallback item physics so the projectile is not moved twice.
+    return false
+end
+</code></pre>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<p>Use <code>print()</code> for temporary logs: the text goes to the game log (<code>Player.log</code>, or the Unity console in the editor) with a <code>[Lua]</code> prefix, and while debug is enabled (as when testing a pack from the editor) it is also shown on screen, at most one message per second, so a print every frame does not flood the screen. Script errors are reported through the game's error display and log, with the script name and line; this includes runtime errors in background visual scripts and HUD scripts, which stop running after their first error. If a script appears to do nothing:</p>
+<ul>
+<li>check the filename and <code>scriptName</code></li>
+<li>check that <code>scriptName</code> omits <code>.lua</code></li>
+<li>check the pack name exactly</li>
+<li>confirm the animation actually reaches the scripted frame</li>
+<li>confirm the entity is the expected type</li>
+<li>guard against <code>nil</code> context objects</li>
+<li>return the update function from the script, and an explicit boolean from that function</li>
+<li>avoid <code>math.*</code>, <code>os.*</code>, and <code>io.*</code>, which are not registered in the gameplay sandbox</li>
+<li>look for a "script exceeded instruction budget" error: the script ran a loop that does not end (see below)</li>
+</ul>
+<h2 id="lua-pitfalls">Lua Pitfalls<a class="headerlink" href="#lua-pitfalls" title="Permanent link">&para;</a></h2>
+<h3 id="no-math-module">No <code>math</code> module<a class="headerlink" href="#no-math-module" title="Permanent link">&para;</a></h3>
+<p>The game's Lua uses 32-bit integers and ships no <code>math</code> module in any script VM: gameplay, background visual (<code>visualScript</code>) and HUD scripts alike. <code>math</code> is <code>nil</code>, so <code>math.floor(x)</code> fails with "attempt to index a nil value". Division already truncates toward zero, so <code>a / b</code> is the integer result; write small helpers for the rest:</p>
+<pre><code class="language-lua">local function abs(x) if x &lt; 0 then return -x end return x end
+local function min(a, b) if a &lt; b then return a end return b end
+local function max(a, b) if a &gt; b then return a end return b end
+</code></pre>
+<p>For random numbers in gameplay scripts use <code>game.random(range)</code>, which is replay and netplay safe.</p>
+<h3 id="every-call-has-an-instruction-budget">Every call has an instruction budget<a class="headerlink" href="#every-call-has-an-instruction-budget" title="Permanent link">&para;</a></h3>
+<p>Each call into a script (its update function, a hook, a HUD or background visual script) may run at most 10 million Lua instructions, counting everything it calls. That is far more than a normal update needs (shipped scripts use tens of thousands), so only a loop that never ends reaches it: <code>while true do end</code>, a <code>repeat</code> whose condition never becomes true, or a <code>for</code> loop whose bounds come from a broken value. The call then stops with a "script exceeded instruction budget" error, shown on screen with the script line. The game stays responsive, but whatever the script changed before it was stopped stays changed.</p>
+<p>A gameplay script that exceeds the budget is disabled for the rest of the run, so its entity or stage carries on without it; a HUD or background visual script stops, as after any other error. Fix the loop and start a new run. Waiting for something across frames belongs in entity or game fields checked once per update, never in a loop inside one update.</p>
+<h3 id="initialise-every-local">Initialise every local<a class="headerlink" href="#initialise-every-local" title="Permanent link">&para;</a></h3>
+<p>A local declared without a value, especially several at once (<code>local a, b</code>), has been seen to keep a value from an earlier pass of the same loop or update in this Lua build, instead of starting as <code>nil</code>. Code that then tests only one of them reads a stale value. Always give locals an explicit value, and check every value a branch uses:</p>
+<pre><code class="language-lua">-- risky: j and p may not start as nil
+local j, p
+
+-- safe
+local j, p = nil, nil
+if k ~= nil then j, p = find_slot(k) end
+if j ~= nil and p ~= nil then
+    -- use j and p
+end
+</code></pre>
+<h3 id="loading-other-files">Loading other files<a class="headerlink" href="#loading-other-files" title="Permanent link">&para;</a></h3>
+<p><code>require("Pack/module")</code> loads <code>Scripts/module.lua</code> from that pack (a name without a pack prefix uses the script's own pack). <code>dofile</code> and <code>loadfile</code> take a <code>"Pack/path/file.lua"</code> path. Paths must stay inside the pack: <code>..</code>, absolute paths, drive letters and <code>\</code> separators are refused, and only <code>.lua</code> files can be loaded.</p>
+<p>See <a href="../../reference/troubleshooting/">Troubleshooting</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../events/" class="btn btn-neutral float-right" title="Script Events and Entry Points">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../events/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

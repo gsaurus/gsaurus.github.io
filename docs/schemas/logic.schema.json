@@ -1,0 +1,1438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/logic.schema.json",
+  "title": "logic.json",
+  "description": "Gameplay logic for one entity, stored at Entities/<Entity Name>/logic.json. Deserialized as Sor2NewEra.Gameplay.LogicData with Newtonsoft TypeNameHandling.Auto, which is why polymorphic logic events carry a $type discriminator.",
+  "type": "object",
+  "properties": {
+    "entityType": {
+      "description": "0 Player, 1 BasicEnemy, 2 Enemy, 3 PickUpItem, 4 Container, 5 Scenery, 6 Other. The Character Editor only offers 0-3; 4-6 are runtime categories usually authored by hand or produced by the ROM importer. BasicEnemy marks a common street enemy that the difficulty system may multiply; Enemy marks a boss-class entity.",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "referencePackName": {
+      "description": "Pack owning the entity this one inherits logic from. When set, EVERY numeric field left at 0 and every null array falls through to the referenced entity, so 0 is not a way to say \"zero\" on a referencing entity.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "referenceEntityName": {
+      "description": "Entity this one inherits logic from. Required when referencePackName is set.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "walkSpeed": {
+      "description": "Walking speed. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "runSpeed": {
+      "description": "Running speed. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "jumpForce": {
+      "description": "Upward jump impulse. 0 falls through to the reference entity, and then to the Classic per-character table.",
+      "type": "integer"
+    },
+    "jumpDelayFrames": {
+      "description": "Crouch frames before leaving the ground. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "globalBodyBox": {
+      "description": "Legacy read compatibility only. Author new content using globalCombatBounds.",
+      "$ref": "common.schema.json#/$defs/boundingBox",
+      "deprecated": true
+    },
+    "canUseWeapons": {
+      "description": "Whether this entity can pick up and use weapons.",
+      "type": "boolean"
+    },
+    "comboRepetitions": {
+      "description": "How many times the standing attack chain repeats before the finisher. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "grabComboRepetitions": {
+      "description": "How many times the grab attack repeats before the grab finisher. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "chargeDelay": {
+      "description": "Frames a button must be held before a charged move becomes available.",
+      "type": "integer"
+    },
+    "noChargeFlash": {
+      "description": "Players only: true turns off the white flash shown when holding attack completes the charge. The charge and the charged attack are unchanged. Default false keeps the flash. Not inherited from a logic reference.",
+      "type": "boolean"
+    },
+    "knockedDownQuakeEffect": {
+      "description": "Screen shake strength when this entity hits the ground knocked down. 0 falls through to the reference entity.",
+      "type": "number"
+    },
+    "thrownQuakeEffect": {
+      "description": "Screen shake strength when this entity lands from a throw. 0 falls through to the reference entity.",
+      "type": "number"
+    },
+    "projectileDamage": {
+      "description": "Damage dealt when this entity is used as a projectile. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "projectileHitPause": {
+      "description": "Hit-stop frames on a projectile hit. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "projectileHitSoundName": {
+      "description": "Sound played on a projectile hit, as a base file name without extension.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "projectileHitSoundPack": {
+      "description": "Pack owning projectileHitSoundName.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "projectileHitSoundChannel": {
+      "$ref": "common.schema.json#/$defs/audioChannel"
+    },
+    "sounds": {
+      "$ref": "#/$defs/defaultSounds"
+    },
+    "grabRange": {
+      "description": "Horizontal reach of a grab attempt, in pixels. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "frontGrabOffset": {
+      "description": "Distance the victim is snapped to when grabbed from the front. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "backGrabOffset": {
+      "description": "Distance the victim is snapped to when grabbed from behind. 0 falls through to the reference entity.",
+      "type": "integer"
+    },
+    "heldFrontGrabOffset": {
+      "description": "Distance this entity is held at when grabbed from the front, whoever grabs it (pixels). 0 uses the grabber's frontGrabOffset. The holder's grab strikes are tested as if the entity stood at the holder's own frontGrabOffset, so they reach it at any held distance.",
+      "type": "integer"
+    },
+    "heldBackGrabOffset": {
+      "description": "Distance this entity is held at when grabbed from behind, whoever grabs it (pixels). 0 uses the grabber's backGrabOffset. The holder's grab strikes are tested as if the entity stood at the holder's own backGrabOffset, so they reach it at any held distance.",
+      "type": "integer"
+    },
+    "aiData": {
+      "description": "Raw two dimensional enemy AI table imported from the ROM. Hand-authoring is not supported; copy it from a reference entity or leave it out.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "animationsLogic": {
+      "description": "One entry per animation slot, parallel to animations.json animations. Index i here describes animation id i. Entries may be null. A null or missing array falls through to the reference entity, so an entity that means to have no logic at all must still be authored carefully when it references another entity.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "$ref": "#/$defs/animationLogic"
+          }
+        ]
+      }
+    },
+    "aiScript": {
+      "description": "Optional entity-level Lua behaviour for enemies. It runs once per frame before the native enemy controller, regardless of the current animation. Return false when the script handled the frame and the native controller should be skipped; return true to let native behaviour continue.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/scriptData"
+        }
+      ]
+    },
+    "hudScript": {
+      "description": "Optional view-only Lua for a playable entity. It returns up to 16 HUD sprite commands per player, relative to that player's health-bar origin.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/scriptData"
+        }
+      ]
+    },
+    "playerUpdateScript": {
+      "description": "Lua run once before this player's controller in every animation. Its return value is ignored.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/scriptData"
+        }
+      ]
+    },
+    "specialMoveScript": {
+      "description": "Lua admission and entry cost for defensive/offensive specials. Explicit true accepts the move; false or an error rejects it. Replaces the native low-health gate and later native health cost.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/scriptData"
+        }
+      ]
+    },
+    "invincibleOffensiveSpecial": {
+      "description": "Initialize offensive specials as invulnerable and suppress the native Blaze vulnerability window. Custom move scripts/events must retain that state themselves.",
+      "type": "boolean"
+    },
+    "throwOnlyWeapon": {
+      "description": "Weapon items only: the weapon is only thrown, like the Classic grenade. A player's attack throws it instead of swinging or stabbing with it. Not inherited from a logic reference.",
+      "type": "boolean"
+    },
+    "meleeOnlyWeapon": {
+      "description": "Weapon items only: the weapon is never thrown. A player's throw inputs act as if it could not be thrown: the back attack inputs make a back attack, the pick up button drops it. Not inherited from a logic reference.",
+      "type": "boolean"
+    },
+    "brokenWeapon": {
+      "description": "Weapon items only: the entity this weapon becomes after its first hit in a weapon attack, kept in the same hand (a bottle that cracks). The weapon's breakSound plays. Not inherited from a logic reference.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "packName": {
+              "type": "string"
+            },
+            "entityName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "packName",
+            "entityName"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "breakSound": {
+      "description": "Container items: the sound played when it breaks open, instead of the referenced Classic container's. Weapon items: the sound played when it breaks into its brokenWeapon. Not inherited from a logic reference.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "packName": {
+              "type": "string"
+            },
+            "soundName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "packName",
+            "soundName"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "pickupScript": {
+      "description": "Optional Lua pickup effect for an item. The script runs with game.this_player and game.pickup_item; true consumes the item, false leaves it in the world.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/scriptData"
+        }
+      ]
+    },
+    "useReferenceLogic": {
+      "description": "Character Editor convenience flag, derived from referenceEntityName being set. The runtime ignores it.",
+      "type": "boolean"
+    },
+    "BackGrabOffset": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the resolved value after reference fallback.",
+      "type": "integer",
+      "deprecated": true
+    },
+    "FrontGrabOffset": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the resolved value after reference fallback.",
+      "type": "integer",
+      "deprecated": true
+    },
+    "JumpDelayFrames": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the resolved value after reference fallback.",
+      "type": "integer",
+      "deprecated": true
+    },
+    "isPlayable": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is entityType == 0.",
+      "type": "boolean",
+      "deprecated": true
+    },
+    "isCommoner": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is entityType == 1.",
+      "type": "boolean",
+      "deprecated": true
+    },
+    "globalCombatBounds": {
+      "description": "Default hurt bounds when no active per-animation bodybox overrides them. Takes precedence over globalBodyBox, including zero coordinates or enabled=false.",
+      "$ref": "common.schema.json#/$defs/combatBounds"
+    },
+    "weaponHealth": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optional durability health for a weapon. Zero preserves Classic drop counts. Rollback-safe item state; works with any holder pack."
+    },
+    "weaponDropHealthCost": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Health consumed when the weapon lands or is swapped."
+    },
+    "weaponContactHealthCost": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optional weapon-specific cost for a connected hitbox with positive weaponHealthCost. Zero preserves the hitbox cost. Does not enable wear on ordinary zero-cost hitboxes."
+    },
+    "weaponHudFallbackDelay": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Positive seconds enable held weapon fallback after interacted entity timeout; zero uses usage events."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "defaultSounds": {
+      "title": "DefaultSoundsData",
+      "description": "Default sound groups. Each group is a list of base sound file names without extension; the runtime picks one at random per use. A null group falls through to the reference entity.",
+      "type": "object",
+      "properties": {
+        "packName": {
+          "$ref": "common.schema.json#/$defs/packName"
+        },
+        "jump": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "landing": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "quake": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "attack": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "weaponThrow": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "jumpAttack": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "blitz": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "defspecial": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "offspecial": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "grabMove1": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "grabMove2": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "grabMove3": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "death": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "run": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "lowHealth": {
+          "$ref": "#/$defs/soundNames"
+        },
+        "lastLifeDeath": {
+          "$ref": "#/$defs/soundNames"
+        }
+      },
+      "additionalProperties": false
+    },
+    "soundNames": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "animationLogic": {
+      "title": "AnimationLogicData",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Editor-only mirror of the matching animations.json name. The runtime ignores it.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration": {
+          "description": "Logic length of the animation in game frames. Frame numbers used by events, hitboxes, and bodyBoxes are measured against this timeline.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "hitboxes": {
+          "description": "Attack boxes active during frame windows of this animation. At most one is active at a time; they are scanned in order.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/hitbox"
+          }
+        },
+        "bodyBoxes": {
+          "description": "Per-frame hurt volumes overriding globalBodyBox during their frame windows.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/bodybox"
+          }
+        },
+        "throwLogic": {
+          "description": "Grab and throw choreography for this animation.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/throwLogic"
+            }
+          ]
+        },
+        "events": {
+          "description": "Frame-bound logic events. IMPORTANT: if this array is non-empty, the animation runs its events plus the default physics step and SKIPS the referenced Classic move controller entirely.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/logicEvent"
+          }
+        },
+        "script": {
+          "description": "Lua script run every frame of this animation.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/scriptData"
+            }
+          ]
+        },
+        "referenceBehaviour": {
+          "description": "Classic move controller to borrow for this animation when it has no events.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/referenceBehaviour"
+            }
+          ]
+        },
+        "HasEvents": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files.",
+          "type": "boolean",
+          "deprecated": true
+        },
+        "HasScript": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files.",
+          "type": "boolean",
+          "deprecated": true
+        },
+        "afterimages": {
+          "type": "boolean",
+          "default": false,
+          "description": "Visual-only player history trail using Ninpo rendering; does not enable clone combat."
+        },
+        "weaponHealthCost": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Weapon durability cost, independent of attack damage. Animation: on completion if a hit connected; hitbox: each connected hitbox."
+        },
+        "weaponThrowFrame": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Weapon throw animation only: the animation tick at which the native weapon throw releases the held weapon. 0 keeps the release tick of the referenced Classic character (Axel 7, Blaze 12, Skate 5, others 9)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "hitbox": {
+      "title": "HitboxData",
+      "type": "object",
+      "properties": {
+        "frame": {
+          "description": "First frame of the animation on which this box is active. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+          "type": "integer"
+        },
+        "duration": {
+          "description": "How many frames the box stays active.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "hitBox": {
+          "description": "Legacy read compatibility only. Author new content using combatBounds.",
+          "$ref": "common.schema.json#/$defs/intRect2",
+          "deprecated": true
+        },
+        "damage": {
+          "description": "Damage dealt on hit.",
+          "type": "integer"
+        },
+        "knockDown": {
+          "description": "Send the victim into the knocked-down state instead of a normal hit reaction.",
+          "type": "boolean"
+        },
+        "hitEachTargetOnce": {
+          "description": "While this hitbox stays active, strike each target once, in any order and on any frame (up to four). Without it, once the hitbox connects it skips everyone this character hit last, until the hitbox changes.",
+          "type": "boolean"
+        },
+        "hitBackwards": {
+          "description": "Push the victim away from the attacker's back rather than its front.",
+          "type": "boolean"
+        },
+        "hitPause": {
+          "description": "Hit-stop frames applied to both parties on connect.",
+          "type": "integer"
+        },
+        "soundName": {
+          "description": "Sound played on connect, as a base file name without extension.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "packName": {
+          "$ref": "common.schema.json#/$defs/packName"
+        },
+        "channel": {
+          "$ref": "common.schema.json#/$defs/audioChannel"
+        },
+        "soundId": {
+          "description": "Classic sound slot used when soundName is empty.",
+          "type": "integer"
+        },
+        "combatBounds": {
+          "$ref": "common.schema.json#/$defs/combatBounds"
+        },
+        "damageByDifficulty": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Optional damage curve indexed by difficulty then party size (1..4)."
+        },
+        "weaponHealthCost": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Weapon durability cost, independent of attack damage. Animation: on completion if a hit connected; hitbox: each connected hitbox."
+        }
+      },
+      "additionalProperties": false
+    },
+    "bodybox": {
+      "title": "BodyboxData",
+      "type": "object",
+      "properties": {
+        "frame": {
+          "type": "integer",
+          "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "boundingBox": {
+          "$ref": "common.schema.json#/$defs/boundingBox",
+          "deprecated": true,
+          "description": "Legacy read compatibility only. Author new content using combatBounds."
+        },
+        "combatBounds": {
+          "$ref": "common.schema.json#/$defs/combatBounds"
+        }
+      },
+      "additionalProperties": false
+    },
+    "throwLogic": {
+      "title": "ThrowLogicData",
+      "type": "object",
+      "properties": {
+        "offsets": {
+          "description": "Keyframes placing the held opponent relative to this entity.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/offsetData"
+          }
+        },
+        "releaseVelocity": {
+          "description": "Velocity given to the opponent when released.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "releaseDamage": {
+          "description": "Damage applied at release.",
+          "type": "integer"
+        },
+        "useLegacyHardcodedMechanics": {
+          "description": "Fall back to the original hard-coded Classic throw behaviour instead of the offsets above.",
+          "type": "boolean"
+        },
+        "relativeToAttacker": {
+          "description": "Anchor victim offsets to the attacker's current position and height, omitting the legacy grab-distance offset. Use with useLegacyHardcodedMechanics false for aerial or moving throws.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "offsetData": {
+      "title": "OffsetData",
+      "type": "object",
+      "properties": {
+        "frame": {
+          "description": "Frame of this animation at which the placement applies. Editor frame-shift operations can leave negative values behind; those entries never match a real frame and are dead data that can be removed.",
+          "type": "integer"
+        },
+        "opponentAnimation": {
+          "description": "Animation id forced on the held opponent.",
+          "type": "integer"
+        },
+        "opponentFrame": {
+          "description": "Frame forced on the held opponent's animation.",
+          "type": "integer"
+        },
+        "offset": {
+          "description": "Opponent position relative to this entity, in pixels.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "opponentFacesSameDirection": {
+          "description": "Face the opponent the same way as the holder rather than towards it.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "referenceBehaviour": {
+      "title": "ReferenceBehaviourData",
+      "description": "Points at a Classic move controller. See the Behaviour Modes reference for the mode tables.",
+      "type": "object",
+      "properties": {
+        "packName": {
+          "$ref": "common.schema.json#/$defs/packName"
+        },
+        "type": {
+          "description": "Entity type hash slot of the reference entity within the pack.",
+          "type": "integer"
+        },
+        "animationId": {
+          "description": "Animation id on the reference entity.",
+          "type": "integer"
+        },
+        "objectMode": {
+          "description": "Move controller mode value. For players and enemies this is controller index * 2; for items it is (controller index + 1) * 2.",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "logicEvent": {
+      "title": "ILogicEvent",
+      "description": "Polymorphic logic event. $type is required and must be the full Newtonsoft assembly-qualified name Sor2NewEra.Gameplay.<ClassName>, Sor2NewEra.",
+      "type": "object",
+      "required": [
+        "$type"
+      ],
+      "properties": {
+        "$type": {
+          "type": "string",
+          "enum": [
+            "Sor2NewEra.Gameplay.AccelerationEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.VelocityEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.InputAccelerationEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.InputVelocityEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.PositionOffsetEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.StopEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.StopOnHorizontalStop, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToAnimationEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToAnimationOnInputButton, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToAnimationOnInputCombo, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToAnimationOnHit, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToAnimationOnLanding, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToFrameOnLanding, Sor2NewEra",
+            "Sor2NewEra.Gameplay.JumpToFrameOnHorizontalStop, Sor2NewEra",
+            "Sor2NewEra.Gameplay.SpawnEnemyEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.SpawnItemEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.GrabEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.FlipEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.DestroyEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.InvincibilityEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.HealthEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.SetCustomValueEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra",
+            "Sor2NewEra.Gameplay.MusicEvent, Sor2NewEra"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/eventFrameOnly"
+        },
+        {
+          "$ref": "#/$defs/eventAcceleration"
+        },
+        {
+          "$ref": "#/$defs/eventVelocity"
+        },
+        {
+          "$ref": "#/$defs/eventInputAcceleration"
+        },
+        {
+          "$ref": "#/$defs/eventInputVelocity"
+        },
+        {
+          "$ref": "#/$defs/eventPositionOffset"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToAnimation"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToAnimationOnInputButton"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToAnimationOnInputCombo"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToAnimationOnHit"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToAnimationOnLanding"
+        },
+        {
+          "$ref": "#/$defs/eventJumpToFrame"
+        },
+        {
+          "$ref": "#/$defs/eventSpawnEnemy"
+        },
+        {
+          "$ref": "#/$defs/eventSpawnItem"
+        },
+        {
+          "$ref": "#/$defs/eventInvincibility"
+        },
+        {
+          "$ref": "#/$defs/eventHealth"
+        },
+        {
+          "$ref": "#/$defs/eventSetCustomValue"
+        },
+        {
+          "$ref": "#/$defs/eventSound"
+        },
+        {
+          "$ref": "#/$defs/eventMusic"
+        }
+      ]
+    },
+    "eventFrameOnly": {
+      "$comment": "Events that carry only the inherited frame field. StopOnHorizontalStop defines no fields at all in the runtime, but the editor still writes frame and the runtime ignores it.",
+      "if": {
+        "properties": {
+          "$type": {
+            "enum": [
+              "Sor2NewEra.Gameplay.StopEvent, Sor2NewEra",
+              "Sor2NewEra.Gameplay.GrabEvent, Sor2NewEra",
+              "Sor2NewEra.Gameplay.FlipEvent, Sor2NewEra",
+              "Sor2NewEra.Gameplay.DestroyEvent, Sor2NewEra",
+              "Sor2NewEra.Gameplay.StopOnHorizontalStop, Sor2NewEra"
+            ]
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "description": "Animation frame on which the event fires. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventAcceleration": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.AccelerationEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "acceleration": {
+            "$ref": "common.schema.json#/$defs/intVector3"
+          },
+          "useAxisFlags": {
+            "description": "Honour affectX/affectY/affectZ. Without it, a zero component still overwrites that axis.",
+            "type": "boolean"
+          },
+          "affectX": {
+            "type": "boolean"
+          },
+          "affectY": {
+            "type": "boolean"
+          },
+          "affectZ": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventVelocity": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.VelocityEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "velocity": {
+            "$ref": "common.schema.json#/$defs/intVector3"
+          },
+          "useAxisFlags": {
+            "description": "Honour affectX/affectY/affectZ. Without it, a zero component still overwrites that axis.",
+            "type": "boolean"
+          },
+          "affectX": {
+            "type": "boolean"
+          },
+          "affectY": {
+            "type": "boolean"
+          },
+          "affectZ": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventInputAcceleration": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.InputAccelerationEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "strength": {
+            "description": "Per-axis acceleration applied from the player's stick every frame of the animation.",
+            "$ref": "common.schema.json#/$defs/intVector2"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventInputVelocity": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.InputVelocityEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "strength": {
+            "description": "Per-axis velocity applied from the player's stick.",
+            "$ref": "common.schema.json#/$defs/intVector2"
+          },
+          "afterFrame": {
+            "description": "First frame of the active window. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          },
+          "beforeFrame": {
+            "description": "Last frame of the active window. 0 means no upper bound. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventPositionOffset": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.PositionOffsetEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "offset": {
+            "description": "Teleport offset in pixels. x is horizontal and mirrors with facing, y is added to vertical velocity, z is the depth axis.",
+            "$ref": "common.schema.json#/$defs/intVector3"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToAnimation": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.JumpToAnimationEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "animationId": {
+            "description": "Target animation index, the same index used by animations.json.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "animationFrame": {
+            "description": "Frame to start the target animation on. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToAnimationOnInputButton": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.JumpToAnimationOnInputButton, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "input": {
+            "description": "InputButtons flag value. Up 1, Down 2, Left 4, Right 8, B 16, C 32, A 64, Start 128, then the Hold variants at 256..32768, X 65536, Y 131072, HoldX 262144, HoldY 524288, Z 1048576, HoldZ 4194304.",
+            "type": "integer"
+          },
+          "animationId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "afterFrame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "beforeFrame": {
+            "description": "0 means no upper bound. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToAnimationOnInputCombo": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.JumpToAnimationOnInputCombo, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "ignoreDuringSlowMotion": {
+            "type": "boolean",
+            "default": false,
+            "description": "Skip activation during simulation slow motion without discarding input history."
+          },
+          "input": {
+            "description": "Button chain written one character per step, matched in order. ^ up, v down, < left, > right, and a b c x y z for the face buttons. Parsed case-insensitively; left and right mirror with facing. Example: \"v>a\" is down, forward, A.",
+            "type": "string",
+            "pattern": "^[\\^v<>abcxyzABCXYZV]*$"
+          },
+          "animationId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "afterFrame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "beforeFrame": {
+            "description": "0 means no upper bound. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToAnimationOnHit": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.JumpToAnimationOnHit, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "animationId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "afterFrame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "beforeFrame": {
+            "description": "0 means no upper bound. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToAnimationOnLanding": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.JumpToAnimationOnLanding, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "initialFrame": {
+            "description": "First frame from which landing is watched for. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          },
+          "animationId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "animationFrame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventJumpToFrame": {
+      "if": {
+        "properties": {
+          "$type": {
+            "enum": [
+              "Sor2NewEra.Gameplay.JumpToFrameOnLanding, Sor2NewEra",
+              "Sor2NewEra.Gameplay.JumpToFrameOnHorizontalStop, Sor2NewEra"
+            ]
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "initialFrame": {
+            "description": "First frame from which the condition is watched for. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed.",
+            "type": "integer"
+          },
+          "jumpFrame": {
+            "description": "Frame of the same animation to jump to when the condition is met. -1 is used by editor-authored data to mean the end of the animation.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventSpawnEnemy": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.SpawnEnemyEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "entityName": {
+            "description": "Entity to spawn, by folder name within the pack.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "animationId": {
+            "description": "Animation the spawned enemy starts in.",
+            "type": "integer"
+          },
+          "mode": {
+            "description": "Object mode the spawned enemy starts in. See the Behaviour Modes reference.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventSpawnItem": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.SpawnItemEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "entityName": {
+            "description": "Entity to spawn, by folder name within the pack.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "animationId": {
+            "type": "integer"
+          },
+          "mode": {
+            "type": "integer"
+          },
+          "lifetime": {
+            "description": "Frames before the spawned item destroys itself. 0 means no automatic expiry.",
+            "type": "integer"
+          },
+          "positionOffset": {
+            "description": "Spawn position relative to the spawner, in internal position units rather than pixels. Editor-written values are typically in the thousands.",
+            "$ref": "common.schema.json#/$defs/intVector2"
+          },
+          "velocity": {
+            "description": "Initial velocity given to the spawned item.",
+            "$ref": "common.schema.json#/$defs/intVector2"
+          },
+          "isProjectile": {
+            "description": "Treat the spawned item as a projectile that damages on contact.",
+            "type": "boolean"
+          },
+          "damage": {
+            "description": "Projectile damage. Overrides the spawned entity's own projectileDamage.",
+            "type": "integer"
+          },
+          "hitPause": {
+            "type": "integer"
+          },
+          "hitSoundName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hitSoundPack": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hitSoundChannel": {
+            "$ref": "common.schema.json#/$defs/audioChannel"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventInvincibility": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.InvincibilityEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "invincible": {
+            "description": "True turns invincibility on from this frame, false turns it off. Always pair the two.",
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventHealth": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.HealthEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "health": {
+            "description": "Health added. Negative values subtract, which is how special-move self-damage is authored.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventSetCustomValue": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.SetCustomValueEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "valueId": {
+            "description": "Custom value slot, readable and writable from Lua.",
+            "type": "integer"
+          },
+          "value": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventSound": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.SoundEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "soundName": {
+            "description": "Single sound, as a base file name without extension.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "soundNames": {
+            "description": "Pool of sounds; one is chosen at random. Takes precedence over soundName when non-empty.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "channel": {
+            "$ref": "common.schema.json#/$defs/audioChannel"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "eventMusic": {
+      "if": {
+        "properties": {
+          "$type": {
+            "const": "Sor2NewEra.Gameplay.MusicEvent, Sor2NewEra"
+          }
+        },
+        "required": [
+          "$type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "$type": true,
+          "frame": {
+            "type": "integer",
+            "description": "Animation frame number. Editor frame-shift operations can leave negative values behind; such an entry never matches a real frame and is dead data that can be removed."
+          },
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "musicName": {
+            "description": "Music track, as a base file name without extension.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

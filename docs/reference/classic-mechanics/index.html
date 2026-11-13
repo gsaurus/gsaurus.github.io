@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/reference/classic-mechanics/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Classic Game Mechanics - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Classic Game Mechanics";
+        var mkdocs_page_input_path = "reference\\classic-mechanics.md";
+        var mkdocs_page_url = "/docs/reference/classic-mechanics/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../scripting/cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../scripting/api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Classic Game Mechanics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#coordinate-systems-and-units">Coordinate systems and units</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#axes">Axes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sprite-pivots">Sprite pivots</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hitboxes">Hitboxes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hit-sparks">Hit sparks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-offsets">Other offsets</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#movement-and-velocity">Movement and velocity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#health-damage-and-special-moves">Health, damage and special moves</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#animations-a-classic-compatible-character-needs">Animations a Classic-compatible character needs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#required-contract-for-imported-fighters">Required contract for imported fighters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grabs-and-throws">Grabs and throws</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#being-grabbed">Being grabbed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#throw-choreography">Throw choreography</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-classic-throwers-do-to-a-custom-victim">What Classic throwers do to a custom victim</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running">Running</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#giving-axel-a-run">Giving Axel a run</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pick-up-items-and-weapons">Pick-up items and weapons</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#containers">Containers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enemies-and-ai">Enemies and AI</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#which-controller-runs">Which controller runs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#aidata">aiData</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spawn-fields-that-shape-behaviour">Spawn fields that shape behaviour</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-ai-with-aiscript">Custom AI with aiScript</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#related-pages">Related pages</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+      <li class="breadcrumb-item active">Classic Game Mechanics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="classic-game-mechanics">Classic Game Mechanics<a class="headerlink" href="#classic-game-mechanics" title="Permanent link">&para;</a></h1>
+<p>How the original game works underneath the mod files. Read this when a custom entity has to interoperate with Classic content: a custom fighter that Classic enemies grab and throw, a custom enemy that Classic players throw, a container that drops a Classic weapon, or a character built on Classic Axel that gains a run.</p>
+<p>Everything here was read from the runtime source and the ROM data, and is stated in the units the JSON files use. Where the game has two rule sets, "original" means the untouched ROM behaviour and "improvements" means the Anniversary rules (<code>hasImprovements</code> in <code>config.json</code>).</p>
+<h2 id="coordinate-systems-and-units">Coordinate systems and units<a class="headerlink" href="#coordinate-systems-and-units" title="Permanent link">&para;</a></h2>
+<p>There are four different unit systems, and mixing them up is the most common cause of a move that "does nothing".</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Unit</th>
+<th>1 pixel equals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sprite pivots, hitboxes, body boxes, throw offsets, <code>PositionOffsetEvent</code>, level spawn positions, weapon overlay offsets</td>
+<td>pixels</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>walkSpeed</code>, <code>runSpeed</code></td>
+<td>1/256 px per frame</td>
+<td>256</td>
+</tr>
+<tr>
+<td><code>VelocityEvent</code>, <code>AccelerationEvent</code>, <code>jumpForce</code>, <code>SpawnItemEvent</code> position and velocity, every Lua position/velocity/impulse field</td>
+<td>1/1000 of an internal unit</td>
+<td>about 65.5</td>
+</tr>
+<tr>
+<td><code>throwLogic.releaseVelocity.y</code></td>
+<td>raw internal units (16.16 fixed point)</td>
+<td>65536</td>
+</tr>
+</tbody>
+</table>
+<p>Internally, positions are 16.16 fixed point: 65536 per pixel. The 1/1000 unit is that raw value divided by 1000, which is why editor-written values are in the thousands. A useful rule of thumb: <strong>65.5 units is one pixel per frame</strong> of speed, and <strong>5000 units is about 76 pixels</strong> of distance.</p>
+<h3 id="axes">Axes<a class="headerlink" href="#axes" title="Permanent link">&para;</a></h3>
+<p>The game runs at 60 frames per second on a 320×224 screen (400 wide in widescreen).</p>
+<ul>
+<li><strong>x</strong> is horizontal along the level. In every entity-relative field, <strong>positive x is forward</strong>, the way the entity faces. The game mirrors it when the entity faces left. Author everything as if facing right.</li>
+<li><strong>y</strong> in level and spawn data is <strong>depth</strong>: the floor line the entity stands on. Larger is nearer the camera (lower on screen). The walkable band runs from the scene's far wall limit down to 216.</li>
+<li><strong>Height</strong> above the floor is a separate value. In JSON events and <code>jumpForce</code>, <strong>positive y is up</strong>. In Lua it is <code>position_offset_y</code>, where <strong>negative is up</strong> and <code>0</code> is on the ground; the same sign flip applies to Lua <code>impulse_y</code> (negative rises).</li>
+<li><strong>z</strong> in <code>VelocityEvent</code>/<code>AccelerationEvent</code> is depth movement. <code>VelocityEvent</code> negates z, <code>AccelerationEvent</code> does not.</li>
+</ul>
+<h3 id="sprite-pivots">Sprite pivots<a class="headerlink" href="#sprite-pivots" title="Permanent link">&para;</a></h3>
+<p><code>spriteSettings.json</code> <code>pivots</code> are in pixels <strong>from the bottom-left corner of the PNG</strong>: x from the left edge, y from the bottom edge. A standing frame whose feet touch the bottom row has a pivot y of about 0 or 1. The Character Editor shows and edits the same value. Getting this backwards puts the character a full sprite height into the floor.</p>
+<h3 id="hitboxes">Hitboxes<a class="headerlink" href="#hitboxes" title="Permanent link">&para;</a></h3>
+<p>Custom content uses <code>combatBounds</code> for each hitbox/bodybox and <code>globalCombatBounds</code> for the default hurtbox:</p>
+<pre><code class="language-json">&quot;combatBounds&quot;: {
+  &quot;enabled&quot;: true,
+  &quot;xMin&quot;: 0, &quot;xMax&quot;: 13,
+  &quot;heightMin&quot;: 0, &quot;heightMax&quot;: 51,
+  &quot;depthMin&quot;: -8, &quot;depthMax&quot;: 8
+}
+</code></pre>
+<p>X and height describe an arbitrary rectangle relative to the feet. Height is positive upwards; the character's jump height is added automatically. Depth is a separate interval on the belt plane. X mirrors automatically when facing left, so the example becomes <code>-13..0</code>. Odd widths, negative heights, offsets of zero, and asymmetric depth are valid. Edges are inclusive. <code>enabled: false</code> suppresses collisions, including a per-frame override of an enabled global box. A zero-height rectangle remains a line rather than being interpreted as disabled. Bounds work in both Classic and improved gameplay modes and do not use the legacy air/knockdown shortcuts. Author those shapes explicitly per animation when needed.</p>
+<p>The Godot editor shows X/Y as the bottom-left corner and Width/Height as full dimensions. It saves only the canonical bounds fields. Old <code>hitBox</code>, <code>boundingBox</code>, and <code>globalBodyBox</code> fields remain readable. For unchanged imported legacy boxes the editor retains migration metadata (<code>legacyHitRules</code> or <code>legacyHeightRules</code>) so re-saving does not silently change Classic line hits, inherited attack depth, or legacy body collision rules. Editing the rectangle, depth, or enabled state clears that metadata and gives the box normal rectangular semantics. New content should omit it.</p>
+<p>Legacy-only contacts retain their original scanners: Classic hitboxes at <code>x = y = 0</code> use the height line, attacks derive depth from the attacker, and bodyboxes use centered half widths. With improvements off, legacy hitboxes retain the original screen-coordinate tests. Those rules apply to compatibility data, rather than defining the custom rectangle format.</p>
+<h3 id="hit-sparks">Hit sparks<a class="headerlink" href="#hit-sparks" title="Permanent link">&para;</a></h3>
+<p>The spark is chosen by damage: <strong>8 or more gives BigHit, less gives SmallHit</strong>. It is placed relative to the attacker, in pixels, y up: for a Classic line hitbox at the tip of the line, for a custom box at a random point inside the overlap with the victim. Container hits anchor the spark on the container. Projectile hits draw no spark. The <code>BlueHit</code> effect is loaded but never spawned by gameplay code.</p>
+<h3 id="other-offsets">Other offsets<a class="headerlink" href="#other-offsets" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Throw offsets</strong> <code>offset {x, y}</code> are pixels. See <a href="#grabs-and-throws">Grabs and throws</a> for the sign convention.</li>
+<li><strong>Weapon overlay</strong> <code>position {x, y}</code> is pixels with <strong>negative x forward and negative y up</strong>, the opposite of everything else. Classic Axel's standing knife is at <code>-62</code> y.</li>
+<li><strong><code>PositionOffsetEvent</code></strong> is pixels, x forward. Its <code>y</code> is added to the depth velocity, not to height. Use <code>z</code> for depth teleports and <code>VelocityEvent</code> for height.</li>
+<li><strong><code>SpawnItemEvent</code></strong> <code>positionOffset</code> and <code>velocity</code> are the 1/1000 unit, +x forward, +y up. <code>{2750, 2750}</code> is about 42 px forward and 42 px up; a velocity of 250 is about 3.8 px per frame. <code>lifetime</code> of <code>0</code> means <strong>60 frames</strong>, not "never expire".</li>
+<li><strong><code>SpawnEnemyEvent.animationId</code></strong> is passed raw where <code>SpawnItemEvent.animationId</code> is doubled. If a spawned enemy starts in the wrong animation, that is why.</li>
+</ul>
+<h2 id="movement-and-velocity">Movement and velocity<a class="headerlink" href="#movement-and-velocity" title="Permanent link">&para;</a></h2>
+<p>Each frame the engine adds persistent impulses into this frame's displacement, moves, then applies gravity:</p>
+<pre><code class="language-text">velocity.x += impulse.x        (horizontal)
+velocity.y += impulseZ         (depth)
+position   += velocity         (velocity is cleared afterwards)
+height     += impulse.y        (only while airborne)
+impulse.y  += gravity
+</code></pre>
+<ul>
+<li><strong>Gravity is 0.25 px per frame per frame</strong> (0x4000 raw), applied only while airborne. There is no terminal velocity.</li>
+<li><code>VelocityEvent</code> writes the impulses: <code>x × facing × 1000</code> into <code>impulse.x</code>, <code>-y × 1000</code> into <code>impulse.y</code>, <code>-z × 1000</code> into <code>impulseZ</code>. An all-zero event stops the entity. With <code>useAxisFlags</code> only the flagged axes are written.</li>
+<li><code>jumpForce</code> is in the same unit as <code>VelocityEvent.y</code>. A jump sets <code>impulse.y = -jumpForce × 1000</code> and <code>impulse.x = 0</code>; in the air the original code accelerates horizontally by 0.25 px per frame per frame up to a <strong>cap of 2 px per frame</strong>, whatever the walk or run speed. The Test chronicle scripts <code>sor3AirControl</code> and friends exist to raise that cap for a running jump.</li>
+<li><code>walkSpeed</code> and <code>runSpeed</code> are 1/256 px per frame: <code>256</code> is 1 px per frame. Walking on the depth axis is half the horizontal speed.</li>
+</ul>
+<p>Classic player values:</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th><code>walkSpeed</code></th>
+<th><code>runSpeed</code></th>
+<th><code>jumpForce</code></th>
+<th><code>frontGrabOffset</code> / <code>backGrabOffset</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max</td>
+<td>256 (1.0 px/f)</td>
+<td>0</td>
+<td>311 (4.75 px/f)</td>
+<td>32 / 24</td>
+</tr>
+<tr>
+<td>Axel</td>
+<td>320 (1.25 px/f)</td>
+<td>0</td>
+<td>311 (4.75 px/f)</td>
+<td>40 / 16</td>
+</tr>
+<tr>
+<td>Blaze</td>
+<td>384 (1.5 px/f)</td>
+<td>0</td>
+<td>327 (5.0 px/f)</td>
+<td>32 / 16</td>
+</tr>
+<tr>
+<td>Skate</td>
+<td>416 (1.625 px/f)</td>
+<td>832 (3.25 px/f)</td>
+<td>327 (5.0 px/f)</td>
+<td>24 / 24</td>
+</tr>
+</tbody>
+</table>
+<p>Other Classic player defaults: <code>jumpDelayFrames</code> 4, <code>comboRepetitions</code> 2, <code>grabComboRepetitions</code> 2, <code>chargeDelay</code> 50. An Axel jump peaks at about 47 px and lasts about 38 airborne frames plus the 4-frame crouch.</p>
+<p>Fixed-point aside: the Lua fields <code>position_x</code>, <code>position_offset_y</code>, <code>impulse_x</code> and so on are the raw value divided by 1000 with no sign flip, so Lua <code>impulse_y &lt; 0</code> means rising.</p>
+<h2 id="health-damage-and-special-moves">Health, damage and special moves<a class="headerlink" href="#health-damage-and-special-moves" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A player life is <strong>104 health</strong> (0x68). The HUD draws one tile per 4 health.</li>
+<li><strong>Defensive special</strong> (special button with no direction, slot 35) costs <strong>8 health, only if it connected</strong>. A whiffed defensive special is free. This is the original rule, not an improvement.</li>
+<li><strong>Offensive special</strong> (forward + special, slot 37) costs <strong>8 health always</strong>, charged when the move ends. With improvements, Axel can cancel his between ticks 32 and 76 without a target for a cost of 2, and a player grabbed by an enemy mid-special loses 4.</li>
+<li><strong>Blitz</strong> (double-tap forward + attack, slot 36) is free.</li>
+<li>A special is refused when health is <strong>8 or lower</strong>.</li>
+</ul>
+<p>These costs are applied by the Classic move controllers, so a custom character gets them for free when its slots 35 and 37 inherit Classic behaviour (no <code>events</code>). As soon as an animation has <code>events</code>, the Classic controller is skipped and nothing charges health. The equivalent is a <code>HealthEvent</code> with negative <code>health</code>, which is unconditional; "no hit, no cost" needs a <code>JumpToAnimationOnHit</code> into a second animation that carries the <code>HealthEvent</code>. Axel 3 in Test chronicle does the unconditional form on its slot 48: <code>HealthEvent</code> at frame 29 with <code>health: -8</code>.</p>
+<p>Reference damage values from the ROM, for tuning a custom character to feel Classic (KD marks a knockdown):</p>
+<table>
+<thead>
+<tr>
+<th>Move</th>
+<th>Axel</th>
+<th>Max</th>
+<th>Blaze</th>
+<th>Skate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Punch (29)</td>
+<td>6</td>
+<td>16 / 8</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Third punch (30)</td>
+<td>8</td>
+<td>–</td>
+<td>6 ×3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Combo end A / B (31 / 32)</td>
+<td>10 KD; 10 then 14 KD</td>
+<td>32 / 16 / 16 KD</td>
+<td>10 KD, 8, 8 KD</td>
+<td>8, 16 KD, 16 KD</td>
+</tr>
+<tr>
+<td>Grab attack (33)</td>
+<td>8</td>
+<td>10</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Grab combo end (34)</td>
+<td>8, 10 KD</td>
+<td>12, 16 KD</td>
+<td>16 KD</td>
+<td>16 KD</td>
+</tr>
+<tr>
+<td>Jump attacks (26 / 27 / 28)</td>
+<td>10, 20 KD / 8 KD / 12</td>
+<td>20, 32 KD / 12 KD / 16</td>
+<td>24 KD / 8 KD / 12</td>
+<td>24 KD / 16 KD / 24</td>
+</tr>
+<tr>
+<td>Defensive special (35)</td>
+<td>16 KD per hit</td>
+<td>24 KD per hit</td>
+<td>24 KD</td>
+<td>16 KD</td>
+</tr>
+<tr>
+<td>Blitz (36)</td>
+<td>24, 4, then 20 KD ×4</td>
+<td>16 KD, 16</td>
+<td>40 KD, 16, 24 KD</td>
+<td>40 KD then 24 KD ×8</td>
+</tr>
+<tr>
+<td>Offensive special (37)</td>
+<td>6–10 per hit, ending 20 KD, 24 KD</td>
+<td>16 / 30 KD alternating, then 16 KD ×2</td>
+<td>44 / 36 / 28 / 20 KD, 12</td>
+<td>8 ×5, 24 KD</td>
+</tr>
+<tr>
+<td>Back attack (38)</td>
+<td>8, 12 KD</td>
+<td>8, 16 KD</td>
+<td>8 KD ×3</td>
+<td>16, 24 KD ×3</td>
+</tr>
+<tr>
+<td>Hold-attack charge (49)</td>
+<td>15, 21 KD</td>
+<td>48 / 24 / 24 KD</td>
+<td>15 KD, 12, 12 KD</td>
+<td>12 ×3</td>
+</tr>
+</tbody>
+</table>
+<p>Galsia's punch is 4, his uppercut 8 KD, and his weapon swing 24 KD. Thrown weapons and thrown bodies do 8 and 16 respectively unless stated otherwise below.</p>
+<p>Enemy health in a level spawn is nibble-encoded: <code>total = (health &amp; 0xF) + (health &gt;&gt; 4) × 12</code>, then the difficulty multiplier, then <code>lives = total / 12</code> (at most 4) and the visible bar is <code>(remainder + 1) × 8</code>. A <code>health</code> of <code>2</code> is 24 hit points; <strong><code>0</code> is 8 hit points, not an entity default</strong>.</p>
+<h2 id="animations-a-classic-compatible-character-needs">Animations a Classic-compatible character needs<a class="headerlink" href="#animations-a-classic-compatible-character-needs" title="Permanent link">&para;</a></h2>
+<h3 id="required-contract-for-imported-fighters">Required contract for imported fighters<a class="headerlink" href="#required-contract-for-imported-fighters" title="Permanent link">&para;</a></h3>
+<p>Every imported playable character must retain the SOR2 interaction slots below,
+even when its source game has different animation IDs or a custom move controller.
+In particular, provide front/back grabbed poses (6–7), grab-hit and ordinary hit
+reactions (8–9), knockdown/lying/get-up (10–12), and all six incoming throw poses
+(18–23), including suplexes and Max's atomic drop. Do not reuse these slots for
+source-game attacks. Append additional attacks after the reserved Classic slots.</p>
+<p>Copy the <strong>per-frame durations</strong>, not just the total duration, from the victim
+tables below. Classic throwers use the victim's timeline to select placement and
+release; redistributing the same total across frames changes the choreography.
+Verify incoming interactions with Axel, Max, Blaze, Skate and enemy throwers in
+both facings, using the complete runtime frame pipeline.</p>
+<p>For a uniformly scaled import, record one source-to-SOR2 spatial scale and apply
+it to art, pivots, hit/hurt boxes, movement distances, velocities, accelerations,
+projectile offsets and throw choreography, after converting each field's units.
+<code>spriteSettings.scale</code> affects rendering only: it does not scale combat or physics.
+Preserve source frame durations and input windows; time, health and damage are
+not spatial quantities. SOR2 belt depth and incoming Classic throw choreography
+are adaptation rules, so document them separately from scaled source values.
+Do not claim source accuracy for estimated or unmeasured values.</p>
+<p>The slot table in <a href="../formats/enums/#animation-slots">Enums and Identifiers</a> lists every id. This section says which ones the Classic controllers will actually jump to, so that a missing slot does not leave the entity frozen or invisible.</p>
+<p>An id past the end of <code>animationsLogic</code> is reset to slot 0. A <code>null</code> slot inside the range ends instantly, has no body box, and logs an error; some code paths then throw. If your own <code>animationsLogic</code> is non-null it does <strong>not</strong> fall back to the reference's, so every slot below must exist on the entity itself.</p>
+<p><strong>For anything Classic can hit and grab (players and enemies):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Used when</th>
+<th>Classic durations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 Standing</td>
+<td>Idle.</td>
+<td>any</td>
+</tr>
+<tr>
+<td>1 Walk</td>
+<td>Walking in any direction; enemies also use it for walking backwards.</td>
+<td>any</td>
+</tr>
+<tr>
+<td>2 Jump</td>
+<td>In the air.</td>
+<td>[4, 25, 40] on players</td>
+</tr>
+<tr>
+<td>6 Being front grabbed</td>
+<td>Held from the front. Held pose, one frame.</td>
+<td>[12] players, [8] enemies</td>
+</tr>
+<tr>
+<td>7 Being back grabbed</td>
+<td>Held from behind.</td>
+<td>[12] players, [8] enemies</td>
+</tr>
+<tr>
+<td>8 Being grab hit</td>
+<td>Hit while held.</td>
+<td>[3, 3, 3, 3] players, [3] ×10 enemies</td>
+</tr>
+<tr>
+<td>9 Being hit</td>
+<td>Hit while standing.</td>
+<td>[3, 3, 3, 3] players, [3] ×10 enemies</td>
+</tr>
+<tr>
+<td>10 Knocked down</td>
+<td>Flying backwards after a knockdown hit.</td>
+<td>[12]</td>
+</tr>
+<tr>
+<td>11 Lying down</td>
+<td>On the floor; also the pose on landing from a throw, and the death pose.</td>
+<td>[40] players, [20] enemies, [30] Blaze</td>
+</tr>
+<tr>
+<td>12 Stand up</td>
+<td>Getting up.</td>
+<td>[8, 8, 10, 10] players, [8, 8, 8, 8] enemies</td>
+</tr>
+<tr>
+<td>13 Electrocuted</td>
+<td>Hit by the electric floor or Electra; also the "get up from lying intro" for enemies.</td>
+<td>[4, 4]</td>
+</tr>
+<tr>
+<td>15 Land from jump</td>
+<td>Landing frame.</td>
+<td>[3]</td>
+</tr>
+<tr>
+<td>16 Land from jump kick</td>
+<td>Landing after an aerial attack.</td>
+<td>[3]</td>
+</tr>
+<tr>
+<td>17 Fall</td>
+<td>Falling without a jump (pits, ledges).</td>
+<td>[40]</td>
+</tr>
+<tr>
+<td>18–23</td>
+<td>Thrown by a Classic character. See the next section.</td>
+<td>fixed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Additionally for players:</strong> 3 grab jump or vault, 4 grab front, 5 grab back, 14 pick up, 24 front grab throw, 25 back grab throw, 26–28 jump attacks, 29–32 the punch chain, 33–34 grab attacks, 35 defensive special, 36 blitz, 37 offensive special, 38 back attack, 39 static grab attack, 42–46 weapon attacks (see <a href="#pick-up-items-and-weapons">Weapons</a>), 49 hold-attack. The character select screen also needs a <code>portrait.png</code> and <code>preview.png</code>.</p>
+<p><strong>Additionally for a Galsia-type enemy:</strong> 29 punch, 30 uppercut, 31 weapon swing, 27–28 knife Galsia attacks, 32–34 the manhole and sitting introductions. Other Classic enemies use their own higher slots; copy the slot list from the ROM-imported version of the enemy you reference (the Character Editor's ROM import produces one).</p>
+<h2 id="grabs-and-throws">Grabs and throws<a class="headerlink" href="#grabs-and-throws" title="Permanent link">&para;</a></h2>
+<h3 id="being-grabbed">Being grabbed<a class="headerlink" href="#being-grabbed" title="Permanent link">&para;</a></h3>
+<p>When a Classic character grabs a victim, the victim is snapped to the grabber's <code>frontGrabOffset</code> or <code>backGrabOffset</code> (pixels; the victim's own <code>heldFrontGrabOffset</code> / <code>heldBackGrabOffset</code> win when set) and put into slot 6 or 7. The side is the grabber's: once it has taken its front or back hold, the victim is put in the matching slot and faced toward (front) or away from (back) the grabber, even if a script AI turned it on the grab tick. Grab attacks put it into slot 8 for their duration. The grabber selects the choreography, while the victim's being-grabbed controller also runs to check held hits, the relationship and throw initiation. A custom controller must cooperate with both updates; those three victim slots provide the held poses.</p>
+<h3 id="throw-choreography">Throw choreography<a class="headerlink" href="#throw-choreography" title="Permanent link">&para;</a></h3>
+<p>A throw is authored on the <strong>thrower</strong>, in the throw animation's <code>throwLogic</code>. Every frame the victim is placed and animated from the thrower's <code>offsets</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>offsets[].frame</code></td>
+<td>Animation <strong>tick</strong> (game frames elapsed, not image index) at which this keyframe starts. The runtime adds 1 before comparing.</td>
+</tr>
+<tr>
+<td><code>offsets[].offset</code></td>
+<td>Victim position relative to its anchor, in pixels. Negative <code>y</code> is up. <code>x</code> is mirrored so that <strong>negative x is in front of the victim</strong>; for a front throw, where the victim faces the thrower, that is behind the thrower.</td>
+</tr>
+<tr>
+<td><code>offsets[].opponentAnimation</code></td>
+<td>Animation id forced on the victim, <strong>every frame</strong>.</td>
+</tr>
+<tr>
+<td><code>offsets[].opponentFrame</code></td>
+<td>Tick the victim's animation is held at, every frame, when <code>useLegacyHardcodedMechanics</code> is false.</td>
+</tr>
+<tr>
+<td><code>opponentFacesSameDirection</code></td>
+<td><code>false</code> for front throws (victim faces the thrower), <code>true</code> for back throws. Also picks which grab offset anchors the victim.</td>
+</tr>
+<tr>
+<td><code>releaseVelocity.x</code></td>
+<td>Whole pixels per frame, pushed toward the victim's <strong>own back</strong>.</td>
+</tr>
+<tr>
+<td><code>releaseVelocity.y</code></td>
+<td>Raw 16.16 fixed point, <strong>negative is up</strong>: <code>-180224</code> is 2.75 px per frame upward. Not the 1/1000 unit.</td>
+</tr>
+<tr>
+<td><code>releaseDamage</code></td>
+<td>Applied when the victim <strong>lands</strong>, not at release. Difficulty multipliers apply, and a player thrown by a player takes half.</td>
+</tr>
+<tr>
+<td><code>useLegacyHardcodedMechanics</code></td>
+<td>See below.</td>
+</tr>
+</tbody>
+</table>
+<p>Release happens on the last offset, once the tick reaches its <code>frame</code>. At release the victim keeps whatever animation it was forced into, enters the knockout state, and falls with gravity from the height it was held at. On landing it switches to slot 11 (lying), bounces 1.75 px per frame, shakes the screen by <code>thrownQuakeEffect</code>, takes the damage, and then plays slot 12. A held-and-thrown body also knocks down anything it passes through: 16 damage originally (32 if Max threw), or <code>min(releaseDamage, 40)</code> with a floor of 16 under improvements. A victim with <code>Up + Jump</code> held at landing time lands safely when the throw gave it upward velocity.</p>
+<p><strong><code>useLegacyHardcodedMechanics</code></strong> does not skip the offsets. It changes the clock: with it on, the offsets are indexed by the <strong>victim's</strong> animation tick and <code>opponentFrame</code> is ignored, so the victim's own frame durations decide the timing. This is how every ROM throw works. With it off, the <strong>thrower's</strong> tick indexes the offsets, <code>opponentFrame</code> freezes the victim on a chosen tick for each keyframe, and enemy victims are re-anchored to the thrower's position plus grab offset every frame. Author new throws with it off; it is the only mode where <code>opponentFrame</code> does anything.</p>
+<p><strong>Set <code>opponentAnimation</code> to the victim slot you mean.</strong> Several test entities in the shipped <code>Editor/Test chronicle</code> leave it at <code>0</code>, which forces the victim into Standing for the whole throw. That is a bug in the test data, not a convention.</p>
+<h3 id="what-classic-throwers-do-to-a-custom-victim">What Classic throwers do to a custom victim<a class="headerlink" href="#what-classic-throwers-do-to-a-custom-victim" title="Permanent link">&para;</a></h3>
+<p>When a Classic player or enemy throws your entity, its <code>throwLogic</code> decides the victim's animation, so the victim animation slots 18–23 must exist with the right shape. Which one is picked on the first thrown frame:</p>
+<ul>
+<li>Front grab: Blaze's slam (slot 39 and above) uses <strong>21</strong>; Max's air throw (slot 40 and above) uses <strong>22</strong>; every other front throw uses <strong>18</strong>.</li>
+<li>Back grab: Max, Blaze, Zamza and Abadede use <strong>20</strong>; Skate uses <strong>18</strong>; Axel and everyone else use <strong>19</strong>.</li>
+<li>Max's atomic drop uses <strong>23</strong>.</li>
+</ul>
+<p>Because ROM throws run on the victim's clock, the victim animation must be <strong>at least as long as the release tick</strong>, or it loops and the throw never releases (a player victim is then dropped with no damage when the thrower's animation ends). The safe approach is to copy the Classic durations exactly. They are the same for Axel, Max, Blaze, Skate, Galsia and Signal:</p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Frame durations</th>
+<th>Total</th>
+<th>Poses, in order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18 Front slammed by Max</td>
+<td>[16, 4, 6, 20, 99]</td>
+<td>145</td>
+<td>held (hit pose), held, head-down diagonal lift, held upside down, upside down in flight</td>
+</tr>
+<tr>
+<td>19 Back slammed by Axel</td>
+<td>[16, 4, 6, 3, 99]</td>
+<td>128</td>
+<td>held (hit pose), held, held, knocked-down pose, lying on back in flight</td>
+</tr>
+<tr>
+<td>20 Back slammed by Max</td>
+<td>[16, 4, 20, 99]</td>
+<td>139</td>
+<td>held (hit pose), held, upside down, upside down in flight</td>
+</tr>
+<tr>
+<td>21 Front slammed by Blaze</td>
+<td>[16, 8, 99]</td>
+<td>123</td>
+<td>being-hit pose, knocked-down pose, lying in flight</td>
+</tr>
+<tr>
+<td>22 Thrown by Max</td>
+<td>[10, 99]</td>
+<td>109</td>
+<td>lifted horizontally, hit pose in flight</td>
+</tr>
+<tr>
+<td>23 Being atomic dropped</td>
+<td>[99]</td>
+<td>99</td>
+<td>hit pose (Max lands the damage with a 70 KD hitbox)</td>
+</tr>
+</tbody>
+</table>
+<p>Donovan's slot 18 is [16, 4, 6, 10, 99]. The last, 99-tick frame is the airborne pose the victim keeps until it lands; everything before it is the held part. Where each Classic throw releases the victim, in victim ticks:</p>
+<table>
+<thead>
+<tr>
+<th>Thrower and move</th>
+<th>Victim slot</th>
+<th>Offsets (tick: x, y)</th>
+<th>Release tick</th>
+<th>Release velocity (px/f up, px/f back)</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max front throw (24)</td>
+<td>18</td>
+<td>0: −16,0 · 16: −32,−32 · 20: −72,−40 · 26: −104,0 · 46: −104,0</td>
+<td>46</td>
+<td>0, 2</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Max back throw (25)</td>
+<td>20</td>
+<td>0: −8,0 · 16: 32,−32 · 20: 80,0 · 40: 88,0</td>
+<td>40</td>
+<td>0, 2</td>
+<td>62</td>
+</tr>
+<tr>
+<td>Max air throw (40, from the vault)</td>
+<td>22</td>
+<td>0: −24,−88 · 10: 16,−32</td>
+<td>10</td>
+<td>2.0, 2</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Axel front throw (24)</td>
+<td>18</td>
+<td>0: −16,0 · 16: −32,−8 · 20: −56,−24</td>
+<td>20</td>
+<td>2.75, 4</td>
+<td>24 (28 improved)</td>
+</tr>
+<tr>
+<td>Axel back slam (25)</td>
+<td>19</td>
+<td>0: −16,0 · 16: 16,−8 · 20: 16,−40 · 26: 32,−16 · 29: 40,0</td>
+<td>29</td>
+<td>0, 2</td>
+<td>28 (40 improved)</td>
+</tr>
+<tr>
+<td>Blaze front throw (24)</td>
+<td>18</td>
+<td>0: −16,0 · 16: −8,0 · 20: −56,−24 · 26: −88,−24</td>
+<td>26</td>
+<td>3.75, 3</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Blaze back throw (25)</td>
+<td>20</td>
+<td>0: −16,0 · 16: 16,−8 · 20: 48,8 · 40: 48,0</td>
+<td>40</td>
+<td>0, 2</td>
+<td>32 (40 improved)</td>
+</tr>
+<tr>
+<td>Blaze front slam (39)</td>
+<td>21</td>
+<td>0: −24,0 · 16: 0,0 · 24: 0,0</td>
+<td>24</td>
+<td>0, 2</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Skate vault throw (41)</td>
+<td>18</td>
+<td>0: −8,−8 · 16: −8,−16 · 20: 0,−40</td>
+<td>20</td>
+<td>3.75, 3</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Barbon throw (24)</td>
+<td>18</td>
+<td>0: −8,−8 · 16: −8,−24 · 20: −48,−48 · 26: −64,−64</td>
+<td>26</td>
+<td>3.75, 3</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Signal throw (24)</td>
+<td>18</td>
+<td>0: −8,−8 · 16: −8,−24 · 20: −48,−48 · 26: −64,−56</td>
+<td>26</td>
+<td>3.75, 3</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>So, for example, Max's front throw holds your entity's slot 18 through its first four frames (ticks 0–45) and releases it on the 99-tick frame; Axel's front throw releases at tick 20, so the victim flies through frames 2 and 3 and usually lands before frame 4 shows. Draw the poses accordingly: for slot 18, frame 2 is the horizontal lift and frames 3–4 are head-down; for slot 19, frame 3 is the suplex impact and frame 4 the lying pose.</p>
+<p>When adapting another game's throws, compare the actual sprite orientation at
+each source phase. Slot 19's later poses are falling and lying, not inverted;
+slot 18 supplies the head-down poses. A custom back throw can switch between
+those slots through <code>opponentAnimation</code>. Preserve the standard victim sequences
+for incoming throws from other packs. A source release sentinel may retain the
+previous sprite instead of selecting a new pose; verify its controller branch.</p>
+<p>Classic thrower animations are [16, 4, 6, 20, 4] for Max, Axel and Blaze slot 24 and for Max and Blaze slot 25; Axel's slot 25 back slam is [16, 4, 6, 3, 16, 10, 6, 15]; Blaze's slot 39 is [16, 8, 16, 16, 15]. Copy these when a custom fighter's throws should look and time like Classic ones, and reuse the victim slot ids above as <code>opponentAnimation</code> so Classic victims animate correctly.</p>
+<p>Max's vault is special: pressing attack while rising and facing the victim gives the air throw (Max slot 40, victim 22); pressing it while falling and facing the victim's back gives the atomic drop (Max slot 41, victim 23), which has no <code>throwLogic</code> and does its 70 damage with a knockdown hitbox on landing.</p>
+<h2 id="running">Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h2>
+<p>Running is a <strong>double tap forward</strong>: the second tap must land within 14 frames of the first (with smooth controls, in the same direction). While running, attack gives the blitz (slot 36) and jump is an ordinary jump (horizontal speed is reset to 0 and capped at 2 px per frame in the air).</p>
+<p>Whether an entity can run is decided by one thing: <strong><code>runSpeed &gt; 0</code></strong> in its effective logic. There is no mode flag. In Classic only Skate runs (832); the Anniversary pack gives Shiva 800. A mod entity that inherits Classic Axel inherits <code>runSpeed</code> 0 and cannot run until it sets its own.</p>
+<p>The run animation is <strong>slot 40</strong>. That slot is Skate's run and Max's air throw in the Classic table, and it is unused on Axel and Blaze, which is why it is free to become their run cycle. Skate's is [4, 6, 10, 4, 6, 10].</p>
+<h3 id="giving-axel-a-run">Giving Axel a run<a class="headerlink" href="#giving-axel-a-run" title="Permanent link">&para;</a></h3>
+<p>This is exactly how <code>Editor/Test chronicle/Entities/Axel 3</code> does it:</p>
+<ol>
+<li>In <code>logic.json</code>, keep <code>referencePackName: "Classic"</code>, <code>referenceEntityName: "Axel"</code>, and set <code>"runSpeed": 640</code> (2.5 px per frame; Skate's 832 is 3.25).</li>
+<li>Add the run cycle sprites and, in <code>animations.json</code>, fill slot 40 with them. Axel 3 uses six images at [6, 8, 7, 6, 8, 7].</li>
+<li>In <code>logic.json</code>, give slot 40 a plain entry with no <code>events</code>: <code>{ "name": "Run", "duration": 42, "hitboxes": [], "bodyBoxes": [], "events": [] }</code>. The Classic standing controller moves the character; the animation only needs to exist.</li>
+</ol>
+<p>That is enough for running. Axel 3 goes further so that a running jump carries momentum, because Classic jumps cap air speed at 2 px per frame:</p>
+<ul>
+<li>slot 40 has <code>"script": { "packName": "Test chronicle", "scriptName": "sor3SetRunAirMaxVelocity" }</code>, which sets <code>custom_value_1 = 2</code> and returns <code>true</code>;</li>
+<li>slot 1 (walk) has <code>sor3SetWalkAirMaxVelocity</code>, which sets it to <code>1</code>;</li>
+<li>slots 2, 27 and 28 (jump and aerial attacks) run <code>sor3AirControl</code>, which reads that value and drives <code>impulse_x</code> itself: walk tier starts at 50 and accelerates 16 per frame up to 110; run tier starts at 100 and accelerates 20 up to 190 (about 2.9 px per frame). It returns <code>true</code> so the Classic jump keeps handling gravity and landing.</li>
+</ul>
+<p>The same recipe works for Blaze and Max, and for any enemy whose reference has a free slot 40.</p>
+<h2 id="pick-up-items-and-weapons">Pick-up items and weapons<a class="headerlink" href="#pick-up-items-and-weapons" title="Permanent link">&para;</a></h2>
+<p>An item's behaviour is decided by its <strong>perceived Classic identity</strong>: the chain of <code>referencePackName</code>/<code>referenceEntityName</code> in <code>logic.json</code>. <code>entityType</code> alone changes nothing. A pick-up that does not resolve to a Classic weapon or goodie cannot be picked up at all.</p>
+<table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Effect on pick-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Cash Bag</code></td>
+<td>+1000 score</td>
+</tr>
+<tr>
+<td><code>Gold Bars</code></td>
+<td>+5000 score</td>
+</tr>
+<tr>
+<td><code>1UP</code></td>
+<td>+1 life</td>
+</tr>
+<tr>
+<td><code>Apple</code></td>
+<td>+32 health, capped at 104</td>
+</tr>
+<tr>
+<td><code>Chicken</code></td>
+<td>full health</td>
+</tr>
+<tr>
+<td><code>Knife</code>, <code>Pipe</code>, <code>Sword</code>, <code>Kunai</code>, <code>Grenade</code></td>
+<td>held as that weapon</td>
+</tr>
+</tbody>
+</table>
+<p>The amounts are hard-coded; a custom food item chooses between apple and chicken by which one it references. Pick-up needs the item on or within 60 px of the ground, active and vulnerable.</p>
+<p><strong>Weapons</strong> pick the holder's attack animation by type: Knife uses slot <strong>42</strong>, Pipe <strong>43</strong>, Sword <strong>45</strong>, Kunai <strong>46</strong>. If the slot is missing the game falls back to 42, and if that is missing too, nothing happens. Blaze with improvements uses slot 50 for the knife. A weapon survives three drops (<code>grabComboCount</code> starts at 3) and then blinks away. Thrown weapon speeds are knife 8, pipe 5, sword 4, kunai 6, grenade 3 px per frame, released 60 px ahead and 52 px up, on tick 7 of the thrower's weapon throw animation for Axel, 12 for Blaze, 5 for Skate and 9 for the others (an <code>animationsLogic</code> entry's <code>weaponThrowFrame</code> overrides it); a thrown weapon always knocks down and does 8 damage by default.</p>
+<p>Weapon animation slots on the item itself, following the Classic Knife: 0–7 are the held sprite per <code>WeaponAngle</code> (the holder's overlay <code>direction × 2</code> selects them), 10 is spinning in flight, 11 is lying on the ground. Knife and kunai fly using slot 6, pipe, sword and grenade using slot 10. Goodies only need slot 0. Item modes are <code>(controller index + 1) × 2</code>: 2 none, 4 falling, 6 flying, 8 on the ground, 10 blinking away; goodies vanish once scrolled 16 px off the left edge.</p>
+<p>Level placement of a loose item: <code>status_2: 5</code>, <code>mode_7: 2</code>, <code>animation_6: 0</code>.</p>
+<h2 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">&para;</a></h2>
+<p>A container is an item entity (<code>entityType</code> 3 in every shipped example) whose logic references a Classic container such as <code>Bin</code>, <code>Crate</code>, <code>Oil Barrel</code>, <code>Chair</code> or <code>Arcade</code>. It needs two animations: <strong>slot 0 intact, slot 1 broken</strong>. <code>Editor/Test chronicle/Entities/Test Box</code> (references <code>Chair</code>) and <code>Test box 2</code> (references <code>Arcade</code>) are minimal working examples.</p>
+<ul>
+<li><strong>Any hit breaks it.</strong> Containers have no health.</li>
+<li>On breaking it switches to slot 1, flies 1 px per frame sideways and 2 px per frame up under normal gravity, blinks for 40 frames, then disappears. Sounds: Oil Barrel SE47, Alien Egg SE48 (and it explodes), a few use SE49, everything else SE14.</li>
+<li><strong>What it contains is set in the level, not in the entity.</strong> The item loadcue's <code>containedItemPackName</code> and <code>containedItemEntityName</code> name the drop; <code>insideForTwoPlayersOnly_10_b7</code> restricts it to two-player games. With improvements the drop appears immediately; otherwise after the 40-frame break.</li>
+<li>Level placement: <code>status_2: 3</code> (vulnerable + obstacle), <code>mode_7: 2</code>, <code>animation_6: 0</code>. Setting bit <code>0x80</code> in <code>status_2</code> makes an inert decoration instead.</li>
+<li><strong>A custom container's <code>globalBodyBox</code> is ignored.</strong> Items consult their legacy body box first, so define the hurt volume in per-animation <code>bodyBoxes</code> on slot 0. The loadcue <code>collisionBox_3_4_5</code> is also ignored for items.</li>
+<li>A dropped item lands like the Classic item it is or references: weapons start in slot 6, mode 8 (lying on the ground, then blinking away off screen); goodies and other custom items get the goodie defaults (animation 0, mode 2). Custom drops keep an 8×8×8 box.</li>
+<li>A custom container, goodie, or weapon lying on the ground runs its referenced Classic controller in animations without events, keeping its own identity and art. Flying, held and thrown custom items keep their custom handling.</li>
+</ul>
+<h2 id="enemies-and-ai">Enemies and AI<a class="headerlink" href="#enemies-and-ai" title="Permanent link">&para;</a></h2>
+<h3 id="which-controller-runs">Which controller runs<a class="headerlink" href="#which-controller-runs" title="Permanent link">&para;</a></h3>
+<p>An enemy's AI comes from its logic reference. <code>LocalEnemyController</code> runs the Classic controller of the perceived entity for the enemy's current <code>objectMode</code>; the per-character mode tables are in <a href="../entity-types-modes/">Behaviour Modes</a>. Per frame, for a custom enemy:</p>
+<ol>
+<li>the current animation's <code>events</code> (if any, with default physics, and the Classic controller is skipped for that animation);</li>
+<li>the entity-level <code>aiScript</code> (returning <code>false</code> stops here);</li>
+<li>the animation's <code>script</code> (returning <code>false</code> stops here);</li>
+<li>the animation's <code>referenceBehaviour</code>;</li>
+<li>the Classic controller for the current <code>objectMode</code>.</li>
+</ol>
+<p><code>entityType</code> 1 (BasicEnemy, a "commoner") versus 2 (Enemy) only affects wave progression: up to two commoners may be left alive when the next wave triggers. Classic commoners are Galsia, Donovan, Signal and Biker.</p>
+<h3 id="aidata"><code>aiData</code><a class="headerlink" href="#aidata" title="Permanent link">&para;</a></h3>
+<p>The ROM AI table is an array of rows, one per aggressiveness level, 32 columns (40 for Shiva). Columns 0–4 are the probabilities of the enemy's five decision modes, the rest are minimum and random timers, speeds and distances per mode. The row is picked by the spawn's <code>enemyAgressiveness</code>, clamped to the last row (Galsia has 11 rows, Barbon 6). A <code>null</code> <code>aiData</code> falls through to the reference, which is what a custom enemy should normally do. From Lua the five probabilities can be overridden per instance with <code>override_aiData_E0</code> … <code>E4</code>.</p>
+<h3 id="spawn-fields-that-shape-behaviour">Spawn fields that shape behaviour<a class="headerlink" href="#spawn-fields-that-shape-behaviour" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>enemyAgressiveness</code>: the loadcue value plus half the difficulty's enemy level; once that half reaches 5 the result jumps by 15 instead. Galsia only picks up weapons at 21 or more.</li>
+<li><code>health</code>: nibble-encoded, see <a href="#health-damage-and-special-moves">Health</a>. There is no respawn count; extra lives come from the encoding.</li>
+<li><code>introductionType</code> for Galsia and Donovan: 0 normal, 1 sitting, 2 out of a manhole, 3 knife Galsia, 4 pipe Donovan, 5 lying on the floor, 6 and 7 falling from the sky, 8 facing right.</li>
+<li><code>useBossSlot</code>: reserves the boss slot, shows the boss bar, and uses the boss health multiplier.</li>
+<li><code>triggerType</code> 3 waits <code>triggerArgument × 2</code> frames. An enemy with a non-zero <code>triggerArgument</code> spawns screen-relative: x from the screen's left edge, and <code>y: 0</code> means "at the player's depth".</li>
+<li><code>minimumDifficulty × 2</code> must not exceed the session difficulty or the enemy is skipped.</li>
+</ul>
+<h3 id="custom-ai-with-aiscript">Custom AI with <code>aiScript</code><a class="headerlink" href="#custom-ai-with-aiscript" title="Permanent link">&para;</a></h3>
+<p>Put <code>"aiScript": { "packName": "&lt;pack&gt;", "scriptName": "&lt;file&gt;" }</code> next to <code>animationsLogic</code> in the enemy's own <code>logic.json</code>. It is <strong>not</strong> inherited through the reference. Its update function runs every frame in every state, sees the enemy as <code>game.this_enemy</code>, and either augments the Classic AI (<code>return true</code>) or replaces it for the frame (<code>return false</code>). A replacing script must do the work the Classic controller would have done that frame: at minimum call <code>check_being_hit()</code> so hits still land, and <code>apply_default_physics()</code> or its own movement.</p>
+<p>The Lua surface most AI scripts need:</p>
+<ul>
+<li>targeting: <code>get_nearest_opponent(same_line, forward, backward)</code>, <code>homing_target_id</code>, <code>position_x</code>, <code>position_y</code> (depth), <code>position_offset_y</code> (height, negative up);</li>
+<li>state: <code>check_being_hit()</code>, <code>check_being_grabbed()</code>, <code>is_animation_over</code>, <code>current_animation_frame</code>, <code>object_mode</code>, <code>mode</code>, <code>mode_timer</code>, <code>enemy_agressiveness</code>;</li>
+<li>acting: <code>set_animation(id, frame)</code>, <code>is_facing_right</code>, <code>direction_signal</code>, <code>velocity_x</code>, <code>impulse_x</code>, <code>impulse_y</code>, <code>stop_movement()</code>, <code>return_to_standing()</code>, <code>try_spawn_item(...)</code>, <code>try_grab(...)</code>;</li>
+<li>memory: <code>custom_value_1</code> … <code>custom_value_10</code>, which persist per instance.</li>
+</ul>
+<p>Distances in Lua are the 1/1000 unit: <code>5000</code> is about 76 px. Worked examples, including a full replacement AI, are in <a href="../../scripting/examples/enemy-ai/">Enemy AI Examples</a>. The shipped <code>Shinobi enemy</code> in Test chronicle shows the other style: it references Galsia and drives its standing state with an animation-level script instead.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../formats/entities/">Entity Files</a> for the fields this page gives meaning to.</li>
+<li><a href="../formats/enums/">Enums and Identifiers</a> for the slot table and Classic entity names.</li>
+<li><a href="../entity-types-modes/">Behaviour Modes</a> for <code>objectMode</code> values.</li>
+<li><a href="../formats/levels/">Level Files</a> for spawn and item loadcues.</li>
+<li><a href="../../scripting/">Lua Scripting</a> for the scripting API.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../logic-events/" class="btn btn-neutral float-left" title="Logic Events Reference"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../animation-names/" class="btn btn-neutral float-right" title="Animation Naming Conventions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../logic-events/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../animation-names/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

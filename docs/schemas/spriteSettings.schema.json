@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/spriteSettings.schema.json",
+  "title": "spriteSettings.json",
+  "description": "Sprite frame settings for one entity, stored at Entities/<Entity Name>/spriteSettings.json or Entity Replacements/<Target Pack>/<Entity Name>/spriteSettings.json. Deserialized as Sor2NewEra.Gameplay.SpriteSettingsData.",
+  "type": "object",
+  "properties": {
+    "scale": {
+      "description": "Uniform draw scale for this entity's own sprite frames. 0 is treated as 1.",
+      "type": "number",
+      "default": 1
+    },
+    "shadowAlwaysOn": {
+      "description": "Draw the ground shadow even in states that normally hide it.",
+      "type": "boolean",
+      "default": false
+    },
+    "useSourceAnimations": {
+      "type": "boolean",
+      "default": false,
+      "description": "Visual skins only: use the underlying gameplay entity's animation sequence and timing with this skin's sprite providers. Every source frame index must exist in the skin, including frames appended by playable variants. Does not change gameplay logic."
+    },
+    "pivots": {
+      "description": "One pivot per own sprite frame, in pixels from the image's top-left corner. THE LENGTH OF THIS ARRAY DEFINES HOW MANY OWN FRAMES THE ENTITY HAS: entry i pairs with the file <i>.png in the entity folder. A missing pivot means the frame does not exist, even if the PNG is present.",
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/vector2"
+      }
+    },
+    "iconIndex": {
+      "description": "Effective sprite index used as the HUD icon, or -1 for no icon. Indexes the combined frame list (reference frames first, then own frames), not the PNG number.",
+      "type": "integer",
+      "default": -1
+    },
+    "referenceEntityPackName": {
+      "description": "Pack owning the entity whose sprite frames are borrowed. When set, that entity's frames occupy the low indices and this entity's own frames follow them.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "referenceEntityName": {
+      "description": "Entity whose sprite frames are borrowed. Required when referenceEntityPackName is set.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "Scale": {
+      "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It mirrors scale with 0 resolved to 1.",
+      "type": "number",
+      "deprecated": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/music-loop.schema.json",
+  "title": "Musics/<track>.json",
+  "description": "Loop points for one music track, stored beside the audio file with the same base name. Musics/Fighting.ogg is configured by Musics/Fighting.json. Optional: without it the track loops from the very beginning.",
+  "type": "object",
+
+  "properties": {
+    "loopStartTimeInSeconds": {
+      "description": "Where the loop restarts from, in seconds. The Audio Editor writes this as a JSON string; a plain number works too. Values are always parsed with invariant culture, so the decimal separator is a dot regardless of the player's locale.",
+      "$ref": "#/$defs/seconds"
+    },
+    "loopEndTimeInSeconds": {
+      "description": "Where the loop jumps back from, in seconds. 0 or omitted means loop at the end of the clip.",
+      "$ref": "#/$defs/seconds"
+    },
+    "loopTimeInSeconds": {
+      "description": "Legacy name for loopStartTimeInSeconds, read only when loopStartTimeInSeconds is absent. Prefer the explicit start and end fields in new files.",
+      "$ref": "#/$defs/seconds"
+    }
+  },
+
+  "additionalProperties": false,
+
+  "$defs": {
+    "seconds": {
+      "oneOf": [
+        { "type": "number", "minimum": 0 },
+        { "type": "string", "pattern": "^[0-9]+([.][0-9]+)?$" }
+      ]
+    }
+  }
+}

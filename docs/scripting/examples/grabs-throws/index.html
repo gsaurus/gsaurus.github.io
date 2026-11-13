@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/scripting/examples/grabs-throws/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Grabs And Throws - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Grabs And Throws";
+        var mkdocs_page_input_path = "scripting\\examples\\grabs-throws.md";
+        var mkdocs_page_url = "/docs/scripting/examples/grabs-throws/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../stages/">Scripted Stages and Tilemaps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Examples</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Grabs And Throws</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#important-grab-rules">Important Grab Rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#force-a-back-grab-into-a-front-grab">Force A Back Grab Into A Front Grab</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grab-hit-repositioning">Grab Hit Repositioning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#walk-while-holding-a-victim">Walk While Holding A Victim</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#air-grab-lift">Air Grab Lift</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#piledriver-style-throw">Piledriver-Style Throw</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keep-a-victim-airborne-at-combo-end">Keep A Victim Airborne At Combo End</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lua Scripting</li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Grabs And Throws</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="grabs-and-throws-examples">Grabs And Throws Examples<a class="headerlink" href="#grabs-and-throws-examples" title="Permanent link">&para;</a></h1>
+<p>Grab scripts are state machines shared by two characters: the attacker and the victim. The attacker usually owns the script, but the script must keep the victim aligned, vulnerable or invulnerable, animated, and released at the correct time.</p>
+<p>The examples below use neutral animation IDs and behaviour modes. Replace them with the IDs used by your character logic.</p>
+<h2 id="important-grab-rules">Important Grab Rules<a class="headerlink" href="#important-grab-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>character.victim</code> resolves <code>attacked_character_id</code>. It becomes <code>nil</code> if no valid victim is connected.</li>
+<li><code>front_grab_offset</code> is read from the attacker's logic data. It is the stable anchor for holding the victim in front of the attacker.</li>
+<li><code>position_offset_y</code> controls height. A grabbed airborne victim usually has a negative offset.</li>
+<li><code>mode_specific_timer</code> is used by several original grab behaviours as a release timer. Holding it high prevents unwanted automatic release.</li>
+<li><code>try_grab(target, check_vicinity, enforcement, snap_to_victim)</code> is useful when a script needs to convert a hit or branch back into a grab.</li>
+<li><code>cancel_grab()</code> clears the grab relationship before a throw release or recovery.</li>
+</ul>
+<h2 id="force-a-back-grab-into-a-front-grab">Force A Back Grab Into A Front Grab<a class="headerlink" href="#force-a-back-grab-into-a-front-grab" title="Permanent link">&para;</a></h2>
+<p>Attach this to a back-grab hold or back-grab transition. When the animation ends, it turns the victim around and enters the normal front-grab hold.</p>
+<pre><code class="language-lua">return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    player.is_vulnerable = true
+
+    if player.is_animation_over and player.victim ~= nil then
+        -- Face the victim toward the attacker. Front-grab logic expects this.
+        player.victim.is_facing_right = not player.is_facing_right
+
+        -- Animation 4 is the example front-grab hold.
+        -- Object mode 26 is the example front-grab behaviour mode.
+        player.set_animation(4)
+        player.object_mode = 26
+
+        -- We made a decisive state change. Stop the previous grab controller.
+        return false
+    end
+
+    return true
+end
+</code></pre>
+<h2 id="grab-hit-repositioning">Grab Hit Repositioning<a class="headerlink" href="#grab-hit-repositioning" title="Permanent link">&para;</a></h2>
+<p>Use this when a grab attack has an impact section and then returns to a hold. The victim offset changes during the hit frames, then snaps back to the carry offset.</p>
+<pre><code class="language-lua">local grabbed_offset_x = 1040
+local grabbed_offset_y = -1800
+
+local hit_offset_x = 100
+local hit_offset_y = -1500
+
+return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    player.is_vulnerable = true
+    player.object_mode = 22
+
+    local victim = player.victim
+
+    if victim == nil then
+        return true
+    end
+
+    victim.is_vulnerable = true
+
+    if player.is_animation_over then
+        -- Return to the hold animation at the frame where the victim is already
+        -- aligned. This avoids replaying the initial snap frames.
+        player.set_animation(4, 9)
+    end
+
+    if player.current_animation_frame &lt; 6 then
+        victim.position_offset_y = hit_offset_y
+        victim.position_offset_x = hit_offset_x
+    else
+        victim.position_offset_y = grabbed_offset_y
+        victim.position_offset_x = grabbed_offset_x
+    end
+
+    if not player.is_facing_right then
+        victim.position_offset_x = -victim.position_offset_x
+    end
+
+    return true
+end
+</code></pre>
+<h2 id="walk-while-holding-a-victim">Walk While Holding A Victim<a class="headerlink" href="#walk-while-holding-a-victim" title="Permanent link">&para;</a></h2>
+<p>This is the core grab-hold controller: keep the victim attached, let the attacker walk, and branch into throws or jumps.</p>
+<pre><code class="language-lua">local grabbed_offset_x = 1040
+local grabbed_offset_y = -1800
+
+local grab_walk_speed_x = 80
+local grab_walk_speed_y = 50
+
+local prepare_jump_offset_x = 800
+local prepare_jump_offset_y = -1000
+
+local function get_extra_bob_offset(player)
+    local frame = player.current_animation_frame % 35
+
+    -- Small vertical offsets make the victim follow the walk cycle.
+    -- The values are in script units, not sprite pixels.
+    if frame &lt; 3 then
+        return 4
+    elseif (frame &gt;= 3 and frame &lt; 6) or frame &gt;= 33 then
+        return 3
+    elseif (frame &gt;= 6 and frame &lt; 9) or
+           (frame &gt;= 18 and frame &lt; 27) or
+           frame &gt;= 30 then
+        return 2
+    end
+
+    return 0
+end
+
+return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    player.object_mode = 26
+    player.is_vulnerable = true
+
+    local victim = player.victim
+
+    if victim == nil then
+        return true
+    end
+
+    victim.is_vulnerable = true
+
+    -- Hold the original release timer high so this script decides when the grab
+    -- ends. Without this, inherited grab logic can release the victim early.
+    player.mode_specific_timer = 99
+
+    if player.pressed_button_b then
+        if player.is_holding_backward or player.is_holding_forward then
+            -- Direction plus attack starts the example slam.
+            victim.is_facing_right = player.is_facing_right
+            player.set_animation(5)
+            player.object_mode = 28
+            return false
+        elseif victim.is_in_the_air then
+            -- While the victim is airborne, choose one of two follow-up strikes.
+            if player.grab_combo_count &lt; 4 then
+                player.set_animation(33)
+            else
+                player.set_animation(34)
+            end
+            return false
+        end
+    elseif victim.is_in_the_air then
+        if player.pressed_button_c then
+            -- Jump while carrying the victim. The victim is pre-positioned before
+            -- the jump animation starts so the first airborne frame is stable.
+            player.set_animation(3)
+            player.impulse_x = 0
+
+            victim.position_offset_y = prepare_jump_offset_y
+            victim.position_offset_x = prepare_jump_offset_x
+            if not player.is_facing_right then
+                victim.position_offset_x = -victim.position_offset_x
+            end
+
+            return false
+        elseif player.is_holding_backward then
+            -- Rewind the hold cycle for a backward tug.
+            player.set_animation(44)
+            player.current_animation_frame = player.current_animation_frame - 2
+
+            if player.current_animation_frame &lt; 0 then
+                player.current_animation_frame = 34
+                player.has_just_teleported = true
+            end
+        elseif player.is_holding_forward or player.is_holding_up or player.is_holding_down then
+            player.set_animation(44)
+        else
+            player.set_animation(4, 9)
+        end
+    end
+
+    if player.current_animation_id == 4 then
+        if player.current_animation_frame &lt; 9 and victim.is_in_the_air then
+            -- Skip startup frames when re-entering the hold from an airborne branch.
+            player.current_animation_frame = 9
+            player.has_just_teleported = true
+        elseif player.current_animation_frame &gt;= 9 then
+            victim.position_offset_y = grabbed_offset_y
+            victim.position_offset_x = grabbed_offset_x
+            if not player.is_facing_right then
+                victim.position_offset_x = -victim.position_offset_x
+            end
+        end
+    elseif player.current_animation_id == 44 then
+        if player.is_holding_right then
+            player.velocity_x = grab_walk_speed_x
+        elseif player.is_holding_left then
+            player.velocity_x = -grab_walk_speed_x
+        end
+
+        if player.is_holding_up then
+            player.velocity_y = -grab_walk_speed_y
+        elseif player.is_holding_down then
+            player.velocity_y = grab_walk_speed_y
+        end
+
+        local grab_offset = player.front_grab_offset
+        if not player.is_facing_right then
+            grab_offset = -grab_offset
+        end
+
+        victim.position_x = player.position_x + grab_offset
+        victim.position_y = player.position_y + 1 + player.velocity_y
+        victim.position_offset_y =
+            player.position_offset_y + grabbed_offset_y +
+            get_extra_bob_offset(player) * -50
+    end
+
+    -- Returning whether the victim is airborne lets the reference path continue
+    -- only in the case this grab state was designed around.
+    return victim.is_in_the_air
+end
+</code></pre>
+<h2 id="air-grab-lift">Air Grab Lift<a class="headerlink" href="#air-grab-lift" title="Permanent link">&para;</a></h2>
+<p>This carries a victim upward, lets the player steer before the lift begins, and keeps the victim pinned to the attacker until landing.</p>
+<pre><code class="language-lua">local grabbed_offset_x = 1040
+local grabbed_offset_y = -1800
+
+local vertical_impulse = -340
+local horizontal_impulse = 131
+
+local prepare_jump_offset_x = 800
+local prepare_jump_offset_y = -1000
+
+return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    player.is_vulnerable = true
+
+    if player.check_being_hit() then
+        return false
+    end
+
+    if player.current_animation_frame &lt; 4 then
+        -- Allow tiny horizontal aiming before the lift begins.
+        if player.is_holding_left then
+            player.impulse_x = -horizontal_impulse
+        elseif player.is_holding_right then
+            player.impulse_x = horizontal_impulse
+        end
+
+        return false
+    elseif player.current_animation_frame == 4 then
+        player.impulse_y = vertical_impulse
+    end
+
+    player.position_offset_y = player.position_offset_y + player.impulse_y
+    player.impulse_y = player.impulse_y + 16
+    player.velocity_x = player.impulse_x
+
+    local victim = player.victim
+
+    if player.impulse_y &gt; 0 and player.position_offset_y &gt;= 0 then
+        -- Land back into the hold and prepare the victim for the next branch.
+        player.set_animation(47)
+        player.impulse_y = 0
+        player.position_offset_y = 0
+
+        if victim ~= nil then
+            victim.position_offset_y = prepare_jump_offset_y
+            victim.position_offset_x = prepare_jump_offset_x
+            if not player.is_facing_right then
+                victim.position_offset_x = -victim.position_offset_x
+            end
+        end
+
+        return false
+    end
+
+    if victim == nil then
+        return false
+    end
+
+    victim.is_vulnerable = true
+    victim.position_offset_x = grabbed_offset_x
+
+    local grab_offset = player.front_grab_offset
+    if not player.is_facing_right then
+        victim.position_offset_x = -victim.position_offset_x
+        grab_offset = -grab_offset
+    end
+
+    victim.position_x = player.position_x + grab_offset
+    victim.position_y = player.position_y + 1 + player.velocity_y
+    victim.position_offset_y = player.position_offset_y + grabbed_offset_y
+
+    return false
+end
+</code></pre>
+<h2 id="piledriver-style-throw">Piledriver-Style Throw<a class="headerlink" href="#piledriver-style-throw" title="Permanent link">&para;</a></h2>
+<p>This is a full manual throw controller. It disables victim vulnerability while carried, applies throw damage on impact, cancels the grab, and puts the attacker into a rebound animation.</p>
+<pre><code class="language-lua">local ground_level = 1000
+
+local function get_victim_offset(player)
+    local frame = player.current_animation_frame
+
+    if frame &lt; 4 then
+        return -150, -1800
+    elseif frame &lt; 10 then
+        return -500, -1300
+    end
+
+    return -1100, -1000
+end
+
+return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    player.position_offset_y = player.position_offset_y + player.impulse_y
+    player.impulse_y = player.impulse_y + 16
+    player.velocity_x = player.impulse_x
+
+    if player.current_animation_id == 50 then
+        -- Rebound/recovery animation after impact.
+        if player.impulse_y &gt; 0 and player.position_offset_y &gt;= 0 then
+            player.impulse_x = 0
+            player.impulse_y = 0
+            player.position_offset_y = 0
+            player.object_mode = 2
+            player.is_vulnerable = true
+            player.set_animation(15)
+        end
+
+        return false
+    end
+
+    player.is_vulnerable = false
+
+    if player.current_animation_frame == 0 then
+        player.play_sound(&quot;My Pack&quot;, &quot;throw-start&quot;, 2)
+    end
+
+    local victim = player.victim
+
+    if player.impulse_y &gt; 0 and player.position_offset_y &gt;= ground_level then
+        player.cancel_grab()
+
+        -- Bounce the attacker away from the impact.
+        player.impulse_x = 100
+        if player.is_facing_right then
+            player.impulse_x = -player.impulse_x
+        end
+        player.impulse_y = -200
+        player.position_offset_y = -10
+        player.set_animation(50)
+        player.object_mode = -1
+
+        if victim ~= nil then
+            victim.position_offset_y = -10
+
+            -- Preserve dying mode if the victim was already in it.
+            local victim_was_dying = victim.object_mode == 6
+
+            -- apply_throw releases the victim with throw damage and vertical force.
+            victim.apply_throw(-2, -220, 0)
+            victim.is_being_thrown = false
+            victim.set_animation(20, 20)
+
+            if victim_was_dying then
+                victim.object_mode = 6
+            end
+        end
+
+        return false
+    end
+
+    if victim == nil then
+        return false
+    end
+
+    victim.is_vulnerable = false
+    victim.is_being_thrown = true
+    victim.is_facing_right = player.is_facing_right
+    victim.set_animation(18)
+    victim.damage_taken = 56
+
+    if victim.current_animation_frame &lt; 16 then
+        victim.current_animation_frame = 16
+    end
+
+    local offset_x, offset_y = get_victim_offset(player)
+    victim.position_offset_x = offset_x
+
+    local grab_offset = player.front_grab_offset
+    if not player.is_facing_right then
+        victim.position_offset_x = -victim.position_offset_x
+        grab_offset = -grab_offset
+    end
+
+    victim.position_x = player.position_x + grab_offset
+    victim.position_y = player.position_y + 1 + player.velocity_y
+    victim.position_offset_y = player.position_offset_y + offset_y
+
+    return false
+end
+</code></pre>
+<h2 id="keep-a-victim-airborne-at-combo-end">Keep A Victim Airborne At Combo End<a class="headerlink" href="#keep-a-victim-airborne-at-combo-end" title="Permanent link">&para;</a></h2>
+<p>Use this at the end of a grab combo when you want a launcher route. The script keeps the victim above the ground and lets their default physics apply the new impulse.</p>
+<pre><code class="language-lua">return function()
+    local player = game.this_player
+
+    if player == nil then
+        return true
+    end
+
+    local victim = player.victim
+
+    if victim ~= nil and victim.impulse_y &gt; -300 then
+        victim.impulse_y = -300
+
+        -- Apply the victim's normal physics immediately so the new impulse takes
+        -- effect during this frame instead of waiting for their next update.
+        victim.apply_default_physics()
+
+        return false
+    end
+
+    if player.current_animation_frame == 0 and
+       player.is_holding_down and
+       victim ~= nil and
+       player.try_grab(victim) then
+        -- Convert the combo end back into a throw if down is held.
+        victim.is_facing_right = player.is_facing_right
+        player.set_animation(5)
+        player.object_mode = 28
+        return false
+    end
+
+    player.combo_count = 0
+    player.extra_delay_after_move = 8
+
+    return true
+end
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../combat-defense/" class="btn btn-neutral float-left" title="Combat And Defense"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../global-hooks/" class="btn btn-neutral float-right" title="Global Update Hooks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../combat-defense/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../global-hooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

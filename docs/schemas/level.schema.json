@@ -1,0 +1,605 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/level.schema.json",
+  "title": "level <n>.json",
+  "description": "Gameplay layout of one level, stored at Levels/level <n>.json. Deserialized as Sor2NewEra.Gameplay.LevelData. Its visual counterpart is level <n> - art.json, validated by level-art.schema.json.",
+  "type": "object",
+  "properties": {
+    "entitiesScale": {
+      "description": "Uniform scale applied to characters and items in this level. 0 is treated as 1.",
+      "type": "number",
+      "default": 0
+    },
+    "Scenes": {
+      "description": "Ordered scenes making up the level. Written with a capital S by the Level Editor to match the C# field; Newtonsoft matches property names case-insensitively, so \"scenes\" also loads. Scene i here pairs with scene i in level <n> - art.json.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/$defs/scene"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "scene": {
+      "title": "SceneData",
+      "type": "object",
+      "properties": {
+        "sceneEnterCodeId": {
+          "description": "How players enter this scene. 0 JumpInFromTop, 1 Standing, 2 WalkFromLeft, 3 StartAhead.",
+          "type": "integer"
+        },
+        "sceneExitCodeId": {
+          "description": "How the scene ends. 0 None, 1 SimpleFadeOut, 2 LeaveToTheRight, 3 BreakTruckDoor, 4 EnterBaseballElevator, 5 LeaveBaseballElevator, 6 Level8ElevatorHealth (a health refill rather than an exit), 7 LevelEnding, 8 EndGame.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "screenShakeType": {
+          "description": "0 Default, 1 Truck, 2 Boat.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2
+          ]
+        },
+        "startOffsetType": {
+          "description": "0 Default, 1 ClosedRoom, 2 Stage1PosterStartOffset, 3 Stage3SwingingBoatStartOffset, 4 Stage5TopBoatStartOffset, 5 Stage7ElevatorStartOffset, 6 Stage8ElevatorStartOffset.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "centerScreenForWidescreen": {
+          "description": "Centre the scene horizontally on widescreen instead of anchoring it to the left.",
+          "type": "boolean"
+        },
+        "copyAltPalette": {
+          "description": "Reuse the previous scene's alternative palette instead of loading this scene's own.",
+          "type": "boolean"
+        },
+        "alternativePalette": {
+          "description": "Name of an alternative palette applied to enemies in this scene. Empty means the default.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "wallLimitsData": {
+          "description": "Exactly six integers describing the walkable area, in pixels: [0] horizon Y, the base depth line; [1] maximum depth Y; [2] left gate X; [3] left diagonal anchor; [4] right diagonal anchor; [5] right gate X. When the left wall flag is set the engine requires [1] to equal [0].",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "wallFlags": {
+          "description": "Bit flags over wallLimitsData: 1 left wall enabled, 2 right wall enabled, 4 left wall is vertical rather than slanted. Remaining bits are unused.",
+          "type": "integer"
+        },
+        "bottomWallLimit": {
+          "description": "Absolute world Y of the lowest walkable depth for players and enemies. 0 keeps the native limit, which follows the camera (camera Y + 216).",
+          "type": "integer"
+        },
+        "respawnPosition": {
+          "description": "Where a respawning (or continuing) player drops in, in world pixels: x from the playable view's left edge (negative: from its right edge, facing left), y the absolute world Y, like bottomWallLimit (a scripted camera Y, such as a bobbing ship, does not move it). Each further player drops 16 pixels higher. The spot is kept above bottomWallLimit and moved off walls and pits. Zero on both axes keeps the native spot, at the bottom left of the screen.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "customWallShapes": {
+          "description": "Extra collision shapes beyond the rectangular limits.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/wallShape"
+          }
+        },
+        "scrollXLimit": {
+          "description": "Horizontal scroll extent of the scene, in pixels. Editor-authored scenes use a negative value for a scene that scrolls to the right.",
+          "type": "integer"
+        },
+        "diagonalScrollLimit": {
+          "description": "Diagonal scroll bound. Zero on both axes means the scene scrolls horizontally only.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "loadcues": {
+          "$ref": "#/$defs/loadcues"
+        },
+        "HasExitCode": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is sceneExitCodeId being neither None nor Level8ElevatorHealth.",
+          "deprecated": true
+        },
+        "HasDiagonalScroll": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is diagonalScrollLimit being non-zero.",
+          "deprecated": true
+        },
+        "ScrollXLimit": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the widescreen-adjusted scrollXLimit.",
+          "deprecated": true
+        },
+        "ScrollXLeftLimit": {
+          "description": "Computed property written by older builds of the tools. The runtime ignores it; do not write it in new files. It is the widescreen-adjusted left scroll bound.",
+          "deprecated": true
+        },
+        "musicName": {
+          "description": "Scene music is not stored here. It lives in the matching level <n> - art.json scene entry. Older builds wrote these keys into the gameplay file, where the runtime ignores them.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true
+        },
+        "musicPackName": {
+          "description": "Scene music is not stored here. It lives in the matching level <n> - art.json scene entry. Older builds wrote these keys into the gameplay file, where the runtime ignores them.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true
+        },
+        "updateScriptDuringCinematics": {
+          "description": "Also run updateScript on the updates of a gameplay cinematic (after the cinematic script, with game.is_cinematic true), for presentation only: scene cue spawns are refused in that run.",
+          "type": "boolean"
+        },
+        "updateScript": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "packName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scriptName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "scriptedProgression": {
+          "type": "boolean",
+          "default": false
+        },
+        "scriptedEnemies": {
+          "type": "boolean",
+          "default": false
+        },
+        "scriptedClock": {
+          "type": "boolean",
+          "default": false
+        },
+        "enterScript": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "packName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scriptName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Runs once after native entrance placement and before spawning; no current entity."
+        },
+        "scriptedEntrance": {
+          "type": "boolean",
+          "description": "Skip automatic entrance walking; enterScript owns placement. The normal fade delay remains."
+        },
+        "preloadItems": {
+          "type": "boolean",
+          "default": false,
+          "description": "Load item cues regardless of camera position, useful for backtracking scenes. Limited by available item slots."
+        },
+        "cinematicCameraRoute": {
+          "description": "Optional presentation-only bounded directional route for a scripted camera. Absolute Lua camera_x/camera_y pixel endpoints at the configured viewport width; no widescreen adjustment is inferred. end.x greater than start.x means rightward travel; smaller means leftward. Equal X is unknown. Gameplay camera behavior is unchanged. Leave null for free or unknown routes.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "start": {
+              "$ref": "common.schema.json#/$defs/intVector2"
+            },
+            "end": {
+              "$ref": "common.schema.json#/$defs/intVector2"
+            },
+            "actorY": {
+              "type": "integer",
+              "default": 0,
+              "description": "Optional fixed depth for cinematic actors that cross the view on one line, in pixels below the route's camera_y (world Y = camera_y + actorY). Lua: path.route_actor_y. 0 leaves the choice to the script."
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
+        },
+        "scriptedItems": {
+          "type": "boolean",
+          "default": false,
+          "description": "Spawn item cues only via game.spawn_scene_item(index)."
+        },
+        "postUpdateScript": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "packName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "scriptName": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Runs once per completed gameplay update after entity animation and native weapon attachment placement; no current entity."
+        },
+        "scriptedWaveCount": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Authored camera-lock waves within this physical scene; zero retains one wave."
+        },
+        "scriptedWaveCustomValue": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16,
+          "default": 0,
+          "description": "Game custom value receiving the one-based selected wave before entrance; zero disables seeding."
+        }
+      },
+      "additionalProperties": false
+    },
+    "wallShape": {
+      "title": "WallCollisionShapeData",
+      "type": "object",
+      "properties": {
+        "shapeType": {
+          "description": "0 Wall, 1 Treadmill, 2 Pit, 3 Custom1, 4 Custom2.",
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "isClosed": {
+          "description": "Join the last point back to the first, making a closed outline instead of an open line.",
+          "type": "boolean"
+        },
+        "collideInsideOrAbove": {
+          "description": "Which side of the shape blocks movement.",
+          "type": "boolean"
+        },
+        "treadmillVelocity": {
+          "description": "Push applied to anyone standing on a Treadmill shape.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "pitDamage": {
+          "description": "Damage dealt by a Pit shape. 0 makes the pit harmless.",
+          "type": "integer"
+        },
+        "maxHeight": {
+          "description": "Wall shapes only. Above 0, the wall only stops entities whose height above the ground is below this many pixels (a rail or low fence): higher jumps, throws and knockdowns pass over it. A thrown character is measured at its real height (see thrownMaxHeight). A character left inside such a wall (it came down on it from above) is pushed out on the floor side, or, when knocked down or in a throw's airborne flight, onto a pit beyond it, through which it falls.",
+          "type": "integer"
+        },
+        "thrownMaxHeight": {
+          "description": "Wall shapes with a maxHeight only. Above 0, a thrown character in its airborne flight passes over the wall from this height instead of maxHeight (throws arc lower than jumps). 0 uses maxHeight.",
+          "type": "integer"
+        },
+        "points": {
+          "description": "Corner points in pixels, joined in order.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "common.schema.json#/$defs/intVector2"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "loadcues": {
+      "title": "SceneLoadcuesData",
+      "description": "Everything spawned in this scene. enemies1 and enemies2 are the two enemy wave tracks that run in parallel; the extra* lists are the additional content used by the higher Classic difficulties.",
+      "type": "object",
+      "properties": {
+        "enemies1": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/characterLoadcue"
+          }
+        },
+        "enemies2": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/characterLoadcue"
+          }
+        },
+        "items": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/itemLoadcue"
+          }
+        },
+        "extraEnemies1": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/characterLoadcue"
+          }
+        },
+        "extraEnemies2": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/characterLoadcue"
+          }
+        },
+        "extraItems": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/itemLoadcue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "baseLoadcue": {
+      "type": "object",
+      "properties": {
+        "position_A_C": {
+          "description": "Spawn position in pixels. x is horizontal along the scene, y is depth.",
+          "$ref": "common.schema.json#/$defs/intVector2"
+        },
+        "collisionBox_3_4_5": {
+          "description": "Collision volume override for the spawned object. Canonical shape is halfWidth, height and depth, all raw ROM bytes; halfWidth is half the box width. A height of 0 means no override, so the entity uses its own body box. The legacy alternatives below are deprecated and read as all zeros by the runtime.",
+          "oneOf": [
+            {
+              "$ref": "common.schema.json#/$defs/boundingBox"
+            },
+            {
+              "$ref": "#/$defs/legacyRectCollisionBox"
+            }
+          ]
+        },
+        "packName": {
+          "$ref": "common.schema.json#/$defs/packName"
+        },
+        "entityName": {
+          "description": "Entity folder name within that pack.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "characterLoadcue": {
+      "title": "CharacterLoadcueData",
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseLoadcue"
+        }
+      ],
+      "type": "object",
+      "properties": {
+        "position_A_C": true,
+        "collisionBox_3_4_5": true,
+        "packName": true,
+        "entityName": true,
+        "triggerType": {
+          "description": "What makes this wave spawn. 0 immediately once the previous wave is cleared; 1 when the player crosses triggerArgument pixels; 2 when fewer than triggerArgument enemies remain on screen, or, when triggerArgument is 7 or more, when that count is reached OR a timer expires; 3 after a delay of triggerArgument.",
+          "type": "integer"
+        },
+        "triggerArgument": {
+          "description": "Argument for triggerType: a distance in pixels, an enemy count, or a delay, depending on the trigger.",
+          "type": "integer"
+        },
+        "minimumDifficulty": {
+          "description": "Lowest difficulty this enemy appears on. Below it, the enemy is left out entirely.",
+          "type": "integer"
+        },
+        "palettePackName": {
+          "description": "Pack owning the palette used for this enemy. Empty means Classic.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "paletteIndex": {
+          "description": "Palette index within that pack's palette list for this entity.",
+          "type": "integer"
+        },
+        "enemyAgressiveness": {
+          "description": "AI aggression level, from cautious at low values to relentless at high ones.",
+          "type": "integer"
+        },
+        "useBossSlot": {
+          "description": "Treat this enemy as the level boss: reserves the boss slot and shows the boss health bar.",
+          "type": "boolean"
+        },
+        "introductionType": {
+          "description": "Which of the entity's introduction sequences plays on appearance, for example dropping in or climbing out.",
+          "type": "integer"
+        },
+        "bikerWeaponFlag": {
+          "description": "Give a spawned biker their pipe.",
+          "type": "boolean"
+        },
+        "bikerGrenadeFlag": {
+          "description": "Spawn a foot biker holding a grenade instead of a pipe. Written by the ROM importer; the Level Editor shows it as Biker Grenade.",
+          "type": "boolean"
+        },
+        "ninjaHookHeight": {
+          "description": "Height a hooking ninja descends from, in pixels.",
+          "type": "integer"
+        },
+        "health": {
+          "description": "Starting health. 0 uses the entity default.",
+          "type": "integer"
+        },
+        "deathScore": {
+          "description": "Points awarded for defeating this enemy.",
+          "type": "integer"
+        },
+        "displayName": {
+          "description": "Editor-only label for this spawn. It does not affect the game.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "itemLoadcue": {
+      "title": "ItemLoadcueData",
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseLoadcue"
+        }
+      ],
+      "type": "object",
+      "properties": {
+        "position_A_C": true,
+        "collisionBox_3_4_5": true,
+        "packName": true,
+        "entityName": true,
+        "status_2": {
+          "description": "Initial object status word carried over from the original data format.",
+          "type": "integer"
+        },
+        "animation_6": {
+          "description": "Animation the object starts in.",
+          "type": "integer"
+        },
+        "mode_7": {
+          "description": "Object mode the object starts in. For items this is (controller index + 1) * 2, so 2 is the first item controller.",
+          "type": "integer",
+          "default": 2
+        },
+        "height_8": {
+          "description": "Height above the ground the object is placed at, in pixels.",
+          "type": "integer"
+        },
+        "containedItemPackName": {
+          "description": "Pack owning the item hidden inside this object.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "containedItemEntityName": {
+          "description": "Item revealed when this container is broken open.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "insideForTwoPlayersOnly_10_b7": {
+          "description": "Only place the contained item in a two player game.",
+          "type": "boolean"
+        },
+        "palettePackName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "paletteIndex": {
+          "type": "integer"
+        },
+        "containedItemPack": {
+          "description": "Legacy field written by older builds: the 32-bit hash of the contained item's pack name rather than the name itself. The runtime ignores it; use containedItemPackName.",
+          "type": "integer",
+          "deprecated": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "legacyRectCollisionBox": {
+      "title": "Legacy collision box shapes",
+      "description": "Superseded shapes written by older builds. The runtime only deserializes the canonical BoundingBox with halfWidth, height and depth, and reads either of these as an all-zero box, ignoring the override. The Level Editor reads both and rewrites them canonically on save; tools/migrate_collision_boxes.py converts files in bulk. For the nested form, halfWidth is rect.width and height is rect.height: that build stored the raw ROM byte in rect.width and derived rect.x from it, so rect.width is already a half width and must not be halved again. The flat form kept neither halfWidth nor depth and is always all zeros, so nothing is recoverable from it.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "depth": {
+          "type": "integer"
+        },
+        "rect": {
+          "$ref": "common.schema.json#/$defs/intRect2"
+        }
+      },
+      "additionalProperties": false,
+      "deprecated": true
+    }
+  }
+}

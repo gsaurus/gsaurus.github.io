@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sor2newera.dev/schemas/dependencies.schema.json",
+  "title": "dependencies.json",
+  "description": "Optional declaration of the external assets an entity needs, stored at Entities/<Entity Name>/dependencies.json. Used to make sure referenced packs and assets are loaded and shipped. Deserialized as Sor2NewEra.Gameplay.Dependencies. The file may also contain a literal null, which the editor writes for an entity with no declared dependencies; that is equivalent to the file being absent.",
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "entities": {
+      "description": "Entities from other packs that this entity references, for example a sprite or logic reference entity, or something it spawns.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "title": "EntityDependency",
+        "type": "object",
+        "properties": {
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "entityName": {
+            "description": "Entity folder name within that pack.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sounds": {
+      "description": "Sounds from other packs that this entity plays.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "title": "AudioDependency",
+        "type": "object",
+        "properties": {
+          "packName": {
+            "$ref": "common.schema.json#/$defs/packName"
+          },
+          "soundName": {
+            "description": "Base sound file name without extension.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

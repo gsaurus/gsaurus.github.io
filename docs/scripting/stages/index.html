@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://www.sor2newera.com/docs/scripting/stages/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Scripted Stages and Tilemaps - Streets of Rage New Era Modding Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Scripted Stages and Tilemaps";
+        var mkdocs_page_input_path = "scripting\\stages.md";
+        var mkdocs_page_url = "/docs/scripting/stages/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Streets of Rage New Era Modding Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Start Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Welcome</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/what-you-can-build/">What You Can Build</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/launch-tools/">Launch the Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/installing_community_mods/">Installing Community Mods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/mod-folder-anatomy/">Mod Folder Anatomy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/asset-requirements/">Asset Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/testing-exporting/">Testing and Exporting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../start/ai-assistants/">Modding With an AI Assistant</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Editors</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/feature-coverage/">Feature Coverage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >In-Game Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/create-new-mod/">Create a New Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/mod-settings/">Configure Mod Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/difficulty-settings/">Difficulty Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/test-mod/">Test a Mod</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/open-tools/">Open External Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/color-palettes/">Color Palette Editor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/in-game/export-mod/">Export a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Character Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/inspector/">The Inspector</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/mod-characters-vs-classic-reskin/">Mod Characters vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/create-open/">Create or Open a Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-sprites/">Import From Sprites</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/import-rom/">Import From SOR2 ROM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/animations/">Animations and Frames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/pivots-offsets/">Pivots, Offsets, and Alignment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/boxes/">Body Boxes and Hit Boxes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/logic-events/">Logic Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/event-examples/">Logic Event Examples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/weapon-specific-animation/">Weapon-Specific Animation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/player-logic/">Player Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/enemy-logic/">Enemy Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/item-logic/">Item and Container Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/audio-events/">Sounds and Music Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/icon-portrait/">Icon and Portrait</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/character/behaviour-modes/">Behaviour Modes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Level Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/mod-levels-vs-classic-reskin/">Mod Levels vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/levels-scenes-cutscenes/">Levels, Scenes, and Cutscenes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/background-layers/">Background Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/art-animation/">Art Assets and Animation Timeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/spawns/">Enemy and Item Spawns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/walls-scroll-collision/">Walls, Scroll Limits, and Collision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/scene-settings/">Music and Scene Settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/level/special-screens/">Title, Character Select, and Ending Screens</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Audio Editor</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/workspace/">The Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/mod-audio-vs-classic-reskin/">Mod Audio vs Classic Reskin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-sounds/">Add Custom Sounds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/custom-music/">Add Custom Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/loop-points/">Loop Points</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-music/">Replace Classic Music</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../editors/audio/replace-classic-sounds/">Replace Classic Voice and SFX</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editors/tas/">TAS Editor</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build a Mod</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-custom-mod/">Create a Custom Mod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-scratch/">Create a Playable Character From Scratch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/playable-character-from-rom-hack/">Create a Playable Character From a ROM Hack</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-enemy/">Create an Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-container-object/">Create a Custom Container Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-levels/">Create Custom Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/create-cutscenes/">Create Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/character-select-background/">Configure Character Select Background Art</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/classic-or-external-palettes/">Create Palettes for Classic or Other Mod Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/mod-character-palettes/">Create Palettes for Your Own Character</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/add-custom-audio/">Add Custom Audio</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/package-export-share/">Package, Export, and Share</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reskin the Classic Game</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/workflow/">Reskin Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/title-screen/">Reskin the Title Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-cutscenes/">Add Cutscenes to the Classic Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/character-select/">Reskin the Character Select Screen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-levels/">Reskin Classic Levels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/ending-cutscenes/">Reskin Ending Cutscenes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-music/">Replace Classic Music</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/replace-sounds/">Replace Classic Sounds</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-characters/">Reskin Classic Characters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/classic-enemies-items/">Reskin Classic Enemies and Items</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reskinning/add-new-color-palettes/">Add New Color Palettes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lua Scripting</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../events/">Script Events and Entry Points</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../object-model/">Object Model</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Scripted Stages and Tilemaps</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#indexed-tile-layers">Indexed tile layers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-scripts">Visual scripts</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cinematics/">Script-owned Cinematics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/">Cookbook Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/movement-input/">Movement And Input</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/projectiles-items/">Projectiles And Items</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/combat-defense/">Combat And Defense</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/grabs-throws/">Grabs And Throws</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/global-hooks/">Global Update Hooks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../examples/enemy-ai/">Enemy AI</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >API Reference</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../api/game/">Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/character/">Character</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/player/">Player</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/enemy/">Enemy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/item/">Item</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api/subitem/">SubItem</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >File Formats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/file-formats/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/pack-layout/">Pack Layout and Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/config/">Pack Config</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/entities/">Entity Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/levels/">Level Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/palettes/">Palette Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/audio/">Audio Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/package/">Package Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/enums/">Enums and Identifiers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reference/formats/validation/">Validating a Mod</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/mod-config/">Mod Config Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/difficulty-settings/">Difficulty Settings Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/entity-types-modes/">Entity Types and Behaviour Modes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/logic-events/">Logic Events Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/classic-mechanics/">Classic Game Mechanics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/animation-names/">Animation Naming Conventions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/audio/">Audio Naming and Channels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/troubleshooting/">Troubleshooting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../reference/glossary/">Glossary</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Streets of Rage New Era Modding Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lua Scripting</li>
+      <li class="breadcrumb-item active">Scripted Stages and Tilemaps</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="scripted-stages">Scripted stages<a class="headerlink" href="#scripted-stages" title="Permanent link">&para;</a></h1>
+<p><code>game.custom_value_1</code> through <code>game.custom_value_16</code> are signed integers in
+GameModel. They are included in rollback snapshots, start at zero for a new
+game and persist across scene/level transitions. Reserve slots centrally across
+the mod and its dependencies. Do not store gameplay state in Lua globals or upvalues.</p>
+<p>A scene's <code>updateScript: {packName, scriptName}</code> runs once per simulation update,
+after emulated-lag rejection and before entity updates. It has no current entity.
+Use <code>game.get_player</code> etc. It does not run during entrance/exit transitions.</p>
+<p>While a gameplay cinematic runs, the scene's simulation is frozen but its art keeps animating:
+<code>frame</code> (the global timer that clocks layer visual scripts and palette cycles) keeps counting.
+The update script is skipped, unless the scene sets <code>updateScriptDuringCinematics: true</code>: it then
+also runs on each cinematic update, after the cinematic script, with <code>game.is_cinematic</code> true.
+That run is for presentation only (a bobbing camera Y, the custom values that drive layer visual
+scripts): <code>game.spawn_scene_enemy</code> and <code>game.spawn_scene_item</code> return -1 in it, and the script
+must leave its own progress (clocks, spawn streams) alone until <code>game.is_cinematic</code> is false. A
+<code>camera_y</code> it writes overrides the cinematic script's, and is the one
+kept when the cinematic ends (the camera X still returns to where the cinematic started).</p>
+<p><code>postUpdateScript</code> uses the same reference format and runs once after entity
+animation and native weapon attachment placement at the end of a completed
+gameplay update. It has no current entity. Use it when placement depends on the
+final animation frame; its return value is ignored.</p>
+<p><code>enterScript</code> has the same reference format. It runs once after native player
+placement, before enemies spawn. Set <code>scriptedEntrance: true</code> when that script
+owns placement: this preserves the fade delay without walking the players back
+to the Classic starting positions. Reset per-visit timers in this hook, not in
+Lua globals. The update hook's return value is ignored.</p>
+<p><code>scriptedProgression: true</code> disables automatic wave/scene advancement and the
+engine's automatic GO prompts. The script owns encounter boundaries and may
+call <code>game.schedule_go_forward_effect()</code> between encounters. Call
+<code>game.change_scene(zeroBasedSceneIndex)</code> to enter any scene in the current level.
+It returns false for an invalid index; on success, return from the script
+immediately. The next update uses normal scene initialization, clearing enemies
+and unheld items, resetting spawn cursors, and running <code>enterScript</code>. Use this
+from the scene update hook. <code>game.scene_enemies_cleared</code> checks both remaining
+loadcues and active enemies, including the spawn delay, so a gap between two
+waves is not mistaken for scene completion.</p>
+<p>For a normal forward transition, call <code>game.complete_scene()</code> and return from
+the script. It enters the scene's <code>sceneExitCodeId</code> strategy (walking/fade or
+stage clear), then the next scene's normal entrance. It returns false outside
+active gameplay, so repeated calls cannot restart a transition. Use this instead
+of <code>advance_wave()</code> or <code>advance_level()</code> when the exit presentation must play.</p>
+<p>A physical scene may contain several scripted camera-lock waves. Declare
+<code>scriptedWaveCount</code> and <code>scriptedWaveCustomValue</code> (1–16) to expose those waves in
+the custom-game menu. Starting at a selected wave seeds that game custom value
+with a one-based wave index before the entrance script. The script must honor
+that seed for a new game, position the camera/player and skip earlier spawns.
+Ordinary transitions should reset the index to the first wave. Zero/default
+counts retain one wave per scene. This does not create extra physical scenes;
+existing scene selection IDs and replays retain their original meanings.</p>
+<p><code>scriptedEnemies: true</code> disables automatic enemy cues for that scene. Use
+<code>game.spawn_scene_enemy(index)</code> to instantiate one zero-based <code>enemies1</code> cue
+through native enemy initialization. It returns the enemy object ID, or -1 if
+invalid or all slots are occupied. It does not advance cue cursors or recursively
+spawn later cues. The script must retry a failed
+spawn and record started/cleared encounters in snapshot variables. In these
+scenes <code>scene_enemies_cleared</code> means no active enemies; future scripted encounters
+do not prevent the current area from unlocking. Ordinary scenes retain the full
+cue/delay completion check above.</p>
+<p>The custom game settings apply to scripted spawns without any work from the
+script. Settings that act on the enemy as a whole wait until the update that
+spawned it has finished, so they see the health, custom values and position the
+script left on the enemy:</p>
+<ul>
+<li>Enemies health multiplier: applied to the health the script set, extra bars
+  included (the script's bar size is kept). It is applied at the end of the
+  frame in which the enemy's AI script first owns an update, so health set by a
+  stage spawn routine or by the enemy's own AI on its first tick is both covered;
+  an enemy without an AI script is done on its spawn frame. Health an AI rewrites
+  later (a formation breaking up, a phase change) is the script's own.</li>
+<li>Enemy count multiplier: every spawn is duplicated as an exact copy of the
+  configured enemy (custom values, health, position nudged sideways), so a Lua
+  driven enemy's double runs the same behaviour. Copies take enemy slots like
+  any spawn and are skipped when none is free. Bosses are doubled too, all at
+  once with their source, and a copy of an enemy flagged <code>is_boss</code> is a boss as
+  well: as with native bosses, only the last boss down runs the boss finale (the
+  death controller drops <code>is_boss</code> from the others as they fall). A boss script
+  with its own post-defeat sequence (an escape, a death scene that ends the
+  stage) should run it only when no other boss is still alive, and a stage that
+  waits for its boss should look for any live <code>is_boss</code> enemy rather than one
+  slot. Copies are extra to the
+  stage's pacing, like native doubles are extra to the loadcues:
+  <code>number_of_alive_enemies</code> leaves them out (so "spawn the next one when N are
+  left" sees only the stage's own enemies), except that it never reads 0 while a
+  copy is still alive, so a wave still ends only once the copies are down.
+  The sideways nudge alternates sides while the source is on screen, but never
+  puts a copy further outside the view than its source: copies of an enemy
+  placed ahead of the view (a resident that wakes when the screen reaches it)
+  sit between it and the view, never beyond an area barrier the camera stops
+  at. More enemies also means more drops: every item slot can be taken, so a
+  stage that places scenery or weapons with <code>spawn_scene_item</code> should not let a
+  failed item spawn hold back its enemy spawns.</li>
+<li>Randomizer (Royal / Swaps / Shuffle): a non-boss spawn may be re-typed as
+  another of the pack's own enemy kinds, picked from every entity the pack's
+  levels spawn outside a boss slot. Everything else the spawn set (health, custom
+  values, spawn record) stays, and the new kind's own AI takes over; its display
+  name and palette become the new kind's. Knockouts re-types a knocked out enemy
+  the same way. "Spawns" only rolls Classic entrances and leaves custom packs
+  alone. A pack whose enemies depend on their cue (a scripted entrance, a weapon
+  spawned for that kind) should expect the new kind to arrive with the old kind's
+  record.</li>
+<li>Enemies velocity multiplier: applied when a script owned move is integrated
+  (<code>velocity_x</code> / <code>velocity_y</code> left on an enemy by its AI, or an explicit
+  <code>update_position_and_check_world_collisions()</code> call). The stored velocity is
+  unchanged afterwards. Positions a script writes directly are not scaled.</li>
+<li>A script that spawns or moves its enemies itself, outside engine spawns and
+  velocity integration, reads <code>enemies_multiplier</code>,
+  <code>enemies_velocity_numerator</code> and <code>enemies_velocity_denominator</code> and applies
+  them on its own (TwinBee lengthens its waves and scales each enemy's per-tick
+  movement). They come from the session, so every netplay peer reads the same
+  values; read them every tick instead of storing them.</li>
+<li>Instant spawns: scripted stages pace their own spawns, so read
+  <code>game.has_instant_spawns</code> and drop the delays yourself.</li>
+</ul>
+<p>Damage multipliers, infighting, killer, exploding and Ninpo enemies act on the
+native hit and death handling and need nothing from the script. The exception is
+killer mode's attack timing for an enemy whose script writes its animation frames
+itself: see <a href="../api/character/#killer-mode">Killer Mode</a>.</p>
+<p>The engine's own "GO!" prompt (shown when no enemy is left and the scene can still scroll, then every 15 seconds, or after 5 seconds without enemies) waits 5 seconds after a stage or scene start, including <code>advance_wave()</code> and <code>change_scene()</code>, before its first appearance. In a <code>scriptedEnemies</code> scene this gives the script time to spawn its first enemies; call <code>schedule_go_forward_effect()</code> to show it yourself.</p>
+<p><code>scriptedItems: true</code> disables automatic item cues. Use
+<code>game.spawn_scene_item(index)</code> to spawn one zero-based <code>items</code> cue through native
+initialization, including container contents and flags. It bypasses the camera
+filter and does not advance any cue cursor. It returns the object ID, or -1 for
+an invalid cue or exhausted pool; retry a failed allocation. A cue with status
+bit 7 uses a sub-item slot. Record successful allocations in snapshot state.</p>
+<p><code>preloadItems: true</code> spawns item cues without the normal one-way camera-position
+filter, so switches behind the starting camera still exist when players backtrack.
+Available item slots still limit simultaneous objects; keep the fixture count bounded.</p>
+<p><code>scriptedClock: true</code> disables the normal HUD countdown and its time-out damage.
+Use <code>game.set_clock(integer)</code> and implement the desired consequences in the
+simulation hook. <code>game.difficulty_index</code> is the zero-based configuration index;
+<code>game.screen_width</code> is the current playable width in pixels.
+<code>game.enemy_capacity</code> is the active enemy-slot count; enemy object IDs start at 4.</p>
+<p>Set <code>game.scripted_camera = true</code> to disable automatic scrolling. Set
+<code>game.camera_x</code> and <code>game.camera_y</code> in viewport pixels, positive right/down.
+Collision, spawning and rendering read that same camera state. Scripts must
+choose bounds and multiplayer framing; the engine does not clamp the camera.
+Rendering follows scripted cameras smoothly in both horizontal directions.
+Clear <code>scripted_camera</code> to restore normal scrolling. Scene entrance resets it.</p>
+<p>Lua numbers in this engine are <strong>32-bit integers</strong>, not floating point. Like
+every script, a stage hook returns its update function, which the engine calls
+on every update (see <a href="../#script-structure">Script structure</a>). Camera pixels and
+entity bridge coordinates use different units: a pixel coordinate converts to
+an entity position using <code>(pixels * 65536 + 500) / 1000</code> (integer division).
+For example, a camera stationary at pixel 500:</p>
+<pre><code class="language-lua">return function()
+    game.scripted_camera = true
+    game.camera_x = 500
+    game.camera_y = 0
+    game.custom_value_1 = game.custom_value_1 + 1
+    return false
+end
+</code></pre>
+<h2 id="indexed-tile-layers">Indexed tile layers<a class="headerlink" href="#indexed-tile-layers" title="Permanent link">&para;</a></h2>
+<p>An art layer's <code>tilemap</code> contains <code>width</code>, <code>height</code>, <code>tiles</code>, <code>cells</code>, <code>palette</code>
+and optional <code>paletteCycles</code> and <code>scale</code>. Tiles are base64 4bpp: 32 bytes per 8x8 tile,
+rows top-to-bottom, high nibble first. Cells are row-major 16-bit Genesis words:
+bits 0..10 tile index, 11 horizontal flip, 12 vertical flip, 13..14 palette line,
+15 foreground priority. <code>palette</code> contains 64 Genesis 0BGR color words.
+Index zero of each line is transparent. Layer position is the top-left origin; <code>scale</code> (default 1) multiplies the
+layer's size around that origin, for art authored at a different resolution.
+The engine accepts 1..2048 tiles, maps up to 2048x2048 cells, and even-channel
+Genesis color words (<code>color &amp; ~0xEEE == 0</code>). A color of <code>-1</code> is transparent, like
+index zero: palette cycles can use it to hide and reveal pixels, for example a dissolve
+whose frames turn indices on one after another. Invalid tile references, palette
+lengths, and palette cycle ranges are rejected. <code>tools/validate_mod.py</code> checks
+these constraints and scene/layer script references before loading the mod.
+Priority tiles render 16 world Z units ahead of the layer: a layer at Z=10
+places its priority tiles at Z=-6, matching the native foreground convention.</p>
+<p>Each cycle is <code>{startIndex, ticksPerFrame, frames}</code>. Frames are equal-length
+arrays of replacement color words. Cycles derive their phase from the simulation
+timer, so rollback and pause do not drift the phase. Later overlapping cycles win.
+Optional <code>preserveInitialPalette: true</code> keeps the authored base colors before
+<code>ticksPerFrame</code>; the first boundary then selects frame one (normal cycle phase).
+The default applies frame zero immediately.
+The packed art is included directly in exported JSON; no runtime ROM is needed.</p>
+<h2 id="visual-scripts">Visual scripts<a class="headerlink" href="#visual-scripts" title="Permanent link">&para;</a></h2>
+<p>A layer's <code>visualScript: {packName, scriptName}</code> uses a separate VM with no
+gameplay bridge. It receives only a copied <code>visual</code> table: <code>frame</code>, <code>simulation_frame</code>, <code>camera_x</code>,
+<code>camera_y</code>, <code>level_id</code>, <code>scene_id</code>, <code>live_level_id</code>, <code>custom_values[1..16]</code>, <code>quake_force</code>,
+<code>quake_force_milli</code>, <code>quake_skip_frames</code>, <code>quake_sequence</code>. The milli value retains
+fractional quake strength as an integer multiplied by 1000. <code>frame</code> is the gameplay
+timer; <code>simulation_frame</code> is the viewed simulation frame and continues during
+scene entry/exit transitions. Use <code>simulation_frame</code> for continuously animated
+scenery. It stays fixed when simulation is paused and follows rollback; it is
+not a wall-clock or render-frame counter. A delivered quake increments the sequence;
+cancellation clears its force. As with gameplay scripts, the chunk runs once and
+returns an update function, which the view calls every frame. That function
+returns a table containing optional <code>offset_x</code>, <code>offset_y</code> (pixels, positive
+right/up), <code>offset_x_milli</code>, <code>offset_y_milli</code> (thousandths of a pixel, added to the
+pixel offsets: Lua numbers are integers, so this is how a layer moves by sub-pixel
+steps), <code>visible</code>, <code>palette_tick</code> to override the palette clock (for
+example, starting gas colors when an alarm activates), and, for a tilemap layer,
+<code>first_cell</code> and <code>cell_count</code>: only the cells <code>first_cell</code> to <code>first_cell + cell_count - 1</code>,
+counted row-major from zero, are drawn (by default all). A typewriter reveals its text by
+growing <code>cell_count</code>; a strip of tile variants shows one of them with <code>cell_count = 1</code> and
+an <code>offset_x</code> that moves it into place. The <code>visual</code> table is the
+same object on every call, refilled before each one. When none of its values changed
+since the previous call (several render frames on one simulation frame, a pause), the
+function is not called and its previous result stays: it must return the same result
+for the same inputs, so keep counters in the inputs, never in the script.</p>
+<p><code>level_id</code> and <code>scene_id</code> are those of the art being shown: while a cinematic shows another
+scene's art (<code>set_cinematic_presentation</code>), they are that scene's. <code>live_level_id</code> is always the
+live fight's level, whose entities are the ones on screen: a layer can use it to draw, in a borrowed
+scene, what that scene's own items would have drawn.</p>
+<p>In a cutscene (including ending screens) there is no game state: <code>frame</code> counts
+frames since that cutscene scene started, <code>custom_values</code> are all zero, and
+tilemap palette cycles follow the same clock. A cutscene built from tilemaps and visual
+scripts loads at once: its art is in the JSON and no image files are read. The Streets of
+Rage 1 campaign's ending is an example: its planes and sprites are tilemap layers, its
+palette fades are palette-cycle frames, and its scripts pick the frame, the position and
+the credits text cells from <code>frame</code>.</p>
+<p>Visual scripts cannot mutate health, collision, RNG or stage flow. Prefer effects
+derived from frame/snapshot values. Rollback may redeliver visual quake events;
+never use visual state for gameplay decisions.</p>
+<pre><code class="language-lua">-- An alarm selected by rollback state, with a palette clock starting at zero.
+return function()
+    return {
+        visible = visual.custom_values[2] ~= 0,
+        palette_tick = visual.frame - visual.custom_values[3]
+    }
+end
+</code></pre>
+<p>The visual VM deliberately has no <code>game</code>, IO, OS or CLR access, and like the
+gameplay sandbox no <code>math</code> library (numbers are 32-bit integers). Its scratch
+state is not serialized. Gameplay hooks must derive all persistent state from
+the game/entity model; a visual hook must never be used to decide gameplay.
+GameModel layout changes require matching engine builds for replays/netplay.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../object-model/" class="btn btn-neutral float-left" title="Object Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cinematics/" class="btn btn-neutral float-right" title="Script-owned Cinematics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../object-model/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cinematics/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
