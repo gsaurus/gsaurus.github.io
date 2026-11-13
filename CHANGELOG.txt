@@ -1,4 +1,48 @@
-# [3.1.0] - 226-01-01
+# [3.2.0] - 2026-11-13
+
+## Added
+- Challenges mode: single-player and co-op challenges with ranks, hints, completion stats and challenge leaderboards
+- Weekly challenges with leaderboards
+- Twitch integration: chat relay, viewer-spawned enemies, Twitch game modes and commands, co-op with the streamer
+- TAS Editor
+- Character Editor (Godot): drag-drop sprites and GIFs, animation preview, hitboxes/body boxes, events, throws, copy-paste, import characters from the original ROM, hot-reload into the game
+- Level Editor (Godot): scenes, layers, scroll limits, walls, entity spawns, cutscenes and level reskins
+- Audio Editor: music loop editing, sound and music replacement mods (including Classic music replacements)
+- Title screens built from levels
+- Skins: reskin characters and levels, select skin in options, skin palettes, character select shows the skin
+- Skin option `useSourceAnimations`: a visual skin can play the original entity's animation sequence with its own frames
+- Level layer option `staticParallaxType` for stationary Classic layers in widescreen
+- Lua: extended API and documentation, `check_projectile_hit_target()`, scripted enemy AI, Lua scripts baked on export
+- Modding: treadmills and pits, custom walls, custom hurtbox rectangles, projectile damage and hit sounds, custom AI difficulty per difficulty level, expandable HUD, reference art for custom characters
+- Options: shadow always on, keep bodies (bodies react to quakes), extra lives, life extension, debug options
+- Custom color palettes are sent to other players in online games
+- Test color palettes in editor Test mode
+
+## Changed
+- Enemy health back to v2 values, with no multiplier per number of players
+- Weapon pickup box for crate weapons is larger with improvements on (was a near-perfect alignment)
+- Grab cancels: shorter grab-attack grand upper cancel window, back attack cancels into weapon throw, proper cancels with special and Axel blitz; diagonal blitz is back
+- Enemy bikers can pick up grenades on Mania+ and Megamania; enemies can no longer pick up containers
+- Vehelits get 4 invincibility frames after a hit
+- Classic wall clamping and Ninpo Kage Bunshin settings restored
+- Score is distributed among players when the attacker is unknown
+- Faster loading and better Lua and event performance
+- Photon Fusion updated; online play is not compatible with 3.1
+- Save data uses a new prefix
+- Documentation revamp
+
+## Fixed
+- Controls resetting on controller reconnect, and reconnected controllers not returning to the same player
+- Multiple controllers selecting the wrong player in local co-op
+- Rumble and other settings not saving
+- Score splits, speedrun replays and leaderboard display
+- HUD issues in co-op and Classic mode
+- Abadede throw, Biker grenades, Mr.X bullet shells, Zamza turning players around, Max grab jump, Axel weapons, aerial specials of Abadede and R.Bear
+- Stage 8 extra scenes and health on scene transition
+- Container collision off by one pixel (stage 6)
+- OGG music playback
+
+# [3.1.0] - 2026-01-01
 
 ## Changed:
  - Lower enemies health multipliers per number of players.
@@ -750,4 +794,4 @@
 # [0.1.0] - 09-09-2021
 
 ## Added
-- Kind Viewer - use keyboard arrows to cycle characters & animations
+- Kind Viewer - use keyboard arrows to cycle characters & animations
