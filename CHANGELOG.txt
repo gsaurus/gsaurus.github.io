@@ -5,8 +5,8 @@
 - Weekly challenges with leaderboards
 - Twitch integration: chat relay, viewer-spawned enemies, Twitch game modes and commands, co-op with the streamer
 - TAS Editor
-- Character Editor (Godot): drag-drop sprites and GIFs, animation preview, hitboxes/body boxes, events, throws, copy-paste, import characters from the original ROM, hot-reload into the game
-- Level Editor (Godot): scenes, layers, scroll limits, walls, entity spawns, cutscenes and level reskins
+- Character Editor: drag-drop sprites and GIFs, animation preview, hitboxes/body boxes, events, throws, copy-paste, import characters from the original ROM, hot-reload into the game
+- Level Editor: scenes, layers, scroll limits, walls, entity spawns, cutscenes and level reskins
 - Audio Editor: music loop editing, sound and music replacement mods (including Classic music replacements)
 - Title screens built from levels
 - Skins: reskin characters and levels, select skin in options, skin palettes, character select shows the skin
