@@ -354,10 +354,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="modding-with-an-ai-assistant">Modding With an AI Assistant<a class="headerlink" href="#modding-with-an-ai-assistant" title="Permanent link">&para;</a></h1>
-<p>The Windows version of the game comes with instructions that let AI coding assistants, such as Claude Code, write mod files directly: characters, enemies, items, reskins, levels, cutscenes, palettes, audio and Lua scripts.</p>
+<p>The Windows version of the game ships with written instructions that let an AI assistant build
+mods for you: characters, enemies, items, reskins, levels, cutscenes, palettes, audio and Lua
+scripts.</p>
+<p>Any assistant that can read and write files in a folder on your computer will do. That means a
+coding agent you run on your machine or in an editor, not a plain chat window in a browser, which
+cannot reach the game folder. The instructions are plain text, so they work the same whichever
+one you use.</p>
 <h2 id="what-ships-with-the-game">What ships with the game<a class="headerlink" href="#what-ships-with-the-game" title="Permanent link">&para;</a></h2>
 <p>Next to <code>SOR2 New Era.exe</code>:</p>
-<pre><code class="language-text">AGENTS.md                      points any AI assistant at the skills below
+<pre><code class="language-text">AGENTS.md                      the entry point: points the assistant at the instructions below
 .claude/skills/
   sor2-new-era-modding/        shared rules, file-format reference, JSON schemas, mod validator
   sor2-mod-setup-and-sharing/  start a mod, game rules, difficulty, export and share
@@ -368,19 +374,27 @@
   sor2-audio/                  sounds, music and Classic audio replacement
   sor2-lua-scripting/          behaviour, AI, HUD and stage logic in Lua
 </code></pre>
-<p>The <code>.claude</code> folder is hidden on some systems. Keep it next to the executable.</p>
+<p>The folder is named <code>.claude</code> because some assistants look there on their own, but the files
+inside are ordinary Markdown that any assistant can read. The folder is hidden on some systems;
+keep it next to the executable either way.</p>
 <h2 id="using-it">Using it<a class="headerlink" href="#using-it" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Start the assistant in the game folder, the one containing <code>SOR2 New Era.exe</code> and <code>Editor</code>.</li>
-<li>Ask for what you want in your own words, for example "add a new enemy to my mod Street Justice that throws knives", and name the mod.</li>
-<li>Claude Code picks the matching skill by itself. Other assistants read <code>AGENTS.md</code>; if yours does not, tell it to read that file first.</li>
-<li>Close the Character, Level and Audio editors before the assistant edits a mod: they rewrite whole files on save and would discard its changes.</li>
+<li>Point the assistant at the game folder, the one containing <code>SOR2 New Era.exe</code> and <code>Editor</code>.</li>
+<li>Tell it to read <code>AGENTS.md</code> first. Some assistants find the instructions by themselves, but
+   saying so costs nothing and makes sure it starts in the right place.</li>
+<li>Ask for what you want in your own words, for example "add a new enemy to my mod Street Justice
+   that throws knives", and name the mod.</li>
+<li>Close the Character, Level and Audio editors before the assistant edits a mod: they rewrite
+   whole files on save and would discard its changes.</li>
 <li>Test the result in game, then export it as usual. See <a href="../testing-exporting/">Testing and Exporting</a>.</li>
 </ol>
+<p>Results vary with the assistant you use, and it may get things wrong. Keep a backup of a mod you
+care about, and check its work in game.</p>
 <p>The assistant checks its work with the bundled validator, which needs Python. To run it yourself:</p>
 <pre><code class="language-bash">python .claude/skills/sor2-new-era-modding/scripts/validate_mod.py &quot;Editor/&lt;Mod Name&gt;&quot;
 </code></pre>
-<p>For the full schema checks, install <code>jsonschema</code> (and <code>Pillow</code> for palette checks) with <code>pip install jsonschema Pillow</code>.</p>
+<p>For the full schema checks, install <code>jsonschema</code> (and <code>Pillow</code> for palette checks) with
+<code>pip install jsonschema Pillow</code>.</p>
 <p>Mod editing, with or without an assistant, is only available on Windows.</p>
               
             </div>
